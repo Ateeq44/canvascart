@@ -24,5 +24,42 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/dashboard', [App\Http\Controllers\admin\AdminController::class, 'index'])->name('dashboard');
+    Route::get('admin/users', [App\Http\Controllers\admin\UserController::class, 'index'])->name('users');
+
+    /*
+        product categories
+    */
+    Route::get('admin/productcategories'            , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'index']);
+    Route::get('admin/productcategories/edit/{id?}' , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
+    Route::post('admin/productcategories/edit/{id?}', [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
+    Route::get('admin/productcategories/create'     , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
+    Route::post('admin/productcategories/create'    , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
+    Route::get('admin/productcategories/delete/{id}', [App\Http\Controllers\Admin\ProductCategoriesController::class, 'delete']);
+
+
+    /*
+        products 
+    */
+    Route::get('admin/product'                        , [App\Http\Controllers\Admin\ProductController::class, 'index']);
+    Route::get('admin/product/edit/{id?}'             , [App\Http\Controllers\Admin\ProductController::class, 'edit']);
+    Route::post('admin/product/edit/{id?}'            , [App\Http\Controllers\Admin\ProductController::class, 'edit']);
+    Route::get('admin/product/create'                 , [App\Http\Controllers\Admin\ProductController::class, 'create']);
+    Route::post('admin/product/create'                , [App\Http\Controllers\Admin\ProductController::class, 'create']);
+    Route::get('admin/product/delete/{id}'            , [App\Http\Controllers\Admin\ProductController::class, 'delete']);
+
+    /*
+        Users 
+    */
+    Route::get('admin/user'                        , [App\Http\Controllers\Admin\UserController::class, 'index']);
+    Route::get('admin/user/edit/{id?}'             , [App\Http\Controllers\Admin\UserController::class, 'edit']);
+    Route::post('admin/user/edit/{id?}'            , [App\Http\Controllers\Admin\UserController::class, 'edit']);
+    Route::get('admin/user/create'                 , [App\Http\Controllers\Admin\UserController::class, 'create']);
+    Route::post('admin/user/create'                , [App\Http\Controllers\Admin\UserController::class, 'create']);
+    Route::get('admin/user/delete/{id}'            , [App\Http\Controllers\Admin\UserController::class, 'delete']);
+
+    /*
+        Orders 
+    */
+    Route::get('admin/orders'                        , [App\Http\Controllers\Admin\DashboardController::class, 'orders']);
 
 });
