@@ -31,10 +31,7 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Role</th>
-                                    <th>Address</th>
-                                    <th>Highest Degree</th>
                                     <th>Gender</th>
-                                    <th>instructor_degree</th>
                                     <th>Created Date</th>
                                     @if(\Auth::user()->role==1)
                                     <th class="w-1">Action</th>
@@ -52,14 +49,11 @@
                                     @if($val['role'] == 1)
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Admin</td>
                                     @elseif($val['role'] == 2)
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Instructor</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Sub Admin</td>
                                     @else
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Student</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >User</td>
                                     @endif
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['address']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['highest_degree']}}</td>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['gender']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['instructor_degree']}}</td>
                                     <td class="pl-0">{{date('Y-m-d',strtotime($val['created_at']))}}</td>
                                     @if(\Auth::user()->role==1)
                                     <td class="pr-0 text-right">

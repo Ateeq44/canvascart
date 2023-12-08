@@ -13,4 +13,11 @@ class Product extends Model
     protected $table = 'products';
     protected $guarded = [];
 
+
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Categories','cat_id');
+    }
+
 }

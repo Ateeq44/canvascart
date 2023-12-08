@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Product;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
     private $type   =  "products";
-    private $singular = "Course";
+    private $singular = "Product";
     private $plural = "Products";
     private $view = "admin.product.";
     private $db_key   =  "id";
@@ -170,7 +171,7 @@ class ProductController extends Controller
                 $sfilename=Storage::putFile('/public/upload',$sfile);
                 $data['featured_img']=$sfilename;
             }
-            $CourseCategories   = Course::find($id);
+            $CourseCategories   = Product::find($id);
             // $data['updated_by'] = \Auth::id();
             $CourseCategories->update($data);
             $response = array('flag'=>true,'msg'=>$this->singular.' is updated sucessfully.','action'=>'reload');
@@ -185,7 +186,7 @@ class ProductController extends Controller
             "action"=> url('admin/'.$this->action.'/edit/'.$id),
             "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
         );        
-        $data['row']      = Course::find($id)->toArray();
+        $data['row']      = Product::find($id)->toArray();
         $data['list'] = Categories::get()->toArray();
 
         // echo "<pre>";print_r($data['row']);die;
@@ -204,7 +205,7 @@ class ProductController extends Controller
         if($request->input('param')){
             $data['is_active'] = $request->input('param');        
             $this->cleanData($data);
-            $CourseCategories  = Course::find($id);
+            $CourseCategories  = Product::find($id);
             $CourseCategories->update($data);
             $response = array('flag'=>true,'msg'=>$this->singular.' is updated sucessfully.');
             echo json_encode($response); return;
@@ -219,7 +220,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function delete($id) {
-        $item = Course::find($id);
+        $item = Product::find($id);
         $item->delete();
         $response = array('flag'=>true,'msg'=>$this->singular.' has been deleted.');
         echo json_encode($response); return;

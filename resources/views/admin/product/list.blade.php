@@ -24,40 +24,59 @@
                 <div class="card-body">
 
                     <div class="table-responsive">
-                        <table class="table table-vcenter table-mobile-md card-table" data-url="{{$action}}/edit">
+                        <table class="table table-vcenter table-mobile-md card-table"  id="example" data-url="{{$action}}/edit">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Course Name</th>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
                                     <th>Category</th>
-                                    <th>Accredition</th>
-                                    <th>Course Duration</th>
+                                    <th>Admin Approval</th>
+                                    <th>Discount Start Date</th>
+                                    <th>Discount End Date</th>
                                     <th>Price</th>
-                                    <th>Discount</th>
-                                    <th>Dificulty Level</th>
-                                    <th>Course Type</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
+                                    <th>Color</th>
+                                    <th>Size</th>
+                                    <th>Feature</th>
                                     @if(\Auth::user()->role==1)
                                     <th class="w-1">Action</th>
                                     @endif
                                 </tr>
                             </thead>
+
                             <tbody>
                                 @if(!empty($Course['data']) && sizeof($Course['data'])>0)
                                 @foreach($Course['data'] as $key => $val)
+                                {{-- @php
+                                $size = json_decode($val['size']);
+                                @endphp --}}
                                 <tr class="list_{{$val[$module['db_key']]}}">
                                     <th scope="row">{{++$key}}</th>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['course_name']}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
+                                        <img src="{{url('storage/app/'.$val['featured_img'])}}">
+                                    </td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['product_name']}}</td>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['category']['title']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['accredition']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['course_duration']}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
+                                        @if($val['admin_approval'] == '1')
+                                        <span class="badge bg-green">Approved</span>
+                                        @else
+                                        <span class="badge bg-red">Not Approved</span>
+                                        @endif
+                                    </td>
+
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{date('d-m-Y', strtotime($val['discount_start_date']));}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{date('d-m-Y', strtotime($val['discount_end_date']));}}</td>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['price']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['discount']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['dificulty_level']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['is_feature']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['start_date']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['end_date']}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['color']}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['size']}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
+                                        @if($val['is_feature'] == '1')
+                                        <span class="badge bg-green">Active</span>
+                                        @else
+                                        <span class="badge bg-red">Deactive</span>
+                                        @endif
+                                    </td>
                                     {{-- <td class="pl-0">{{date('Y-m-d',strtotime($val['created_at']))}}</td> --}}
                                     @if(\Auth::user()->role==1)
                                     <td class="pr-0 text-right">

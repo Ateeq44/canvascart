@@ -25,47 +25,18 @@
                         <input type='text' value="{{@$row['phone']}}" name="phone" id="phone" class="form-control" />
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="mb-3">
-                        <label for="detail" class="form-label">Address</label>
-                        <input type='text' value="{{@$row['address']}}" name="address" id="address" class="form-control" />
-                    </div>
-                </div>
+
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Role</label>
                         <select name="role" id="role" class="form-control">
                             <option value="1">Admin</option>
-                            <option value="2">Instructor</option>
-                            <option value="3">Student</option>
+                            <option value="2">Sub Admin</option>
+                            <option value="3">user</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="mb-3">
-                        <label for="detail" class="form-label">About me</label>
-                        <input type='text' value="{{@$row['about_me']}}" name="about_me" id="about_me" class="form-control" />
-                    </div>
-                </div>
                 
-                <div class="col-lg-6 col-md-6">
-                    <div class="mb-3">
-                        <label for="detail" class="form-label">Exp Level</label>
-                        <input type='date' value="{{@$row['exp_level']}}" name="exp_level" id="exp_level" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="mb-3">
-                        <label for="detail" class="form-label">Current Employer</label>
-                        <input type='date' value="{{@$row['current_employer']}}" name="current_employer" id="current_employer" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="mb-3">
-                        <label for="detail" class="form-label">Highest Degree</label>
-                        <input type='date' value="{{@$row['highest_degree']}}" name="highest_degree" id="highest_degree" class="form-control" />
-                    </div>
-                </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Gender</label>

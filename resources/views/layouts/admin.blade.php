@@ -21,6 +21,21 @@
   <link href="{{asset('admin/dist/css/tabler-vendors.min.css?1684106062')}}" rel="stylesheet"/>
   <link href="{{asset('admin/dist/css/demo.min.css?1684106062')}}" rel="stylesheet"/>
   <script src="https://kit.fontawesome.com/f5eb8f10bc.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  <style type="text/css">
+    .dt-button-collection {
+      margin-top: 10px !important;
+    }
+    [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled){
+      border: 1px solid black !important;
+      padding: 5px 15px !important;
+      border-radius: 5px;
+    }
+    span.dt-button-down-arrow {
+      margin-left: 20px;
+    }
+  </style>
+
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/favicon.png')}}">
   <style>
@@ -56,7 +71,7 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
           <a href="{{url('/')}}">
-            <img src="{{asset('assets/images/logo.png')}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+            <img src="{{asset('user/assets/images/logo.png')}}" style="height:3rem !important;" alt="Tabler" class="navbar-brand-image">
           </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
@@ -243,7 +258,7 @@
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  
+
                   <a class="dropdown-item" href="{{url('admin/product')}}">
                     View Courses
                   </a>
@@ -570,6 +585,17 @@
 </div>
 <!-- Libs JS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var table = $('#example').DataTable();
+  });
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

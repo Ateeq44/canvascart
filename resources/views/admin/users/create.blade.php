@@ -26,12 +26,7 @@
                             <input type='text' name="phone" id="phone" class="form-control" />
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="mb-3">
-                            <label for="detail" class="form-label">Address</label>
-                            <input type='text' name="address" id="address" class="form-control" />
-                        </div>
-                    </div>
+                    
                     <div class="col-lg-6 col-md-6">
                         <div class="mb-3">
                             <label for="detail" class="form-label">Role</label>
@@ -42,43 +37,14 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="mb-3">
-                            <label for="detail" class="form-label">About me</label>
-                            <input type='text' name="about_me" id="about_me" class="form-control" />
-                        </div>
-                    </div>
                     
-                    <div class="col-lg-6 col-md-6">
-                        <div class="mb-3">
-                            <label for="detail" class="form-label">Exp Level</label>
-                            <input type='text' name="exp_level" id="exp_level" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="mb-3">
-                            <label for="detail" class="form-label">Current Employer</label>
-                            <input type='text' name="current_employer" id="current_employer" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="mb-3">
-                            <label for="detail" class="form-label">Highest Degree</label>
-                            <input type='text' name="highest_degree" id="highest_degree" class="form-control" />
-                        </div>
-                    </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="mb-3">
                             <label for="detail" class="form-label">Gender</label>
                             <input type='text' name="gender" id="gender" class="form-control" />
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="mb-3">
-                            <label for="detail" class="form-label">Instructor Degree</label>
-                            <input type='text' name="instructor_degree" id="instructor_degree" class="form-control" />
-                        </div>
-                    </div>
+                    
                     
                 </div>
             </div>
