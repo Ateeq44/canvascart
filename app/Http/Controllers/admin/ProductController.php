@@ -135,7 +135,7 @@ class ProductController extends Controller
                 $data['featured_img']=$sfilename;
             }
 
-            $CourseCategories         = new Product;
+            $CourseCategories = new Product;
             $CourseCategories->insert($data);
             $response = array('flag'=>true,'msg'=>$this->singular.' is added sucessfully.','action'=>'reload');
             echo json_encode($response); return;

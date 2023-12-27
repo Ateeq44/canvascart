@@ -22,7 +22,14 @@
   <link href="{{asset('admin/dist/css/demo.min.css?1684106062')}}" rel="stylesheet"/>
   <script src="https://kit.fontawesome.com/f5eb8f10bc.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  
+
   <style type="text/css">
+  	.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    padding: 0px 4px !important;
+    border: unset !important;
+		}
     .dt-button-collection {
       margin-top: 10px !important;
     }
@@ -454,6 +461,7 @@
     </div>
   </div>
 </header>
+
 <div class="page-wrapper">
 
   @yield('content')
@@ -585,6 +593,7 @@
 </div>
 <!-- Libs JS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>

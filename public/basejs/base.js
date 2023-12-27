@@ -397,6 +397,7 @@ var baseJS = {
         that = this;
         baseJS.ajaxModel.deleteRecord(that);
       });
+      
     },
     loadModal: function(url) {
       $("#data_modal .modal-content").html('<p style="text-align: center;"><br/> <i class="fa fa-spinner fa-spin"></i>  Please wait loading...</p>');
