@@ -1,5 +1,7 @@
 
 @extends('layouts.admin')
+<title>{{@$page_title}}</title>
+
 @section('content')
 
 <div class="page-header d-print-none">
@@ -22,22 +24,18 @@
                     @endif
                 </div>
                 <div class="card-body">
-
                     <div class="table-responsive">
                         <table class="table table-vcenter table-mobile-md card-table"  id="example" data-url="{{$action}}/edit">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Image</th>
+                                    <th style="width: 10% !important;">Image</th>
                                     <th>Product Name</th>
                                     <th>Category</th>
                                     <th>Admin Approval</th>
-                                    <th>Discount Start Date</th>
-                                    <th>Discount End Date</th>
                                     <th>Price</th>
-                                    <th>Color</th>
-                                    <th>Size</th>
-                                    <th>Feature</th>
+                                    <th>Status</th>
+                                    <th>Created At</th>
                                     @if(\Auth::user()->role==1)
                                     <th class="w-1">Action</th>
                                     @endif
@@ -65,11 +63,10 @@
                                         @endif
                                     </td>
 
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{date('d-m-Y', strtotime($val['discount_start_date']));}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{date('d-m-Y', strtotime($val['discount_end_date']));}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['price']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['color']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['size']}}</td>
+                                    
+                                    
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >${{$val['price']}}</td>
+
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
                                         @if($val['is_feature'] == '1')
                                         <span class="badge bg-green">Active</span>
@@ -77,17 +74,26 @@
                                         <span class="badge bg-red">Deactive</span>
                                         @endif
                                     </td>
-                                    {{-- <td class="pl-0">{{date('Y-m-d',strtotime($val['created_at']))}}</td> --}}
+                                    <td class="pl-0">{{date('d-m-Y',strtotime($val['created_at']))}}</td>
                                     @if(\Auth::user()->role==1)
                                     <td class="pr-0 text-right">
-                                        {{-- <a href="{{$action}}/edit/{{$val[$module['db_key']]}}"> --}}
-                                            {{-- Edit --}}
-                                        {{-- </a> --}}
-                                        <a href="#data_modal" data-toggle="modal"  class="btn btn-primary d-none d-sm-inline-block"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal"> <i class="fa-solid fa-pen-to-square"></i> </a>
-
-                                        <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </a>
+                                        
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown" fdprocessedid="ssbez" aria-expanded="false">
+                                              Actions
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end" style="">
+                                              <a href="#data_modal" data-toggle="modal"  class="btn btn-primary d-none d-sm-inline-block dropdown-item"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal"> 
+                                                <i class="fa-solid fa-pen-to-square"></i> Edit
+                                              </a>
+                                              <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
+                                                <i class="fa-solid fa-trash-can"></i> Delete
+                                            </a>
+                                            <a class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" href="{{url($module['action'].'/view/'.$val[$module['db_key']])}}">
+                                                <i class="fa-solid fa-trash-can"></i> view
+                                            </a>
+                                            </div>
+                                        </div>
                                     </td>
                                     @endif
                                 </tr>
@@ -95,7 +101,6 @@
                                 @endif
                             </tbody>
                         </table>
-                        {!! $Course['pagination'] !!}
                     </div>
                 </div>
             </div>

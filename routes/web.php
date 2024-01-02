@@ -29,12 +29,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     /*
         product categories
     */
-    Route::get('admin/productcategories'            , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'index']);
-    Route::get('admin/productcategories/edit/{id?}' , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
-    Route::post('admin/productcategories/edit/{id?}', [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
-    Route::get('admin/productcategories/create'     , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
-    Route::post('admin/productcategories/create'    , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
-    Route::get('admin/productcategories/delete/{id}', [App\Http\Controllers\Admin\ProductCategoriesController::class, 'delete']);
+    Route::get('admin/productcategories'            ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'index']);
+    Route::get('admin/productcategories/edit/{id?}' ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
+    Route::post('admin/productcategories/edit/{id?}',   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
+    Route::get('admin/productcategories/create'     ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
+    Route::post('admin/productcategories/create'    ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
+    Route::get('admin/productcategories/delete/{id}',   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'delete']);
 
 
     /*
@@ -46,7 +46,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/product/create'                 , [App\Http\Controllers\Admin\ProductController::class, 'create']);
     Route::post('admin/product/create'                , [App\Http\Controllers\Admin\ProductController::class, 'create']);
     Route::get('admin/product/delete/{id}'            , [App\Http\Controllers\Admin\ProductController::class, 'delete']);
-
+    Route::get('admin/product/view/{id}'            , [App\Http\Controllers\Admin\ProductController::class, 'view']);
     /*
         Users 
     */
@@ -56,7 +56,15 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin/user/create'                 , [App\Http\Controllers\Admin\UserController::class, 'create']);
     Route::post('admin/user/create'                , [App\Http\Controllers\Admin\UserController::class, 'create']);
     Route::get('admin/user/delete/{id}'            , [App\Http\Controllers\Admin\UserController::class, 'delete']);
-
+    /*
+        Users 
+    */
+    Route::get('admin/details'                        , [App\Http\Controllers\Admin\DetailsController::class, 'index']);
+    Route::get('admin/details/edit/{id?}'             , [App\Http\Controllers\Admin\DetailsController::class, 'edit']);
+    Route::post('admin/details/edit/{id?}'            , [App\Http\Controllers\Admin\DetailsController::class, 'edit']);
+    Route::get('admin/details/create'                 , [App\Http\Controllers\Admin\DetailsController::class, 'create']);
+    Route::post('admin/details/create'                , [App\Http\Controllers\Admin\DetailsController::class, 'create']);
+    Route::get('admin/details/delete/{id}'            , [App\Http\Controllers\Admin\DetailsController::class, 'delete']);
     /*
         Orders 
     */

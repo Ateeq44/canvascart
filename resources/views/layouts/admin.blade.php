@@ -26,10 +26,10 @@
   
 
   <style type="text/css">
-  	.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
     padding: 0px 4px !important;
     border: unset !important;
-		}
+    }
     .dt-button-collection {
       margin-top: 10px !important;
     }
@@ -268,6 +268,26 @@
 
                   <a class="dropdown-item" href="{{url('admin/product')}}">
                     View Courses
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
+              </span>
+              <span class="nav-link-title">
+                Other Details
+              </span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-menu-columns">
+                <div class="dropdown-menu-column">
+
+                  <a class="dropdown-item" href="{{url('admin/details')}}">
+                    View Details
                   </a>
                 </div>
               </div>
@@ -593,6 +613,8 @@
 </div>
 <!-- Libs JS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>

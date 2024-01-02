@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+<title>{{@$page_title}}</title>
 @section('content')
 
 <div class="page-header d-print-none">
@@ -57,13 +58,20 @@
                                     <td class="pl-0">{{date('Y-m-d',strtotime($val['created_at']))}}</td>
                                     @if(\Auth::user()->role==1)
                                     <td class="pr-0 text-right">
-                                        
-                                        <a href="#data_modal" data-toggle="modal"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal" class="btn btn-primary d-none d-sm-inline-block"> <i class="fa-solid fa-pen-to-square"></i> </a>
-
-                                        <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </a>
-                                    </td>
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown" fdprocessedid="ssbez" aria-expanded="false">
+                                                  Actions
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end" style="">
+                                                  <a href="#data_modal" data-toggle="modal"  class="btn btn-primary d-none d-sm-inline-block dropdown-item"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal"> 
+                                                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                                                  </a>
+                                                  <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
+                                                    <i class="fa-solid fa-trash-can"></i> Delete
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </td>
                                     @endif
                                 </tr>
                                 @endforeach

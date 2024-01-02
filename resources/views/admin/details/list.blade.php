@@ -29,8 +29,8 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
+                                        <th>Color</th>
+                                        <th>Size</th>
                                         @if(\Auth::user()->role==1)
                                         <th class="w-1">Action</th>
                                         @endif
@@ -41,24 +41,30 @@
                                     @foreach($CourseCategories['data'] as $key => $val)
                                     <tr class="list_{{$val[$module['db_key']]}}">
                                         <th scope="row">{{++$key}}</th>
-                                        <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="title">{{$val['title']}}</td>
-                                        <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="category_description">{{$val['category_description']}}</td>
+                                        <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="color">{{$val['color']}}</td>
+                                        <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="size">{{$val['size']}}</td>
                                         {{-- <td class="pl-0">{{date('Y-m-d',strtotime($val['created_at']))}}</td> --}}
                                         @if(\Auth::user()->role==1)
                                         <td class="pr-0 text-right">
+                                            {{-- <a href="{{$action}}/edit/{{$val[$module['db_key']]}}"> --}}
+                                                {{-- Edit --}}
+                                            {{-- </a> --}}
+                                            {{-- <a href="#data_modal" data-toggle="modal"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal" class="btn btn-primary d-none d-sm-inline-block"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                                            
+                                            <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a> --}}
                                             <div class="dropdown">
-                                                <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown" fdprocessedid="ssbez" aria-expanded="false">
-                                                  Actions
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end" style="">
-                                                  <a href="#data_modal" data-toggle="modal"  class="btn btn-primary d-none d-sm-inline-block dropdown-item"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal"> 
-                                                    <i class="fa-solid fa-pen-to-square"></i> Edit
-                                                  </a>
-                                                  <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
-                                                    <i class="fa-solid fa-trash-can"></i> Delete
-                                                </a>
-                                                </div>
-                                            </div>
+								                              <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown" fdprocessedid="ssbez" aria-expanded="false">
+								                                Actions
+								                              </button>
+								                              <div class="dropdown-menu dropdown-menu-end" style="">
+								                                <a href="#data_modal" data-toggle="modal"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal" class="btn btn-primary d-none d-sm-inline-block dropdown-item"> <i class="fa-solid fa-pen-to-square"></i> Edit </a>
+								                                <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
+                                                <i class="fa-solid fa-trash-can"></i> Delete
+                                            </a>
+								                              </div>
+								                            </div>
                                         </td>
                                         @endif
                                     </tr>

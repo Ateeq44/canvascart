@@ -4,21 +4,16 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Categories;
-use App\Models\Product;
 use App\Models\Details;
-// use Illuminate\Support\Str;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
-class ProductController extends Controller
+class DetailsController extends Controller
 {
-    private $type   =  "products";
-    private $singular = "Product";
-    private $plural = "Products";
-    private $view = "admin.product.";
+    private $type   =  "details";
+    private $singular = "Other Details";
+    private $plural = "Other Details";
+    private $view = "admin.details.";
     private $db_key   =  "id";
-    private $action   =  "product";
+    private $action   =  "details";
     private $perpage   =  10;
     private $directory  =   '\public\images/';
     /**
@@ -68,19 +63,19 @@ class ProductController extends Controller
         /*
         GET RECORDS
         */
-        $records   = new Product;
-        $records = $records::with('category');
+        $records   = new Details;
+        // $records   = $records::with('accessoryType');
         $records   = $this->search($records,$request,$data);
         /*
         GET TOTAL RECORD BEFORE BEFORE PAGINATE
         */
 
-        $data['count']  = $records->count();
+        $data['count']      = $records->count();
 
         /*
         PAGINATE THE RECORDS
         */
-        $records = $records->paginate($this->perpage);
+        $records            = $records->paginate($this->perpage);
         $records->appends($request->all())->links();
         $links = $records->links();
         $records = $records->toArray();
@@ -91,13 +86,11 @@ class ProductController extends Controller
         /*
         ASSIGN DATA FOR VIEW
         */
-        $data['Course']   =   $records;
-        $data['list'] = Categories::get()->toArray();
-
+        $data['CourseCategories']   =   $records;
         /*
         DEFAUTL VALUES
         */        
-        // dd($data['Course']['data']);
+        // dd($data['list']);
         // echo "<pre>"; print_r($data['list']); die();
         
 
@@ -130,14 +123,7 @@ class ProductController extends Controller
             $data = $request->all();
             $this->cleanData($data);
             $data['created_by'] = \Auth::id();
-            //image 
-            if ($request->hasFile('featured_img')) {
-                $sfile=$request->file('featured_img');
-                $sfilename=Storage::putFile('/public/upload',$sfile);
-                $data['featured_img']=$sfilename;
-            }
-
-            $CourseCategories = new Product;
+            $CourseCategories         = new Details;
             $CourseCategories->insert($data);
             $response = array('flag'=>true,'msg'=>$this->singular.' is added sucessfully.','action'=>'reload');
             echo json_encode($response); return;
@@ -150,9 +136,6 @@ class ProductController extends Controller
             "action"=> url('admin/'.$this->action.'/create'),
             "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
         );
-        $data['list'] = Categories::get()->toArray();
-        $data['lists'] = Details::get()->toArray();
-
         return view($this->view.'create',$data);
     }
 
@@ -168,13 +151,7 @@ class ProductController extends Controller
         if($request->isMethod('post')){
             $data = $request->all();
             $this->cleanData($data);
-            //image 
-            if ($request->hasFile('featured_img')) {
-                $sfile=$request->file('featured_img');
-                $sfilename=Storage::putFile('/public/upload',$sfile);
-                $data['featured_img']=$sfilename;
-            }
-            $CourseCategories   = Product::find($id);
+            $CourseCategories   = Details::find($id);
             // $data['updated_by'] = \Auth::id();
             $CourseCategories->update($data);
             $response = array('flag'=>true,'msg'=>$this->singular.' is updated sucessfully.','action'=>'reload');
@@ -183,15 +160,13 @@ class ProductController extends Controller
         }
         // echo $id = $id; die;
         $data   = array(
-            "page_title"=>"Edit ".$this->singular,
-            "page_heading"=>"Edit ".$this->singular,
-            "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
-            "action"=> url('admin/'.$this->action.'/edit/'.$id),
-            "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
-        );        
-        $data['row']      = Product::find($id)->toArray();
-        $data['list'] = Categories::get()->toArray();
-        $data['lists'] = Details::get()->toArray();
+                    "page_title"=>"Edit ".$this->singular,
+                    "page_heading"=>"Edit ".$this->singular,
+                    "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
+                    "action"=> url('admin/'.$this->action.'/edit/'.$id),
+                    "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
+                );        
+        $data['row']      = Details::find($id)->toArray();
         // echo "<pre>";print_r($data['row']);die;
         return view($this->view.'edit',$data);
     }
@@ -208,7 +183,7 @@ class ProductController extends Controller
         if($request->input('param')){
             $data['is_active'] = $request->input('param');        
             $this->cleanData($data);
-            $CourseCategories  = Product::find($id);
+            $CourseCategories  = Details::find($id);
             $CourseCategories->update($data);
             $response = array('flag'=>true,'msg'=>$this->singular.' is updated sucessfully.');
             echo json_encode($response); return;
@@ -223,28 +198,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function delete($id) {
-        $item = Product::find($id);
+        $item = Details::find($id);
         $item->delete();
         $response = array('flag'=>true,'msg'=>$this->singular.' has been deleted.');
         echo json_encode($response); return;
-    }
-
-    // public function view($id) {
-    //     $data['view'] = Product::where('id', $id);
-    //     return view($this->view.'view',$data);
-    // }
-
-    public function view($id)
-    {
-        $data   = array();
-        $data   = array(
-            "page_title"=>"Product Detail ",
-            "page_heading"=>"Edit ".$this->singular,
-            "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
-            "action"=> url('admin/'.$this->action.'/view/'.$id),
-            "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
-        );        
-        $data['row']      = Product::find($id)->toArray();
-        return view($this->view.'view',$data);
     }
 }
