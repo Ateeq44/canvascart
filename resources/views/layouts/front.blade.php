@@ -13,7 +13,7 @@
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Canvas Cart - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
-
+    <script src="https://kit.fontawesome.com/f5eb8f10bc.js" crossorigin="anonymous"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{asset('user/assets/images/favicon.png')}}">
 
@@ -39,7 +39,6 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{asset('user/assets/css/demo4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('user/assets/vendor/simple-line-icons/css/simple-line-icons.min.css')}}">
-    <script src="https://kit.fontawesome.com/f5eb8f10bc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

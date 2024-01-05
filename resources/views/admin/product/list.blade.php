@@ -34,6 +34,7 @@
                                     <th>Category</th>
                                     <th>Admin Approval</th>
                                     <th>Price</th>
+                                    <th>Selling Price</th>
                                     <th>Status</th>
                                     <th>Created At</th>
                                     @if(\Auth::user()->role==1)
@@ -51,7 +52,7 @@
                                 <tr class="list_{{$val[$module['db_key']]}}">
                                     <th scope="row">{{++$key}}</th>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
-                                        <img src="{{url('storage/app/'.$val['featured_img'])}}">
+                                        <img src="{{url('storage/app/'.$val['images'])}}">
                                     </td>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['product_name']}}</td>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['category']['title']}}</td>
@@ -66,6 +67,7 @@
                                     
                                     
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >${{$val['price']}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >${{$val['selling_price']}}</td>
 
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
                                         @if($val['is_feature'] == '1')

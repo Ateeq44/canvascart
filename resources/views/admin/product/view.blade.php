@@ -182,13 +182,17 @@ img {
                     <div class="container-fliud">
                         <div class="wrapper row">
                             <div class="preview col-md-6">
-                                
+                                @php
+                                $images  = json_decode($row['images'])
+                                @endphp
                                 <div class="preview-pic tab-content">
-                                  <div class="tab-pane active" id="pic-1"><img src="{{url('storage/app/'.$row['featured_img'])}}" /></div>
+                                  <div class="tab-pane active" id="pic-1"><img src="{{asset('upload/product/'.$images[0])}}" /></div>
                                   
                                 </div>
                                 <ul class="preview-thumbnail nav nav-tabs">
-                                  <li class=""><a data-target="#pic-1" data-toggle="tab"><img src="{{url('storage/app/'.$row['featured_img'])}}" /></a></li>
+                                  @foreach($images as $val)
+                                  <li class=""><a data-target="#pic-1" data-toggle="tab"><img src="{{asset('upload/product/'.$val)}}" /></a></li>
+                                  @endforeach
                                   
                                 </ul>
                                 
@@ -200,12 +204,20 @@ img {
                                 <h4 class="price">current price: <span>${{$row['price']}}</span></h4>
                                 
                                 <h5 class="sizes">sizes:
-                                    <span class="size" data-toggle="tooltip" title="small">s</span>
-                                    
+                                @php
+                                  $size  = json_decode($row['size'])
+                                @endphp
+                                @foreach($size as $val)
+                                    <span class="size" data-toggle="tooltip" title="small">{{$val}}</span>
+                                @endforeach
                                 </h5>
+                                @php
+                                  $color  = json_decode($row['color'])
+                                @endphp
                                 <h5 class="colors">colors:
-                                    
-                                    <span class="color green"></span>
+                                @foreach($color as $val)
+                                    <span class="" style="padding-left: 5px;">{{$val}} </span>
+                                @endforeach
                                 </h5>
                                 <div class="action">
                                     

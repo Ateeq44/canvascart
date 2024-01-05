@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [App\Http\Controllers\user\MainController::class, 'index'])->name('home');
+Route::get('product-details/{cslug}/{slug}/{cat_id}', [App\Http\Controllers\user\MainController::class, 'product_details'])->name('home');
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {

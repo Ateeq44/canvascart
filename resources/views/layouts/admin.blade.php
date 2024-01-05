@@ -267,7 +267,7 @@
                 <div class="dropdown-menu-column">
 
                   <a class="dropdown-item" href="{{url('admin/product')}}">
-                    View Courses
+                    View Product
                   </a>
                 </div>
               </div>

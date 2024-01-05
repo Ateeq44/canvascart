@@ -20,4 +20,6 @@ class Product extends Model
         return $this->belongsTo('App\Models\Categories','cat_id');
     }
 
+    
+
 }

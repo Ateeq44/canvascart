@@ -127,18 +127,43 @@ class ProductController extends Controller
     public function create(Request $request)
     {
         if($request->isMethod('post')){
-            $data = $request->all();
-            $this->cleanData($data);
-            $data['created_by'] = \Auth::id();
-            //image 
-            if ($request->hasFile('featured_img')) {
-                $sfile=$request->file('featured_img');
-                $sfilename=Storage::putFile('/public/upload',$sfile);
-                $data['featured_img']=$sfilename;
-            }
+            
+            $product = new product();
+		        $files = [];
+		        if($request->hasfile('images'))
+		        {
+		            foreach($request->file('images') as $file)
+		            {
+		                $name = time().rand(1,100).'.'.$file->extension();
+		                $file->move('public/upload/product', $name);
+		                $files[] = $name;
+		            }
+		        }
+		        $product->product_name = $request->input('product_name');
+		        $product->slug = $request->input('slug');
+        		$product->cat_id = $request->input('cat_id');
+		        $product->short_detail = $request->input('short_detail');
+		        $product->long_detail = $request->input('long_detail');
+		        $product->admin_approval = $request->input('admin_approval')== TRUE ? '1':'0';
+		        $product->qty = $request->input('qty');
+		        $product->price = $request->input('price');
+		        $product->selling_price = $request->input('selling_price');
+		        $product->discount_start_date = $request->input('discount_start_date');
+		        $product->discount_end_date = $request->input('discount_end_date');
+		        $product->is_feature = $request->input('is_feature')== TRUE ? '1':'0';
+		        $product->status = $request->input('status') == TRUE ? '1':'0';
+		        $product->size = json_encode($request->input('size')) ;
+		        $product->color = json_encode($request->input('color')) ;
+		        $product->sku = $request->input('sku');
+		        $product->dimension = $request->input('dimension');
+		        $product->created_by = \Auth::id();
+		        $product->images = json_encode($files);
+        		
+        		// dd($product);
 
-            $CourseCategories = new Product;
-            $CourseCategories->insert($data);
+		        $product->save();
+
+            
             $response = array('flag'=>true,'msg'=>$this->singular.' is added sucessfully.','action'=>'reload');
             echo json_encode($response); return;
         }

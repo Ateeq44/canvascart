@@ -52,8 +52,22 @@
 
         <div class="col-lg-6 col-md-6">
           <div class="mb-3">
-            <label for="detail" class="form-label">Price</label>
+            <label for="detail" class="form-label">Total Price</label>
             <input type='text' name="price" id="price" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="mb-3">
+            <label for="detail" class="form-label">Selling Price</label>
+            <input type='text' name="selling_price" id="selling_price" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="mb-3">
+            <label for="detail" class="form-label">Upload Images</label>
+            <input type='file' name="images[]" id="images" class="form-control" multiple />
           </div>
         </div>
 
@@ -76,10 +90,32 @@
             <input type='date' name="discount_start_date" id="discount_start_date" class="form-control" />
           </div>
         </div>
+
         <div class="col-lg-6 col-md-6">
           <div class="mb-3">
             <label for="detail" class="form-label">Discount End Date</label>
             <input type='date' name="discount_end_date" id="discount_end_date" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="mb-3">
+            <label for="detail" class="form-label">SKU</label>
+            <input type='text' name="sku" id="sku" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="mb-3">
+            <label for="detail" class="form-label">Dimention</label>
+            <input type='text' name="dimension" id="dimension" class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="mb-3">
+            <label for="detail" class="form-label">Quantity</label>
+            <input type='text' name="qty" id="qty" class="form-control" />
           </div>
         </div>
         
@@ -88,7 +124,7 @@
             <label for="detail" class="form-label">Color</label>
 	          <select class="js-example-basic-multiple form-control" id="mySelect2" name="color[]" multiple="multiple">
               @foreach($lists as $key => $val)
-						    <option value="{{$val['id']}}" >{{$val['color']}}</option>
+						    <option value="{{$val['color']}}" >{{$val['color']}}</option>
               @endforeach
 						</select>
 					</div>
@@ -99,7 +135,7 @@
             <label for="detail" class="form-label">Size</label>
 	          <select class="js-example-basic-multiple form-control" id="mySelect3" name="size[]" multiple="multiple">
               @foreach($lists as $key => $val)
-                <option value="{{$val['id']}}" >{{$val['size']}}</option>
+                <option value="{{$val['size']}}" >{{$val['size']}}</option>
               @endforeach
 						</select>
 					</div>
@@ -116,13 +152,6 @@
           <div class="mb-3">
             <label for="detail" class="form-label"> Status </label>
             <input type='checkbox' value="1" name="status" id="status" class="" />
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6">
-          <div class="mb-3">
-            <label for="detail" class="form-label">Feature Image</label>
-            <input type='file' name="featured_img" id="featured_img" class="form-control" />
           </div>
         </div>
         
