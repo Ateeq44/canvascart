@@ -29,6 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Image</th>
                                         <th>Name</th>
                                         <th>Description</th>
                                         @if(\Auth::user()->role==1)
@@ -39,8 +40,16 @@
                                 <tbody>
                                     @if(!empty($CourseCategories['data']) && sizeof($CourseCategories['data'])>0)
                                     @foreach($CourseCategories['data'] as $key => $val)
+                                    @php
+                                        $images = json_decode($val['image'])   
+                                    @endphp
                                     <tr class="list_{{$val[$module['db_key']]}}">
                                         <th scope="row">{{++$key}}</th>
+                                        <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="title">
+                                            
+                                            <img width="80px" src="{{ asset('upload/category/'.$images[0]) }}">
+
+                                        </td>
                                         <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="title">{{$val['title']}}</td>
                                         <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="category_description">{{$val['category_description']}}</td>
                                         {{-- <td class="pl-0">{{date('Y-m-d',strtotime($val['created_at']))}}</td> --}}

@@ -29,6 +29,9 @@ class CreateProductsTable extends Migration
             $table->enum('status',['0','1'])->nullable()->default('0');
             $table->string('color')->nullable();
             $table->string('size')->nullable();
+            $table->string('')->nullable();
+            $table->string('')->nullable();
+            $table->string('')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

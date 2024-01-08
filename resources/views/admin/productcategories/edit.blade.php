@@ -28,7 +28,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Category image</label>
-                        <input type='file' name="image" id="detail" class="form-control" />
+                        <input type='file' name="image[]" id="detail" class="form-control" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">

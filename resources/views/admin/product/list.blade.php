@@ -46,13 +46,15 @@
                             <tbody>
                                 @if(!empty($Course['data']) && sizeof($Course['data'])>0)
                                 @foreach($Course['data'] as $key => $val)
-                                {{-- @php
-                                $size = json_decode($val['size']);
-                                @endphp --}}
+                                
+                                @php
+                                    $images = json_decode($val['images'])   
+                                @endphp
+
                                 <tr class="list_{{$val[$module['db_key']]}}">
                                     <th scope="row">{{++$key}}</th>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
-                                        <img src="{{url('storage/app/'.$val['images'])}}">
+                                        <img src="{{ asset('upload/product/'.$images[0]) }}">
                                     </td>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['product_name']}}</td>
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['category']['title']}}</td>

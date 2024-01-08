@@ -122,11 +122,29 @@ class ProductCategoriesController extends Controller
     public function create(Request $request)
     {
         if($request->isMethod('post')){
-            $data = $request->all();
-            $this->cleanData($data);
-            $data['created_by'] = \Auth::id();
-            $CourseCategories         = new Categories;
-            $CourseCategories->insert($data);
+
+            $cat = new Categories();
+                $files = [];
+                if($request->hasfile('image'))
+                {
+                    foreach($request->file('image') as $file)
+                    {
+                        $name = time().rand(1,100).'.'.$file->extension();
+                        $file->move('public/upload/category', $name);
+                        $files[] = $name;
+                    }
+                }
+                $cat->title = $request->input('title');
+                $cat->slug = $request->input('slug');
+                $cat->category_description = $request->input('category_description');
+                $cat->top = $request->input('top')== TRUE ? '1':'0';
+                $cat->created_by = \Auth::id();
+                $cat->image = json_encode($files);
+                
+                // dd($product);
+
+                $cat->save();
+
             $response = array('flag'=>true,'msg'=>$this->singular.' is added sucessfully.','action'=>'reload');
             echo json_encode($response); return;
         }

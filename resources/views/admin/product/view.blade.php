@@ -187,7 +187,6 @@ img {
                                 @endphp
                                 <div class="preview-pic tab-content">
                                   <div class="tab-pane active" id="pic-1"><img src="{{asset('upload/product/'.$images[0])}}" /></div>
-                                  
                                 </div>
                                 <ul class="preview-thumbnail nav nav-tabs">
                                   @foreach($images as $val)
