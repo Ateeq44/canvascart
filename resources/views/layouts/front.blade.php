@@ -1,799 +1,1499 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from Canvas Carttheme.com/html/Canvas Cart_ecommerce/demo1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Nov 2023 08:23:38 GMT -->
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>@yield('title')</title>
-
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Canvas Cart - Bootstrap eCommerce Template">
-    <meta name="author" content="SW-THEMES">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="multikart">
+    <meta name="keywords" content="multikart">
+    <meta name="author" content="multikart">
+    <!-- <link rel="icon" href="{{asset('assets/images/fav1.png')}}" type="image/x-icon"> -->
+    <!-- <link rel="shortcut icon" href="{{asset('assets/images/fav1.png')}}" type="image/x-icon"> -->
+    <title>Multikart - Multi-purpose E-commerce Html Template</title>
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f5eb8f10bc.js" crossorigin="anonymous"></script>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{asset('user/assets/images/favicon.png')}}">
+
+    <!--Slick slider css-->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/slick-theme.css')}}">
+
+    <!-- Animate icon -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
+
+    <!-- Themify icon -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
+
+    <!-- Theme css -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
 
 
-    <script>
-        WebFontConfig = {
-            google: {
-                families: ['Open+Sans:300,400,600,700', 'Poppins:300,400,500,600,700,800', 'Oswald:300,400,500,600,700,800', 'Playfair+Display:900', 'Shadows+Into+Light:400']
-            }
-        };
-        (function(d) {
-            var wf = d.createElement('script'),
-            s = d.scripts[0];
-            wf.src = 'assets/js/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
 
-    <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{{asset('user/assets/css/bootstrap.min.css')}}">
-
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{asset('user/assets/css/demo4.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('user/assets/vendor/simple-line-icons/css/simple-line-icons.min.css')}}">
 </head>
 
-<body>
-    <div class="page-wrapper">
-        <div class="top-notice text-white bg-dark">
-          <div class="container d-flex">
-            <div class="header-left text-white">
-                Get Up to 40% OFF New-Season Styles
-            </div>
-            <div class="header-right header-dropdowns ml-0 ml-sm-auto">
-                @if(!auth()->check())
-                <a href="{{ url('login')}}" class="btn btn-primary btn-md mr-3">Login</a>
-                <a href="{{ url('register')}}" class="btn btn-primary btn-md">Register</a>
-                @else
-                @if(auth()->user()->role == '1')
-                <a href="{{url('admin/dashboard')}}" class="btn btn-primary btn-md">Dashboard</a>
-                @elseif(auth()->user()->role == '3')
-                <a href="{{url('/dashboard')}}" class="btn btn-primary btn-md">Dashboard</a>
-                @endif
-                @endif
+<body class="theme-color-1">
 
+
+    <!-- loader start -->
+    <div class="loader_skeleton">
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header-contact">
+                            <ul>
+                                <li>Welcome to Our store Multikart</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-end">
+                        <ul class="header-dropdown">
+                            <li class="onhover-dropdown mobile-account">
+                             <i class="fa-solid fa-user"></i>
+                                My Account
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-menu">
+                            <div class="menu-left">
+                                <div class="navbar">
+                                    <a href="javascript:void(0)">
+                                        <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="brand-logo">
+                                    <a href="index.html">
+                                        <img src="{{asset('assets/images/logo.png')}}" class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="menu-right pull-right">
+                                <div>
+                                    <nav>
+                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                        <ul class="sm pixelstrap sm-horizontal">
+                                            <li>
+                                                <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2"
+                                                        aria-hidden="true"></i></div>
+                                            </li>
+                                            <li>
+                                                <a href="index.html">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Categories</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">shop</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Contact</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">blog</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="home-slider">
+            <div class="home"></div>
+        </div>
+        <section class="collection-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ldr-bg">
+                            <div class="contain-banner">
+                                <div>
+                                    <h4></h4>
+                                    <h2></h2>
+                                    <h6></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ldr-bg">
+                            <div class="contain-banner">
+                                <div>
+                                    <h4></h4>
+                                    <h2></h2>
+                                    <h6></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container section-b-space">
+            <div class="row section-t-space">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="product-para">
+                        <p class="first"></p>
+                        <p class="second"></p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="no-slider row">
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                        <div class="product-box">
+                            <div class="img-wrapper"></div>
+                            <div class="product-detail">
+                                <h4></h4>
+                                <h5></h5>
+                                <h5 class="second"></h5>
+                                <h6></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- End .top-notice -->
+    <!-- loader end -->
 
-    <header class="header">
-            <div class="header-top">
-                <div class="container">
-                    <div class="header-left d-none d-sm-block">
-                        <p class="top-message text-uppercase">FREE Returns. Standard Shipping Orders $99+</p>
+
+    <!-- header start -->
+    <header>
+        <div class="mobile-fix-option"></div>
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header-contact">
+                            <ul>
+                                <li>Welcome to Our store Multikart</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                            </ul>
+                        </div>
                     </div>
-                    <!-- End .header-left -->
-
-                    <div class="header-right header-dropdowns ml-0 ml-sm-auto w-sm-100">
-                        <div class="header-dropdown dropdown-expanded d-none d-lg-block">
-                            <a href="#">Links</a>
-                            <div class="header-menu">
-                                <ul>
-                                    <li><a href="dashboard.html">My Account</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="wishlist.html">My Wishlist</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="login.html" class="login-link">Log In</a></li>
-                                </ul>
-                            </div>
-                            <!-- End .header-menu -->
-                        </div>
-                        <!-- End .header-dropown -->
-
-                        <span class="separator"></span>
-
-                        <div class="header-dropdown">
-                            <a href="#"><i class="flag-us flag"></i>ENG</a>
-                            <div class="header-menu">
-                                <ul>
-                                    <li><a href="#"><i class="flag-us flag mr-2"></i>ENG</a>
-                                    </li>
-                                    <li><a href="#"><i class="flag-fr flag mr-2"></i>FRA</a></li>
-                                </ul>
-                            </div>
-                            <!-- End .header-menu -->
-                        </div>
-                        <!-- End .header-dropown -->
-
-                        <div class="header-dropdown mr-auto mr-sm-3 mr-md-0">
-                            <a href="#">USD</a>
-                            <div class="header-menu">
-                                <ul>
-                                    <li><a href="#">EUR</a></li>
-                                    <li><a href="#">USD</a></li>
-                                </ul>
-                            </div>
-                            <!-- End .header-menu -->
-                        </div>
-                        <!-- End .header-dropown -->
-
-                        <span class="separator"></span>
-
-                        <div class="social-icons">
-                            <a href="#" class="social-icon social-facebook icon-facebook" target="_blank"></a>
-                            <a href="#" class="social-icon social-twitter icon-twitter" target="_blank"></a>
-                            <a href="#" class="social-icon social-instagram icon-instagram" target="_blank"></a>
-                        </div>
-                        <!-- End .social-icons -->
-                    </div>
-                    <!-- End .header-right -->
-                </div>
-                <!-- End .container -->
-            </div>
-            <!-- End .header-top -->
-
-            <div class="sticky-wrapper"><div class="header-middle sticky-header" data-sticky-options="{'mobile': true}">
-                <div class="container">
-                    <div class="header-left col-lg-2 w-auto pl-0">
-                        <button class="mobile-menu-toggler text-primary mr-2" type="button">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <a href="demo4.html" class="logo">
-                            <img src="assets/images/logo.png" width="111" height="44" alt="Porto Logo">
-                        </a>
-                    </div>
-                    <!-- End .header-left -->
-
-                    <div class="header-right w-lg-max">
-                        <div class="header-icon header-search header-search-inline header-search-category w-lg-max text-right mt-0">
-                            <a href="#" class="search-toggle" role="button"><i class="icon-search-3"></i></a>
-                            <form action="#" method="get">
-                                <div class="header-search-wrapper">
-                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required="">
-                                    <div class="select-custom">
-                                        <select id="cat" name="cat">
-                                            <option value="">All Categories</option>
-                                            <option value="4">Fashion</option>
-                                            <option value="12">- Women</option>
-                                            <option value="13">- Men</option>
-                                            <option value="66">- Jewellery</option>
-                                            <option value="67">- Kids Fashion</option>
-                                            <option value="5">Electronics</option>
-                                            <option value="21">- Smart TVs</option>
-                                            <option value="22">- Cameras</option>
-                                            <option value="63">- Games</option>
-                                            <option value="7">Home &amp; Garden</option>
-                                            <option value="11">Motors</option>
-                                            <option value="31">- Cars and Trucks</option>
-                                            <option value="32">- Motorcycles &amp; Powersports</option>
-                                            <option value="33">- Parts &amp; Accessories</option>
-                                            <option value="34">- Boats</option>
-                                            <option value="57">- Auto Tools &amp; Supplies</option>
-                                        </select>
-                                    </div>
-                                    <!-- End .select-custom -->
-                                    <button class="btn icon-magnifier p-0" title="search" type="submit"></button>
-                                </div>
-                                <!-- End .header-search-wrapper -->
-                            </form>
-                        </div>
-                        <!-- End .header-search -->
-
-                        <div class="header-contact d-none d-lg-flex pl-4 pr-4">
-                            <img alt="phone" src="assets/images/phone.png" width="30" height="30" class="pb-1">
-                            <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+123 5678 890</a></h6>
-                        </div>
-
-                        <a href="login.html" class="header-icon" title="login"><i class="icon-user-2"></i></a>
-
-                        <a href="wishlist.html" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
-
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="minicart-icon"></i>
-                                <span class="cart-count badge-circle">3</span>
-                            </a>
-
-                            <div class="cart-overlay"></div>
-
-                            <div class="dropdown-menu mobile-cart">
-                                <a href="#" title="Close (Esc)" class="btn-close">×</a>
-
-                                <div class="dropdownmenu-wrapper custom-scrollbar">
-                                    <div class="dropdown-cart-header">Shopping Cart</div>
-                                    <!-- End .dropdown-cart-header -->
-
-                                    <div class="dropdown-cart-products">
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.html">Ultimate 3D Bluetooth Speaker</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $99.00
-                                                </span>
-                                            </div>
-                                            <!-- End .product-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="assets/images/products/product-1.jpg" alt="product" width="80" height="80">
-                                                </a>
-
-                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                            </figure>
-                                        </div>
-                                        <!-- End .product -->
-
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.html">Brown Women Casual HandBag</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $35.00
-                                                </span>
-                                            </div>
-                                            <!-- End .product-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="assets/images/products/product-2.jpg" alt="product" width="80" height="80">
-                                                </a>
-
-                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                            </figure>
-                                        </div>
-                                        <!-- End .product -->
-
-                                        <div class="product">
-                                            <div class="product-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.html">Circled Ultimate 3D Speaker</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $35.00
-                                                </span>
-                                            </div>
-                                            <!-- End .product-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="assets/images/products/product-3.jpg" alt="product" width="80" height="80">
-                                                </a>
-                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                            </figure>
-                                        </div>
-                                        <!-- End .product -->
-                                    </div>
-                                    <!-- End .cart-product -->
-
-                                    <div class="dropdown-cart-total">
-                                        <span>SUBTOTAL:</span>
-
-                                        <span class="cart-total-price float-right">$134.00</span>
-                                    </div>
-                                    <!-- End .dropdown-cart-total -->
-
-                                    <div class="dropdown-cart-action">
-                                        <a href="cart.html" class="btn btn-gray btn-block view-cart">View
-                                            Cart</a>
-                                        <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
-                                    </div>
-                                    <!-- End .dropdown-cart-total -->
-                                </div>
-                                <!-- End .dropdownmenu-wrapper -->
-                            </div>
-                            <!-- End .dropdown-menu -->
-                        </div>
-                        <!-- End .dropdown -->
-                    </div>
-                    <!-- End .header-right -->
-                </div>
-                <!-- End .container -->
-            </div></div>
-            <!-- End .header-middle -->
-
-            <div class="sticky-wrapper"><div class="header-bottom sticky-header d-none d-lg-block" data-sticky-options="{'mobile': false}">
-                <div class="container">
-                    <nav class="main-nav w-100">
-                        <ul class="menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
-                            <li class="active">
-                                <a href="demo4.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="category.html" class="sf-with-ul">Categories</a>
-                                <div class="megamenu megamenu-fixed-width megamenu-3cols" style="display: none; left: -15px;">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <a href="#" class="nolink">VARIATION 1</a>
-                                            <ul class="submenu">
-                                                <li><a href="category.html">Fullwidth Banner</a></li>
-                                                <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a>
-                                                </li>
-                                                <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a>
-                                                </li>
-                                                <li><a href="category.html">Left Sidebar</a></li>
-                                                <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
-                                                <li><a href="category-off-canvas.html">Off Canvas Filter</a></li>
-                                                <li><a href="category-horizontal-filter1.html">Horizontal Filter1</a>
-                                                </li>
-                                                <li><a href="category-horizontal-filter2.html">Horizontal Filter2</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <a href="#" class="nolink">VARIATION 2</a>
-                                            <ul class="submenu">
-                                                <li><a href="category-list.html">List Types</a></li>
-                                                <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll</a>
-                                                </li>
-                                                <li><a href="category.html">3 Columns Products</a></li>
-                                                <li><a href="category-4col.html">4 Columns Products</a></li>
-                                                <li><a href="category-5col.html">5 Columns Products</a></li>
-                                                <li><a href="category-6col.html">6 Columns Products</a></li>
-                                                <li><a href="category-7col.html">7 Columns Products</a></li>
-                                                <li><a href="category-8col.html">8 Columns Products</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4 p-0">
-                                            <div class="menu-banner">
-                                                <figure>
-                                                    <img src="assets/images/menu-banner.jpg" width="192" height="313" alt="Menu banner">
-                                                </figure>
-                                                <div class="banner-content">
-                                                    <h4>
-                                                        <span class="">UP TO</span><br>
-                                                        <b class="">50%</b>
-                                                        <i>OFF</i>
-                                                    </h4>
-                                                    <a href="category.html" class="btn btn-sm btn-dark">SHOP NOW</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End .megamenu -->
-                            </li>
-                            <li>
-                                <a href="product.html" class="sf-with-ul">Products</a>
-                                <div class="megamenu megamenu-fixed-width" style="display: none; left: -15px;">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <a href="#" class="nolink">PRODUCT PAGES</a>
-                                            <ul class="submenu">
-                                                <li><a href="product.html">SIMPLE PRODUCT</a></li>
-                                                <li><a href="product-variable.html">VARIABLE PRODUCT</a></li>
-                                                <li><a href="product.html">SALE PRODUCT</a></li>
-                                                <li><a href="product.html">FEATURED &amp; ON SALE</a></li>
-                                                <li><a href="product-custom-tab.html">WITH CUSTOM TAB</a></li>
-                                                <li><a href="product-sidebar-left.html">WITH LEFT SIDEBAR</a></li>
-                                                <li><a href="product-sidebar-right.html">WITH RIGHT SIDEBAR</a></li>
-                                                <li><a href="product-addcart-sticky.html">ADD CART STICKY</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- End .col-lg-4 -->
-
-                                        <div class="col-lg-4">
-                                            <a href="#" class="nolink">PRODUCT LAYOUTS</a>
-                                            <ul class="submenu">
-                                                <li><a href="product-extended-layout.html">EXTENDED LAYOUT</a></li>
-                                                <li><a href="product-grid-layout.html">GRID IMAGE</a></li>
-                                                <li><a href="product-full-width.html">FULL WIDTH LAYOUT</a></li>
-                                                <li><a href="product-sticky-info.html">STICKY INFO</a></li>
-                                                <li><a href="product-sticky-both.html">LEFT &amp; RIGHT STICKY</a></li>
-                                                <li><a href="product-transparent-image.html">TRANSPARENT IMAGE</a></li>
-                                                <li><a href="product-center-vertical.html">CENTER VERTICAL</a></li>
-                                                <li><a href="#">BUILD YOUR OWN</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- End .col-lg-4 -->
-
-                                        <div class="col-lg-4 p-0">
-                                            <div class="menu-banner menu-banner-2">
-                                                <figure>
-                                                    <img src="assets/images/menu-banner-1.jpg" width="182" height="317" alt="Menu banner" class="product-promo">
-                                                </figure>
-                                                <i>OFF</i>
-                                                <div class="banner-content">
-                                                    <h4>
-                                                        <span class="">UP TO</span><br>
-                                                        <b class="">50%</b>
-                                                    </h4>
-                                                </div>
-                                                <a href="category.html" class="btn btn-sm btn-dark">SHOP NOW</a>
-                                            </div>
-                                        </div>
-                                        <!-- End .col-lg-4 -->
-                                    </div>
-                                    <!-- End .row -->
-                                </div>
-                                <!-- End .megamenu -->
-                            </li>
-                            <li>
-                                <a href="#" class="sf-with-ul">Pages</a>
-                                <ul style="display: none;">
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="dashboard.html">Dashboard</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="#" class="sf-with-ul">Blog</a>
-                                        <ul style="display: none;">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="single.html">Blog Post</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                    <div class="col-lg-6 text-end">
+                        <ul class="header-dropdown">
+                            <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
+                                My Account
+                                <ul class="onhover-show-div">
                                     <li><a href="login.html">Login</a></li>
-                                    <li><a href="forgot-password.html">Forgot Password</a></li>
+                                    <li><a href="register.html">register</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li class="">
-                                <a href="#" class="sf-with-ul">Elements</a>
-                                <ul class="custom-scrollbar" style="display: none;">
-                                    <li><a href="element-accordions.html">Accordion</a></li>
-                                    <li><a href="element-alerts.html">Alerts</a></li>
-                                    <li><a href="element-animations.html">Animations</a></li>
-                                    <li><a href="element-banners.html">Banners</a></li>
-                                    <li><a href="element-buttons.html">Buttons</a></li>
-                                    <li><a href="element-call-to-action.html">Call to Action</a></li>
-                                    <li><a href="element-countdown.html">Count Down</a></li>
-                                    <li><a href="element-counters.html">Counters</a></li>
-                                    <li><a href="element-headings.html">Headings</a></li>
-                                    <li><a href="element-icons.html">Icons</a></li>
-                                    <li><a href="element-info-box.html">Info box</a></li>
-                                    <li><a href="element-posts.html">Posts</a></li>
-                                    <li><a href="element-products.html">Products</a></li>
-                                    <li><a href="element-product-categories.html">Product Categories</a></li>
-                                    <li><a href="element-tabs.html">Tabs</a></li>
-                                    <li><a href="element-testimonial.html">Testimonials</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li class="float-right"><a href="https://1.envato.market/DdLk5" rel="noopener" class="pl-5" target="_blank">Buy Porto!</a></li>
-                            <li class="float-right"><a href="#" class="pl-5">Special Offer!</a></li>
                         </ul>
-                    </nav>
+                    </div>
                 </div>
-                <!-- End .container -->
-            </div></div>
-            <!-- End .header-bottom -->
-        </header>
-    <!-- End .header -->
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main-menu">
+                        <div class="menu-left">
+                            <div class="navbar">
+                                <a href="javascript:void(0)" onclick="openNav()">
+                                    <div class="bar-style"><i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                                <div id="mySidenav" class="sidenav">
+                                    <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
+                                    <nav>
+                                        <div onclick="closeNav()">
+                                            <div class="sidebar-back text-start"><i class="fa fa-angle-left pe-2"
+                                                    aria-hidden="true"></i> Back</div>
+                                        </div>
+                                        <ul id="sub-menu" class="sm pixelstrap sm-vertical">
+                                            <li> <a href="#">clothing</a>
+                                                <ul class="mega-menu clothing-menu">
+                                                    <li>
+                                                        <div class="row m-0">
+                                                            <div class="col-xl-4">
+                                                                <div class="link-section">
+                                                                    <h5>women's fashion</h5>
+                                                                    <ul>
+                                                                        <li><a href="#">dresses</a></li>
+                                                                        <li><a href="#">skirts</a></li>
+                                                                        <li><a href="#">westarn wear</a></li>
+                                                                        <li><a href="#">ethic wear</a></li>
+                                                                        <li><a href="#">sport wear</a></li>
+                                                                    </ul>
+                                                                    <h5>men's fashion</h5>
+                                                                    <ul>
+                                                                        <li><a href="#">sports wear</a></li>
+                                                                        <li><a href="#">western wear</a></li>
+                                                                        <li><a href="#">ethic wear</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-4">
+                                                                <div class="link-section">
+                                                                    <h5>accessories</h5>
+                                                                    <ul>
+                                                                        <li><a href="#">fashion jewellery</a>
+                                                                        </li>
+                                                                        <li><a href="#">caps and hats</a></li>
+                                                                        <li><a href="#">precious jewellery</a>
+                                                                        </li>
+                                                                        <li><a href="#">necklaces</a></li>
+                                                                        <li><a href="#">earrings</a></li>
+                                                                        <li><a href="#">wrist wear</a></li>
+                                                                        <li><a href="#">ties</a></li>
+                                                                        <li><a href="#">cufflinks</a></li>
+                                                                        <li><a href="#">pockets squares</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-4">
+                                                                <a href="#" class="mega-menu-banner"><img
+                                                                        src="{{asset('assets/images/mega-menu/fashion.jpg')}}"
+                                                                        alt="" class="img-fluid blur-up lazyload"></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li> <a href="#">bags</a>
+                                                <ul>
+                                                    <li><a href="#">shopper bags</a></li>
+                                                    <li><a href="#">laptop bags</a></li>
+                                                    <li><a href="#">clutches</a></li>
+                                                    <li> <a href="#">purses</a>
+                                                        <ul>
+                                                            <li><a href="#">purses</a></li>
+                                                            <li><a href="#">wallets</a></li>
+                                                            <li><a href="#">leathers</a></li>
+                                                            <li><a href="#">satchels</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li> <a href="#">bags</a>
+                                                <ul>
+                                                    <li><a href="#">shopper bags</a></li>
+                                                    <li><a href="#">laptop bags</a></li>
+                                                    <li><a href="#">clutches</a></li>
+                                                    <li> <a href="#">purses</a>
+                                                        <ul>
+                                                            <li><a href="#">purses</a></li>
+                                                            <li><a href="#">wallets</a></li>
+                                                            <li><a href="#">leathers</a></li>
+                                                            <li><a href="#">satchels</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li> <a href="#">bags</a>
+                                                <ul>
+                                                    <li><a href="#">shopper bags</a></li>
+                                                    <li><a href="#">laptop bags</a></li>
+                                                    <li><a href="#">clutches</a></li>
+                                                    <li> <a href="#">purses</a>
+                                                        <ul>
+                                                            <li><a href="#">purses</a></li>
+                                                            <li><a href="#">wallets</a></li>
+                                                            <li><a href="#">leathers</a></li>
+                                                            <li><a href="#">satchels</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li> <a href="#">footwear</a>
+                                                <ul>
+                                                    <li><a href="#">sport shoes</a></li>
+                                                    <li><a href="#">formal shoes</a></li>
+                                                    <li><a href="#">casual shoes</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">watches</a></li>
+                                            <li> <a href="#">Accessories</a>
+                                                <ul>
+                                                    <li><a href="#">fashion jewellery</a></li>
+                                                    <li><a href="#">caps and hats</a></li>
+                                                    <li><a href="#">precious jewellery</a></li>
+                                                    <li> <a href="#">more..</a>
+                                                        <ul>
+                                                            <li><a href="#">necklaces</a></li>
+                                                            <li><a href="#">earrings</a></li>
+                                                            <li><a href="#">wrist wear</a></li>
+                                                            <li> <a href="#">accessories</a>
+                                                                <ul>
+                                                                    <li><a href="#">ties</a></li>
+                                                                    <li><a href="#">cufflinks</a></li>
+                                                                    <li><a href="#">pockets squares</a></li>
+                                                                    <li><a href="#">helmets</a></li>
+                                                                    <li><a href="#">scarves</a></li>
+                                                                    <li> <a href="#">more...</a>
+                                                                        <ul>
+                                                                            <li><a href="#">accessory gift
+                                                                                    sets</a>
+                                                                            </li>
+                                                                            <li><a href="#">travel
+                                                                                    accessories</a>
+                                                                            </li>
+                                                                            <li><a href="#">phone cases</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><a href="#">belts & more</a></li>
+                                                            <li><a href="#">wearable</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">house of design</a></li>
+                                            <li> <a href="#">beauty & personal care</a>
+                                                <ul>
+                                                    <li><a href="#">makeup</a></li>
+                                                    <li><a href="#">skincare</a></li>
+                                                    <li><a href="#">premium beaty</a></li>
+                                                    <li> <a href="#">more</a>
+                                                        <ul>
+                                                            <li><a href="#">fragrances</a></li>
+                                                            <li><a href="#">luxury beauty</a></li>
+                                                            <li><a href="#">hair care</a></li>
+                                                            <li><a href="#">tools & brushes</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">home & decor</a></li>
+                                            <li><a href="#">kitchen</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="brand-logo">
+                                <a href="index.html">
+                                    <img src="{{asset('assets/images/logo.png')}}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="menu-right pull-right">
+                            <div>
+                                <nav id="main-nav">
+                                    <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                                        <li>
+                                            <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2"
+                                                    aria-hidden="true"></i></div>
+                                        </li>
+                                        <li>
+                                            <a href="index.html">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">shop</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Categories</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Contact</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">blog</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div>
+                                <div class="icon-nav">
+                                    <ul>
+                                        <li><a href=""><i class="fa-regular fa-heart" style=" font-size: 24px; color: black;margin-top: 5px;"></i></a></li>
+                                        <li class="onhover-div mobile-cart">
+                                            <div>
+                                                <img src="{{asset('assets/images/cart.png')}}"
+                                                    class="img-fluid blur-up lazyload" alt="">
+                                                    <i class="fa-solid fa-cart-shopping"></i>
+                                            </div>
+                                            <span class="cart_qty_cls">2</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
 
     @yield('content')
 
-    <footer class="footer bg-dark position-relative">
-        <div class="footer-middle">
-            <div class="container position-static">
-                <div class="footer-ribbon">Get in touch</div>
 
+    <!-- footer -->
+    <footer class="footer-light">
+        <div class="light-layout">
+            <div class="container">
+                <section class="small-section border-section border-top-0">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="subscribe">
+                                <div>
+                                    <h4>KNOW IT ALL FIRST!</h4>
+                                    <p>Never Miss Anything From Multikart By Signing Up To Our Newsletter.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form
+                                action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
+                                class="form-inline subscribe-form auth-form needs-validation" method="post"
+                                id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                <div class="form-group mx-sm-3">
+                                    <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
+                                        placeholder="Enter your email" required="required">
+                                </div>
+                                <button type="submit" class="btn btn-solid" id="mc-submit">subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <section class="section-b-space light-layout">
+            <div class="container">
+                <div class="row footer-theme partition-f">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-title footer-mobile-title">
+                            <h4>about</h4>
+                        </div>
+                        <div class="footer-contant">
+                            <div class="footer-logo"><img src="{{asset('assets/images/logo.png')}}" alt=""></div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col offset-xl-1">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>my account</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="#">mens</a></li>
+                                    <li><a href="#">womens</a></li>
+                                    <li><a href="#">clothing</a></li>
+                                    <li><a href="#">accessories</a></li>
+                                    <li><a href="#">featured</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>why we choose</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul>
+                                    <li><a href="#">shipping & return</a></li>
+                                    <li><a href="#">secure shopping</a></li>
+                                    <li><a href="#">gallary</a></li>
+                                    <li><a href="#">affiliates</a></li>
+                                    <li><a href="#">contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>store information</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India
+                                        345-659</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
+                                    <li><i class="fa fa-envelope"></i>Email Us: <a href="#">Support@Multikart.com</a>
+                                    </li>
+                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="sub-footer">
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6 pb-2 pb-sm-0">
-                        <div class="widget">
-                            <h4 class="widget-title">About Us</h4>
-                            <a href="{{url('/')}}">
-                                <img src="{{asset('user/assets/images/logo-footer.png')}}" alt="Logo" class="logo-footer">
-                            </a>
-                            <p class="m-b-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapibus lacus. Duis nec vestibulum magna, et dapibus lacus.</p>
-                            <a href="#" class="read-more text-white">read more...</a>
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="footer-end">
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2023-24 themeforest powered by
+                                pixelstrap</p>
                         </div>
-                        <!-- End .widget -->
                     </div>
-                    <!-- End .col-lg-3 -->
-
-                    <div class="col-lg-3 col-sm-6 pb-4 pb-sm-0">
-                        <div class="widget mb-2">
-                            <h4 class="widget-title mb-1 pb-1">Contact Info</h4>
-                            <ul class="contact-info m-b-4">
+                    <div class="col-xl-6 col-md-6 col-sm-12">
+                        <div class="payment-card-bottom">
+                            <ul>
                                 <li>
-                                    <span class="contact-info-label">Address:</span>123 Street Name, City, England
+                                    <a href="#"><img src="{{asset('assets/images/visa.png')}}" alt=""></a>
                                 </li>
                                 <li>
-                                    <span class="contact-info-label">Phone:</span><a href="tel:">(123) 456-7890</a>
+                                    <a href="#"><img src="{{asset('assets/images/mastercard.png')}}" alt=""></a>
                                 </li>
                                 <li>
-                                    <span class="contact-info-label">Email:</span> <a href="https://Canvas Carttheme.com/cdn-cgi/l/email-protection#84e9e5ede8c4e1fce5e9f4e8e1aae7ebe9"><span class="__cf_email__" data-cfemail="660b070f0a26031e070b160a034805090b">[email&#160;protected]</span></a>
+                                    <a href="#"><img src="{{asset('assets/images/paypal.png')}}" alt=""></a>
                                 </li>
                                 <li>
-                                    <span class="contact-info-label">Working Days/Hours:</span> Mon - Sun / 9:00 AM - 8:00 PM
+                                    <a href="#"><img src="{{asset('assets/images/american-express.png')}}" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{{asset('assets/images/discover.png')}}" alt=""></a>
                                 </li>
                             </ul>
-                            <div class="social-icons">
-                                <a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
-                                <a href="#" class="social-icon social-twitter icon-twitter" target="_blank" title="Twitter"></a>
-                                <a href="#" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank" title="Linkedin"></a>
-                            </div>
-                            <!-- End .social-icons -->
                         </div>
-                        <!-- End .widget -->
-                    </div>
-                    <!-- End .col-lg-3 -->
-
-                    <div class="col-lg-3 col-sm-6 pb-2 pb-sm-0">
-                        <div class="widget">
-                            <h4 class="widget-title pb-1">Customer Service</h4>
-
-                            <ul class="links">
-                                <li><a href="#">Help & FAQs</a></li>
-                                <li><a href="#">Order Tracking</a></li>
-                                <li><a href="#">Shipping & Delivery</a></li>
-                                <li><a href="#">Orders History</a></li>
-                                <li><a href="#">Advanced Search</a></li>
-                                <li><a href="dashboard.html">My Account</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="demo1-about.html">About Us</a></li>
-                                <li><a href="#">Corporate Sales</a></li>
-                                <li><a href="#">Privacy</a></li>
-                            </ul>
-                        </div>
-                        <!-- End .widget -->
-                    </div>
-                    <!-- End .col-lg-3 -->
-
-                    <div class="col-lg-3 col-sm-6 pb-0">
-                        <div class="widget mb-1 mb-sm-3">
-                            <h4 class="widget-title">Popular Tags</h4>
-
-                            <div class="tagcloud">
-                                <a href="#">Bag</a>
-                                <a href="#">Black</a>
-                                <a href="#">Blue</a>
-                                <a href="#">Clothes</a>
-                                <a href="#">Fashion</a>
-                                <a href="#">Hub</a>
-                                <a href="#">Jean</a>
-                                <a href="#">Shirt</a>
-                                <a href="#">Skirt</a>
-                                <a href="#">Sports</a>
-                                <a href="#">Sweater</a>
-                                <a href="#">Winter</a>
-                            </div>
-                        </div>
-                        <!-- End .widget -->
-                    </div>
-                    <!-- End .col-lg-3 -->
-                </div>
-                <!-- End .row -->
-            </div>
-            <!-- End .container -->
-        </div>
-        <!-- End .footer-middle -->
-
-        <div class="container">
-            <div class="footer-bottom d-sm-flex align-items-center">
-                <div class="footer-left">
-                    <span class="footer-copyright">© Canvas Cart eCommerce. 2021. All Rights Reserved</span>
-                </div>
-
-                <div class="footer-right ml-auto mt-1 mt-sm-0">
-                    <div class="payment-icons">
-                        <span class="payment-icon visa" style="background-image: url(assets/images/payments/payment-visa.svg)"></span>
-                        <span class="payment-icon paypal" style="background-image: url(assets/images/payments/payment-paypal.svg)"></span>
-                        <span class="payment-icon stripe" style="background-image: url(assets/images/payments/payment-stripe.png)"></span>
-                        <span class="payment-icon verisign" style="background-image:  url(assets/images/payments/payment-verisign.svg)"></span>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End .footer-bottom -->
     </footer>
-    <!-- End .footer -->
-</div>
-<!-- End .page-wrapper -->
+    <!-- footer end -->
 
-    {{-- <div class="loading-overlay">
-        <div class="bounce-loader">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
+
+    <!--modal popup start-->
+    <!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body modal1">
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="modal-bg">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <div class="offer-content"> <img src="{{asset('assets/images/Offer-banner.png')}}"
+                                            class="img-fluid blur-up lazyload" alt="">
+                                        <h2>newsletter</h2>
+                                        <form
+                                            action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
+                                            class="auth-form needs-validation" method="post"
+                                            id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                            target="_blank">
+                                            <div class="form-group mx-sm-3">
+                                                <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL"
+                                                    placeholder="Enter your email" required="required">
+                                                <button type="submit" class="btn btn-solid"
+                                                    id="mc-submit">subscribe</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> --}}
+    </div> -->
+    <!--modal popup end-->
 
-    <div class="mobile-menu-overlay"></div>
-    <!-- End .mobil-menu-overlay -->
 
-    <div class="mobile-menu-container">
-        <div class="mobile-menu-wrapper">
-            <span class="mobile-menu-close"><i class="fa fa-times"></i></span>
-            <nav class="mobile-nav">
-                <ul class="mobile-menu menu-with-icon">
-                    <li><a href="demo1.html"><i class="icon-home"></i>Home</a></li>
-                    <li>
-                        <a href="demo1-shop.html" class="sf-with-ul"><i class="sicon-badge"></i>Categories</a>
-                        <ul>
-                            <li><a href="category.html">Full Width Banner</a></li>
-                            <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
-                            <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a></li>
-                            <li><a href="">Left Sidebar</a></li>
-                            <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
-                            <li><a href="category-off-canvas.html">Off Canvas Filter</a></li>
-                            <li><a href="category-horizontal-filter1.html">Horizontal Filter 1</a></li>
-                            <li><a href="category-horizontal-filter2.html">Horizontal Filter 2</a></li>
-                            <li><a href="#">List Types</a></li>
-                            <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll<span
-                                class="tip tip-new">New</span></a></li>
-                                <li><a href="category.html">3 Columns Products</a></li>
-                                <li><a href="category-4col.html">4 Columns Products</a></li>
-                                <li><a href="category-5col.html">5 Columns Products</a></li>
-                                <li><a href="category-6col.html">6 Columns Products</a></li>
-                                <li><a href="category-7col.html">7 Columns Products</a></li>
-                                <li><a href="category-8col.html">8 Columns Products</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="demo1-product.html" class="sf-with-ul"><i class="sicon-basket"></i>Products</a>
-                            <ul>
-                                <li>
-                                    <a href="#" class="nolink">PRODUCT PAGES</a>
-                                    <ul>
-                                        <li><a href="product.html">SIMPLE PRODUCT</a></li>
-                                        <li><a href="product-variable.html">VARIABLE PRODUCT</a></li>
-                                        <li><a href="product.html">SALE PRODUCT</a></li>
-                                        <li><a href="product.html">FEATURED & ON SALE</a></li>
-                                        <li><a href="product-sticky-info.html">WIDTH CUSTOM TAB</a></li>
-                                        <li><a href="product-sidebar-left.html">WITH LEFT SIDEBAR</a></li>
-                                        <li><a href="product-sidebar-right.html">WITH RIGHT SIDEBAR</a></li>
-                                        <li><a href="product-addcart-sticky.html">ADD CART STICKY</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="nolink">PRODUCT LAYOUTS</a>
-                                    <ul>
-                                        <li><a href="product-extended-layout.html">EXTENDED LAYOUT</a></li>
-                                        <li><a href="product-grid-layout.html">GRID IMAGE</a></li>
-                                        <li><a href="product-full-width.html">FULL WIDTH LAYOUT</a></li>
-                                        <li><a href="product-sticky-info.html">STICKY INFO</a></li>
-                                        <li><a href="product-sticky-both.html">LEFT & RIGHT STICKY</a></li>
-                                        <li><a href="product-transparent-image.html">TRANSPARENT IMAGE</a></li>
-                                        <li><a href="product-center-vertical.html">CENTER VERTICAL</a></li>
-                                        <li><a href="#">BUILD YOUR OWN</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="sf-with-ul"><i class="sicon-envelope"></i>Pages</a>
-                            <ul>
-                                <li>
-                                    <a href="wishlist.html">Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="cart.html">Shopping Cart</a>
-                                </li>
-                                <li>
-                                    <a href="checkout.html">Checkout</a>
-                                </li>
-                                <li>
-                                    <a href="dashboard.html">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="forgot-password.html">Forgot Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html"><i class="sicon-book-open"></i>Blog</a></li>
-                        <li><a href="demo1-about.html"><i class="sicon-users"></i>About Us</a></li>
-                    </ul>
-
-                    <ul class="mobile-menu menu-with-icon mt-2 mb-2">
-                        <li class="border-0">
-                            <a href="#" target="_blank"><i class="sicon-star"></i>Buy Canvas Cart!<span
-                                class="tip tip-hot">Hot</span></a>
-                            </li>
-                        </ul>
-
-                        <ul class="mobile-menu">
-                            <li><a href="login.html">My Account</a></li>
-                            <li><a href="demo1-contact.html">Contact Us</a></li>
-                            <li><a href="wishlist.html">My Wishlist</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="login.html" class="login-link">Log In</a></li>
-                        </ul>
-                    </nav>
-                    <!-- End .mobile-nav -->
-
-                    <form class="search-wrapper mb-2" action="#">
-                        <input type="text" class="form-control mb-0" placeholder="Search..." required />
-                        <button class="btn icon-search text-white bg-transparent p-0" type="submit"></button>
-                    </form>
-
-                    <div class="social-icons">
-                        <a href="#" class="social-icon social-facebook icon-facebook" target="_blank">
-                        </a>
-                        <a href="#" class="social-icon social-twitter icon-twitter" target="_blank">
-                        </a>
-                        <a href="#" class="social-icon social-instagram icon-instagram" target="_blank">
-                        </a>
-                    </div>
-                </div>
-                <!-- End .mobile-menu-wrapper -->
-            </div>
-            <!-- End .mobile-menu-container -->
-
-            <div class="sticky-navbar">
-                <div class="sticky-info">
-                    <a href="demo1.html">
-                        <i class="icon-home"></i>Home
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="demo1-shop.html" class="">
-                        <i class="icon-bars"></i>Categories
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="wishlist.html" class="">
-                        <i class="icon-wishlist-2"></i>Wishlist
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="login.html" class="">
-                        <i class="icon-user-2"></i>Account
-                    </a>
-                </div>
-                <div class="sticky-info">
-                    <a href="cart.html" class="">
-                        <i class="icon-shopping-cart position-relative">
-                            <span class="cart-count badge-circle">3</span>
-                        </i>Cart
-                    </a>
-                </div>
-            </div>
-
-            {{-- <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
-                <div class="newsletter-popup-content">
-                    <img src="assets/images/logo.png" width="111" height="44" alt="Logo" class="logo-newsletter">
-                    <h2>Subscribe to newsletter</h2>
-
-                    <p>
-                        Subscribe to the Canvas Cart mailing list to receive updates on new arrivals, special offers and our promotions.
-                    </p>
-
-                    <form action="#">
-                        <div class="input-group">
-                            <input type="email" class="form-control" id="newsletter-email" name="newsletter-email" placeholder="Your email address" required />
-                            <input type="submit" class="btn btn-primary" value="Submit" />
+    <!-- Quick-view modal popup start-->
+    <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content quick-view-modal">
+                <div class="modal-body">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="quick-view-img"><img src="{{asset('assets/images/1.jpg')}}" alt=""
+                                    class="img-fluid blur-up lazyload"></div>
                         </div>
-                    </form>
-                    <div class="newsletter-subscribe">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="0" id="show-again" />
-                            <label for="show-again" class="custom-control-label">
-                                Don't show this popup again
-                            </label>
+                        <div class="col-lg-6 rtl-text">
+                            <div class="product-right">
+                                <h2>Women Pink Shirt</h2>
+                                <h3>$32.96</h3>
+                                <ul class="color-variant">
+                                    <li class="bg-light0"></li>
+                                    <li class="bg-light1"></li>
+                                    <li class="bg-light2"></li>
+                                </ul>
+                                <div class="border-product">
+                                    <h6 class="product-title">product details</h6>
+                                    <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
+                                        doloremque laudantium</p>
+                                </div>
+                                <div class="product-description border-product">
+                                    <div class="size-box">
+                                        <ul>
+                                            <li class="active"><a href="javascript:void(0)">s</a></li>
+                                            <li><a href="javascript:void(0)">m</a></li>
+                                            <li><a href="javascript:void(0)">l</a></li>
+                                            <li><a href="javascript:void(0)">xl</a></li>
+                                        </ul>
+                                    </div>
+                                    <h6 class="product-title">quantity</h6>
+                                    <div class="qty-box">
+                                        <div class="input-group"><span class="input-group-prepend"><button type="button"
+                                                    class="btn quantity-left-minus" data-type="minus" data-field=""><i
+                                                        class="ti-angle-left"></i></button> </span>
+                                            <input type="text" name="quantity" class="form-control input-number"
+                                                value="1"> <span class="input-group-prepend"><button type="button"
+                                                    class="btn quantity-right-plus" data-type="plus" data-field=""><i
+                                                        class="ti-angle-right"></i></button></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-buttons"><a href="#" class="btn btn-solid">add to cart</a> <a
+                                        href="#" class="btn btn-solid">view detail</a></div>
+                            </div>
                         </div>
                     </div>
-                </div> --}}
-                <!-- End .newsletter-popup-content -->
-
-
+                </div>
             </div>
-            <!-- End .newsletter-popup -->
-
-            <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
-
-            <!-- Plugins JS File -->
-            <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{{asset('user/assets/js/jquery.min.js')}}"></script>
-            <script src="{{asset('user/assets/js/plugins.min.js')}}"></script>
-            <script src="{{asset('user/assets/js/bootstrap.bundle.min.js')}}"></script>
-            <script src="{{asset('user/assets/js/jquery.appear.min.js')}}"></script>
-            <script src="{{asset('user/assets/js/jquery.plugin.min.js')}}"></script>
-            <script src="{{asset('user/assets/js/jquery.countdown.min.js')}}"></script>
-
-            <!-- Main JS File -->
-            <script src="{{asset('user/assets/js/main.min.js')}}"></script>
-            <script>(function(){var js = "window['__CF$cv$params']={r:'826e52b1d809f0f4',t:'MTcwMDEyMjkxMy43NzYwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/9914b343/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+        </div>
+    </div>
+    <!-- Quick-view modal popup end-->
 
 
-            <!-- Mirrored from Canvas Carttheme.com/html/Canvas Cart_ecommerce/demo1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Nov 2023 08:24:16 GMT -->
-            </html>
+    
+    <div class="scroll-setting-box">
+        <div id="setting_box" class="setting-box">
+            <a href="javascript:void(0)" class="overlay" onclick="closeSetting()"></a>
+            <div class="setting_box_body">
+                <div onclick="closeSetting()">
+                    <div class="sidebar-back text-start"><i class="fa fa-angle-left pe-2" aria-hidden="true"></i> Back
+                    </div>
+                </div>
+                <div class="setting-body">
+                    <div class="setting-title">
+                        <div>
+                            <img src="{{asset('assets/images/logo.png')}}" class="img-fluid" alt="">
+                            <h3>50+ <span>demos</span> <br> suit for any type of online store.</h3>
+                        </div>
+                    </div>
+                    <div class="setting-contant">
+                        <div class="row demo-section">
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="nft.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/58.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="nft.html" class="demo-text">
+                                        <h4>NFT <span>New</span>
+                                            <h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="vegetables-4.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/vegetables-4.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="vegetables-4.html" class="demo-text">
+                                        <h4>Vegetables 4 <span>New</span>
+                                            <h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="vegetables-5.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/vegetables-5.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="vegetables-5.html" class="demo-text">
+                                        <h4>Vegetables 5 <span>New</span>
+                                            <h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="gradient.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/gradient.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="gradient.html" class="demo-text">
+                                        <h4>gradient<h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="index.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/fashion.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="index.html" class="demo-text">
+                                        <h4>fashion</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="fashion-2.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/fashion-2.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="fashion-2.html" class="demo-text">
+                                        <h4>fashion 2</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="fashion-3.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/fashion-3.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="fashion-3.html" class="demo-text">
+                                        <h4>fashion 3</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="fashion-4.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/fashion-4.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="fashion-4.html" class="demo-text">
+                                        <h4>fashion 4</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="fashion-5.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/fashion-5.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="fashion-5.html" class="demo-text">
+                                        <h4>fashion 5</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="fashion-6.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/fashion-6.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="fashion-6.html" class="demo-text">
+                                        <h4>fashion 6</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="fashion-7.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/fashion-7.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="fashion-7.html" class="demo-text">
+                                        <h4>fashion 7</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="furniture.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/furniture.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="furniture.html" class="demo-text">
+                                        <h4>furniture</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="furniture-2.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/furniture-2.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="furniture-2.html" class="demo-text">
+                                        <h4>furniture 2</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="furniture-3.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/furniture-dark.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="furniture-3.html" class="demo-text">
+                                        <h4>furniture dark</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="electronic-1.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/electronics.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="electronic-1.html" class="demo-text">
+                                        <h4>electronics</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="electronic-2.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/electronics-2.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="electronic-2.html" class="demo-text">
+                                        <h4>electronics 2</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="electronic-3.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/electronics-3.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="electronic-3.html" class="demo-text">
+                                        <h4>electronics 3</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="marketplace-demo.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/marketplace.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="marketplace-demo.html" class="demo-text">
+                                        <h4>marketplace</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="marketplace-demo-2.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/marketplace-2.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="marketplace-demo-2.html" class="demo-text">
+                                        <h4>marketplace 2</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="marketplace-demo-3.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/marketplace-3.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="marketplace-demo-3.html" class="demo-text">
+                                        <h4>marketplace 3</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="marketplace-demo-4.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/marketplace-4.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="marketplace-demo-4.html" class="demo-text">
+                                        <h4>marketplace 4</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="vegetables.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/vegetables.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="vegetables.html" class="demo-text">
+                                        <h4>vegetables</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="vegetables-2.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/vegetables-2.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="vegetables-2.html" class="demo-text">
+                                        <h4>vegetables 2</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="vegetables-3.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/vegetables-3.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="vegetables-3.html" class="demo-text">
+                                        <h4>vegetables 3</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="jewellery.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/jewellery.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="jewellery.html" class="demo-text">
+                                        <h4>jewellery</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="jewellery-2.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/jewellery-2.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="jewellery-2.html" class="demo-text">
+                                        <h4>jewellery 2</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="jewellery-3.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/jewellery-3.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="jewellery-3.html" class="demo-text">
+                                        <h4>jewellery 3</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="bags.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/bag.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="bags.html" class="demo-text">
+                                        <h4>bag</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="watch.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/watch.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="watch.html" class="demo-text">
+                                        <h4>watch</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="medical.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/medical.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="medical.html" class="demo-text">
+                                        <h4>medical</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="perfume.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/perfume.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="perfume.html" class="demo-text">
+                                        <h4>perfume</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="yoga.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/yoga.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="yoga.html" class="demo-text">
+                                        <h4>yoga</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="christmas.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/christmas.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="christmas.html" class="demo-text">
+                                        <h4>christmas</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="bicycle.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/bicycle.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="bicycle.html" class="demo-text">
+                                        <h4>bicycle</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="marijuana.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/marijuana.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="marijuana.html" class="demo-text">
+                                        <h4>marijuana</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="gym-product.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/gym.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="gym-product.html" class="demo-text">
+                                        <h4>gym</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="tools.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/tools.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="tools.html" class="demo-text">
+                                        <h4>tools</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="shoes.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/shoes.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="shoes.html" class="demo-text">
+                                        <h4>shoes</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="books.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/books.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="books.html" class="demo-text">
+                                        <h4>books</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="kids.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/kids.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="kids.html" class="demo-text">
+                                        <h4>kids</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="game.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/game.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="game.html" class="demo-text">
+                                        <h4>game</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="beauty.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/beauty.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="beauty.html" class="demo-text">
+                                        <h4>beauty</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="left_sidebar-demo.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/left-sidebar.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="left_sidebar-demo.html" class="demo-text">
+                                        <h4>left sidebar</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="video-slider.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/video-slider.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="video-slider.html" class="demo-text">
+                                        <h4>video slider</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="metro.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/metro.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="metro.html" class="demo-text">
+                                        <h4>metro</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="goggles.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/goggles.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="goggles.html" class="demo-text">
+                                        <h4>goggles</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="flower.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/flower.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="flower.html" class="demo-text">
+                                        <h4>flower</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="light.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/light.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="light.html" class="demo-text">
+                                        <h4>light</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="nursery.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/nursery.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="nursery.html" class="demo-text">
+                                        <h4>nursery</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="pets.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/pets.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="pets.html" class="demo-text">
+                                        <h4>pets</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="video.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/video.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="video.html" class="demo-text">
+                                        <h4>video</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="lookbook-demo.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/lookbook.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="lookbook-demo.html" class="demo-text">
+                                        <h4>lookbook</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="full-page.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/full-page.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="full-page.html" class="demo-text">
+                                        <h4>full page</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="instagram-shop.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/instagram.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="instagram-shop.html" class="demo-text">
+                                        <h4>instagram</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 text-center demo-effects">
+                                <div class="set-position">
+                                    <a href="parallax.html" class="layout-container">
+                                        <img src="{{asset('assets/images/landing-page/demo/parallax.jpg')}}"
+                                            class="img-fluid bg-img bg-top" alt="">
+                                    </a>
+                                    <a href="parallax.html" class="demo-text">
+                                        <h4>parallax</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- theme setting -->
+
+
+    <!-- exit modal popup start-->
+    <div class="modal fade bd-example-modal-lg theme-modal exit-modal" id="exit_popup" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body modal1">
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="modal-bg">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <div class="media">
+                                        <img src="{{asset('assets/images/stop.png')}}"
+                                            class="stop img-fluid blur-up lazyload me-3" alt="">
+                                        <div class="media-body text-start align-self-center">
+                                            <div>
+                                                <h2>wait!</h2>
+                                                <h4>We want to give you
+                                                    <b>10% discount</b>
+                                                    <span>for your first order</span>
+                                                </h4>
+                                                <h5>Use discount code at checkout</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add to cart modal popup end-->
+
+
+    <!-- facebook chat section start -->
+    <!-- <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src =
+                'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script> -->
+    <!-- Your customer chat code -->
+    <!-- <div class="fb-customerchat" attribution=setup_tool page_id="2123438804574660" theme_color="#0084ff"
+        logged_in_greeting="Hi! Welcome to PixelStrap Themes  How can we help you?"
+        logged_out_greeting="Hi! Welcome to PixelStrap Themes  How can we help you?">
+    </div> -->
+    <!-- facebook chat section end -->
+
+
+    <!-- tap to top -->
+    <div class="tap-top top-cls">
+        <div>
+            <i class="fa fa-angle-double-up"></i>
+        </div>
+    </div>
+    <!-- tap to top end -->
+
+
+    <!-- latest jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- fly cart ui jquery-->
+    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+
+    <!-- exitintent jquery-->
+    <script src="{{asset('assets/js/jquery.exitintent.js')}}"></script>
+    <script src="{{asset('assets/js/exit.js')}}"></script>
+
+    <!-- slick js-->
+    <script src="{{asset('assets/js/slick.js')}}"></script>
+
+    <!-- menu js-->
+    <script src="{{asset('assets/js/menu.js')}}"></script>
+
+    <!-- lazyload js-->
+    <script src="{{asset('assets/js/lazysizes.min.js')}}"></script>
+
+    <!-- Bootstrap js-->
+    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Bootstrap Notification js-->
+    <script src="{{asset('assets/js/bootstrap-notify.min.js')}}"></script>
+
+    <!-- Fly cart js-->
+    <script src="{{asset('assets/js/fly-cart.js')}}"></script>
+
+    <!-- Theme js-->
+    <script src="{{asset('assets/js/theme-setting.js')}}"></script>
+    <script src="{{asset('assets/js/script.js')}}"></script>
+
+    <script>
+        $(window).on('load', function () {
+            setTimeout(function () {
+                $('#exampleModal').modal('show');
+            }, 2500);
+        });
+
+        function openSearch() {
+            document.getElementById("search-overlay").style.display = "block";
+        }
+
+        function closeSearch() {
+            document.getElementById("search-overlay").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

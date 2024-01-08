@@ -6,955 +6,1529 @@ Canvas Cart
 
 @section('content')
   
-  <main class="main">
-            <div class="home-slider slide-animate owl-carousel owl-theme show-nav-hover nav-big mb-2 text-uppercase" data-owl-options="{
-        'loop': false
-      }">
-                <div class="home-slide home-slide1 banner">
-                    <img class="slide-bg" src="{{asset('user/assets/images/demoes/demo4/slider/slide-1.jpg')}}" width="1903" height="499" alt="slider image">
-                    <div class="container d-flex align-items-center">
-                        <div class="banner-layer appear-animate" data-animation-name="fadeInUpShorter">
-                            <h4 class="text-transform-none m-b-3">Find the Boundaries. Push Through!</h4>
-                            <h2 class="text-transform-none mb-0">Summer Sale</h2>
-                            <h3 class="m-b-3">70% Off</h3>
-                            <h5 class="d-inline-block mb-0">
-                                <span>Starting At</span>
-                                <b class="coupon-sale-text text-white bg-secondary align-middle"><sup>$</sup><em
-                    class="align-text-top">199</em><sup>99</sup></b>
-                            </h5>
-                            <a href="category.html" class="btn btn-dark btn-lg">Shop Now!</a>
-                        </div>
-                        <!-- End .banner-layer -->
-                    </div>
-                </div>
-                <!-- End .home-slide -->
-
-                <div class="home-slide home-slide2 banner banner-md-vw">
-                    <img class="slide-bg" style="background-color: #ccc;" width="1903" height="499" src="{{asset('user/assets/images/demoes/demo4/slider/slide-2.jpg')}}" alt="slider image">
-                    <div class="container d-flex align-items-center">
-                        <div class="banner-layer d-flex justify-content-center appear-animate" data-animation-name="fadeInUpShorter">
-                            <div class="mx-auto">
-                                <h4 class="m-b-1">Extra</h4>
-                                <h3 class="m-b-2">20% off</h3>
-                                <h3 class="mb-2 heading-border">Accessories</h3>
-                                <h2 class="text-transform-none m-b-4">Summer Sale</h2>
-                                <a href="category.html" class="btn btn-block btn-dark">Shop All Sale</a>
-                            </div>
-                        </div>
-                        <!-- End .banner-layer -->
-                    </div>
-                </div>
-                <!-- End .home-slide -->
-            </div>
-            <!-- End .home-slider -->
-
-            <div class="container">
-                <div class="info-boxes-slider owl-carousel owl-theme mb-2" data-owl-options="{
-          'dots': false,
-          'loop': false,
-          'responsive': {
-            '576': {
-              'items': 2
-            },
-            '992': {
-              'items': 3
-            }
-          }
-        }">
-                    <div class="info-box info-box-icon-left">
-                        <i class="icon-shipping"></i>
-
-                        <div class="info-box-content">
-                            <h4>FREE SHIPPING &amp; RETURN</h4>
-                            <p class="text-body">Free shipping on all orders over $99.</p>
-                        </div>
-                        <!-- End .info-box-content -->
-                    </div>
-                    <!-- End .info-box -->
-
-                    <div class="info-box info-box-icon-left">
-                        <i class="icon-money"></i>
-
-                        <div class="info-box-content">
-                            <h4>MONEY BACK GUARANTEE</h4>
-                            <p class="text-body">100% money back guarantee</p>
-                        </div>
-                        <!-- End .info-box-content -->
-                    </div>
-                    <!-- End .info-box -->
-
-                    <div class="info-box info-box-icon-left">
-                        <i class="icon-support"></i>
-
-                        <div class="info-box-content">
-                            <h4>ONLINE SUPPORT 24/7</h4>
-                            <p class="text-body">Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <!-- End .info-box-content -->
-                    </div>
-                    <!-- End .info-box -->
-                </div>
-                <!-- End .info-boxes-slider -->
-
-                <div class="banners-container mb-2">
-                    <div class="banners-slider owl-carousel owl-theme" data-owl-options="{
-            'dots': false
-          }">
-                        <div class="banner banner1 banner-sm-vw d-flex align-items-center appear-animate" style="background-color: #ccc;" data-animation-name="fadeInLeftShorter" data-animation-delay="500">
-                            <figure class="w-100">
-                                <img src="{{asset('user/assets/images/demoes/demo4/banners/banner-1.jpg')}}" alt="banner" width="380" height="175" />
-                            </figure>
-                            <div class="banner-layer">
-                                <h3 class="m-b-2">Porto Watches</h3>
-                                <h4 class="m-b-3 text-primary"><sup class="text-dark"><del>20%</del></sup>30%<sup>OFF</sup></h4>
-                                <a href="category.html" class="btn btn-sm btn-dark">Shop Now</a>
-                            </div>
-                        </div>
-                        <!-- End .banner -->
-
-                        <div class="banner banner2 banner-sm-vw text-uppercase d-flex align-items-center appear-animate" data-animation-name="fadeInUpShorter" data-animation-delay="200">
-                            <figure class="w-100">
-                                <img src="{{asset('user/assets/images/demoes/demo4/banners/banner-2.jpg')}}" style="background-color: #ccc;" alt="banner" width="380" height="175" />
-                            </figure>
-                            <div class="banner-layer text-center">
-                                <div class="row align-items-lg-center">
-                                    <div class="col-lg-7 text-lg-right">
-                                        <h3>Deal Promos</h3>
-                                        <h4 class="pb-4 pb-lg-0 mb-0 text-body">Starting at $99</h4>
-                                    </div>
-                                    <div class="col-lg-5 text-lg-left px-0 px-xl-3">
-                                        <a href="category.html" class="btn btn-sm btn-dark">Shop Now</a>
+      <!-- Home slider -->
+    <section class="p-0">
+        <div class="slide-1 home-slider">
+            <div>
+                <div class="home  text-center">
+                    <img src="{{asset('assets/images/1.jpg')}}" alt="" class="bg-img blur-up lazyload">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="slider-contain">
+                                    <div>
+                                        <h4>welcome to fashion</h4>
+                                        <h1>men fashion</h1>
+                                        <a href="#" class="btn btn-solid">shop now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- End .banner -->
-
-                        <div class="banner banner3 banner-sm-vw d-flex align-items-center appear-animate" style="background-color: #ccc;" data-animation-name="fadeInRightShorter" data-animation-delay="500">
-                            <figure class="w-100">
-                                <img src="{{asset('user/assets/images/demoes/demo4/banners/banner-3.jpg')}}" alt="banner" width="380" height="175" />
-                            </figure>
-                            <div class="banner-layer text-right">
-                                <h3 class="m-b-2">Handbags</h3>
-                                <h4 class="m-b-2 text-secondary text-uppercase">Starting at $99</h4>
-                                <a href="category.html" class="btn btn-sm btn-dark">Shop Now</a>
-                            </div>
-                        </div>
-                        <!-- End .banner -->
                     </div>
                 </div>
             </div>
-            <!-- End .container -->
-
-            <section class="featured-products-section">
-              <div class="container">
-                  <h2 class="section-title heading-border ls-20 border-0">Featured Products</h2>
-                  <div class="products-slider custom-products owl-carousel owl-theme nav-outer show-nav-hover nav-image-center" data-owl-options="{'dots': false,'nav': true}">
-                      
-                  @foreach($is_feature as $val)
-                      <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                          <figure>
-                              <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-                                  <img src="{{url('storage/app/'.$val->featured_img)}}" width="280" height="280" alt="product">
-                                  <img src="{{asset('user/assets/images/products/product-5-2.jpg')}}" width="280" height="280" alt="product">
-                              </a>
-                              <div class="label-group">
-                                  <div class="product-label label-sale">-15%</div>
-                              </div>
-                          </figure>
-                          <div class="product-details">
-                              <div class="category-list">
-                                  <a href="" class="product-category">{{$val->category->title}}</a>
-                              </div>
-                              <h3 class="product-title">
-                                  <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">{{$val->product_name}}</a>
-                              </h3>
-                              <div class="ratings-container">
-                                  <div class="product-ratings">
-                                      <span class="ratings" style="width:80%"></span>
-                                      <span class="tooltiptext tooltip-top"></span>
-                                  </div>
-                              </div>
-                              <div class="price-box">
-                                  <del class="old-price">${{$val->price}}</del>
-                                  <span class="product-price">${{$val->selling_price}}</span>
-                              </div>
-                              <div class="product-action">
-                                  <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}" class="btn-icon">
-							                      <i class="fa-solid fa-eye"></i>
-							                      <span>View Product</span>
-							                    </a>
-                              </div>
-                          </div>
-                      </div>
-                	@endforeach
-                  </div>
-              </div>
-            </section>
-            <section class="new-products-section">
-                <div class="container">
-                    <h2 class="section-title heading-border ls-20 border-0">New Arrivals</h2>
-
-                    <div class="products-slider custom-products owl-carousel owl-theme nav-outer show-nav-hover nav-image-center mb-2" data-owl-options="{'dots': false,'nav': true,'responsive': {'992': {'items': 4},'1200': {'items': 5}}}">
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                          <figure>
-                              <a href="product.html">
-                                  <img src="assets/images/products/product-6.jpg" width="220" height="220" alt="product">
-                                  <img src="assets/images/products/product-6-2.jpg" width="220" height="220" alt="product">
-                              </a>
-                              <div class="label-group">
-                                  <div class="product-label label-hot">HOT</div>
-                              </div>
-                          </figure>
-                          <div class="product-details">
-                            <div class="category-list">
-                                <a href="category.html" class="product-category">Category</a>
-                            </div>
-                            <h3 class="product-title">
-                                <a href="product.html">Men Black Gentle Belt</a>
-                            </h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:80%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                            </div>
-                            <div class="price-box">
-                                <del class="old-price">$59.00</del>
-                                <span class="product-price">$49.00</span>
-                            </div>
-                            <div class="product-action">
-                                <a href="wishlist.html" class="btn-icon-wish" title="wishlist">
-                                	<i class="icon-heart"></i>
-                                </a>
-                                <a href="#" class="btn-icon btn-add-cart product-type-simple">
-                                	<i class="icon-shopping-cart"></i>
-                  								<span>ADD TO CART</span>
-                								</a>
-                                <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">
-                                	<i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.html">
-                                    <img src="assets/images/products/product-7.jpg" width="220" height="220" alt="product">
-                                    <img src="assets/images/products/product-7-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.html" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.html">Brown-Black Men Casual Glasses</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
+            <div>
+                <div class="home text-center">
+                    <img src="{{asset('assets/images/2.jpg')}}" alt="" class="bg-img blur-up lazyload">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="slider-contain">
+                                    <div>
+                                        <h4>welcome to fashion</h4>
+                                        <h1>women fashion</h1>
+                                        <a href="#" class="btn btn-solid">shop now</a>
                                     </div>
-                                    <!-- End .product-ratings -->
                                 </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
-                      class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                      class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                      class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.html">
-                                    <img src="assets/images/products/product-8.jpg" width="220" height="220" alt="product">
-                                    <img src="assets/images/products/product-8-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-sale">-20%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.html" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.html">Brown-Black Men Casual Glasses</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
-                      class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                      class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                      class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.html">
-                                    <img src="assets/images/products/product-9.jpg" width="220" height="220" alt="product">
-                                    <img src="assets/images/products/product-9-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-sale">-30%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.html" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.html">Black Men Casual Glasses</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
-                      class="icon-heart"></i></a>
-                                    <a href="product.html" class="btn-icon btn-add-cart"><i
-                      class="fa fa-arrow-right"></i><span>SELECT
-                      OPTIONS</span></a>
-                                    <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                      class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.html">
-                                    <img src="assets/images/products/product-10.jpg" width="220" height="220" alt="product">
-                                    <img src="assets/images/products/product-10-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.html" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.html">Basketball Sports Blue Shoes</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
-                      class="icon-heart"></i></a>
-                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                      class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                    <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                      class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                        <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                            <figure>
-                                <a href="product.html">
-                                    <img src="assets/images/products/product-11.jpg" width="220" height="220" alt="product">
-                                    <img src="assets/images/products/product-11-2.jpg" width="220" height="220" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-sale">-20%</div>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-list">
-                                    <a href="category.html" class="product-category">Category</a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="product.html">Men Sports Travel Bag</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <!-- End .product-ratings -->
-                                </div>
-                                <!-- End .product-container -->
-                                <div class="price-box">
-                                    <del class="old-price">$59.00</del>
-                                    <span class="product-price">$49.00</span>
-                                </div>
-                                <!-- End .price-box -->
-                                <div class="product-action">
-                                    <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
-                      class="icon-heart"></i></a>
-                                    <a href="product.html" class="btn-icon btn-add-cart"><i
-                      class="fa fa-arrow-right"></i><span>SELECT
-                      OPTIONS</span></a>
-                                    <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                      class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                            <!-- End .product-details -->
-                        </div>
-                    </div>
-                    <!-- End .featured-proucts -->
-
-                    <div class="banner banner-big-sale appear-animate" data-animation-delay="200" data-animation-name="fadeInUpShorter" style="background: #2A95CB center/cover url('assets/images/demoes/demo4/banners/banner-4.jpg');">
-                        <div class="banner-content row align-items-center mx-0">
-                            <div class="col-md-9 col-sm-8">
-                                <h2 class="text-white text-uppercase text-center text-sm-left ls-n-20 mb-md-0 px-4">
-                                    <b class="d-inline-block mr-3 mb-1 mb-md-0">Big Sale</b> All new fashion brands items up to 70% off
-                                    <small class="text-transform-none align-middle">Online Purchases Only</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-3 col-sm-4 text-center text-sm-right">
-                                <a class="btn btn-light btn-white btn-lg" href="category.html">View Sale</a>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home slider end -->
 
-                    <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate" data-animation-delay="100" data-animation-name="fadeInUpShorter">Browse Our Categories
-                    </h2>
 
-                    <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
-                        @foreach($categoriesWithCount as $val)
-                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                            <a href="category.html">
-                                <figure>
-                                    <img src="assets/images/demoes/demo4/products/categories/category-1.jpg" alt="category" width="280" height="240" />
-                                </figure>
-                                <div class="category-content">
-                                    <h3>{{ $val->title }}</h3>
-                                    <span><mark class="count">{{ $val->products_count }}</mark>products</span>
+    <!-- collection banner -->
+    <section class="pb-0 ratio2_1">
+        <div class="container">
+            <div class="row partition2">
+                <div class="col-md-6">
+                    <a href="#">
+                        <div class="collection-banner p-right text-center">
+                            <div class="img-part">
+                                <img src="{{asset('assets/images/sub-banner1.jpg')}}" class="img-fluid blur-up lazyload bg-img"
+                                    alt="">
+                            </div>
+                            <div class="contain-banner">
+                                <div>
+                                    <h4>save 30%</h4>
+                                    <h2>men</h2>
                                 </div>
-                            </a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="#">
+                        <div class="collection-banner p-right text-center">
+                            <div class="img-part">
+                                <img src="{{asset('assets/images/sub-banner2.jpg')}}" class="img-fluid blur-up lazyload bg-img"
+                                    alt="">
+                            </div>
+                            <div class="contain-banner">
+                                <div>
+                                    <h4>save 60%</h4>
+                                    <h2>women</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- collection banner end -->
+
+
+    <!-- Paragraph-->
+    <div class="title1 section-t-space">
+        <h4>special offer</h4>
+        <h2 class="title-inner1">Latest Drops</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="product-para">
+                    <p class="text-center">Looking for the latest trends in clothing, shoes and accessories? Welcome to
+                        our 'Latest Drops' edit, bringing you all the latest styles from all your fave brands.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Paragraph end -->
+
+
+    <!-- Product slider -->
+    <section class="section-b-space pt-0 ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="product-4 product-m no-arrow">
+                        @foreach($is_feature as $val)
+                        <div class="product-box">
+                            <div class="img-wrapper">
+                                <div class="front">
+                                @php
+                                    $images = json_decode($val['images']);
+                                @endphp
+                                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
+                                        <img src="{{asset('upload/product/'.$images[0])}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    </a>
+                                </div>
+                                <div class="back">
+                                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
+                                        <img src="{{asset('upload/product/'.$images[1])}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    </a>
+                                </div>
+                                <div class="cart-info cart-wrap">
+                                    <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </button>
+                                    <a href="javascript:void(0)" title="Add to Wishlist">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
+                                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}"  title="Quick View">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-detail">
+                                <div class="rating">
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
+                                    <h6>{{$val->category->title}}</h6>
+                                    <h6>{{$val->product_name}}</h6>
+                                </a>
+                                <div class="d-flex">
+                                    <h4><del>${{$val->price}}</del></h4>
+                                    <h4 style="margin-left: 20px;">${{$val->selling_price}}</h4>
+                                </div>
+                                <ul class="color-variant">
+                                    <li class=""></li>
+                                </ul>
+                            </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
+    <!-- Product slider end -->
 
-            <section class="feature-boxes-container">
-                <div class="container appear-animate" data-animation-name="fadeInUpShorter">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="feature-box px-sm-5 feature-box-simple text-center">
-                                <div class="feature-box-icon">
-                                    <i class="icon-earphones-alt"></i>
-                                </div>
 
-                                <div class="feature-box-content p-0">
-                                    <h3>Customer Support</h3>
-                                    <h5>You Won't Be Alone</h5>
-
-                                    <p>We really care about you and your website as much as you do. Purchasing Porto or any other theme from us you get 100% free support.</p>
-                                </div>
-                                <!-- End .feature-box-content -->
-                            </div>
-                            <!-- End .feature-box -->
-                        </div>
-                        <!-- End .col-md-4 -->
-
-                        <div class="col-md-4">
-                            <div class="feature-box px-sm-5 feature-box-simple text-center">
-                                <div class="feature-box-icon">
-                                    <i class="icon-credit-card"></i>
-                                </div>
-
-                                <div class="feature-box-content p-0">
-                                    <h3>Fully Customizable</h3>
-                                    <h5>Tons Of Options</h5>
-
-                                    <p>With Porto you can customize the layout, colors and styles within only a few minutes. Start creating an amazing website right now!</p>
-                                </div>
-                                <!-- End .feature-box-content -->
-                            </div>
-                            <!-- End .feature-box -->
-                        </div>
-                        <!-- End .col-md-4 -->
-
-                        <div class="col-md-4">
-                            <div class="feature-box px-sm-5 feature-box-simple text-center">
-                                <div class="feature-box-icon">
-                                    <i class="icon-action-undo"></i>
-                                </div>
-                                <div class="feature-box-content p-0">
-                                    <h3>Powerful Admin</h3>
-                                    <h5>Made To Help You</h5>
-
-                                    <p>Porto has very powerful admin features to help customer to build their own shop in minutes without any special skills in web development.</p>
-                                </div>
-                                <!-- End .feature-box-content -->
-                            </div>
-                            <!-- End .feature-box -->
-                        </div>
-                        <!-- End .col-md-4 -->
-                    </div>
-                    <!-- End .row -->
-                </div>
-                <!-- End .container-->
-            </section>
-            <!-- End .feature-boxes-container -->
-
-            <section class="promo-section bg-dark" data-parallax="{'speed': 2, 'enableOnMobile': true}" data-image-src="assets/images/demoes/demo4/banners/banner-5.jpg">
-                <div class="promo-banner banner container text-uppercase">
-                    <div class="banner-content row align-items-center text-center">
-                        <div class="col-md-4 ml-xl-auto text-md-right appear-animate" data-animation-name="fadeInRightShorter" data-animation-delay="600">
-                            <h2 class="mb-md-0 text-white">Top Fashion<br>Deals</h2>
-                        </div>
-                        <div class="col-md-4 col-xl-3 pb-4 pb-md-0 appear-animate" data-animation-name="fadeIn" data-animation-delay="300">
-                            <a href="category.html" class="btn btn-dark btn-black ls-10">View Sale</a>
-                        </div>
-                        <div class="col-md-4 mr-xl-auto text-md-left appear-animate" data-animation-name="fadeInLeftShorter" data-animation-delay="600">
-                            <h4 class="mb-1 mt-1 font1 coupon-sale-text p-0 d-block ls-n-10 text-transform-none">
-                                <b>Exclusive
-                  COUPON</b></h4>
-                            <h5 class="mb-1 coupon-sale-text text-white ls-10 p-0"><i class="ls-0">UP TO</i><b class="text-white bg-secondary ls-n-10">$100</b> OFF</h5>
+    <!-- Parallax banner -->
+    <section class="p-0">
+        <div class="full-banner parallax text-center p-left">
+            <img src="{{asset('assets/images/1.jpg')}}" alt="" class="bg-img blur-up lazyload">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="banner-contain">
+                            <h2>2021</h2>
+                            <h3>fashion trends</h3>
+                            <h4>special offer</h4>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="blog-section pb-0">
-                <div class="container">
-                    <h2 class="section-title heading-border border-0 appear-animate" data-animation-name="fadeInUp">
-                        Latest News</h2>
-
-                    <div class="owl-carousel owl-theme appear-animate" data-animation-name="fadeIn" data-owl-options="{
-            'loop': false,
-            'margin': 20,
-            'autoHeight': true,
-            'autoplay': false,
-            'dots': false,
-            'items': 2,
-            'responsive': {
-              '0': {
-                'items': 1
-              },
-              '480': {
-                'items': 2
-              },
-              '576': {
-                'items': 3
-              },
-              '768': {
-                'items': 4
-              }
-            }
-          }">
-                        <article class="post">
-                            <div class="post-media">
-                                <a href="single.html">
-                                    <img src="assets/images/blog/home/post-1.jpg" alt="Post" width="225" height="280">
-                                </a>
-                                <div class="post-date">
-                                    <span class="day">26</span>
-                                    <span class="month">Feb</span>
-                                </div>
-                            </div>
-                            <!-- End .post-media -->
-
-                            <div class="post-body">
-                                <h2 class="post-title">
-                                    <a href="single.html">Top New Collection</a>
-                                </h2>
-                                <div class="post-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non tellus sem. Aenean...</p>
-                                </div>
-                                <!-- End .post-content -->
-                                <a href="single.html" class="post-comment">0 Comments</a>
-                            </div>
-                            <!-- End .post-body -->
-                        </article>
-                        <!-- End .post -->
-
-                        <article class="post">
-                            <div class="post-media">
-                                <a href="single.html">
-                                    <img src="assets/images/blog/home/post-2.jpg" alt="Post" width="225" height="280">
-                                </a>
-                                <div class="post-date">
-                                    <span class="day">26</span>
-                                    <span class="month">Feb</span>
-                                </div>
-                            </div>
-                            <!-- End .post-media -->
-
-                            <div class="post-body">
-                                <h2 class="post-title">
-                                    <a href="single.html">Fashion Trends</a>
-                                </h2>
-                                <div class="post-content">
-                                    <p>Leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of...</p>
-                                </div>
-                                <!-- End .post-content -->
-                                <a href="single.html" class="post-comment">0 Comments</a>
-                            </div>
-                            <!-- End .post-body -->
-                        </article>
-                        <!-- End .post -->
-
-                        <article class="post">
-                            <div class="post-media">
-                                <a href="single.html">
-                                    <img src="assets/images/blog/home/post-3.jpg" alt="Post" width="225" height="280">
-                                </a>
-                                <div class="post-date">
-                                    <span class="day">26</span>
-                                    <span class="month">Feb</span>
-                                </div>
-                            </div>
-                            <!-- End .post-media -->
-
-                            <div class="post-body">
-                                <h2 class="post-title">
-                                    <a href="single.html">Right Choices</a>
-                                </h2>
-                                <div class="post-content">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the...</p>
-                                </div>
-                                <!-- End .post-content -->
-                                <a href="single.html" class="post-comment">0 Comments</a>
-                            </div>
-                            <!-- End .post-body -->
-                        </article>
-                        <!-- End .post -->
-
-                        <article class="post">
-                            <div class="post-media">
-                                <a href="single.html">
-                                    <img src="assets/images/blog/home/post-4.jpg" alt="Post" width="225" height="280">
-                                </a>
-                                <div class="post-date">
-                                    <span class="day">26</span>
-                                    <span class="month">Feb</span>
-                                </div>
-                            </div>
-                            <!-- End .post-media -->
-
-                            <div class="post-body">
-                                <h2 class="post-title">
-                                    <a href="single.html">Perfect Accessories</a>
-                                </h2>
-                                <div class="post-content">
-                                    <p>Leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of...</p>
-                                </div>
-                                <!-- End .post-content -->
-                                <a href="single.html" class="post-comment">0 Comments</a>
-                            </div>
-                            <!-- End .post-body -->
-                        </article>
-                        <!-- End .post -->
-                    </div>
-
-                    <hr class="mt-0 m-b-5">
-
-                    <div class="brands-slider owl-carousel owl-theme images-center appear-animate" data-animation-name="fadeIn" data-animation-duration="500" data-owl-options="{
-          'margin': 0}">
-                        <img src="assets/images/brands/brand1.png" width="130" height="56" alt="brand">
-                        <img src="assets/images/brands/brand2.png" width="130" height="56" alt="brand">
-                        <img src="assets/images/brands/brand3.png" width="130" height="56" alt="brand">
-                        <img src="assets/images/brands/brand4.png" width="130" height="56" alt="brand">
-                        <img src="assets/images/brands/brand5.png" width="130" height="56" alt="brand">
-                        <img src="assets/images/brands/brand6.png" width="130" height="56" alt="brand">
-                    </div>
-                    <!-- End .brands-slider -->
-
-                    <hr class="mt-4 m-b-5">
-
-                    <div class="product-widgets-container row pb-2">
-								      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-								        <h4 class="section-sub-title">Featured Products</h4>
-								        @foreach($is_feature as $val)
-								        <div class="product-default left-details product-widget">
-								          <figure>
-								            <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-								              <img src="{{url('storage/app/'.$val->featured_img)}}" width="74" height="74" alt="product">
-								              <img src="{{asset('user/assets/images/products/small/product-1-2.jpg')}}" width="74" height="74" alt="product">
-								            </a>
-								          </figure>
-								          <div class="product-details">
-								            <h3 class="product-title">
-								              <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">{{$val->product_name}}</a>
-								            </h3>
-								            <div class="ratings-container">
-								              <div class="product-ratings">
-								                <span class="ratings" style="width:100%"></span>
-								                <!-- End .ratings -->
-								                <span class="tooltiptext tooltip-top"></span>
-								              </div>
-								              <!-- End .product-ratings -->
-								            </div>
-								            <!-- End .product-container -->
-								            <div class="price-box">
-								              <del class="old-price">${{$val->price}}</del>
-								              <span class="product-price">${{$val->selling_price}}</span>
-								            </div>
-								            <!-- End .price-box -->
-								          </div>
-								          <!-- End .product-details -->
-								        </div>
-								        @endforeach
-								      </div>
-      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-        <h4 class="section-sub-title">Best Selling Products</h4>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-4.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-4-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Blue Backpack for the Young - S</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top">5.00</span>
-              </div>
-              <!-- End .product-ratings -->
             </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
         </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-5.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-5-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Casual Spring Blue Shoes</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-6.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-6-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Men Black Gentle Belt</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top">5.00</span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-        <h4 class="section-sub-title">Latest Products</h4>
-        @foreach($recentProducts as $val)
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-              <img src="{{url('storage/app/'.$val->featured_img)}}" width="74" height="74" alt="product">
-              <img src="{{asset('user/assets/images/products/small/product-1-2.jpg')}}" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">{{$val->product_name}}</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <del class="old-price">${{$val->price}}</del>
-              <span class="product-price">${{$val->selling_price}}</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        @endforeach
-      </div>
-      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-        <h4 class="section-sub-title">Top Rated Products</h4>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-10.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-10-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Basketball Sports Blue Shoes</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-11.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-11-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Men Sports Travel Bag</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top">5.00</span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-12.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-12-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Brown HandBag</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-      </div>
+    </section>
+    <!-- Parallax banner end -->
+
+
+    <!-- Tab product -->
+    <div class="title1 section-t-space">
+        <h4>exclusive products</h4>
+        <h2 class="title-inner1">everyday casual</h2>
     </div>
-                    <!-- End .row -->
+    <section class="section-b-space pt-0 ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="theme-tab">
+                        <ul class="tabs tab-title">
+                            <li class="current"><a href="tab-4">work casual</a></li>
+                            <li class=""><a href="tab-5">WFH Wear</a></li>
+                            <li class=""><a href="tab-6">comfort wear</a></li>
+                        </ul>
+                        <div class="tab-content-cls">
+                            <div id="tab-4" class="tab-content active default">
+                                <div class="no-slider row">
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/27.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/28.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>purple solid polo tshirt</h6>
+                                            </a>
+                                            <h4>$50.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/1.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/2.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>sleevles white tshirt with text</h6>
+                                            </a>
+                                            <h4>$65.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/33.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/34.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>multi-color polo tshirt</h6>
+                                            </a>
+                                            <h4>$45.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/35.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/36.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>Candy red solid tshirt</h6>
+                                            </a>
+                                            <h4>$30.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/33.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/34.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>multi-color polo tshirt</h6>
+                                            </a>
+                                            <h4>$65.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/35.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/36.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>Candy red solid tshirt</h6>
+                                            </a>
+                                            <h4>$500.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/1.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/2.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>sleevles white tshirt with text</h6>
+                                            </a>
+                                            <h4>$50.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/27.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/28.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>purple solid polo tshirt</h6>
+                                            </a>
+                                            <h4>$25.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-5" class="tab-content">
+                                <div class="no-slider row">
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/33.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/34.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>purple solid polo tshirt</h6>
+                                            </a>
+                                            <h4>$50.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/35.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/36.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>Candy red solid tshirt</h6>
+                                            </a>
+                                            <h4>$35.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/1.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/2.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>sleevles white tshirt with text</h6>
+                                            </a>
+                                            <h4>$55.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/27.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/28.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>purple solid polo tshirt</h6>
+                                            </a>
+                                            <h4>$56.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/27.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/28.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>purple solid polo tshirt</h6>
+                                            </a>
+                                            <h4>$35.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/1.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/2.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>sleevles white tshirt with text</h6>
+                                            </a>
+                                            <h4>$16.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/33.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/34.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>multi-color polo tshirt</h6>
+                                            </a>
+                                            <h4>$19.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/35.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/36.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>Candy red solid tshirt</h6>
+                                            </a>
+                                            <h4>$18.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab-6" class="tab-content">
+                                <div class="no-slider row">
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/33.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/34.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>multi-color polo tshirt</h6>
+                                            </a>
+                                            <h4>$25.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/27.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/28.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>purple solid polo tshirt</h6>
+                                            </a>
+                                            <h4>$35.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/33.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/34.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>multi-color polo tshirt</h6>
+                                            </a>
+                                            <h4>$28.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/1.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/2.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>sleevles white tshirt with text</h6>
+                                            </a>
+                                            <h4>$16.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/35.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/36.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>Candy red solid tshirt</h6>
+                                            </a>
+                                            <h4>$24.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/35.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/36.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>Candy red solid tshirt</h6>
+                                            </a>
+                                            <h4>$24.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="lable-block"><span class="lable3">new</span> <span
+                                                    class="lable4">on sale</span></div>
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/1.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/2.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>sleevles white tshirt with text</h6>
+                                            </a>
+                                            <h4>$38.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-box">
+                                        <div class="img-wrapper">
+                                            <div class="front">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/27.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="back">
+                                                <a href="product-page(no-sidebar).html"><img
+                                                        src="{{asset('assets/images/28.jpg')}}"
+                                                        class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                            </div>
+                                            <div class="cart-info cart-wrap">
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                    title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
+                                                    href="javascript:void(0)" title="Add to Wishlist"><i
+                                                        class="ti-heart" aria-hidden="true"></i></a> <a href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                    title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                <a href="compare.html" title="Compare"><i class="ti-reload"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail">
+                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                    class="fa fa-star"></i>
+                                            </div>
+                                            <a href="product-page(no-sidebar).html">
+                                                <h6>purple solid polo tshirt</h6>
+                                            </a>
+                                            <h4>$24.00</h4>
+                                            <ul class="color-variant">
+                                                <li class="bg-light0"></li>
+                                                <li class="bg-light1"></li>
+                                                <li class="bg-light2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
+    </section>
+    <!-- Tab product end -->
+
+
+    <!-- service layout -->
+    <div class="container">
+        <section class="service border-section small-section">
+            <div class="row">
+                <div class="col-md-4 service-block">
+                    <div class="media">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -117 679.99892 679">
+                            <path
+                                d="m12.347656 378.382812h37.390625c4.371094 37.714844 36.316407 66.164063 74.277344 66.164063 37.96875 0 69.90625-28.449219 74.28125-66.164063h241.789063c4.382812 37.714844 36.316406 66.164063 74.277343 66.164063 37.96875 0 69.902344-28.449219 74.285157-66.164063h78.890624c6.882813 0 12.460938-5.578124 12.460938-12.460937v-352.957031c0-6.882813-5.578125-12.464844-12.460938-12.464844h-432.476562c-6.875 0-12.457031 5.582031-12.457031 12.464844v69.914062h-105.570313c-4.074218.011719-7.890625 2.007813-10.21875 5.363282l-68.171875 97.582031-26.667969 37.390625-9.722656 13.835937c-1.457031 2.082031-2.2421872 4.558594-2.24999975 7.101563v121.398437c-.09765625 3.34375 1.15624975 6.589844 3.47656275 9.003907 2.320312 2.417968 5.519531 3.796874 8.867187 3.828124zm111.417969 37.386719c-27.527344 0-49.851563-22.320312-49.851563-49.847656 0-27.535156 22.324219-49.855469 49.851563-49.855469 27.535156 0 49.855469 22.320313 49.855469 49.855469 0 27.632813-22.21875 50.132813-49.855469 50.472656zm390.347656 0c-27.53125 0-49.855469-22.320312-49.855469-49.847656 0-27.535156 22.324219-49.855469 49.855469-49.855469 27.539063 0 49.855469 22.320313 49.855469 49.855469.003906 27.632813-22.21875 50.132813-49.855469 50.472656zm140.710938-390.34375v223.34375h-338.375c-6.882813 0-12.464844 5.578125-12.464844 12.460938 0 6.882812 5.582031 12.464843 12.464844 12.464843h338.375v79.761719h-66.421875c-4.382813-37.710937-36.320313-66.15625-74.289063-66.15625-37.960937 0-69.898437 28.445313-74.277343 66.15625h-192.308594v-271.324219h89.980468c6.882813 0 12.464844-5.582031 12.464844-12.464843 0-6.882813-5.582031-12.464844-12.464844-12.464844h-89.980468v-31.777344zm-531.304688 82.382813h99.703125v245.648437h-24.925781c-4.375-37.710937-36.3125-66.15625-74.28125-66.15625-37.960937 0-69.90625 28.445313-74.277344 66.15625h-24.929687v-105.316406l3.738281-5.359375h152.054687c6.882813 0 12.460938-5.574219 12.460938-12.457031v-92.226563c0-6.882812-5.578125-12.464844-12.460938-12.464844h-69.796874zm-30.160156 43h74.777344v67.296875h-122.265625zm0 0"
+                                fill="#ff4c3b" />
+                        </svg>
+                        <div class="media-body">
+                            <h4>free shipping</h4>
+                            <p>free shipping world wide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 service-block">
+                    <div class="media">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                            id="Capa_1" x="0px" y="0px" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;"
+                            xml:space="preserve" width="512px" height="512px">
+                            <g>
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M472,432h-24V280c-0.003-4.418-3.588-7.997-8.006-7.994c-2.607,0.002-5.05,1.274-6.546,3.41l-112,160 c-2.532,3.621-1.649,8.609,1.972,11.14c1.343,0.939,2.941,1.443,4.58,1.444h104v24c0,4.418,3.582,8,8,8s8-3.582,8-8v-24h24 c4.418,0,8-3.582,8-8S476.418,432,472,432z M432,432h-88.64L432,305.376V432z"
+                                            fill="#ff4c3b" />
+                                        <path
+                                            d="M328,464h-94.712l88.056-103.688c0.2-0.238,0.387-0.486,0.56-0.744c16.566-24.518,11.048-57.713-12.56-75.552 c-28.705-20.625-68.695-14.074-89.319,14.631C212.204,309.532,207.998,322.597,208,336c0,4.418,3.582,8,8,8s8-3.582,8-8 c-0.003-26.51,21.486-48.002,47.995-48.005c10.048-0.001,19.843,3.151,28.005,9.013c16.537,12.671,20.388,36.007,8.8,53.32 l-98.896,116.496c-2.859,3.369-2.445,8.417,0.924,11.276c1.445,1.226,3.277,1.899,5.172,1.9h112c4.418,0,8-3.582,8-8 S332.418,464,328,464z"
+                                            fill="#ff4c3b" />
+                                        <path
+                                            d="M216.176,424.152c0.167-4.415-3.278-8.129-7.693-8.296c-0.001,0-0.002,0-0.003,0 C104.11,411.982,20.341,328.363,16.28,224H48c4.418,0,8-3.582,8-8s-3.582-8-8-8H16.28C20.283,103.821,103.82,20.287,208,16.288 V40c0,4.418,3.582,8,8,8s8-3.582,8-8V16.288c102.754,3.974,185.686,85.34,191.616,188l-31.2-31.2 c-3.178-3.07-8.242-2.982-11.312,0.196c-2.994,3.1-2.994,8.015,0,11.116l44.656,44.656c0.841,1.018,1.925,1.807,3.152,2.296 c0.313,0.094,0.631,0.172,0.952,0.232c0.549,0.198,1.117,0.335,1.696,0.408c0.08,0,0.152,0,0.232,0c0.08,0,0.152,0,0.224,0 c0.609-0.046,1.211-0.164,1.792-0.352c0.329-0.04,0.655-0.101,0.976-0.184c1.083-0.385,2.069-1.002,2.888-1.808l45.264-45.248 c3.069-3.178,2.982-8.242-0.196-11.312c-3.1-2.994-8.015-2.994-11.116,0l-31.976,31.952 C425.933,90.37,331.38,0.281,216.568,0.112C216.368,0.104,216.2,0,216,0s-0.368,0.104-0.568,0.112 C96.582,0.275,0.275,96.582,0.112,215.432C0.112,215.632,0,215.8,0,216s0.104,0.368,0.112,0.568 c0.199,115.917,91.939,210.97,207.776,215.28h0.296C212.483,431.847,216.013,428.448,216.176,424.152z"
+                                            fill="#ff4c3b" />
+                                        <path
+                                            d="M323.48,108.52c-3.124-3.123-8.188-3.123-11.312,0L226.2,194.48c-6.495-2.896-13.914-2.896-20.408,0l-40.704-40.704 c-3.178-3.069-8.243-2.981-11.312,0.197c-2.994,3.1-2.994,8.015,0,11.115l40.624,40.624c-5.704,11.94-0.648,26.244,11.293,31.947 c9.165,4.378,20.095,2.501,27.275-4.683c7.219-7.158,9.078-18.118,4.624-27.256l85.888-85.888 C326.603,116.708,326.603,111.644,323.48,108.52z M221.658,221.654c-0.001,0.001-0.001,0.001-0.002,0.002 c-3.164,3.025-8.148,3.025-11.312,0c-3.125-3.124-3.125-8.189-0.002-11.314c3.124-3.125,8.189-3.125,11.314-0.002 C224.781,213.464,224.781,218.53,221.658,221.654z"
+                                            fill="#ff4c3b" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="media-body">
+                            <h4>24 X 7 service</h4>
+                            <p>online service for new customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 service-block">
+                    <div class="media">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -14 512.00001 512">
+                            <path
+                                d="m136.964844 308.234375c4.78125-2.757813 6.417968-8.878906 3.660156-13.660156-2.761719-4.777344-8.878906-6.417969-13.660156-3.660157-4.78125 2.761719-6.421875 8.882813-3.660156 13.660157 2.757812 4.78125 8.878906 6.421875 13.660156 3.660156zm0 0"
+                                fill="#ff4c3b" />
+                            <path
+                                d="m95.984375 377.253906 50.359375 87.230469c10.867188 18.84375 35.3125 25.820313 54.644531 14.644531 19.128907-11.054687 25.703125-35.496094 14.636719-54.640625l-30-51.96875 25.980469-15c4.78125-2.765625 6.421875-8.878906 3.660156-13.660156l-13.003906-22.523437c1.550781-.300782 11.746093-2.300782 191.539062-37.570313 22.226563-1.207031 35.542969-25.515625 24.316407-44.949219l-33.234376-57.5625 21.238282-32.167968c2.085937-3.164063 2.210937-7.230469.316406-10.511719l-20-34.640625c-1.894531-3.28125-5.492188-5.203125-9.261719-4.980469l-38.472656 2.308594-36.894531-63.90625c-5.34375-9.257813-14.917969-14.863281-25.605469-14.996094-.128906-.003906-.253906-.003906-.382813-.003906-10.328124 0-19.703124 5.140625-25.257812 13.832031l-130.632812 166.414062-84.925782 49.03125c-33.402344 19.277344-44.972656 62.128907-25.621094 95.621094 17.679688 30.625 54.953126 42.671875 86.601563 30zm102.324219 57.238282c5.523437 9.554687 2.253906 21.78125-7.328125 27.316406-9.613281 5.558594-21.855469 2.144531-27.316407-7.320313l-50-86.613281 34.640626-20c57.867187 100.242188 49.074218 85.011719 50.003906 86.617188zm-22.683594-79.296876-10-17.320312 17.320312-10 10 17.320312zm196.582031-235.910156 13.820313 23.9375-12.324219 18.664063-23.820313-41.261719zm-104.917969-72.132812c2.683594-4.390625 6.941407-4.84375 8.667969-4.796875 1.707031.019531 5.960938.550781 8.527344 4.996093l116.3125 201.464844c3.789063 6.558594-.816406 14.804688-8.414063 14.992188-1.363281.03125-1.992187.277344-5.484374.929687l-123.035157-213.105469c2.582031-3.320312 2.914063-3.640624 3.425781-4.480468zm-16.734374 21.433594 115.597656 200.222656-174.460938 34.21875-53.046875-91.878906zm-223.851563 268.667968c-4.390625-7.597656-6.710937-16.222656-6.710937-24.949218 0-17.835938 9.585937-34.445313 25.011718-43.351563l77.941406-45 50 86.601563-77.941406 45.003906c-23.878906 13.78125-54.515625 5.570312-68.300781-18.304688zm0 0"
+                                fill="#ff4c3b" />
+                            <path
+                                d="m105.984375 314.574219c-2.761719-4.78125-8.878906-6.421875-13.660156-3.660157l-17.320313 10c-4.773437 2.757813-10.902344 1.113282-13.660156-3.660156-2.761719-4.78125-8.878906-6.421875-13.660156-3.660156s-6.421875 8.878906-3.660156 13.660156c8.230468 14.257813 26.589843 19.285156 40.980468 10.980469l17.320313-10c4.78125-2.761719 6.421875-8.875 3.660156-13.660156zm0 0"
+                                fill="#ff4c3b" />
+                            <path
+                                d="m497.136719 43.746094-55.722657 31.007812c-4.824218 2.6875-6.5625 8.777344-3.875 13.601563 2.679688 4.820312 8.765626 6.566406 13.601563 3.875l55.71875-31.007813c4.828125-2.6875 6.5625-8.777344 3.875-13.601562-2.683594-4.828125-8.773437-6.5625-13.597656-3.875zm0 0"
+                                fill="#ff4c3b" />
+                            <path
+                                d="m491.292969 147.316406-38.636719-10.351562c-5.335938-1.429688-10.820312 1.734375-12.25 7.070312-1.429688 5.335938 1.738281 10.816406 7.074219 12.246094l38.640625 10.351562c5.367187 1.441407 10.824218-1.773437 12.246094-7.070312 1.429687-5.335938-1.738282-10.820312-7.074219-12.246094zm0 0"
+                                fill="#ff4c3b" />
+                            <path
+                                d="m394.199219 7.414062-10.363281 38.640626c-1.429688 5.335937 1.734374 10.816406 7.070312 12.25 5.332031 1.425781 10.816406-1.730469 12.25-7.070313l10.359375-38.640625c1.429687-5.335938-1.734375-10.820312-7.070313-12.25-5.332031-1.429688-10.816406 1.734375-12.246093 7.070312zm0 0"
+                                fill="#ff4c3b" />
+                        </svg>
+                        <div class="media-body">
+                            <h4>festival offer</h4>
+                            <p>new online special festival offer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- service layout  end -->
+
+
+    <!-- blog section -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="title1 section-t-space">
+                    <h4>From the Blog</h4>
+                    <h2 class="title-inner1">Fashion for you</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="blog pt-0 ratio2_3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="slide-3 no-arrow slick-default-margin">
+                        <div class="col-md-12">
+                            <a href="#">
+                                <div class="classic-effect">
+                                    <div>
+                                        <img src="{{asset('assets/images/1.jpg')}}" class="img-fluid blur-up lazyload bg-img"
+                                            alt="">
+                                    </div>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <div class="blog-details">
+                                <h4>25 January 2021</h4>
+                                <a href="#">
+                                    <p>Top 10 January Best-Sellers Products – All Under $50!</p>
+                                </a>
+                                <hr class="style1">
+                                <h6>by: John Dio , 2 Comment</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="#">
+                                <div class="classic-effect">
+                                    <div>
+                                        <img src="{{asset('assets/images/2.jpg')}}" class="img-fluid blur-up lazyload bg-img"
+                                            alt="">
+                                    </div>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <div class="blog-details">
+                                <h4>25 January 2018</h4>
+                                <a href="#">
+                                    <p>Quarantine Birthday Celebration | In The Times of COVID-19</p>
+                                </a>
+                                <hr class="style1">
+                                <h6>by: John Dio , 2 Comment</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="#">
+                                <div class="classic-effect">
+                                    <div>
+                                        <img src="{{asset('assets/images/3.jpg')}}" class="img-fluid blur-up lazyload bg-img"
+                                            alt="">
+                                    </div>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <div class="blog-details">
+                                <h4>25 January 2018</h4>
+                                <a href="#">
+                                    <p>London fashion & Hair Trends From Fashion Week</p>
+                                </a>
+                                <hr class="style1">
+                                <h6>by: John Dio , 2 Comment</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="#">
+                                <div class="classic-effect">
+                                    <div>
+                                        <img src="{{asset('assets/images/4.jpg')}}" class="img-fluid blur-up lazyload bg-img"
+                                            alt="">
+                                    </div>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <div class="blog-details">
+                                <h4>25 January 2018</h4>
+                                <a href="#">
+                                    <p>Fun Fashion Clothing and Ideas for Valentine’s Day</p>
+                                </a>
+                                <hr class="style1">
+                                <h6>by: John Dio , 2 Comment</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="#">
+                                <div class="classic-effect">
+                                    <div>
+                                        <img src="{{asset('assets/images/5.jpg')}}" class="img-fluid blur-up lazyload bg-img"
+                                            alt="">
+                                    </div>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <div class="blog-details">
+                                <h4>25 January 2018</h4>
+                                <a href="#">
+                                    <p>Lorem ipsum dolor sit consectetur adipiscing elit,</p>
+                                </a>
+                                <hr class="style1">
+                                <h6>by: John Dio , 2 Comment</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog section end -->
+
+
+    <!-- instagram section -->
+    <section class="instagram ratio_square">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 p-0">
+                    <h2 class="title-borderless">#whowearwhat</h2>
+                    <div class="slide-7 no-arrow slick-instagram">
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/2.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/3.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/4.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/9.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/6.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/7.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/8.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/9.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <div class="instagram-box"> <img src="{{asset('assets/images/2.jpg')}}" class="bg-img"
+                                        alt="img">
+                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- instagram section end -->
+
+
+    <!--  logo section -->
+    <section class="section-b-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="slide-6 no-arrow">
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/1.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/2.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/3.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/4.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/5.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/6.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/7.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="logo-block">
+                                <a href="#"><img src="{{asset('assets/images/8.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  logo section end-->
   
 @endsection
