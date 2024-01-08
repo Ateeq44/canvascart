@@ -160,9 +160,13 @@ Canvas Cart
                                     <h4><del>${{$val->price}}</del></h4>
                                     <h4 style="margin-left: 20px;">${{$val->selling_price}}</h4>
                                 </div>
-                                <ul class="color-variant">
-                                    <li class=""></li>
-                                </ul>
+                                @<?php 
+                                    $percentage = is_numeric(($val->price / $val->selling_price) * 100);
+                                 ?>
+                                 <!-- {{dd($percentage)}} -->
+                                <div>
+                                    <p>{{ $percentage }}%</p>
+                                </div>
                             </div>
                         </div>
                         @endforeach

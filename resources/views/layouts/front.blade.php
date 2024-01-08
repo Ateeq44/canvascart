@@ -54,14 +54,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 text-end">
+                    <!-- <div class="col-lg-6 text-end">
                         <ul class="header-dropdown">
                             <li class="onhover-dropdown mobile-account">
                              <i class="fa-solid fa-user"></i>
                                 My Account
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -252,14 +252,18 @@
                         </div>
                     </div>
                     <div class="col-lg-6 text-end">
-                        <ul class="header-dropdown">
-                            <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                                My Account
-                                <ul class="onhover-show-div">
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">register</a></li>
-                                </ul>
-                            </li>
+                        <ul class="header-info">
+                            @if(!auth()->check())
+                            <li><a class=" btn btn-solid mt-2" href="{{url('/login')}}">Login</a></li>
+                            <li><a class=" btn btn-solid mt-2 ms-2" href="{{url('/register')}}">Register</a></li>
+                            @else
+
+                            @if(auth()->user()->role == '1')
+                            <li><a class=" btn btn-solid mt-2" href="{{url('/admin/dashboard')}}">Dashbaord</a></li>
+                            @elseif(auth()->user()->role == '3')
+                            <li><a class=" btn btn-solid mt-2" href="{{url('/dashboard')}}">Dashbaord</a></li>
+                            @endif
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -444,7 +448,7 @@
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html">
+                                <a href="{{url('/')}}">
                                     <img src="{{asset('assets/images/logo.png')}}" class="img-fluid blur-up lazyload" alt="">
                                 </a>
                             </div>
@@ -557,9 +561,9 @@
                     </div>
                     <div class="col offset-xl-1">
                         <div class="sub-title">
-                            <div class="footer-title">
+                            <<!-- div class="footer-title">
                                 <h4>my account</h4>
-                            </div>
+                            </div> -->
                             <div class="footer-contant">
                                 <ul>
                                     <li><a href="#">mens</a></li>
@@ -1379,7 +1383,7 @@
 
 
     <!-- exit modal popup start-->
-    <div class="modal fade bd-example-modal-lg theme-modal exit-modal" id="exit_popup" tabindex="-1" role="dialog"
+    <<!-- div class="modal fade bd-example-modal-lg theme-modal exit-modal" id="exit_popup" tabindex="-1" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -1412,7 +1416,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Add to cart modal popup end-->
 
 

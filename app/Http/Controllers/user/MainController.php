@@ -13,7 +13,9 @@ class MainController extends Controller
     {
         $data = [];
         $categoriesWithCount = Categories::withCount('products')->get();
+        
         $data['is_feature'] = Product::where('is_feature', '1')->where('status', '1')->where('admin_approval', '1')->get();
+
         $data['recentProducts'] = Product::latest('created_at')->take(3)->where('status', '1')->where('admin_approval', '1')->get();
         return view('home', $data , ['categoriesWithCount' => $categoriesWithCount]);
     }

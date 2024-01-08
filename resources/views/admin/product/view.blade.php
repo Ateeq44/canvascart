@@ -200,7 +200,8 @@ img {
                                 <h3 class="product-title">{{$row['product_name']}}</h3>
                                 
                                 <p class="product-description">{{$row['short_detail']}}</p>
-                                <h4 class="price">current price: <span>${{$row['price']}}</span></h4>
+                                <h4 class="price">Total Price: <del>${{$row['price']}}</del></h4>
+                                <h4 class="price">Selling Price: <span>${{$row['selling_price']}}</span></h4>
                                 
                                 <h5 class="sizes">sizes:
                                 @php
