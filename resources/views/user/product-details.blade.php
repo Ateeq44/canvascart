@@ -1,703 +1,539 @@
 @extends('layouts.front') 
 @section('title') 
-Canvas Cart 
+Product 
 @endsection 
 @section('content') 
-<style>
-	.jfdsk{
-		width: 250px !important;
-	}
-	.button.btn.btn-outline.btn-down-icon.bootstrap-touchspin-down.bootstrap-touchspin-injected{
-		display: none !important;
-	}
-</style>
-<main class="main">
-  <div class="container">
-    <nav aria-label="breadcrumb" class="breadcrumb-nav">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="demo4.html">
-            <i class="icon-home"></i>
-          </a>
-        </li>
-        <li class="breadcrumb-item">
-          <a href="#">Products</a>
-        </li>
-      </ol>
-    </nav>
-    <div class="product-single-container product-single-default">
-      <div class="cart-message d-none">
-        <strong class="single-cart-notice">{{$product_details->product_name}}</strong>
-        <span>has been added to your cart.</span>
+
+
+
+<div class="breadcrumb-section" bis_skin_checked="1">
+      <div class="container" bis_skin_checked="1">
+          <div class="row" bis_skin_checked="1">
+              <div class="col-sm-6" bis_skin_checked="1">
+                  <div class="page-title" bis_skin_checked="1">
+                      <h2>product</h2>
+                  </div>
+              </div>
+              <div class="col-sm-6" bis_skin_checked="1">
+                  <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                      <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="index.html" previewlistener="true">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">roduct</li>
+                      </ol>
+                  </nav>
+              </div>
+          </div>
       </div>
-      <div class="row">
-        <div class="col-lg-5 col-md-6 product-single-gallery">
-          <div class="product-slider-container">
-            <div class="label-group">
-              <div class="product-label label-sale"> -16% </div>
-            </div>
-            <div class="product-single-carousel owl-carousel owl-theme show-nav-hover owl-loaded owl-drag">
-              <div class="owl-stage-outer">
-                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2390px;">
-                  	<div class="owl-item active" style="width: 478px;">
-	                    <div class="product-item">
-	                      <img class="product-single-image" src="{{url('storage/app/'.$product_details->featured_img)}}" width="468" height="468" alt="product">
-	                      <div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:0px;top:0px;height:478px;width:478px;">
-	                        <div class="zoomWindowContainer" style="width: 400px;">
-	                          <div style="z-index: 999; overflow: hidden; margin-left: 0px; margin-top: 0px; background-position: -322px 0px; width: 478px; height: 478px; float: left; cursor: grab; background-repeat: no-repeat; position: absolute; background-image: url(&quot;
-	                          	{{url('storage/app/'.$product_details->featured_img)}}
-	                          	&quot;); top: 0px; left: 0px; display: none;" class="zoomWindow">&nbsp;</div>
-	                        </div>
-	                      </div>
-	                    </div>
-                  	</div>
-                </div>
-              </div>
-              <div class="owl-nav">
-                <button type="button" title="nav" role="presentation" class="owl-prev disabled">
-                  <i class="icon-angle-left"></i>
-                </button>
-                <button type="button" title="nav" role="presentation" class="owl-next">
-                  <i class="icon-angle-right"></i>
-                </button>
-              </div>
-            </div>
-            <!-- End .product-single-carousel -->
-            <span class="prod-full-screen">
-              <i class="icon-plus"></i>
-            </span>
-          </div>
-        </div>
-        <!-- End .product-single-gallery -->
-        <div class="col-lg-7 col-md-6 product-single-details">
-          <h1 class="product-title">{{$product_details->product_name}}</h1>
-          <div class="ratings-container">
-            <div class="product-ratings">
-              <span class="ratings" style="width:60%"></span>
-              <!-- End .ratings -->
-              <span class="tooltiptext tooltip-top">3.00</span>
-            </div>
-            <!-- End .product-ratings -->
-            <a href="#" class="rating-link">( 6 Reviews )</a>
-          </div>
-          <!-- End .ratings-container -->
-          <hr class="short-divider">
-          <div class="price-box">
-            <del class="old-price" style="font-size: 2.4rem;">${{$product_details->price}}</del>
-            <span class="product-price"> ${{$product_details->selling_price}}</span>
-          </div>
-          <!-- End .price-box -->
-          <div class="product-desc">
-            <p>
-            	{{$product_details->short_detail}}
-            </p>
-          </div>
-          <!-- End .product-desc -->
-          <ul class="single-info-list">
-            <!---->
-            <li> SKU: <strong>{{$product_details->sku}}</strong>
-            </li>
-            <li> CATEGORY: <strong>
-                <a href="#" class="product-category">{{$product_details->category->title}}</a>
-              </strong>
-            </li>
-          </ul>
-          <div class="product-filters-container">
-            <div class="product-single-filter">
-              <label>Color:</label>
-              <ul class="config-size-list config-color-list config-filter-list">
-                <li class="">
-                  <a href="javascript:;" class="filter-color border-0" style="background-color: rgb(1, 136, 204);"></a>
-                </li>
-                <li class="">
-                  <a href="javascript:;" class="filter-color border-0 initial disabled" style="background-color: rgb(221, 181, 119);"></a>
-                </li>
-                <li class="">
-                  <a href="javascript:;" class="filter-color border-0" style="background-color: rgb(96, 133, 165);"></a>
-                </li>
-              </ul>
-            </div>
-            <div class="product-single-filter">
-              <label>Size:</label>
-              <ul class="config-size-list">
-                <li>
-                  <a href="javascript:;" class="d-flex align-items-center justify-content-center">Extra Large</a>
-                </li>
-                <li class="">
-                  <a href="javascript:;" class="d-flex align-items-center justify-content-center">Large</a>
-                </li>
-                <li class="">
-                  <a href="javascript:;" class="d-flex align-items-center justify-content-center">Medium</a>
-                </li>
-                <li class="">
-                  <a href="javascript:;" class="d-flex align-items-center justify-content-center">Small</a>
-                </li>
-              </ul>
-            </div>
-            <div class="product-single-filter">
-              <label></label>
-              <a class="font1 text-uppercase clear-btn" href="#">Clear</a>
-            </div>
-            <!---->
-          </div>
-          <div class="product-action">
-            <div class="price-box product-filtered-price">
-              <del class="old-price">
-                <span>$286.00</span>
-              </del>
-              <span class="product-price">$245.00</span>
-            </div>
-            <div class="product-single-qty">
-              <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                <span class="input-group-btn input-group-prepend">
-                  {{-- <button class="btn btn-outline btn-down-icon bootstrap-touchspin-down" type="button"></button> --}}
-                </span>
-                <input class="horizontal-quantity form-control" type="text">
-                <span class="input-group-btn input-group-append">
-                  {{-- <button class="btn btn-outline btn-up-icon bootstrap-touchspin-up" type="button"></button> --}}
-                </span>
-              </div>
-            </div>
-            <!-- End .product-single-qty -->
-            <a href="javascript:;" class="btn btn-dark add-cart mr-2 disabled" title="Add to Cart">Add to Cart</a>
-            <a href="cart.html" class="btn btn-gray view-cart d-none">View cart</a>
-          </div>
-          <!-- End .product-action -->
-          <hr class="divider mb-0 mt-0">
-          <div class="product-single-share mb-2">
-            <label class="sr-only">Share:</label>
-            <div class="social-icons mr-2">
-              <a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
-              <a href="#" class="social-icon social-twitter icon-twitter" target="_blank" title="Twitter"></a>
-              <a href="#" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank" title="Linkedin"></a>
-              <a href="#" class="social-icon social-gplus fab fa-google-plus-g" target="_blank" title="Google +"></a>
-              <a href="#" class="social-icon social-mail icon-mail-alt" target="_blank" title="Mail"></a>
-            </div>
-            <!-- End .social-icons -->
-            <a href="wishlist.html" class="btn-icon-wish add-wishlist" title="Add to Wishlist">
-              <i class="icon-wishlist-2"></i>
-              <span>Add to Wishlist</span>
-            </a>
-          </div>
-          <!-- End .product single-share -->
-        </div>
-        <!-- End .product-single-details -->
-      </div>
-      <!-- End .row -->
-    </div>
-    <!-- End .product-single-container -->
-    <div class="product-single-tabs">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Description</a>
-        </li>
-        @if($product_details->category->title == 'Cloths')
-        <li class="nav-item">
-          <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content" role="tab" aria-controls="product-size-content" aria-selected="true">Size Guide</a>
-        </li>
-        @endif
-        <li class="nav-item">
-          <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab" aria-controls="product-tags-content" aria-selected="false">Additional Information</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="product-tab-reviews" data-toggle="tab" href="#product-reviews-content" role="tab" aria-controls="product-reviews-content" aria-selected="false">Reviews (1)</a>
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel" aria-labelledby="product-tab-desc">
-          <div class="product-desc-content">
-            {!! $product_details->long_detail !!}
-          </div>
-          <!-- End .product-desc-content -->
-        </div>
-        <!-- End .tab-pane -->
-        <div class="tab-pane fade" id="product-size-content" role="tabpanel" aria-labelledby="product-tab-size">
-          <div class="product-size-content">
+</div>
+<section>
+    <div class="collection-wrapper">
+        <div class="container">
             <div class="row">
-              <div class="col-md-4">
-                <img src="{{asset('user/assets/images/products/single/body-shape.png')}}" alt="body shape" width="217" height="398">
-              </div>
-              <!-- End .col-md-4 -->
-              <div class="col-md-8">
-                <table class="table table-size">
-                  <thead>
-                    <tr>
-                      <th>SIZE</th>
-                      <th>CHEST (in.)</th>
-                      <th>WAIST (in.)</th>
-                      <th>HIPS (in.)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>XS</td>
-                      <td>34-36</td>
-                      <td>27-29</td>
-                      <td>34.5-36.5</td>
-                    </tr>
-                    <tr>
-                      <td>S</td>
-                      <td>36-38</td>
-                      <td>29-31</td>
-                      <td>36.5-38.5</td>
-                    </tr>
-                    <tr>
-                      <td>M</td>
-                      <td>38-40</td>
-                      <td>31-33</td>
-                      <td>38.5-40.5</td>
-                    </tr>
-                    <tr>
-                      <td>L</td>
-                      <td>40-42</td>
-                      <td>33-36</td>
-                      <td>40.5-43.5</td>
-                    </tr>
-                    <tr>
-                      <td>XL</td>
-                      <td>42-45</td>
-                      <td>36-40</td>
-                      <td>43.5-47.5</td>
-                    </tr>
-                    <tr>
-                      <td>XLL</td>
-                      <td>45-48</td>
-                      <td>40-44</td>
-                      <td>47.5-51.5</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              @php
+                $images = json_decode($product_details->images)
+              @endphp
+                <div class="col-lg-6" >
+
+                  <div class="simple-slider">
+                    <img id="displayedImage" style="width: 100%" src="{{ asset('upload/product/'.$images[0]) }}" alt="Displayed Product Image">
+                  </div>
+                  <div class="full-slider" style="width: 100%;">
+                  <div class="slider">
+                    @foreach($images as $val)
+                    <img  src="{{ asset('upload/product/'.$val) }}" alt="Product 1" onclick="showImage('{{ asset('upload/product/'.$val) }}')">
+                    @endforeach
+                  </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="product-right">
+                        <div class="product-count">
+                            {{-- <ul>
+                                <li>
+                                    <img src="../assets/images/fire.gif" class="img-fluid" alt="image">
+                                    <span class="p-counter" id="demo"></span>
+                                    <span class="lang">orders in last 24 hours</span>
+                                </li>
+                                <li>
+                                    <img src="../assets/images/person.gif" class="img-fluid user_img" alt="image">
+                                    <span class="p-counter">44</span>
+                                    <span class="lang">active view this</span>
+                                </li>
+                            </ul> --}}
+                        </div>
+                        <h2>{{$product_details->product_name}}</h2>
+                        <div class="rating-section" bis_skin_checked="1">
+                            <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                            </div>
+                            <h6>120 ratings</h6>
+                        </div>
+                        {{-- <div class="label-section" bis_skin_checked="1">
+                            <span class="badge badge-grey-color">#1 Best seller</span>
+                            <span class="label-text">in fashion</span>
+                        </div> --}}
+                        <?php
+                            // Check if $val->price and $val->selling_price are numeric before performing the calculation
+                            if (is_numeric($product_details->price) && is_numeric($product_details->selling_price) && $product_details->price != 0) {
+                                // Calculate the discount percentage
+                                $discountPercentage = round((($product_details->price - $product_details->selling_price) / $product_details->price) * 100);
+                            } else {
+                                // Set a default value or handle the case where the values are not numeric or $val->price is 0
+                                $discountPercentage = 0;
+                            }
+                        ?>
+                        <h3 class="price-detail">${{$product_details->selling_price}} <del>${{$product_details->price}}</del><span>{{ $discountPercentage }}% off</span></h3>
+                        
+                            {{-- @if(!$product_details->size == []) --}}
+                        <div id="selectSize" class="addeffect-section product-description border-product" bis_skin_checked="1">
+                            <h6 class="product-title size-text">select Color 
+                              <span>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#sizemodal" previewlistener="true">size
+                                  chart
+                                </a>
+                              </span>
+                            </h6>
+                            
+
+                            <div class="size-box" bis_skin_checked="1">
+                                @php
+                                $color = json_decode($product_details->color)
+                                @endphp
+                                <ul>
+                                    @foreach($color as $val)
+                                    <li style="border-radius: unset;padding: 5px 11px; min-width: 100px;">{{$val}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            
+                        </div>
+                            {{-- @endif --}}
+                        <div id="" class="addeffect-section product-description border-product" bis_skin_checked="1">
+                            <h6 class="product-title size-text">select size </h6>
+                          {{-- @if(!$product_details->size == 'null') --}}
+
+                          <div class="size-box" bis_skin_checked="1">
+                              @php
+                              $size = json_decode($product_details->size)
+                              @endphp
+                              <ul>
+                                  @foreach($size as $val)
+                                  <li><a href="#">{{$val}}</a></li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                          {{-- @endif --}}
+                            
+                            <h6 class="product-title">quantity</h6>
+                            <div class="qty-box" bis_skin_checked="1">
+                                <div class="input-group" bis_skin_checked="1"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field="" fdprocessedid="hqd1z"><i class="ti-angle-left"></i></button> </span>
+                                    <input type="text" name="quantity" class="form-control input-number" value="1" fdprocessedid="rogv2">
+                                    <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field="" fdprocessedid="a2hh48"><i class="ti-angle-right"></i></button></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons" bis_skin_checked="1"><a href="javascript:void(0)" id="cartEffect" class="btn btn-solid hover-solid btn-animation"><i class="fa fa-shopping-cart me-1" aria-hidden="true"></i> add to cart</a> <a href="#" class="btn btn-solid"><i class="fa fa-bookmark fz-16 me-2" aria-hidden="true"></i>wishlist</a></div>
+                        {{-- <div class="product-count" bis_skin_checked="1">
+                            <ul>
+                                <li>
+                                    <img src="../assets/images/icon/truck.png" class="img-fluid" alt="image">
+                                    <span class="lang">Free shipping for orders above $500 USD</span>
+                                </li>
+                            </ul>
+                        </div> --}}
+                        <div class="border-product" bis_skin_checked="1">
+                            <h6 class="product-title">Sales Ends In</h6>
+                            <div class="timer" bis_skin_checked="1">
+                                <p id="demo">
+                                  <span>239<span class="padding-l">:</span>
+                                    <span class="timer-cal">Days</span>
+                                  </span>
+                                  <span>19<span class="padding-l">:</span>
+                                    <span class="timer-cal">Hrs</span>
+                                  </span>
+                                  <span>52<span class="padding-l">:</span>
+                                    <span class="timer-cal">Min</span></span>
+                                  <span>31
+                                    <span class="timer-cal">Sec</span>
+                                  </span> 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="border-product" bis_skin_checked="1">
+                            <h6 class="product-title">shipping info</h6>
+                            <ul class="shipping-info">
+                                <li>100% Original Products</li>
+                                <li>Free Delivery on order above Rs. 799</li>
+                                <li>Pay on delivery is available</li>
+                                <li>Easy 30 days returns and exchanges</li>
+                            </ul>
+                        </div>
+                        <div class="border-product" bis_skin_checked="1">
+                            <h6 class="product-title">share it</h6>
+                            <div class="product-icon" bis_skin_checked="1">
+                                <ul class="product-social">
+                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="border-product" bis_skin_checked="1">
+                            <h6 class="product-title">Frequently bought together</h6>
+                            <div class="bundle" bis_skin_checked="1">
+                                <div class="bundle_img" bis_skin_checked="1">
+                                    <div class="img-box" bis_skin_checked="1">
+                                        <a href="#"><img src="../assets/images/fashion/pro/001.jpg" alt="" class="img-fluid blur-up lazyloaded"></a>
+                                    </div>
+                                    <span class="plus">+</span>
+                                    <div class="img-box" bis_skin_checked="1">
+                                        <a href="#"><img src="../assets/images/fashion/pro/skirt.jpg" alt="" class="img-fluid blur-up lazyloaded"></a>
+                                    </div>
+                                    <span class="plus">+</span>
+                                    <div class="img-box" bis_skin_checked="1">
+                                        <a href="#"><img src="../assets/images/fashion/pro/shoes.jpg" alt="" class="img-fluid blur-up lazyloaded"></a>
+                                    </div>
+                                </div>
+                                <div class="bundle_detail" bis_skin_checked="1">
+                                    <div class="theme_checkbox" bis_skin_checked="1">
+                                        <label>this product: WOMEN PINK SHIRT <span class="price_product">$55</span>
+                                            <input type="checkbox" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label>black long skirt <span class="price_product">$20</span>
+                                            <input type="checkbox" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label>women heeled boots <span class="price_product">$15</span>
+                                            <input type="checkbox" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <a href="#" class="btn btn-solid btn-xs">buy this bundle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- End .row -->
-          </div>
-          <!-- End .product-size-content -->
         </div>
-        <!-- End .tab-pane -->
-        <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
-          <table class="table table-striped mt-2">
-            <tbody>
-              
-              <tr>
-                <th>Dimensions</th>
-                <td>{{$product_details->dimension}}</td>
-              </tr>
-              <tr>
-                <th>Color</th>
-                <td>{{$product_details->color}}</td>
-              </tr>
-              <tr>
-                <th>Size</th>
-                <td>{{$product_details->size}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- End .tab-pane -->
-        <div class="tab-pane fade" id="product-reviews-content" role="tabpanel" aria-labelledby="product-tab-reviews">
-          <div class="product-reviews-content">
-            <h3 class="reviews-title">1 review for Men Black Sports Shoes</h3>
-            <div class="comment-list">
-              <div class="comments">
-                <figure class="img-thumbnail">
-                  <img src="assets/images/blog/author.jpg" alt="author" width="80" height="80">
-                </figure>
-                <div class="comment-block">
-                  <div class="comment-header">
-                    <div class="comment-arrow"></div>
-                    <div class="ratings-container float-sm-right">
-                      <div class="product-ratings">
-                        <span class="ratings" style="width:60%"></span>
-                        <!-- End .ratings -->
-                        <span class="tooltiptext tooltip-top"></span>
-                      </div>
-                      <!-- End .product-ratings -->
-                    </div>
-                    <span class="comment-by">
-                      <strong>Joe Doe</strong> – April 12, 2018 </span>
-                  </div>
-                  <div class="comment-content">
-                    <p>Excellent.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="divider"></div>
-            <div class="add-product-review">
-              <h3 class="review-title">Add a review</h3>
-              <form action="#" class="comment-form m-0">
-                <div class="rating-form">
-                  <label for="rating">Your rating <span class="required">*</span>
-                  </label>
-                  <span class="rating-stars">
-                    <a class="star-1" href="#">1</a>
-                    <a class="star-2" href="#">2</a>
-                    <a class="star-3" href="#">3</a>
-                    <a class="star-4" href="#">4</a>
-                    <a class="star-5" href="#">5</a>
-                  </span>
-                  <select name="rating" id="rating" required="" style="display: none;">
-                    <option value="">Rate…</option>
-                    <option value="5">Perfect</option>
-                    <option value="4">Good</option>
-                    <option value="3">Average</option>
-                    <option value="2">Not that bad</option>
-                    <option value="1">Very poor</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Your review <span class="required">*</span>
-                  </label>
-                  <textarea cols="5" rows="6" class="form-control form-control-sm"></textarea>
-                </div>
-                <!-- End .form-group -->
-                <div class="row">
-                  <div class="col-md-6 col-xl-12">
-                    <div class="form-group">
-                      <label>Name <span class="required">*</span>
-                      </label>
-                      <input type="text" class="form-control form-control-sm" required="">
-                    </div>
-                    <!-- End .form-group -->
-                  </div>
-                  <div class="col-md-6 col-xl-12">
-                    <div class="form-group">
-                      <label>Email <span class="required">*</span>
-                      </label>
-                      <input type="text" class="form-control form-control-sm" required="">
-                    </div>
-                    <!-- End .form-group -->
-                  </div>
-                  <div class="col-md-12">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="save-name">
-                      <label class="custom-control-label mb-0" for="save-name">Save my name, email, and website in this browser for the next time I comment.</label>
-                    </div>
-                  </div>
-                </div>
-                <input type="submit" class="btn btn-primary" value="Submit">
-              </form>
-            </div>
-            <!-- End .add-product-review -->
-          </div>
-          <!-- End .product-reviews-content -->
-        </div>
-        <!-- End .tab-pane -->
-      </div>
-      <!-- End .tab-content -->
     </div>
-    <!-- End .product-single-tabs -->
-    <div class="products-section pt-0">
-      <h2 class="section-title">Related Products</h2>
-      <div class="products-slider owl-carousel owl-theme dots-top dots-small owl-loaded owl-drag">
-        <div class="owl-stage-outer">
-          <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1500px;">
-          	@foreach($related_product as $val)
-            <div class="owl-item active" style="width: 280px; margin-right: 20px;">
-              <div class="product-default">
-                <figure>
-                  <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-                    <img src="{{url('storage/app/'.$product_details->featured_img)}}" width="280" height="280" alt="product">
-                    <img src="{{asset('user/assets/images/products/product-1-2.jpg')}}" width="280" height="280" alt="product">
-                  </a>
-                  <div class="label-group">
-                    <div class="product-label label-sale">-20%</div>
-                  </div>
-                </figure>
-                <div class="product-details">
-                  <div class="category-list">
-                    <a href="category.html" class="product-category">{{$product_details->category->title}}</a>
-                  </div>
-                  <h3 class="product-title">
-                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">{{$product_details->product_name}}</a>
-                  </h3>
-                  <div class="ratings-container">
-                    <div class="product-ratings">
-                      <span class="ratings" style="width:80%"></span>
-                      <!-- End .ratings -->
-                      <span class="tooltiptext tooltip-top"></span>
+</section>
+<section class="tab-product m-0">
+    <div class="container" bis_skin_checked="1">
+        <div class="row" bis_skin_checked="1">
+            <div class="col-sm-12 col-lg-12" bis_skin_checked="1">
+                <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-bs-toggle="tab" href="#top-home" role="tab" aria-selected="true"><i class="icofont icofont-ui-home"></i>Details</a>
+                        <div class="material-border" bis_skin_checked="1"></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-bs-toggle="tab" href="#top-profile" role="tab" aria-selected="false"><i class="icofont icofont-man-in-glasses"></i>Specification</a>
+                        <div class="material-border" bis_skin_checked="1"></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-bs-toggle="tab" href="#top-contact" role="tab" aria-selected="false"><i class="icofont icofont-contacts"></i>Video</a>
+                        <div class="material-border" bis_skin_checked="1"></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" id="review-top-tab" data-bs-toggle="tab" href="#top-review" role="tab" aria-selected="false"><i class="icofont icofont-contacts"></i>Write Review</a>
+                        <div class="material-border" bis_skin_checked="1"></div>
+                    </li>
+                </ul>
+                <div class="tab-content nav-material" id="top-tabContent" bis_skin_checked="1">
+                    <div class="tab-pane fade show active" id="top-home" role="tabpanel" aria-labelledby="top-home-tab" bis_skin_checked="1">
+                        <div class="product-tab-discription" bis_skin_checked="1">
+                            <div class="part" bis_skin_checked="1">
+                                <p>The Model is wearing a white blouse from our stylist's collection, see the image
+                                    for a mock-up of what the actual blouse would look like.it has text written on
+                                    it in a black cursive language which looks great on a white color.</p>
+                            </div>
+                            <div class="part" bis_skin_checked="1">
+                                <h5 class="inner-title">fabric:</h5>
+                                <p>Art silk is manufactured by synthetic fibres like rayon. It's light in weight and
+                                    is soft on the skin for comfort in summers.Art silk is manufactured by synthetic
+                                    fibres like rayon. It's light in weight and is soft on the skin for comfort in
+                                    summers.</p>
+                            </div>
+                            <div class="part" bis_skin_checked="1">
+                                <h5 class="inner-title">size &amp; fit:</h5>
+                                <p>The model (height 5'8") is wearing a size S</p>
+                            </div>
+                            <div class="part" bis_skin_checked="1">
+                                <h5 class="inner-title">Material &amp; Care:</h5>
+                                <p>Top fabric: pure cotton</p>
+                                <p>Bottom fabric: pure cotton</p>
+                                <p>Hand-wash</p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- End .product-ratings -->
-                  </div>
-                  <!-- End .product-container -->
-                  <div class="price-box">
-                    <del class="old-price">${{$product_details->price}}</del>
-                    <span class="product-price">${{$product_details->selling_price}}</span>
-                  </div>
-                  <!-- End .price-box -->
-                  <div class="product-action">
-                    
-                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}" class="btn-icon">
-                      <i class="fa-solid fa-eye"></i>
-                      <span>View Product</span>
-                    </a>
-                    
-                  </div>
+                    <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab" bis_skin_checked="1">
+                        <p>The Model is wearing a white blouse from our stylist's collection, see the image for a
+                            mock-up of what the actual blouse would look like.it has text written on it in a black
+                            cursive language which looks great on a white color.</p>
+                        <div class="single-product-tables" bis_skin_checked="1">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Sleeve Length</td>
+                                        <td>Sleevless</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Neck</td>
+                                        <td>Round Neck</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Occasion</td>
+                                        <td>Sports</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Fabric</td>
+                                        <td>Polyester</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fit</td>
+                                        <td>Regular Fit</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab" bis_skin_checked="1">
+                        <div class="" bis_skin_checked="1">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab" bis_skin_checked="1">
+                        <form class="theme-form">
+                            <div class="form-row row" bis_skin_checked="1">
+                                <div class="col-md-12" bis_skin_checked="1">
+                                    <div class="media" bis_skin_checked="1">
+                                        <label>Rating</label>
+                                        <div class="media-body ms-3" bis_skin_checked="1">
+                                            <div class="rating three-star" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" bis_skin_checked="1">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+                                </div>
+                                <div class="col-md-6" bis_skin_checked="1">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                                </div>
+                                <div class="col-md-12" bis_skin_checked="1">
+                                    <label for="review">Review Title</label>
+                                    <input type="text" class="form-control" id="review" placeholder="Enter your Review Subjects" required="">
+                                </div>
+                                <div class="col-md-12" bis_skin_checked="1">
+                                    <label for="review">Review Title</label>
+                                    <textarea class="form-control" placeholder="Wrire Your Testimonial Here" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                </div>
+                                <div class="col-md-12" bis_skin_checked="1">
+                                    <button class="btn btn-solid" type="submit">Submit YOur
+                                        Review</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <!-- End .product-details -->
-              </div>
             </div>
-            @endforeach
-          </div>
         </div>
-        <div class="owl-nav disabled">
-          <button type="button" title="nav" role="presentation" class="owl-prev">
-            <i class="icon-angle-left"></i>
-          </button>
-          <button type="button" title="nav" role="presentation" class="owl-next">
-            <i class="icon-angle-right"></i>
-          </button>
-        </div>
-        <div class="owl-dots">
-          <button role="button" title="dot" class="owl-dot active">
-            <span></span>
-          </button>
-          <button role="button" title="dot" class="owl-dot">
-            <span></span>
-          </button>
-        </div>
-      </div>
-      <!-- End .products-slider -->
     </div>
-    <!-- End .products-section -->
-    <hr class="mt-0 m-b-5">
-    <div class="product-widgets-container row pb-2">
-      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-        <h4 class="section-sub-title">Featured Products</h4>
-        @foreach($is_feature as $val)
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-              <img src="{{url('storage/app/'.$val->featured_img)}}" width="74" height="74" alt="product">
-              <img src="{{asset('user/assets/images/products/small/product-1-2.jpg')}}" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">{{$val->product_name}}</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
+</section>
+<section class="section-b-space ratio_asos">
+    <div class="container" bis_skin_checked="1">
+        <div class="row" bis_skin_checked="1">
+            <div class="col-12 product-related" bis_skin_checked="1">
+                <h2>related products</h2>
             </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <del class="old-price">${{$val->price}}</del>
-              <span class="product-price">${{$val->selling_price}}</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
         </div>
-        @endforeach
-      </div>
-      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-        <h4 class="section-sub-title">Best Selling Products</h4>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-4.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-4-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Blue Backpack for the Young - S</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top">5.00</span>
-              </div>
-              <!-- End .product-ratings -->
+        <div class="row search-product" bis_skin_checked="1">
+            <div class="col-xl-2 col-md-4 col-6" bis_skin_checked="1">
+                <div class="product-box" bis_skin_checked="1">
+                    <div class="img-wrapper" bis_skin_checked="1">
+                        <div class="front" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/1.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="back" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/01.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/01.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="cart-info cart-wrap" bis_skin_checked="1">
+                            <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart" fdprocessedid="ox4pz9"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare" previewlistener="true"><i class="ti-reload" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-detail" bis_skin_checked="1">
+                        <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                        </div>
+                        <a href="product-page(no-sidebar).html" previewlistener="true">
+                            <h6>Slim Fit Cotton Shirt</h6>
+                        </a>
+                        <h4>$500.00</h4>
+                        <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
+            <div class="col-xl-2 col-md-4 col-6" bis_skin_checked="1">
+                <div class="product-box" bis_skin_checked="1">
+                    <div class="img-wrapper" bis_skin_checked="1">
+                        <div class="front" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/5.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/5.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="back" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/05.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/05.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="cart-info cart-wrap" bis_skin_checked="1">
+                            <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart" fdprocessedid="f12biyc"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare" previewlistener="true"><i class="ti-reload" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-detail" bis_skin_checked="1">
+                        <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                        </div>
+                        <a href="product-page(no-sidebar).html" previewlistener="true">
+                            <h6>Slim Fit Cotton Shirt</h6>
+                        </a>
+                        <h4>$500.00</h4>
+                        <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
+            <div class="col-xl-2 col-md-4 col-6" bis_skin_checked="1">
+                <div class="product-box" bis_skin_checked="1">
+                    <div class="img-wrapper" bis_skin_checked="1">
+                        <div class="front" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/6.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/6.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="back" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/06.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/06.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="cart-info cart-wrap" bis_skin_checked="1">
+                            <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart" fdprocessedid="gjbgve"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare" previewlistener="true"><i class="ti-reload" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-detail" bis_skin_checked="1">
+                        <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                        </div>
+                        <a href="product-page(no-sidebar).html" previewlistener="true">
+                            <h6>Slim Fit Cotton Shirt</h6>
+                        </a>
+                        <h4>$500.00</h4>
+                        <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-6" bis_skin_checked="1">
+                <div class="product-box" bis_skin_checked="1">
+                    <div class="img-wrapper" bis_skin_checked="1">
+                        <div class="front" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/7.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/7.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="back" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/07.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/07.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="cart-info cart-wrap" bis_skin_checked="1">
+                            <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart" fdprocessedid="lr0kte"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare" previewlistener="true"><i class="ti-reload" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-detail" bis_skin_checked="1">
+                        <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                        </div>
+                        <a href="product-page(no-sidebar).html" previewlistener="true">
+                            <h6>Slim Fit Cotton Shirt</h6>
+                        </a>
+                        <h4>$500.00</h4>
+                        <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-6" bis_skin_checked="1">
+                <div class="product-box" bis_skin_checked="1">
+                    <div class="img-wrapper" bis_skin_checked="1">
+                        <div class="front" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/2.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/2.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="back" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/1.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="cart-info cart-wrap" bis_skin_checked="1">
+                            <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart" fdprocessedid="30g91e"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare" previewlistener="true"><i class="ti-reload" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-detail" bis_skin_checked="1">
+                        <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                        </div>
+                        <a href="product-page(no-sidebar).html" previewlistener="true">
+                            <h6>Slim Fit Cotton Shirt</h6>
+                        </a>
+                        <h4>$500.00</h4>
+                        <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-6" bis_skin_checked="1">
+                <div class="product-box" bis_skin_checked="1">
+                    <div class="img-wrapper" bis_skin_checked="1">
+                        <div class="front" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/11.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/11.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="back" bis_skin_checked="1">
+                            <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/fashion/pro/011.jpg&quot;); background-size: cover; background-position: center center; display: block;"><img src="../assets/images/fashion/pro/011.jpg" class="img-fluid blur-up lazyload bg-img" alt="" style="display: none;"></a>
+                        </div>
+                        <div class="cart-info cart-wrap" bis_skin_checked="1">
+                            <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart" fdprocessedid="fzo6z"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html" title="Compare" previewlistener="true"><i class="ti-reload" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-detail" bis_skin_checked="1">
+                        <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                        </div>
+                        <a href="product-page(no-sidebar).html" previewlistener="true">
+                            <h6>Slim Fit Cotton Shirt</h6>
+                        </a>
+                        <h4>$500.00</h4>
+                        <ul class="color-variant">
+                            <li class="bg-light0"></li>
+                            <li class="bg-light1"></li>
+                            <li class="bg-light2"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-5.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-5-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Casual Spring Blue Shoes</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-6.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-6-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Men Black Gentle Belt</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top">5.00</span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-        <h4 class="section-sub-title">Latest Products</h4>
-        @foreach($recentProducts as $val)
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-              <img src="{{url('storage/app/'.$val->featured_img)}}" width="74" height="74" alt="product">
-              <img src="{{asset('user/assets/images/products/small/product-1-2.jpg')}}" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">{{$val->product_name}}</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <del class="old-price">${{$val->price}}</del>
-              <span class="product-price">${{$val->selling_price}}</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        @endforeach
-      </div>
-      <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-        <h4 class="section-sub-title">Top Rated Products</h4>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-10.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-10-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Basketball Sports Blue Shoes</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-11.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-11-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Men Sports Travel Bag</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top">5.00</span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-        <div class="product-default left-details product-widget">
-          <figure>
-            <a href="product.html">
-              <img src="assets/images/products/small/product-12.jpg" width="74" height="74" alt="product">
-              <img src="assets/images/products/small/product-12-2.jpg" width="74" height="74" alt="product">
-            </a>
-          </figure>
-          <div class="product-details">
-            <h3 class="product-title">
-              <a href="product.html">Brown HandBag</a>
-            </h3>
-            <div class="ratings-container">
-              <div class="product-ratings">
-                <span class="ratings" style="width:100%"></span>
-                <!-- End .ratings -->
-                <span class="tooltiptext tooltip-top"></span>
-              </div>
-              <!-- End .product-ratings -->
-            </div>
-            <!-- End .product-container -->
-            <div class="price-box">
-              <span class="product-price">$49.00</span>
-            </div>
-            <!-- End .price-box -->
-          </div>
-          <!-- End .product-details -->
-        </div>
-      </div>
     </div>
-    <!-- End .row -->
-  </div>
-  <!-- End .container -->
-</main> @endsection
+</section>
+<div class="modal fade" id="sizemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" bis_skin_checked="1">
+                                <div class="modal-dialog modal-dialog-centered" role="document" bis_skin_checked="1">
+                                    <div class="modal-content" bis_skin_checked="1">
+                                        <div class="modal-header" bis_skin_checked="1">
+                                            <h5 class="modal-title" id="exampleModalLabel">Sheer
+                                                Straight Kurta</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        </div>
+                                        <div class="modal-body" bis_skin_checked="1"><img src="../assets/images/size-chart.jpg" alt="" class="img-fluid blur-up lazyload"></div>
+                                    </div>
+                                </div>
+                            </div>
+@endsection

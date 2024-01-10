@@ -58,12 +58,20 @@
                     </div>
                 </div>
 
+                <div class="col-lg-6 col-md-6">
+                    <div class="mb-3">
+                        <label for="detail" class="form-label">Selling Price</label>
+                        <input type='text' value="{{@$row['selling_price']}}" name="selling_price" id="selling_price" class="form-control" />
+                    </div>
+                </div>
+
                 <div class="col-lg-12 col-md-12">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Short Detail</label>
                         <textarea name="short_detail" id="short_detail" class="form-control">{{@$row['short_detail']}}</textarea>
                     </div>
                 </div>
+
                 <div class="col-lg-12 col-md-12">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Long Detail</label>
@@ -77,6 +85,7 @@
                         <input type='date' value="{{@$row['discount_start_date']}}" name="discount_start_date" id="discount_start_date" class="form-control" />
                     </div>
                 </div>
+
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Discount End Date</label>
@@ -85,22 +94,23 @@
                 </div>
                 
                 <div class="col-lg-6 col-md-6">
-				          <div class="mb-3">
-				            <label for="detail" class="form-label">Color</label>
-					          <select class="js-example-basic-multiple form-control" id="mySelect2" name="color[]" multiple="multiple">
-				              @foreach($lists as $key => $val)
-										    <option value="{{$val['id']}}" >{{$val['color']}}</option>
-				              @endforeach
-										</select>
-									</div>
-				        </div>
+    		          <div class="mb-3">
+    		          <label for="detail" class="form-label">Color</label>
+    			     <select class="js-example-basic-multiple form-control" id="mySelect2" name="color[]" multiple="multiple">
+    		          @foreach($lists as $key => $val)
+    					<option value="{{$val['color']}}" >{{$val['color']}}</option>
+    		          @endforeach
+    				</select>
+    			</div>
+		        
+                </div>
 
 				        <div class="col-lg-6 col-md-6">
 				          <div class="mb-3">
-				            <label for="detail" class="form-label">Size</label>
-					          <select class="js-example-basic-multiple form-control" id="mySelect3" name="size[]" multiple="multiple">
+				                <label for="detail" class="form-label">Size</label>
+					           <select class="js-example-basic-multiple form-control" id="mySelect3" name="size[]" multiple="multiple">
 				              @foreach($lists as $key => $val)
-				                <option value="{{$val['id']}}" >{{$val['size']}}</option>
+				                <option value="{{$val['size']}}" >{{$val['size']}}</option>
 				              @endforeach
 										</select>
 									</div>

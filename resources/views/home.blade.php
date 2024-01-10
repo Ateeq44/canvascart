@@ -95,7 +95,7 @@ Canvas Cart
     <!-- Paragraph-->
     <div class="title1 section-t-space">
         <h4>special offer</h4>
-        <h2 class="title-inner1">Latest Drops</h2>
+        <h2 class="title-inner1">Latest Products</h2>
     </div>
     <div class="container">
         <div class="row">
@@ -108,8 +108,95 @@ Canvas Cart
         </div>
     </div>
     <!-- Paragraph end -->
+    <!-- Product slider -->
+    <section class="section-b-space pt-0 ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="product-4 product-m no-arrow">
+                        @foreach($recentProducts as $val)
+                        <div class="product-box">
+                            <div class="img-wrapper">
+                                <div class="front">
+                                @php
+                                    $images = json_decode($val['images']);
+                                @endphp
+                                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
+                                        <img src="{{asset('upload/product/'.$images[0])}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    </a>
+                                </div>
+                                <div class="back">
+                                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
+                                        <img src="{{asset('upload/product/'.$images[1])}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    </a>
+                                </div>
+                                <div class="cart-info cart-wrap">
+                                    <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </button>
+                                    <a href="javascript:void(0)" title="Add to Wishlist">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
+                                    <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}"  title="Quick View">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-detail">
+                                <div class="rating">
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i> 
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
+                                    <h6>{{$val->category->title}}</h6>
+                                    <h6>{{$val->product_name}}</h6>
+                                </a>
+                                <div class="d-flex">
+                                    <h4><del>${{$val->price}}</del></h4>
+                                    <h4 style="margin-left: 20px;">${{$val->selling_price}}</h4>
+                                </div>
+                                    <?php
+                                        // Check if $val->price and $val->selling_price are numeric before performing the calculation
+                                        if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
+                                            // Calculate the discount percentage
+                                            $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
+                                        } else {
+                                            // Set a default value or handle the case where the values are not numeric or $val->price is 0
+                                            $discountPercentage = 0;
+                                        }
+                                    ?>
+                                <div>
+                                    <p>{{ $discountPercentage }}%</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product slider end -->
 
-
+    <!-- Paragraph-->
+    <div class="title1 section-t-space">
+        <h4>special offer</h4>
+        <h2 class="title-inner1">Feature Products</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="product-para">
+                    <p class="text-center">Looking for the latest trends in clothing, shoes and accessories? Welcome to
+                        our 'Latest Drops' edit, bringing you all the latest styles from all your fave brands.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Paragraph end -->
     <!-- Product slider -->
     <section class="section-b-space pt-0 ratio_asos">
         <div class="container">
@@ -160,12 +247,18 @@ Canvas Cart
                                     <h4><del>${{$val->price}}</del></h4>
                                     <h4 style="margin-left: 20px;">${{$val->selling_price}}</h4>
                                 </div>
-                                @<?php 
-                                    $percentage = is_numeric(($val->price / $val->selling_price) * 100);
-                                 ?>
-                                 <!-- {{dd($percentage)}} -->
+                                    <?php
+                                        // Check if $val->price and $val->selling_price are numeric before performing the calculation
+                                        if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
+                                            // Calculate the discount percentage
+                                            $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
+                                        } else {
+                                            // Set a default value or handle the case where the values are not numeric or $val->price is 0
+                                            $discountPercentage = 0;
+                                        }
+                                    ?>
                                 <div>
-                                    <p>{{ $percentage }}%</p>
+                                    <p>{{ $discountPercentage }}%</p>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +269,6 @@ Canvas Cart
         </div>
     </section>
     <!-- Product slider end -->
-
 
     <!-- Parallax banner -->
     <section class="p-0">

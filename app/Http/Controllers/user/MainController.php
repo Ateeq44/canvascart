@@ -28,4 +28,10 @@ class MainController extends Controller
         $data['recentProducts'] = Product::latest('created_at')->take(3)->where('status', '1')->where('admin_approval', '1')->get();
         return view('user.product-details', $data);
     }
+
+    public function category()
+    {
+        $data['category'] = Categories::get();
+        return view('user.category', $data);
+    }
 }
