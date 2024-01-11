@@ -34,7 +34,11 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
-
+    <style type="text/css">
+        .product-box .cart-info{
+            color: #f85606 !important;
+        }
+    </style>
 
 
 </head>
@@ -308,12 +312,14 @@
                                     <ul>
                                         <li><a href=""><i class="fa-regular fa-heart" style=" font-size: 24px; color: black;margin-top: 5px;"></i></a></li>
                                         <li class="onhover-div mobile-cart">
-                                            <div>
-                                                <img src="{{asset('assets/images/cart.png')}}"
+                                            <a href="{{ url('cart') }}">
+                                                <div>
+                                                    <img src="{{asset('assets/images/cart.png')}}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                     <i class="fa-solid fa-cart-shopping"></i>
-                                            </div>
-                                            <span class="cart_qty_cls">2</span>
+                                                </div>
+                                                <span class="cart_qty_cls">2</span>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1339,7 +1345,7 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
-
+    @yield('script')
 </body>
 
 </html>

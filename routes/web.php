@@ -21,6 +21,9 @@ Route::get('category', [App\Http\Controllers\user\MainController::class, 'catego
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::get('cart', [App\Http\Controllers\user\CartController::class, 'cart'])->name('cart');
+    Route::get('add-to-cart', [App\Http\Controllers\user\CartController::class, 'addproduct']);
+
 
 });
 
