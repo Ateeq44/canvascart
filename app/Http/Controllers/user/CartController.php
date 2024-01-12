@@ -50,4 +50,26 @@ class CartController extends Controller
             }
         }
     }
+
+    public function delete($id)
+    {
+        Cart::destroy(array('id', $id));
+        return redirect ('cart')->with('status', 'Cart Item Deleted Successfully');
+    }
+
+    public function increase(Request $request, $id){
+
+        $res = Cart::where('id', $id)->where('user_id', Auth::id())->first();
+        Cart::where('id', $id)->where('user_id', Auth::id())->update(['prod_qty' => $res->prod_qty - 1]);
+        return redirect('cart');
+
+    }
+    public function decrease(Request $request, $id){
+
+        $res = Cart::where('id', $id)->where('user_id', Auth::id())->first();
+        // dd($res);
+        Cart::where('id', $id)->where('user_id', Auth::id())->update(['prod_qty' => $res->prod_qty + 1]);
+        return redirect('cart');
+    }
+
 }

@@ -34,4 +34,9 @@ class MainController extends Controller
         $data['category'] = Categories::get();
         return view('user.category', $data);
     }
+    public function shop()
+    {
+        $data['shop'] = Product::get();
+        return view('user.shop', $data);
+    }
 }

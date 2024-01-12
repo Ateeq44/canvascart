@@ -1284,7 +1284,7 @@
 
     <!-- fly cart ui jquery-->
     <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('assets/js/timer.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/timer.js')}}"></script> --}}
 
     <!-- exitintent jquery-->
     <script src="{{asset('assets/js/jquery.exitintent.js')}}"></script>

@@ -17,12 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\user\MainController::class, 'index'])->name('home');
 Route::get('product-details/{cslug}/{slug}/{cat_id}', [App\Http\Controllers\user\MainController::class, 'product_details'])->name('product_details');
 Route::get('category', [App\Http\Controllers\user\MainController::class, 'category'])->name('category');
+Route::get('shop', [App\Http\Controllers\user\MainController::class, 'shop']);
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::get('cart', [App\Http\Controllers\user\CartController::class, 'cart'])->name('cart');
     Route::get('add-to-cart', [App\Http\Controllers\user\CartController::class, 'addproduct']);
+    Route::get('increase/{id}', [App\Http\Controllers\user\Cartcontroller::class, 'increase']);
+    Route::get('decrease/{id}', [App\Http\Controllers\user\Cartcontroller::class, 'decrease']);
+    Route::get('cart-delete/{id}', [App\Http\Controllers\user\Cartcontroller::class, 'delete']);
 
 
 });
