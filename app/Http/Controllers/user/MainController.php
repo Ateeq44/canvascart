@@ -12,7 +12,7 @@ class MainController extends Controller
     public function index()
     {
         $data = [];
-        $categoriesWithCount = Categories::withCount('products')->get();
+        $data['category'] = Categories::get();
         
         $data['is_feature'] = Product::where('is_feature', '1')->where('status', '1')->where('admin_approval', '1')->get();
 
@@ -36,7 +36,8 @@ class MainController extends Controller
     }
     public function shop()
     {
-        $data['shop'] = Product::get();
+        $data['category'] = Categories::get();
+        $data['shop'] = Product::where('status', '1')->paginate(2);
         return view('user.shop', $data);
     }
 }

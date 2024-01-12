@@ -28,12 +28,14 @@
 
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/price-range.css')}}">
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/timer.css')}}">
     <style type="text/css">
         .product-box .cart-info{
             color: #f85606 !important;
@@ -1316,6 +1318,7 @@
 
     <!-- lazyload js-->
     <script src="{{asset('assets/js/lazysizes.min.js')}}"></script>
+    <script src="{{asset('assets/js/lazysizes.min.js')}}"></script>
 
     <!-- Bootstrap js-->
     <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
@@ -1329,6 +1332,7 @@
     <!-- Theme js-->
     <script src="{{asset('assets/js/theme-setting.js')}}"></script>
     <script src="{{asset('assets/js/script.js')}}"></script>
+    <script src="{{asset('assets/js/price-range.js')}}"></script>
 
     <script>
         $(window).on('load', function () {
