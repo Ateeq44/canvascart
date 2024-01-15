@@ -12,12 +12,12 @@ class MainController extends Controller
     public function index()
     {
         $data = [];
-        $data['category'] = Categories::get();
+        $data['category'] = Categories::withCount('products')->get();
         
         $data['is_feature'] = Product::where('is_feature', '1')->where('status', '1')->where('admin_approval', '1')->get();
 
         $data['recentProducts'] = Product::latest('created_at')->take(3)->where('status', '1')->where('admin_approval', '1')->get();
-        return view('home', $data , ['categoriesWithCount' => $categoriesWithCount]);
+        return view('home', $data);
     }
 
     public function product_details($cslug, $slug, $cat_id)
@@ -31,13 +31,19 @@ class MainController extends Controller
 
     public function category()
     {
-        $data['category'] = Categories::get();
+        $data['category'] = Categories::withCount('products')->get();
         return view('user.category', $data);
     }
     public function shop()
     {
-        $data['category'] = Categories::get();
-        $data['shop'] = Product::where('status', '1')->paginate(2);
+        $data['shop'] = Product::where('status', '1')->paginate(20);
         return view('user.shop', $data);
+    }
+    public function products_category($cate_id)
+    {
+
+        $data['category'] = Categories::withCount('products')->get();
+        $data['cate'] = Product::where('status', '1')->where('cat_id', $cate_id)->paginate(20);
+        return view('user.products_category', $data);
     }
 }

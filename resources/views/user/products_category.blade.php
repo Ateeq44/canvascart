@@ -20,8 +20,9 @@ p.text-sm.text-gray-700.leading-5 {
                 <div class="col-sm-6" bis_skin_checked="1">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb justify-content-start">
-                            <li class="breadcrumb-item"><a href="index.html" previewlistener="true">home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}" previewlistener="true">home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('category') }}" previewlistener="true">category</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Product</li>
                         </ol>
                     </nav>
                 </div>
@@ -279,7 +280,13 @@ p.text-sm.text-gray-700.leading-5 {
                                             <h4>$36.00</h4>
                                         </div>
                                     </div>
-                                </div></div></div></div></div><button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;" fdprocessedid="cgq18b">Next</button></div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                                <button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;" fdprocessedid="cgq18b">Next</button>
+                            </div>
                         </div>
                         <!-- side-bar single product slider end -->
                         <!-- side-bar banner start here -->
@@ -344,7 +351,7 @@ p.text-sm.text-gray-700.leading-5 {
                                         <div class="product-wrapper-grid product-load-more" bis_skin_checked="1" style="opacity: 1;">
                                             <div class="row margin-res" bis_skin_checked="1">
 
-                                                @foreach($shop as $val)
+                                                @foreach($cate as $val)
                                                 <div class="col-lg-3" bis_skin_checked="1" style="display: block;">
 
                                                     <div class="product-box">
@@ -414,7 +421,7 @@ p.text-sm.text-gray-700.leading-5 {
                                                 <div class="container-fluid p-0" bis_skin_checked="1">
                                                     <div class="row" bis_skin_checked="1">
                                                         <div class="col-xl-12 col-md-12 col-sm-12" bis_skin_checked="1">
-                                                            {{ $shop->appends($_GET)->links('pagging') }}
+                                                            {{ $cate->appends($_GET)->links('pagging') }}
                                                         </div>
                                                     </div>
                                                 </div>

@@ -150,27 +150,28 @@ Canvas Cart
                                     <i class="fa fa-star"></i> 
                                     <i class="fa fa-star"></i>
                                 </div>
+                                <a href="">
+                                    <h6 style="color: #f85606;">{{$val->category->title}}</h6>
+                                </a>
                                 <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-                                    <h6>{{$val->category->title}}</h6>
                                     <h6>{{$val->product_name}}</h6>
                                 </a>
+                                <?php
+                                    // Check if $val->price and $val->selling_price are numeric before performing the calculation
+                                    if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
+                                        // Calculate the discount percentage
+                                        $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
+                                    } else {
+                                        // Set a default value or handle the case where the values are not numeric or $val->price is 0
+                                        $discountPercentage = 0;
+                                    }
+                                ?>
                                 <div class="d-flex">
                                     <h4><del>${{$val->price}}</del></h4>
                                     <h4 style="margin-left: 20px;">${{$val->selling_price}}</h4>
+                                    <h5 style="margin-left: 20px; color: #f85606;">{{ $discountPercentage }}% Off</h5>
                                 </div>
-                                    <?php
-                                        // Check if $val->price and $val->selling_price are numeric before performing the calculation
-                                        if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
-                                            // Calculate the discount percentage
-                                            $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
-                                        } else {
-                                            // Set a default value or handle the case where the values are not numeric or $val->price is 0
-                                            $discountPercentage = 0;
-                                        }
-                                    ?>
-                                <div>
-                                    <p>{{ $discountPercentage }}%</p>
-                                </div>
+                                
                             </div>
                         </div>
                         @endforeach
@@ -239,26 +240,26 @@ Canvas Cart
                                     <i class="fa fa-star"></i> 
                                     <i class="fa fa-star"></i>
                                 </div>
+                                <a href="">
+                                    <h6 style="color: #f85606;">{{$val->category->title}}</h6>
+                                </a>
                                 <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
-                                    <h6>{{$val->category->title}}</h6>
                                     <h6>{{$val->product_name}}</h6>
                                 </a>
+                                <?php
+                                    // Check if $val->price and $val->selling_price are numeric before performing the calculation
+                                    if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
+                                        // Calculate the discount percentage
+                                        $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
+                                    } else {
+                                        // Set a default value or handle the case where the values are not numeric or $val->price is 0
+                                        $discountPercentage = 0;
+                                    }
+                                ?>
                                 <div class="d-flex">
                                     <h4><del>${{$val->price}}</del></h4>
                                     <h4 style="margin-left: 20px;">${{$val->selling_price}}</h4>
-                                </div>
-                                    <?php
-                                        // Check if $val->price and $val->selling_price are numeric before performing the calculation
-                                        if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
-                                            // Calculate the discount percentage
-                                            $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
-                                        } else {
-                                            // Set a default value or handle the case where the values are not numeric or $val->price is 0
-                                            $discountPercentage = 0;
-                                        }
-                                    ?>
-                                <div>
-                                    <p>{{ $discountPercentage }}%</p>
+                                    <h5 style="margin-left: 20px; color: #f85606;">{{ $discountPercentage }}% Off</h5>
                                 </div>
                             </div>
                         </div>

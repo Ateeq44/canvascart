@@ -18,6 +18,7 @@ Route::get('/', [App\Http\Controllers\user\MainController::class, 'index'])->nam
 Route::get('product-details/{cslug}/{slug}/{cat_id}', [App\Http\Controllers\user\MainController::class, 'product_details'])->name('product_details');
 Route::get('category', [App\Http\Controllers\user\MainController::class, 'category'])->name('category');
 Route::get('shop', [App\Http\Controllers\user\MainController::class, 'shop']);
+Route::get('products_category/{cate_id}', [App\Http\Controllers\user\MainController::class, 'products_category']);
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
