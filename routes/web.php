@@ -25,9 +25,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::get('cart', [App\Http\Controllers\user\CartController::class, 'cart'])->name('cart');
     Route::get('add-to-cart', [App\Http\Controllers\user\CartController::class, 'addproduct']);
-    Route::get('increase/{id}', [App\Http\Controllers\user\Cartcontroller::class, 'increase']);
-    Route::get('decrease/{id}', [App\Http\Controllers\user\Cartcontroller::class, 'decrease']);
-    Route::get('cart-delete/{id}', [App\Http\Controllers\user\Cartcontroller::class, 'delete']);
+    Route::get('increase/{id}', [App\Http\Controllers\user\CartController::class, 'increase']);
+    Route::get('decrease/{id}', [App\Http\Controllers\user\CartController::class, 'decrease']);
+    Route::get('cart-delete/{id}', [App\Http\Controllers\user\CartController::class, 'delete']);
+    Route::get('checkout', [App\Http\Controllers\user\CheckoutController::class, 'checkout']);
+    Route::Post('placeorder', [App\Http\Controllers\user\CheckoutController::class, 'placeOrder']);
 
 
 });

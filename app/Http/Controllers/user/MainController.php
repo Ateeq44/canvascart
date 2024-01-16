@@ -36,6 +36,7 @@ class MainController extends Controller
     }
     public function shop()
     {
+        $data['category'] = Categories::withCount('products')->get();
         $data['shop'] = Product::where('status', '1')->paginate(20);
         return view('user.shop', $data);
     }
