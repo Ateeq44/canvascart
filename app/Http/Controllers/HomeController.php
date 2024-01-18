@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Wishlist;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.dashboard');
+        $data['wishlist'] = Wishlist::where('user_id', Auth::id())->get();
+        $data['cartitem'] = Cart::where('user_id', Auth::id())->get();
+        $data['order'] = Order::with('order_item')->orderBy('created_at', 'DESC')->where('user_id', Auth::id())->get();
+
+        return view('user.dashboard', $data);
     }
 }

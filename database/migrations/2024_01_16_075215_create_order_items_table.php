@@ -21,6 +21,7 @@ class CreateOrderItemsTable extends Migration
             $table->string('qty')->nullable();
             $table->string('color')->nullable();
             $table->string('size')->nullable();
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }

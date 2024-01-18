@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart-delete/{id}', [App\Http\Controllers\user\CartController::class, 'delete']);
     Route::get('checkout', [App\Http\Controllers\user\CheckoutController::class, 'checkout']);
     Route::Post('placeorder', [App\Http\Controllers\user\CheckoutController::class, 'placeOrder']);
+    Route::get('invoice/{orderId}', [App\Http\Controllers\user\CheckoutController::class, 'invoice']);
 
 
 });

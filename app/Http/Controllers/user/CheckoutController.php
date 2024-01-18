@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Stripe;
 
 
@@ -25,7 +26,17 @@ class CheckoutController extends Controller
 
         $paymentMethod = $request->input('payment_method');
 
-        $order = new Order();
+        $price = $request->input('total_price');;
+
+        
+
+        //To calculate the total price
+        $total = 0;
+        $cartitem_total = cart::where('user_id', Auth::id())->get();
+        foreach ($cartitem_total as $item) {
+            $total += $item->products->selling_price * $item->qty;
+        }
+        $order = new order();
         $order->user_id = Auth::id();
         $order->fname = $request->input('fname');
         $order->lname = $request->input('lname');
@@ -34,27 +45,29 @@ class CheckoutController extends Controller
         $order->address = $request->input('address');
         $order->city = $request->input('city');
         $order->state = $request->input('state');
-        $order->payment_method = $paymentMethod;
+        $order->payment_method = $request->input('payment_method');
         $order->country = $request->input('country');
         $order->payment_id = $request->stripeToken;
         $order->zipcode = $request->input('zipcode');
         $order->order_note = $request->input('order_note');
-        $order->total_price = $request->input('total_price');
+        $order->total_price = $price;
         $order->status = 0;
         $order->tracking_no = '#'.rand(11111111,99999999);
+        $order->save();
 
-            // dd($order->id);
-        $cartitem = Cart::where('user_id', Auth::id())->get();
+        $cartitem = cart::where('user_id', Auth::id())->get();
+        // dd($cartitem);
         foreach ($cartitem as $item) {
-           OrderItem::create([
-               'order_id' => $order->id,
-               'prod_id' => $item->prod_id,
-               'price' => $item->products->selling_price,
-               'qty' => $item->prod_qty,
-               'color' => $item->color,
-               'size' => $item->size,
-           ]);
-       }
+            orderitem::create([
+                'order_id' => $order->id,
+                'prod_id' => $item->prod_id,
+                'price' => $item->products->selling_price,
+                'qty' => $item->prod_qty,
+                'color' => $item->color,
+                'size' => $item->size,
+            ]);
+        }
+        
         if ($paymentMethod !== 'cod') {
             $price = $request->input('total_price');
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -73,9 +86,17 @@ class CheckoutController extends Controller
             ]);
             $order->payment_id = $customer->id;
         } 
+
         $order->save();
         // cart::destroy($cartitem);
 
-        return redirect()->back();
+        return Redirect::to('invoice/'.$order->id)->with('status', 'Order Successfully Submitted!');
+    }
+
+    public function invoice($orderId)
+    {
+        $data['order'] = Order::find($orderId);
+        $data['orderitem'] = OrderItem::where('order_id', $orderId);
+        return view('user.invoice', $data);
     }
 }
