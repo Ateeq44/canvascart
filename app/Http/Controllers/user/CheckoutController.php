@@ -88,7 +88,7 @@ class CheckoutController extends Controller
         } 
 
         $order->save();
-        // cart::destroy($cartitem);
+        cart::destroy($cartitem);
 
         return Redirect::to('invoice/'.$order->id)->with('status', 'Order Successfully Submitted!');
     }
@@ -96,7 +96,6 @@ class CheckoutController extends Controller
     public function invoice($orderId)
     {
         $data['order'] = Order::find($orderId);
-        $data['orderitem'] = OrderItem::where('order_id', $orderId);
         return view('user.invoice', $data);
     }
 }

@@ -61,14 +61,20 @@ Product
                         </div>
                         <h2>{{$product_details->product_name}}</h2>
                         <div class="rating-section" bis_skin_checked="1">
-                            <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                            <div class="rating" bis_skin_checked="1">
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i>
                             </div>
                             <h6>120 ratings</h6>
                         </div>
-                        {{-- <div class="label-section" bis_skin_checked="1">
-                            <span class="badge badge-grey-color">#1 Best seller</span>
-                            <span class="label-text">in fashion</span>
-                        </div> --}}
+                        <div class="label-section" bis_skin_checked="1">
+                            <span class="label-text">AVAILABILITY</span>
+                            <span class="badge badge-grey-color">In Stock</span>
+                            <span class="badge badge-grey-color">Out of Stock</span>
+                        </div>
                         <?php
                             // Check if $val->price and $val->selling_price are numeric before performing the calculation
                             if (is_numeric($product_details->price) && is_numeric($product_details->selling_price) && $product_details->price != 0) {

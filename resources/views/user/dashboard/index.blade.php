@@ -612,27 +612,27 @@ User Dashboard
       								<li>
       									<div class="details">
       										<div class="left">
-      											<h6>company name</h6>
+      											<h6>Full Name</h6>
       										</div>
       										<div class="right">
-      											<h6>Fashion Store</h6>
+      											<h6>{{ Auth::user()->name }}</h6>
       										</div>
       									</div>
       								</li>
       								<li>
       									<div class="details">
       										<div class="left">
-      											<h6>email address</h6>
+      											<h6>email</h6>
       										</div>
       										<div class="right">
-      											<h6>mark.enderess@mail.com</h6>
+      											<h6>{{ Auth::user()->email }}</h6>
       										</div>
       									</div>
       								</li>
       								<li>
       									<div class="details">
       										<div class="left">
-      											<h6>Country / Region</h6>
+      											<h6>phone</h6>
       										</div>
       										<div class="right">
       											<h6>Downers Grove, IL</h6>
@@ -642,17 +642,18 @@ User Dashboard
       								<li>
       									<div class="details">
       										<div class="left">
-      											<h6>Year Established</h6>
+      											<h6>address</h6>
       										</div>
       										<div class="right">
       											<h6>2018</h6>
       										</div>
       									</div>
       								</li>
+      								
       								<li>
       									<div class="details">
       										<div class="left">
-      											<h6>Total Employees</h6>
+      											<h6>City / State</h6>
       										</div>
       										<div class="right">
       											<h6>101 - 200 People</h6>
@@ -662,43 +663,14 @@ User Dashboard
       								<li>
       									<div class="details">
       										<div class="left">
-      											<h6>category</h6>
+      											<h6>Zipcode</h6>
       										</div>
       										<div class="right">
-      											<h6>clothing</h6>
+      											<h6>2018</h6>
       										</div>
       									</div>
       								</li>
-      								<li>
-      									<div class="details">
-      										<div class="left">
-      											<h6>street address</h6>
-      										</div>
-      										<div class="right">
-      											<h6>549 Sulphur Springs Road</h6>
-      										</div>
-      									</div>
-      								</li>
-      								<li>
-      									<div class="details">
-      										<div class="left">
-      											<h6>city/state</h6>
-      										</div>
-      										<div class="right">
-      											<h6>Downers Grove, IL</h6>
-      										</div>
-      									</div>
-      								</li>
-      								<li>
-      									<div class="details">
-      										<div class="left">
-      											<h6>zip</h6>
-      										</div>
-      										<div class="right">
-      											<h6>60515</h6>
-      										</div>
-      									</div>
-      								</li>
+      								
       							</ul>
       						</div>
       					</div>

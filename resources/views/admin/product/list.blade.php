@@ -94,7 +94,7 @@
                                                 <i class="fa-solid fa-trash-can"></i> Delete
                                             </a>
                                             <a class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" href="{{url($module['action'].'/view/'.$val[$module['db_key']])}}">
-                                                <i class="fa-solid fa-trash-can"></i> view
+                                                <i class="fa-solid fa-eye"></i> view
                                             </a>
                                             </div>
                                         </div>
