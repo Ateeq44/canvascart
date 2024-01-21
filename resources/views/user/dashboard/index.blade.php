@@ -578,14 +578,18 @@ User Dashboard
       										<span class="badge rounded-pill bg-danger-10 text-danger custom-badge">Pending</span>
       										@elseif($val->status == "1")
       										<span class="badge rounded-pill bg-success-10 text-success custom-badge">
+      										Preparing to ship</span>
+      										@elseif($val->status == "2")
+      										<span class="badge rounded-pill bg-secondary-10 text-secondary custom-badge">
       										Shipped</span>
       										@else
       										<span class="badge rounded-pill bg-secondary-10 text-secondary custom-badge">
-      										Cancelled</span>
+      										Delivered</span>
       										@endif
       									</td>
       									<td>
-      										<a href="{{ url("order_details/".$val->id) }}" class="btn btn-solid">View Details</a>
+      									<a href="{{ url("order_details/".$val->id) }}" class="btn btn-solid">View Details</a>
+      									<a href="{{ url("tracking_order/".$val->id) }}" class="btn btn-solid">Tracking Order</a>
       									</td>
       								</tr>
       								@endforeach

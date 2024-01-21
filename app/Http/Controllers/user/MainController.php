@@ -37,7 +37,7 @@ class MainController extends Controller
     public function shop()
     {
         $data['category'] = Categories::withCount('products')->get();
-        $data['shop'] = Product::where('status', '1')->paginate(20);
+        $data['shop'] = Product::where('status', '1')->paginate(10);
         return view('user.shop', $data);
     }
     public function products_category($cate_id)
