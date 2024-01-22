@@ -65,7 +65,7 @@ Order Invoice
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($order->orderItems as $key => $item)
+                                        @foreach ($order->order_item as $key => $item)
                                         @php
                                         $total = $item->price * $item->qty;
 

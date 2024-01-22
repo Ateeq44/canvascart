@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::Post('placeorder', [App\Http\Controllers\user\CheckoutController::class, 'placeOrder']);
     Route::get('invoice/{orderId}', [App\Http\Controllers\user\CheckoutController::class, 'invoice']);
     Route::get('order_details/{Id}', [App\Http\Controllers\HomeController::class, 'order_details']);
+    Route::get('tracking_order/{Id}', [App\Http\Controllers\HomeController::class, 'tracking_order']);
 
 
 });

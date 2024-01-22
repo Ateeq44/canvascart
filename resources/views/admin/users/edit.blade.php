@@ -30,9 +30,9 @@
                     <div class="mb-3">
                         <label for="detail" class="form-label">Role</label>
                         <select name="role" id="role" class="form-control">
-                            <option value="1">Admin</option>
-                            <option value="2">Sub Admin</option>
-                            <option value="3">user</option>
+                            <option value="1" @if(@$row['role'] == '1') selected @endif>Admin</option>
+                            <option value="2" @if(@$row['role'] == '2') selected @endif>Sub Admin</option>
+                            <option value="3" @if(@$row['role'] == '3') selected @endif>user</option>
                         </select>
                     </div>
                 </div>
@@ -41,8 +41,8 @@
                     <div class="mb-3">
                         <label for="detail" class="form-label">Gender</label>
                         <select name="gender" id="gender" class="form-control">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            <option value="Male" @if(@$row['gender'] == 'Male') selected @endif>Male</option>
+                            <option value="Female" @if(@$row['gender'] == 'Female') selected @endif>Female</option>
                         </select>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary mr-2">Update</button>
+            <button type="submit" class="btn btn-success d-none d-sm-inline-block mr-2">Update</button>
             <a  class="btn btn-secondary" href="{{url($module['action'])}}">Cancel</a>
         </div>
     </form>

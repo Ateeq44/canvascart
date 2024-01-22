@@ -95,7 +95,7 @@ class CheckoutController extends Controller
 
     public function invoice($orderId)
     {
-        $data['order'] = Order::find($orderId);
+        $data['order'] = Order::with('order_item')->find($orderId);
         return view('user.invoice', $data);
     }
 }

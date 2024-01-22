@@ -4,13 +4,18 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 use App\Models\Order;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $data['product'] = Product::count();
+        $data['orders'] = Order::count();
+        $data['order_d'] = Order::where('status', '3')->count();
+        $data['sale'] = Order::sum('total_price');
+        return view('admin.dashboard', $data);
     }
 
     public function orders()

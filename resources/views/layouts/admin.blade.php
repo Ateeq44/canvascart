@@ -215,83 +215,45 @@
               </span>
             </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/users')}}">
+              <span class="nav-link-icon d-md-none d-lg-inline-block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
               </span>
               <span class="nav-link-title">
                 Users
               </span>
             </a>
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="{{url('admin/users')}}">
-                    View users
-                  </a>
-                </div>
-              </div>
-            </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/productcategories')}}">
+              <span class="nav-link-icon d-md-none d-lg-inline-block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
               </span>
               <span class="nav-link-title">
                 Product Categories
               </span>
             </a>
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="{{url('admin/productcategories')}}">
-                    View categories
-                  </a>
-                </div>
-              </div>
-            </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/product')}}">
+              <span class="nav-link-icon d-md-none d-lg-inline-block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
               </span>
               <span class="nav-link-title">
                 Products
               </span>
             </a>
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-
-                  <a class="dropdown-item" href="{{url('admin/product')}}">
-                    View Product
-                  </a>
-                </div>
-              </div>
-            </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/details')}}">
+              <span class="nav-link-icon d-md-none d-lg-inline-block">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
               </span>
               <span class="nav-link-title">
                 Other Details
               </span>
             </a>
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-
-                  <a class="dropdown-item" href="{{url('admin/details')}}">
-                    View Details
-                  </a>
-                </div>
-              </div>
-            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('admin/orders') }}" >
@@ -303,168 +265,6 @@
               </span>
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="./form-elements.html" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11l3 3l8 -8" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg>
-              </span>
-              <span class="nav-link-title">
-                Form elements
-              </span>
-            </a>
-          </li> -->
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-              </span>
-              <span class="nav-link-title">
-                Extra
-              </span>
-            </a>
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./empty.html">
-                    Empty page
-                  </a>
-                  <a class="dropdown-item" href="./cookie-banner.html">
-                    Cookie banner
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./activity.html">
-                    Activity
-                  </a>
-                  <a class="dropdown-item" href="./gallery.html">
-                    Gallery
-                  </a>
-                  <a class="dropdown-item" href="./invoice.html">
-                    Invoice
-                  </a>
-                  <a class="dropdown-item" href="./search-results.html">
-                    Search results
-                  </a>
-                  <a class="dropdown-item" href="./pricing.html">
-                    Pricing cards
-                  </a>
-                  <a class="dropdown-item" href="./pricing-table.html">
-                    Pricing table
-                  </a>
-                  <a class="dropdown-item" href="./faq.html">
-                    FAQ
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./users.html">
-                    Users
-                  </a>
-                  <a class="dropdown-item" href="./license.html">
-                    License
-                  </a>
-                </div>
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./logs.html">
-                    Logs
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./music.html">
-                    Music
-                  </a>
-                  <a class="dropdown-item" href="./photogrid.html">
-                    Photogrid
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./tasks.html">
-                    Tasks
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./uptime.html">
-                    Uptime monitor
-                  </a>
-                  <a class="dropdown-item" href="./widgets.html">
-                    Widgets
-                  </a>
-                  <a class="dropdown-item" href="./wizard.html">
-                    Wizard
-                  </a>
-                  <a class="dropdown-item" href="./settings.html">
-                    Settings
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./trial-ended.html">
-                    Trial ended
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./job-listing.html">
-                    Job listing
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./page-loader.html">
-                    Page loader
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li> -->
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M4 13m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M14 4m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /><path d="M14 15m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /></svg>
-              </span>
-              <span class="nav-link-title">
-                Layout
-              </span>
-            </a>
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./layout-horizontal.html">
-                    Horizontal
-                  </a>
-                  <a class="dropdown-item" href="./layout-boxed.html">
-                    Boxed
-                    <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
-                  </a>
-                  <a class="dropdown-item" href="./layout-vertical.html">
-                    Vertical
-                  </a>
-                  <a class="dropdown-item" href="./layout-vertical-transparent.html">
-                    Vertical transparent
-                  </a>
-                  <a class="dropdown-item" href="./layout-vertical-right.html">
-                    Right vertical
-                  </a>
-                  <a class="dropdown-item" href="./layout-condensed.html">
-                    Condensed
-                  </a>
-                  <a class="dropdown-item" href="./layout-combo.html">
-                    Combined
-                  </a>
-                </div>
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./layout-navbar-dark.html">
-                    Navbar dark
-                  </a>
-                  <a class="dropdown-item" href="./layout-navbar-sticky.html">
-                    Navbar sticky
-                  </a>
-                  <a class="dropdown-item" href="./layout-navbar-overlap.html">
-                    Navbar overlap
-                  </a>
-                  <a class="dropdown-item" href="./layout-rtl.html">
-                    RTL mode
-                  </a>
-                  <a class="dropdown-item" href="./layout-fluid.html">
-                    Fluid
-                  </a>
-                  <a class="dropdown-item" href="./layout-fluid-vertical.html">
-                    Fluid vertical
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li> -->
-          
         </ul>
         <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
           <form action="./" method="get" autocomplete="off" novalidate>

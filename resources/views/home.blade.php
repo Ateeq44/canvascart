@@ -279,7 +279,7 @@ Canvas Cart
                 <div class="row">
                     <div class="col">
                         <div class="banner-contain">
-                            <h2>2021</h2>
+                            <h2>2024</h2>
                             <h3>fashion trends</h3>
                             <h4>special offer</h4>
                         </div>
@@ -1486,94 +1486,6 @@ Canvas Cart
         </div>
     </section>
     <!-- blog section end -->
-
-
-    <!-- instagram section -->
-    <section class="instagram ratio_square">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 p-0">
-                    <h2 class="title-borderless">#whowearwhat</h2>
-                    <div class="slide-7 no-arrow slick-instagram">
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/2.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/3.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/4.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/9.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/6.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/7.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/8.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/9.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="instagram-box"> <img src="{{asset('assets/images/2.jpg')}}" class="bg-img"
-                                        alt="img">
-                                    <div class="overlay"><i class="fa fa-instagram"></i></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- instagram section end -->
-
 
     <!--  logo section -->
     <section class="section-b-space">

@@ -34,4 +34,9 @@ class HomeController extends Controller
         $data['order'] = Order::with('order_item')->where('id', $Id)->first();
         return view('user.dashboard.order_details', $data);
     }
+    public function tracking_order($Id)
+    {
+        $data['tracking_order'] = Order::with('order_item')->where('id', $Id)->first();
+        return view('user.dashboard.tracking_order', $data);
+    }
 }

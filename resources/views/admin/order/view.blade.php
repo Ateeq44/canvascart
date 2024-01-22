@@ -113,11 +113,12 @@
                         <form action="{{ url('admin/orders/update/'.$orders->id) }}" method="post">
                             @csrf
                             <select name="status" class="form-control w-25">
-                                <option value="0">New Order</option>
-                                <option value="1">Prepare to Ship</option>
-                                <option value="2">Shipped</option>
-                                <option value="3">Delivered</option>
+                                <option value="0" @if($orders->status == '0') selected @endif>New Order</option>
+                                <option value="1" @if($orders->status == '1') selected @endif>Prepare to Ship</option>
+                                <option value="2" @if($orders->status == '2') selected @endif>Shipped</option>
+                                <option value="3" @if($orders->status == '3') selected @endif>Delivered</option>
                             </select>
+                                           
                             <button class="btn btn-success mt-3" type="submit">
                                 Submit
                             </button>

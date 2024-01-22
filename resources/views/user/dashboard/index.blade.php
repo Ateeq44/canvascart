@@ -561,8 +561,8 @@ User Dashboard
       							<thead>
       								<tr>
       									<th scope="col">Invoice #</th>
-      									<th scope="col">status</th>
       									<th scope="col">Date</th>
+      									<th scope="col">status</th>
       									<th scope="col">Action</th>
       								</tr>
       							</thead>

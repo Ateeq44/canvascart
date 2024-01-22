@@ -47,7 +47,7 @@
                                     </td>
                                     <td class="pl-0">{{date('d-m-Y',strtotime($order->created_at))}}</td>
                                     <td class="pl-0">
-                                        <a href="{{ url('admin/orders/edit/'.$order->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        {{-- <a href="{{ url('admin/orders/edit/'.$order->id) }}"><i class="fa-solid fa-pen-to-square"></i></a> --}}
                                         <a href="{{ url('admin/orders/view/'.$order->id) }}"><i class="fa-solid fa-eye"></i></a>
                                     </td>
                                 </tr>
