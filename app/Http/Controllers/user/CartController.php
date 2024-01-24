@@ -15,6 +15,8 @@ class CartController extends Controller
 {
     public function cart()
     {
+        $data['category'] = Categories::withCount('products')->get();
+
 
         // $wishlist = wishlist::where('user_id', Auth::id())->get();
         $data['cartitem'] = Cart::where('user_id', Auth::id())->get();
@@ -23,6 +25,8 @@ class CartController extends Controller
 
     public function addproduct(Request $request)
     {
+        $data['category'] = Categories::withCount('products')->get();
+
         $product_id = $request->input('product_id');
         $product_qty = $request->input('product_qty');
         $color = $request->input('color');
@@ -53,19 +57,25 @@ class CartController extends Controller
 
     public function delete($id)
     {
+        $data['category'] = Categories::withCount('products')->get();
+
         Cart::destroy(array('id', $id));
         return redirect ('cart')->with('status', 'Cart Item Deleted Successfully');
     }
 
-    public function increase(Request $request, $id){
+    public function increase(Request $request, $id)
+    {
+        $data['category'] = Categories::withCount('products')->get();
 
         $res = Cart::where('id', $id)->where('user_id', Auth::id())->first();
         Cart::where('id', $id)->where('user_id', Auth::id())->update(['prod_qty' => $res->prod_qty - 1]);
         return redirect('cart');
 
     }
-    public function decrease(Request $request, $id){
-
+    public function decrease(Request $request, $id)
+    {
+        $data['category'] = Categories::withCount('products')->get();
+        
         $res = Cart::where('id', $id)->where('user_id', Auth::id())->first();
         // dd($res);
         Cart::where('id', $id)->where('user_id', Auth::id())->update(['prod_qty' => $res->prod_qty + 1]);

@@ -17,12 +17,16 @@ class CheckoutController extends Controller
 {
     public function checkout()
     {
+        $data['category'] = Categories::withCount('products')->get();
+
         $data['cartitem'] = Cart::where('user_id', Auth::id())->get();
         return view('user.checkout', $data);
     }
 
     public function placeOrder(Request $request)
     {
+        $data['category'] = Categories::withCount('products')->get();
+
 
         $paymentMethod = $request->input('payment_method');
 
@@ -95,6 +99,8 @@ class CheckoutController extends Controller
 
     public function invoice($orderId)
     {
+        $data['category'] = Categories::withCount('products')->get();
+        
         $data['order'] = Order::with('order_item')->find($orderId);
         return view('user.invoice', $data);
     }
