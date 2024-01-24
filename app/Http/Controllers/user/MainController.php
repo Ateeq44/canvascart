@@ -22,6 +22,8 @@ class MainController extends Controller
 
     public function product_details($cslug, $slug, $cat_id)
     {
+        $data['category'] = Categories::withCount('products')->get();
+
         $data['product_details'] = Product::where('slug', $cslug)->orWhere('slug', $slug)->first();
         $data['related_product'] = Product::where('cat_id', $cat_id)->where('slug', '!=', $slug)->get();
         $data['is_feature'] = Product::where('is_feature', '1')->where('status', '1')->where('admin_approval', '1')->take(3)->get();
@@ -31,6 +33,8 @@ class MainController extends Controller
 
     public function category()
     {
+        $data['category'] = Categories::withCount('products')->get();
+        
         $data['category'] = Categories::withCount('products')->get();
         return view('user.category', $data);
     }
@@ -42,7 +46,7 @@ class MainController extends Controller
     }
     public function products_category($cate_id)
     {
-
+        
         $data['category'] = Categories::withCount('products')->get();
         $data['cate'] = Product::where('status', '1')->where('cat_id', $cate_id)->paginate(20);
         return view('user.products_category', $data);

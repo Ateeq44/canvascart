@@ -31,8 +31,8 @@ Product
               @endphp
                 <div class="col-lg-6" >
 
-                  <div class="simple-slider">
-                    <img id="displayedImage" style="width: 100%" src="{{ asset('upload/product/'.$images[0]) }}" alt="Displayed Product Image">
+                  <div class="simple-slider" style="height: 600px;">
+                    <img id="displayedImage" style="width: 100%;height: 100%;" src="{{ asset('upload/product/'.$images[0]) }}" alt="Displayed Product Image">
                   </div>
                   <div class="full-slider" style="width: 100%;">
                   <div class="slider">

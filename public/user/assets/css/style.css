@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.theme-color-27 {
+    --theme-color: #f39910;
+    --theme-color2: #394868
+}
 .mt-1 {
   margin-top: 1rem !important;
 }
