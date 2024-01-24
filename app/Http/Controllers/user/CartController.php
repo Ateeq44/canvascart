@@ -81,5 +81,13 @@ class CartController extends Controller
         Cart::where('id', $id)->where('user_id', Auth::id())->update(['prod_qty' => $res->prod_qty + 1]);
         return redirect('cart');
     }
-
+    public function product($id)
+    {
+        $data['category'] = Categories::withCount('products')->get();
+        
+        $res = Cart::where('id', $id)->where('user_id', Auth::id())->first();
+        // dd($res);
+        Cart::where('id', $id)->where('user_id', Auth::id())->update(['prod_qty' => $res->prod_qty + 1]);
+        return redirect('cart');
+    }
 }

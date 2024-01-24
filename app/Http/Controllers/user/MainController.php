@@ -44,11 +44,11 @@ class MainController extends Controller
         $data['shop'] = Product::where('status', '1')->paginate(10);
         return view('user.shop', $data);
     }
-    public function products_category($cate_id)
+    public function search(Request $request)
     {
-        
         $data['category'] = Categories::withCount('products')->get();
-        $data['cate'] = Product::where('status', '1')->where('cat_id', $cate_id)->paginate(20);
-        return view('user.products_category', $data);
+
+        $data['search'] = Product::where('product_name', 'LIKE', "%{$request->search}%")->where('status', '1')->paginate(10);
+        return view('user.search',$data);
     }
 }

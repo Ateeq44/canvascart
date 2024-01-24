@@ -86,8 +86,13 @@
                             </div>
                         </div>
                         <div bis_skin_checked="1">
-                            <form class="form_search ajax-search the-basics" role="form">
-                                <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input type="search" class="nav-search nav-search-field typeahead tt-hint" aria-expanded="true" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" dir="ltr" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input type="search" placeholder="Search any Device or Gadgets..." class="nav-search nav-search-field typeahead tt-input" aria-expanded="true" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, sans-serif; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;" bis_skin_checked="1"><div class="tt-dataset tt-dataset-states" bis_skin_checked="1"></div></div></span>
+                            <form class="form_search" role="form" action="{{url('search')}}" method="Get">
+                                <span class="twitter-typeahead w-100" style="position: relative; display: inline-block;">
+                                    <input type="search" placeholder="Search Product....." class="nav-search nav-search-field typeahead tt-input" aria-expanded="true" autocomplete="off" spellcheck="false" dir="auto" name="search" style="color: #060606; position: relative; vertical-align: top; background-color: transparent;">
+                                    <div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;" bis_skin_checked="1">
+                                        <div class="tt-dataset tt-dataset-states" bis_skin_checked="1"></div>
+                                    </div>
+                                </span>
                                 <button type="submit" name="nav-submit-button" class="btn-search" fdprocessedid="kk34r">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
@@ -114,7 +119,7 @@
                             <div bis_skin_checked="1">
                                 <div class="icon-nav" bis_skin_checked="1">
                                     <ul>
-                                        
+
                                         <li class="onhover-div mobile-cart">
                                             <a href="{{url('cart')}}">
                                                 <div bis_skin_checked="1">
@@ -156,7 +161,7 @@
                             <nav class="text-start">
                                 <!-- Sample menu definition -->
                                 <ul id="main-menu" class="sm pixelstrap sm-horizontal" data-smartmenus-id="1706080275084905">
-                                    
+
                                     <li>
                                         <a href="{{url('/')}}" bis_skin_checked="1" previewlistener="true">Home</a>
                                     </li>
