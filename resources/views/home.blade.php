@@ -19,7 +19,7 @@ Canvas Cart
                                 <div>
                                     <h4>Save 30%</h4>
                                     <h1>Must Have</h1>
-                                    <a href="#" class="btn btn-solid">shop now</a>
+                                    <a href="{{ url('shop') }}" class="btn btn-solid">shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@ Canvas Cart
                                 <div>
                                     <h4>Save 30%</h4>
                                     <h1>Special Price</h1>
-                                    <a href="#" class="btn btn-solid">shop now</a>
+                                    <a href="{{ url('shop') }}" class="btn btn-solid">shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -58,13 +58,13 @@ Canvas Cart
                     $images = json_decode($val->image)
                     @endphp
                     <div class="media" style="display: flex;">
-                        <a href="product-page(no-sidebar).html" tabindex="0" previewlistener="true">
+                        <a href="{{url('products_category/'.$val->id)}}" tabindex="0" previewlistener="true">
                             <img style="width: 200px; height:220px;" class="img-fluid blur-up lazyloaded" src="{{asset('upload/category/'.$images[0])}}" alt="">
-                        </a>
-                        <div class="media-body align-self-center">
+                        <div class="media-body align-self-center mt-3">
                             <h3>{{ $val->title }}</h3>
                             <h4>Count: {{ $val->products_count }}</h4>
                         </div>
+                        </a>
                     </div>
                     @endforeach
                 </div>

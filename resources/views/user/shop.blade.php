@@ -47,7 +47,6 @@ Product
                                         <input type="checkbox" class="form-check-input" id="zara">
                                         <label class="form-check-label" for="zara">{{ $val->title }}</label>
                                         <span class="countsf ms-5">{{ $val->products_count }}</span>
-
                                     </div>
                                     @endforeach
                                 </div>

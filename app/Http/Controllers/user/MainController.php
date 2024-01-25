@@ -32,12 +32,18 @@ class MainController extends Controller
     }
 
     public function category()
-    {
-        $data['category'] = Categories::withCount('products')->get();
-        
+    {        
         $data['category'] = Categories::withCount('products')->get();
         return view('user.category', $data);
     }
+
+    public function products_category($cat_id)
+    {        
+        $data['category'] = Categories::withCount('products')->get();
+        $data['shop'] = Product::where('status', '1')->where('cat_id', $cat_id)->paginate(10);
+        return view('user.products_category', $data);
+    }
+    
     public function shop()
     {
         $data['category'] = Categories::withCount('products')->get();

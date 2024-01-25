@@ -351,7 +351,7 @@ p.text-sm.text-gray-700.leading-5 {
                                         <div class="product-wrapper-grid product-load-more" bis_skin_checked="1" style="opacity: 1;">
                                             <div class="row margin-res" bis_skin_checked="1">
 
-                                                @foreach($cate as $val)
+                                                @foreach($shop as $val)
                                                 <div class="col-lg-3" bis_skin_checked="1" style="display: block;">
 
                                                     <div class="product-box">
@@ -421,7 +421,7 @@ p.text-sm.text-gray-700.leading-5 {
                                                 <div class="container-fluid p-0" bis_skin_checked="1">
                                                     <div class="row" bis_skin_checked="1">
                                                         <div class="col-xl-12 col-md-12 col-sm-12" bis_skin_checked="1">
-                                                            {{ $cate->appends($_GET)->links('pagging') }}
+                                                            {{ $shop->appends($_GET)->links('pagging') }}
                                                         </div>
                                                     </div>
                                                 </div>

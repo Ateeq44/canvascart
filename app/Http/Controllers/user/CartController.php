@@ -15,7 +15,7 @@ class CartController extends Controller
 {
     public function cart()
     {
-        $data['category'] = Categories::withCount('products')->get();
+        // $data['category'] = Categories::withCount('products')->get();
 
 
         // $wishlist = wishlist::where('user_id', Auth::id())->get();

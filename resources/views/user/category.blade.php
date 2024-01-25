@@ -36,7 +36,7 @@ Category
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
                                                             <div class="front">
-                                                                <a href="#" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/pro3/35.jpg&quot;); background-size: cover; background-position: center center; display: block;">
+                                                                <a href="{{url('products_category/'.$val->id)}}" class="bg-size blur-up lazyloaded" style="background-image: url(&quot;../assets/images/pro3/35.jpg&quot;); background-size: cover; background-position: center center; display: block;">
                                                                   <img src="{{ asset('upload/category/'.$images[0]) }}" class="img-fluid blur-up bg-img lazyloaded" alt="" style="display: none;">
                                                                 </a>
                                                             </div> 
@@ -48,7 +48,7 @@ Category
                                                                 </a>
                                                             </div>
                                                             <div>
-                                                                <a href="product-page(no-sidebar).html" previewlistener="true">
+                                                                <a href="{{url('products_category/'.$val->id)}}" previewlistener="true">
                                                                     <h6>({{ $val->products_count }})</h6>
                                                                 </a>
                                                             </div>

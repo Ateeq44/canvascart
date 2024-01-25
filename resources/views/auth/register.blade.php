@@ -63,8 +63,8 @@
                             Register
                         </button>
                     </form>
+                    <p class="mt-5" style="font-size:15px;">If You Already Register <a style="color:#f39910;" href="{{url('login')}}">Click Here</a></p>
                 </div>
-
             </div>
         </div>
     </div>

@@ -87,7 +87,6 @@ Product
                         ?>
                         <h3 class="price-detail">${{$product_details->selling_price}} <del>${{$product_details->price}}</del><span>{{ $discountPercentage }}% off</span></h3>
                         
-                            {{-- @if(!$product_details->size == []) --}}
                         <div id="selectSize" class="addeffect-section product-description border-product" bis_skin_checked="1">
                             <h6 class="product-title size-text">select Color 
                               <span>
@@ -109,10 +108,9 @@ Product
                             </div>
                             
                         </div>
-                            {{-- @endif --}}
                         <div id="" class="addeffect-section product-description border-product" bis_skin_checked="1">
+                          @if(empty($product_details->size))
                             <h6 class="product-title size-text">select size </h6>
-                          {{-- @if(!$product_details->size == 'null') --}}
 
                           <div class="size-box" bis_skin_checked="1">
                               @php
@@ -123,7 +121,7 @@ Product
                                   <span class="ml-1">{{ $val }}</span>
                                   @endforeach
                           </div>
-                          {{-- @endif --}}
+                          @endif
                             
                             <h6 class="product-title">quantity</h6>
                             <div class="qty-box" bis_skin_checked="1">

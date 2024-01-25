@@ -22,7 +22,9 @@
 .mt-5 {
   margin-top: 5rem !important;
 }
-
+.btn-solid:hover{
+  color: black !important;
+}
 .mt-6 {
   margin-top: 6rem !important;
 }
