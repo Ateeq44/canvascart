@@ -115,9 +115,9 @@
                                         <a href="{{url('dashboard')}}">
                                             <div class="d-flex">
                                                 <div class="" style="width: 50px;height: 50px;border-radius: 100%;border: 2px solid white;">
-                                                   <img style="width:100%;height: 100%; border-radius: 100%;padding: 0px;" src="{{asset('assets/images/avator.png')}}" alt="">   
-                                               </div>
-                                               <div class="ms-4 text-center" style="margin-top: 5px;"> 
+                                                 <img style="width:100%;height: 100%; border-radius: 100%;padding: 0px;" src="{{asset('assets/images/avator.png')}}" alt="">   
+                                             </div>
+                                             <div class="ms-4 text-center" style="margin-top: 5px;"> 
                                                 <p class="text-white mb-0">Hello, {{Auth::User()->name}}</p>
                                                 <h4 class="text-white font-weight-bold">Orders & Account</h4>
                                             </div>
@@ -126,9 +126,15 @@
                                 </li>
                                 @endif
                                 @endif
-                                <li class="mobile-wishlist ms-4">
-                                    <a href="#">
-                                        <i class="fa-solid fa-heart" style="color:white;font-size:30px;"></i>
+                                <?php 
+                                $count = cartItem();
+                                ?>
+                                <li class="onhover-div mobile-cart ms-4">
+                                    <a href="{{url('cart')}}">
+                                        <div bis_skin_checked="1">
+                                            <i class="fa-solid fa-heart" style="color:white;font-size:30px;"></i>
+                                        </div>
+                                        <span class="cart_qty_cls">0</span>
                                     </a>
                                 </li>
                                 <li class="onhover-div mobile-cart ms-4">
@@ -136,7 +142,7 @@
                                         <div bis_skin_checked="1">
                                             <i class="fa-solid fa-cart-shopping" style="display: block!important; color: white;font-size:30px;top: 14% !important;right: -15px!important;"></i>
                                         </div>
-                                        <span class="cart_qty_cls">2</span>
+                                        <span class="cart_qty_cls">{{$count}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -158,6 +164,7 @@
                     </div>
                     @php
                     $all_category = category();
+
                     @endphp
                     <div class="sidenav fixed-sidebar marketplace-sidebar" bis_skin_checked="1">
                         <nav>
@@ -194,217 +201,217 @@
                         </nav>
                     </div>
                 </div>
-                    {{-- <div class="col-xxl-3 d-none d-xxl-inline-block" bis_skin_checked="1">
-                        <div class="header-options" bis_skin_checked="1">
-                            <div class="vertical-slider no-arrow slick-initialized slick-slider slick-vertical" bis_skin_checked="1"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: inline-block;">Previous</button><div class="slick-list draggable" style="height: 26px;" bis_skin_checked="1"><div class="slick-track" style="opacity: 1; height: 182px; transform: translate3d(0px, -52px, 0px);" bis_skin_checked="1"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                                <span><i class="ti-gift" aria-hidden="true"></i>Gift Card for all the season</span>
-                            </div></div></div><div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 326px;" bis_skin_checked="1" tabindex="-1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                                <span><i class="ti-truck" aria-hidden="true"></i>Free Shipping on Orders
-                                $100+</span>
-                            </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 326px;" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                                <span><i class="ti-announcement" aria-hidden="true"></i>Buy One Get Two Free</span>
-                            </div></div></div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 326px;" bis_skin_checked="1" tabindex="-1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                                <span><i class="ti-gift" aria-hidden="true"></i>Gift Card for all the season</span>
-                            </div></div></div><div class="slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                                <span><i class="ti-truck" aria-hidden="true"></i>Free Shipping on Orders
-                                $100+</span>
-                            </div></div></div><div class="slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                                <span><i class="ti-announcement" aria-hidden="true"></i>Buy One Get Two Free</span>
-                            </div></div></div><div class="slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                                <span><i class="ti-gift" aria-hidden="true"></i>Gift Card for all the season</span>
-                            </div></div></div></div></div><button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: inline-block;">Next</button></div>
-                        </div>
-                    </div> --}}
-                </div>
+                {{-- <div class="col-xxl-3 d-none d-xxl-inline-block" bis_skin_checked="1">
+                    <div class="header-options" bis_skin_checked="1">
+                        <div class="vertical-slider no-arrow slick-initialized slick-slider slick-vertical" bis_skin_checked="1"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: inline-block;">Previous</button><div class="slick-list draggable" style="height: 26px;" bis_skin_checked="1"><div class="slick-track" style="opacity: 1; height: 182px; transform: translate3d(0px, -52px, 0px);" bis_skin_checked="1"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
+                            <span><i class="ti-gift" aria-hidden="true"></i>Gift Card for all the season</span>
+                        </div></div></div><div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 326px;" bis_skin_checked="1" tabindex="-1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
+                            <span><i class="ti-truck" aria-hidden="true"></i>Free Shipping on Orders
+                            $100+</span>
+                        </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 326px;" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
+                            <span><i class="ti-announcement" aria-hidden="true"></i>Buy One Get Two Free</span>
+                        </div></div></div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 326px;" bis_skin_checked="1" tabindex="-1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
+                            <span><i class="ti-gift" aria-hidden="true"></i>Gift Card for all the season</span>
+                        </div></div></div><div class="slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
+                            <span><i class="ti-truck" aria-hidden="true"></i>Free Shipping on Orders
+                            $100+</span>
+                        </div></div></div><div class="slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
+                            <span><i class="ti-announcement" aria-hidden="true"></i>Buy One Get Two Free</span>
+                        </div></div></div><div class="slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
+                            <span><i class="ti-gift" aria-hidden="true"></i>Gift Card for all the season</span>
+                        </div></div></div></div></div><button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: inline-block;">Next</button></div>
+                    </div>
+                </div> --}}
             </div>
-        </div>
-    </header>
-    
-    
-
-
-    @yield('content')
-
-
-    <footer class="dark-footer footer-style-1 footer-theme-color">
-        <section class="section-b-space darken-layout">
-            <div class="container" bis_skin_checked="1">
-                <div class="row footer-theme partition-f" bis_skin_checked="1">
-                    <div class="col-lg-4 col-md-6 sub-title" bis_skin_checked="1">
-                        <div class="footer-title footer-mobile-title" bis_skin_checked="1">
-                            <h4>about</h4>
-                        </div>
-                        <div class="footer-contant" bis_skin_checked="1">
-                            <div class="footer-logo" bis_skin_checked="1"><img src="{{asset('assets/images/logo.png')}}" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore</p>
-                            <ul class="contact-list">
-                                <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
-                                </li>
-                                <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                <li><i class="fa fa-envelope"></i>Email Us: <a href="#">Support@Multikart.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6" bis_skin_checked="1">
-                        <div class="sub-title" bis_skin_checked="1">
-                            <div class="footer-title" bis_skin_checked="1">
-                                <h4>my account</h4>
-                            </div>
-                            <div class="footer-contant" bis_skin_checked="1">
-                                <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6" bis_skin_checked="1">
-                        <div class="sub-title" bis_skin_checked="1">
-                            <div class="footer-title" bis_skin_checked="1">
-                                <h4>information</h4>
-                            </div>
-                            <div class="footer-contant" bis_skin_checked="1">
-                                <ul>
-                                    <li><a href="#">shipping &amp; return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" bis_skin_checked="1">
-                        <div class="sub-title" bis_skin_checked="1">
-                            <div class="footer-title" bis_skin_checked="1">
-                                <h4>follow us</h4>
-                            </div>
-                            <div class="footer-contant" bis_skin_checked="1">
-                                <p class="mb-cls-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt
-                                ut labore</p>
-                                <form class="form-inline">
-                                    <div class="form-group me-sm-3 mb-2" bis_skin_checked="1">
-                                        <label for="inputPassword2" class="sr-only">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword2" placeholder="Enter Your Email">
-                                    </div>
-                                    <button type="submit" class="btn btn-solid mb-2">subscribe</button>
-                                </form>
-                                <div class="footer-social" bis_skin_checked="1">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="sub-footer dark-subfooter" bis_skin_checked="1">
-            <div class="container" bis_skin_checked="1">
-                <div class="row" bis_skin_checked="1">
-                    <div class="col-xl-6 col-md-6 col-sm-12" bis_skin_checked="1">
-                        <div class="footer-end" bis_skin_checked="1">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2023-24 themeforest powered by
-                            pixelstrap</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12" bis_skin_checked="1">
-                        <div class="payment-card-bottom" bis_skin_checked="1">
-                            <ul>
-                                <li>
-                                    <a href="#"><img src="../assets/images/icon/visa.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="../assets/images/icon/mastercard.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="../assets/images/icon/paypal.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="../assets/images/icon/american-express.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="../assets/images/icon/discover.png" alt=""></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- tap to top -->
-    <div class="tap-top top-cls">
-        <div>
-            <i class="fa fa-angle-double-up"></i>
         </div>
     </div>
-    <!-- tap to top end -->
+</header>
 
 
-    <!-- latest jquery-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.color-change-btn').click(function () {
+
+
+@yield('content')
+
+
+<footer class="dark-footer footer-style-1 footer-theme-color">
+    <section class="section-b-space darken-layout">
+        <div class="container" bis_skin_checked="1">
+            <div class="row footer-theme partition-f" bis_skin_checked="1">
+                <div class="col-lg-4 col-md-6 sub-title" bis_skin_checked="1">
+                    <div class="footer-title footer-mobile-title" bis_skin_checked="1">
+                        <h4>about</h4>
+                    </div>
+                    <div class="footer-contant" bis_skin_checked="1">
+                        <div class="footer-logo" bis_skin_checked="1"><img src="{{asset('assets/images/logo.png')}}" alt=""></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore</p>
+                        <ul class="contact-list">
+                            <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                            </li>
+                            <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
+                            <li><i class="fa fa-envelope"></i>Email Us: <a href="#">Support@Multikart.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6" bis_skin_checked="1">
+                    <div class="sub-title" bis_skin_checked="1">
+                        <div class="footer-title" bis_skin_checked="1">
+                            <h4>my account</h4>
+                        </div>
+                        <div class="footer-contant" bis_skin_checked="1">
+                            <ul>
+                                <li><a href="#">mens</a></li>
+                                <li><a href="#">womens</a></li>
+                                <li><a href="#">clothing</a></li>
+                                <li><a href="#">accessories</a></li>
+                                <li><a href="#">featured</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6" bis_skin_checked="1">
+                    <div class="sub-title" bis_skin_checked="1">
+                        <div class="footer-title" bis_skin_checked="1">
+                            <h4>information</h4>
+                        </div>
+                        <div class="footer-contant" bis_skin_checked="1">
+                            <ul>
+                                <li><a href="#">shipping &amp; return</a></li>
+                                <li><a href="#">secure shopping</a></li>
+                                <li><a href="#">gallary</a></li>
+                                <li><a href="#">affiliates</a></li>
+                                <li><a href="#">contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" bis_skin_checked="1">
+                    <div class="sub-title" bis_skin_checked="1">
+                        <div class="footer-title" bis_skin_checked="1">
+                            <h4>follow us</h4>
+                        </div>
+                        <div class="footer-contant" bis_skin_checked="1">
+                            <p class="mb-cls-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                do eiusmod tempor incididunt
+                            ut labore</p>
+                            <form class="form-inline">
+                                <div class="form-group me-sm-3 mb-2" bis_skin_checked="1">
+                                    <label for="inputPassword2" class="sr-only">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword2" placeholder="Enter Your Email">
+                                </div>
+                                <button type="submit" class="btn btn-solid mb-2">subscribe</button>
+                            </form>
+                            <div class="footer-social" bis_skin_checked="1">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sub-footer dark-subfooter" bis_skin_checked="1">
+        <div class="container" bis_skin_checked="1">
+            <div class="row" bis_skin_checked="1">
+                <div class="col-xl-6 col-md-6 col-sm-12" bis_skin_checked="1">
+                    <div class="footer-end" bis_skin_checked="1">
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2023-24 themeforest powered by
+                        pixelstrap</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" bis_skin_checked="1">
+                    <div class="payment-card-bottom" bis_skin_checked="1">
+                        <ul>
+                            <li>
+                                <a href="#"><img src="../assets/images/icon/visa.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="../assets/images/icon/mastercard.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="../assets/images/icon/paypal.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="../assets/images/icon/american-express.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="../assets/images/icon/discover.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- tap to top -->
+<div class="tap-top top-cls">
+    <div>
+        <i class="fa fa-angle-double-up"></i>
+    </div>
+</div>
+<!-- tap to top end -->
+
+
+<!-- latest jquery-->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.color-change-btn').click(function () {
                 // Remove active class from all buttons
-                $('.color-change-btn').removeClass('active');
+            $('.color-change-btn').removeClass('active');
 
                 // Add active class to the clicked button
-                $(this).addClass('active');
-            });
+            $(this).addClass('active');
         });
-
-        $(document).ready(function () {
-            $('.payment-radio').change(function () {
-                var selectedPaymentMethod = $(this).val();
-
-                if (selectedPaymentMethod === 'card') {
-                    $('#card-payment-form').show();
-                } else {
-                    $('#card-payment-form').hide();
-                }
-            });
-        });
-        
-    </script>
-    <!-- fly cart ui jquery-->
-    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
-    {{-- <script src="{{asset('assets/js/timer.js')}}"></script> --}}
-
-    <!-- exitintent jquery-->
-    <script src="{{asset('assets/js/jquery.exitintent.js')}}"></script>
-    <script src="{{asset('assets/js/exit.js')}}"></script>
-
-    <!-- slick js-->
-    {{-- <script src="{{asset('assets/js/slick.js')}}"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-
-
-      $('.full-slider .slider').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: true,
-        prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-        nextArrow: '<button type="button" class="slick-next">Next</button>',
     });
 
-      function showImage(imagePath) {
-        var displayedImage = document.getElementById('displayedImage');
-        displayedImage.src = imagePath;
-    }
+    $(document).ready(function () {
+        $('.payment-radio').change(function () {
+            var selectedPaymentMethod = $(this).val();
+
+            if (selectedPaymentMethod === 'card') {
+                $('#card-payment-form').show();
+            } else {
+                $('#card-payment-form').hide();
+            }
+        });
+    });
+
+</script>
+<!-- fly cart ui jquery-->
+<script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+{{-- <script src="{{asset('assets/js/timer.js')}}"></script> --}}
+
+<!-- exitintent jquery-->
+<script src="{{asset('assets/js/jquery.exitintent.js')}}"></script>
+<script src="{{asset('assets/js/exit.js')}}"></script>
+
+<!-- slick js-->
+{{-- <script src="{{asset('assets/js/slick.js')}}"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+
+
+  $('.full-slider .slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+    nextArrow: '<button type="button" class="slick-next">Next</button>',
+});
+
+  function showImage(imagePath) {
+    var displayedImage = document.getElementById('displayedImage');
+    displayedImage.src = imagePath;
+}
 
 </script>
 
