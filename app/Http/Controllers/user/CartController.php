@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Wishlist;
+use App\Models\Categories;
 
 
 
@@ -36,7 +37,7 @@ class CartController extends Controller
         if ($prod_check) {
 
             if (Cart::where('prod_id', $product_id)->where('user_id', Auth::id())->exists()) {
-                return response()->json(['status' => $prod_check->name.' Already Added To Cart']);
+                return response()->json(['status' => $prod_check->product_name.' Already Added To Cart']);
                 $destroy = Wishlist::where('prod_id', $product_id)->first();
                 $destroy->destroy();
             }
@@ -49,8 +50,8 @@ class CartController extends Controller
                 $cartItem->size = $size;
                 $cartItem->save();
                 $destroy = Wishlist::where('prod_id', $product_id)->first();
-                $destroy->delete();
-                return response()->json(['status' => $prod_check->name.' Added To Cart']);
+                
+                return response()->json(['status' => $prod_check->product_name.' Added To Cart']);
             }
         }
     }

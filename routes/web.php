@@ -34,7 +34,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('invoice/{orderId}', [App\Http\Controllers\user\CheckoutController::class, 'invoice']);
     Route::get('order_details/{Id}', [App\Http\Controllers\HomeController::class, 'order_details']);
     Route::get('tracking_order/{Id}', [App\Http\Controllers\HomeController::class, 'tracking_order']);
-
+    Route::get('wishlist', [App\Http\Controllers\user\WishlistController::class, 'index']);
+    Route::get('add-to-wishlist', [App\Http\Controllers\user\WishlistController::class, 'add']);
+    Route::get('wishlist-delete/{id}', [App\Http\Controllers\user\WishlistController::class, 'delete']);
 
 });
 
@@ -45,47 +47,47 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     /*
         product categories
     */
-    Route::get('admin/productcategories'            ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'index']);
-    Route::get('admin/productcategories/edit/{id?}' ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
-    Route::post('admin/productcategories/edit/{id?}',   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
-    Route::get('admin/productcategories/create'     ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
-    Route::post('admin/productcategories/create'    ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
-    Route::get('admin/productcategories/delete/{id}',   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'delete']);
+        Route::get('admin/productcategories'            ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'index']);
+        Route::get('admin/productcategories/edit/{id?}' ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
+        Route::post('admin/productcategories/edit/{id?}',   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'edit']);
+        Route::get('admin/productcategories/create'     ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
+        Route::post('admin/productcategories/create'    ,   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
+        Route::get('admin/productcategories/delete/{id}',   [App\Http\Controllers\Admin\ProductCategoriesController::class, 'delete']);
 
 
     /*
         products 
     */
-    Route::get('admin/product'                     , [App\Http\Controllers\Admin\ProductController::class, 'index']);
-    Route::get('admin/product/edit/{id?}'          , [App\Http\Controllers\Admin\ProductController::class, 'edit']);
-    Route::post('admin/product/edit/{id?}'         , [App\Http\Controllers\Admin\ProductController::class, 'edit']);
-    Route::get('admin/product/create'              , [App\Http\Controllers\Admin\ProductController::class, 'create']);
-    Route::post('admin/product/create'             , [App\Http\Controllers\Admin\ProductController::class, 'create']);
-    Route::get('admin/product/delete/{id}'         , [App\Http\Controllers\Admin\ProductController::class, 'delete']);
-    Route::get('admin/product/view/{id}'           , [App\Http\Controllers\Admin\ProductController::class, 'view']);
+        Route::get('admin/product'                     , [App\Http\Controllers\Admin\ProductController::class, 'index']);
+        Route::get('admin/product/edit/{id?}'          , [App\Http\Controllers\Admin\ProductController::class, 'edit']);
+        Route::post('admin/product/edit/{id?}'         , [App\Http\Controllers\Admin\ProductController::class, 'edit']);
+        Route::get('admin/product/create'              , [App\Http\Controllers\Admin\ProductController::class, 'create']);
+        Route::post('admin/product/create'             , [App\Http\Controllers\Admin\ProductController::class, 'create']);
+        Route::get('admin/product/delete/{id}'         , [App\Http\Controllers\Admin\ProductController::class, 'delete']);
+        Route::get('admin/product/view/{id}'           , [App\Http\Controllers\Admin\ProductController::class, 'view']);
     /*
         Users 
     */
-    Route::get('admin/user'                        , [App\Http\Controllers\Admin\UserController::class, 'index']);
-    Route::get('admin/user/edit/{id?}'             , [App\Http\Controllers\Admin\UserController::class, 'edit']);
-    Route::post('admin/user/edit/{id?}'            , [App\Http\Controllers\Admin\UserController::class, 'edit']);
-    Route::get('admin/user/create'                 , [App\Http\Controllers\Admin\UserController::class, 'create']);
-    Route::post('admin/user/create'                , [App\Http\Controllers\Admin\UserController::class, 'create']);
-    Route::get('admin/user/delete/{id}'            , [App\Http\Controllers\Admin\UserController::class, 'delete']);
+        Route::get('admin/user'                        , [App\Http\Controllers\Admin\UserController::class, 'index']);
+        Route::get('admin/user/edit/{id?}'             , [App\Http\Controllers\Admin\UserController::class, 'edit']);
+        Route::post('admin/user/edit/{id?}'            , [App\Http\Controllers\Admin\UserController::class, 'edit']);
+        Route::get('admin/user/create'                 , [App\Http\Controllers\Admin\UserController::class, 'create']);
+        Route::post('admin/user/create'                , [App\Http\Controllers\Admin\UserController::class, 'create']);
+        Route::get('admin/user/delete/{id}'            , [App\Http\Controllers\Admin\UserController::class, 'delete']);
     /*
         Users 
     */
-    Route::get('admin/details'                     , [App\Http\Controllers\Admin\DetailsController::class, 'index']);
-    Route::get('admin/details/edit/{id?}'          , [App\Http\Controllers\Admin\DetailsController::class, 'edit']);
-    Route::post('admin/details/edit/{id?}'         , [App\Http\Controllers\Admin\DetailsController::class, 'edit']);
-    Route::get('admin/details/create'              , [App\Http\Controllers\Admin\DetailsController::class, 'create']);
-    Route::post('admin/details/create'             , [App\Http\Controllers\Admin\DetailsController::class, 'create']);
-    Route::get('admin/details/delete/{id}'         , [App\Http\Controllers\Admin\DetailsController::class, 'delete']);
+        Route::get('admin/details'                     , [App\Http\Controllers\Admin\DetailsController::class, 'index']);
+        Route::get('admin/details/edit/{id?}'          , [App\Http\Controllers\Admin\DetailsController::class, 'edit']);
+        Route::post('admin/details/edit/{id?}'         , [App\Http\Controllers\Admin\DetailsController::class, 'edit']);
+        Route::get('admin/details/create'              , [App\Http\Controllers\Admin\DetailsController::class, 'create']);
+        Route::post('admin/details/create'             , [App\Http\Controllers\Admin\DetailsController::class, 'create']);
+        Route::get('admin/details/delete/{id}'         , [App\Http\Controllers\Admin\DetailsController::class, 'delete']);
     /*
         Orders 
     */
-    Route::get('admin/orders'                      , [App\Http\Controllers\Admin\AdminController::class, 'orders']);
-    Route::post('admin/orders/update/{id}'          , [App\Http\Controllers\Admin\AdminController::class, 'update']);
-    Route::get('admin/orders/view/{id}'            , [App\Http\Controllers\Admin\AdminController::class, 'view']);
+        Route::get('admin/orders'                      , [App\Http\Controllers\Admin\AdminController::class, 'orders']);
+        Route::post('admin/orders/update/{id}'          , [App\Http\Controllers\Admin\AdminController::class, 'update']);
+        Route::get('admin/orders/view/{id}'            , [App\Http\Controllers\Admin\AdminController::class, 'view']);
 
-});
+    });

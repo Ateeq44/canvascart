@@ -45,6 +45,15 @@
         .color-change-btn.active {
             color: #ff5733; /* Change this to your desired active color */
         }
+        .swal-button {
+            background-color: #f39910 !important;
+        }
+        .swal-button:hover {
+            background-color: #f39910 !important;
+        }
+        .swal-text{
+            color: black !important;
+        }
     </style>
 
 
@@ -115,9 +124,9 @@
                                         <a href="{{url('dashboard')}}">
                                             <div class="d-flex">
                                                 <div class="" style="width: 50px;height: 50px;border-radius: 100%;border: 2px solid white;">
-                                                 <img style="width:100%;height: 100%; border-radius: 100%;padding: 0px;" src="{{asset('assets/images/avator.png')}}" alt="">   
-                                             </div>
-                                             <div class="ms-4 text-center" style="margin-top: 5px;"> 
+                                                   <img style="width:100%;height: 100%; border-radius: 100%;padding: 0px;" src="{{asset('assets/images/avator.png')}}" alt="">   
+                                               </div>
+                                               <div class="ms-4 text-center" style="margin-top: 5px;"> 
                                                 <p class="text-white mb-0">Hello, {{Auth::User()->name}}</p>
                                                 <h4 class="text-white font-weight-bold">Orders & Account</h4>
                                             </div>
@@ -127,14 +136,15 @@
                                 @endif
                                 @endif
                                 <?php 
-                                $count = cartItem();
+                                @$count = cartItem();
+                                @$count1 = wishlist();
                                 ?>
                                 <li class="onhover-div mobile-cart ms-4">
-                                    <a href="{{url('cart')}}">
+                                    <a href="{{url('wishlist')}}">
                                         <div bis_skin_checked="1">
                                             <i class="fa-solid fa-heart" style="color:white;font-size:30px;"></i>
                                         </div>
-                                        <span class="cart_qty_cls">0</span>
+                                        <span class="cart_qty_cls">{{@$count1}}</span>
                                     </a>
                                 </li>
                                 <li class="onhover-div mobile-cart ms-4">
@@ -142,7 +152,8 @@
                                         <div bis_skin_checked="1">
                                             <i class="fa-solid fa-cart-shopping" style="display: block!important; color: white;font-size:30px;top: 14% !important;right: -15px!important;"></i>
                                         </div>
-                                        <span class="cart_qty_cls">{{$count}}</span>
+                                        <span class="cart_qty_cls">{{@$count}}</span>
+                                        {{-- <span class="cart_qty_cls">0</span> --}}
                                     </a>
                                 </li>
                             </ul>
