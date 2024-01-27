@@ -68,21 +68,17 @@ Cart
                 				<td>
                 					<div class="qty-box" bis_skin_checked="1">
                 						<div class="input-group" bis_skin_checked="1">
-                							<form action="{{url('decrease/'.$val->id)}}" method="get" accept-charset="utf-8">
                 								<span class="input-group-prepend decrease">
                 									<button id="" type="button" class="btn quantity-left-minus" data-type="minus" data-field="" fdprocessedid="hqd1z">
                 										<i class="fa-solid fa-minus"></i>
                 									</button> 
                 								</span>
-                							</form>
                 							<input type="text" name="quantity" class="form-control input-number quantity" value="{{ $val->prod_qty }}" fdprocessedid="rogv2">
-                							<form action="{{url('decrease/'.$val->id)}}" method="get" accept-charset="utf-8">
                 								<span class="input-group-prepend increase">
                 									<button id="" type="button" class="btn quantity-right-plus" data-type="plus" data-field="" fdprocessedid="a2hh48">
                 										<i class="fa-solid fa-plus"></i>
                 									</button>
                 								</span>
-                							</form>
                 						</div>
                 					</div>
                 				</td>
@@ -162,6 +158,7 @@ Cart
     </div>
     @endsection 
     @section('script')
+    
     <script>
     	$(document).ready(function(){
             // Open modal
