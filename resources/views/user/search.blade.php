@@ -36,18 +36,19 @@ Product
                     <!-- side-bar colleps block stat -->
                     <div class="collection-filter-block" bis_skin_checked="1">
                         <!-- brand filter start -->
-                        <div class="collection-mobile-back" bis_skin_checked="1"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> back</span></div>
                         <div class="collection-collapse-block open" bis_skin_checked="1">
                             <h3 class="collapse-block-title">Categories</h3>
                             <div class="collection-collapse-block-content" bis_skin_checked="1">
                                 <div class="collection-brand-filter" bis_skin_checked="1">
                                     @foreach($category as $val)
-
-                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
-                                        <input type="checkbox" class="form-check-input" id="zara">
-                                        <label class="form-check-label" for="zara">{{ $val->title }}</label>
-                                        <span class="countsf ms-5">{{ $val->products_count }}</span>
-
+                                    <div class="form-check collection-filter-checkbox d-flex justify-content-between" bis_skin_checked="1">
+                                        <div>   
+                                            <input type="checkbox" class="form-check-input" >
+                                            <label class="form-check-label" for="zara">{{ $val->title }}</label>
+                                        </div>
+                                        <div>
+                                            <span class="countsf ms-5">{{ $val->products_count }}</span>
+                                        </div>
                                     </div>
                                     @endforeach
                                 </div>
@@ -55,18 +56,15 @@ Product
                         </div>
                         <!-- color filter start here -->
                         <div class="collection-collapse-block open" bis_skin_checked="1">
-                            <h3 class="collapse-block-title">colors</h3>
+                            <h3 class="collapse-block-title">Colors</h3>
                             <div class="collection-collapse-block-content" bis_skin_checked="1">
-                                <div class="color-selector" bis_skin_checked="1">
-                                    <ul>
-                                        <li class="color-1"></li>
-                                        <li class="color-2"></li>
-                                        <li class="color-3"></li>
-                                        <li class="color-4"></li>
-                                        <li class="color-5"></li>
-                                        <li class="color-6"></li>
-                                        <li class="color-7 active"></li>
-                                    </ul>
+                                <div class="collection-brand-filter" bis_skin_checked="1">
+                                    @foreach($details as $val)
+                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
+                                        <input type="checkbox" class="form-check-input">
+                                        <label class="form-check-label" for="zara">{{ $val->color }}</label>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

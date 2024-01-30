@@ -116,7 +116,7 @@ Canvas Cart
                 </div>
                 <div class="product-info">
                     <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                    <a href="">
+                    <a href="{{url('products_category/'.$val->cat_id)}}">
                         <h6 style="color: #f85606;">{{$val->category->title}}</h6>
                     </a>
                     <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">
@@ -183,7 +183,7 @@ Canvas Cart
                 </div>
                 <div class="product-info">
                     <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                    <a href="">
+                    <a href="{{url('products_category/'.$val->cat_id)}}">
                         <h6 style="color: #f85606;">{{$val->category->title}}</h6>
                     </a>
                     <a href="{{ url('product-details/'.$val->category->slug.'/'.$val->slug.'/'.$val->cat_id) }}">

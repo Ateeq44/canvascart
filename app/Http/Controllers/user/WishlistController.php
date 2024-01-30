@@ -31,6 +31,7 @@ class wishlistcontroller extends Controller
                 $wishlist->color = $color;
                 $wishlist->size = $size;
                 $wishlist->save();
+                
                 return response()->json(['status' => 'Added To Wishlist']);
 
 

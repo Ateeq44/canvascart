@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Product;
+use App\Models\Details;
 
 class MainController extends Controller
 {
@@ -48,12 +49,14 @@ class MainController extends Controller
     {
         $data['category'] = Categories::withCount('products')->get();
         $data['shop'] = Product::where('status', '1')->paginate(10);
+        $data['details'] = Details::get();
+        
         return view('user.shop', $data);
     }
     public function search(Request $request)
     {
         $data['category'] = Categories::withCount('products')->get();
-
+        $data['details'] = Details::get();
         $data['search'] = Product::where('product_name', 'LIKE', "%{$request->search}%")->where('status', '1')->paginate(10);
         return view('user.search',$data);
     }

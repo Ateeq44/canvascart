@@ -336,7 +336,7 @@
                         pixelstrap</p>
                     </div>
                 </div>
-                <div class="col-xl-6 col-md-6 col-sm-12" bis_skin_checked="1">
+                {{-- <div class="col-xl-6 col-md-6 col-sm-12" bis_skin_checked="1">
                     <div class="payment-card-bottom" bis_skin_checked="1">
                         <ul>
                             <li>
@@ -356,7 +356,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

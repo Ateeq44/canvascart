@@ -36,17 +36,19 @@ Product
                     <!-- side-bar colleps block stat -->
                     <div class="collection-filter-block" bis_skin_checked="1">
                         <!-- brand filter start -->
-                        <div class="collection-mobile-back" bis_skin_checked="1"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> back</span></div>
                         <div class="collection-collapse-block open" bis_skin_checked="1">
                             <h3 class="collapse-block-title">Categories</h3>
                             <div class="collection-collapse-block-content" bis_skin_checked="1">
                                 <div class="collection-brand-filter" bis_skin_checked="1">
-                                    @foreach($category as $val)
-
-                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
-                                        <input type="checkbox" class="form-check-input" id="zara">
-                                        <label class="form-check-label" for="zara">{{ $val->title }}</label>
-                                        <span class="countsf ms-5">{{ $val->products_count }}</span>
+                                    @foreach($category as $key => $val)
+                                    <div class="form-check collection-filter-checkbox d-flex justify-content-between" bis_skin_checked="1">
+                                        <div>   
+                                            <input type="checkbox" class="form-check-input" id="zara{{$key}}">
+                                            <label class="form-check-label" for="zara{{$key}}">{{ $val->title }}</label>
+                                        </div>
+                                        <div>
+                                            <span class="countsf ms-5">{{ $val->products_count }}</span>
+                                        </div>
                                     </div>
                                     @endforeach
                                 </div>
@@ -54,18 +56,15 @@ Product
                         </div>
                         <!-- color filter start here -->
                         <div class="collection-collapse-block open" bis_skin_checked="1">
-                            <h3 class="collapse-block-title">colors</h3>
+                            <h3 class="collapse-block-title">Colors</h3>
                             <div class="collection-collapse-block-content" bis_skin_checked="1">
-                                <div class="color-selector" bis_skin_checked="1">
-                                    <ul>
-                                        <li class="color-1"></li>
-                                        <li class="color-2"></li>
-                                        <li class="color-3"></li>
-                                        <li class="color-4"></li>
-                                        <li class="color-5"></li>
-                                        <li class="color-6"></li>
-                                        <li class="color-7 active"></li>
-                                    </ul>
+                                <div class="collection-brand-filter" bis_skin_checked="1">
+                                    @foreach($details as $key => $val)
+                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
+                                        <input type="checkbox" class="form-check-input" id="color{{$key}}">
+                                        <label class="form-check-label" for="color{{$key}}">{{ $val->color }}</label>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -107,180 +106,7 @@ Product
                     </div>
                     <!-- silde-bar colleps block end here -->
                     <!-- side-bar single product slider start -->
-                    <div class="theme-card" bis_skin_checked="1">
-                        <h5 class="title-border">new product</h5>
-                        <div class="offer-slider slide-1 slick-initialized slick-slider" bis_skin_checked="1"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: block;" fdprocessedid="ta0yfn">Previous</button><div class="slick-list draggable" bis_skin_checked="1"><div class="slick-track" style="opacity: 1; width: 1630px; transform: translate3d(-326px, 0px, 0px);" bis_skin_checked="1"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 326px;" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/001.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>black White Printed Dresses</h6>
-                                    </a>
-                                    <h4>$32.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/4.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Dotted Black Dresses</h6>
-                                    </a>
-                                    <h4>$38.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/19.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Blue Printed Dresses</h6>
-                                    </a>
-                                    <h4>$36.00</h4>
-                                </div>
-                            </div>
-                        </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 326px;" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="0" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/1.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="0" previewlistener="true">
-                                        <h6>Green Printed Dresses</h6>
-                                    </a>
-                                    <h4>30.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="0" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/011.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="0" previewlistener="true">
-                                        <h6>Pink Printed Dresses</h6>
-                                    </a>
-                                    <h4>$35.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="0" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/16.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="0" previewlistener="true">
-                                        <h6>Solid Green Dresses</h6>
-                                    </a>
-                                    <h4>$33.00</h4>
-                                </div>
-                            </div>
-                        </div></div></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" style="width: 326px;" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/001.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>black White Printed Dresses</h6>
-                                    </a>
-                                    <h4>$32.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/4.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Dotted Black Dresses</h6>
-                                    </a>
-                                    <h4>$38.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/19.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Blue Printed Dresses</h6>
-                                    </a>
-                                    <h4>$36.00</h4>
-                                </div>
-                            </div>
-                        </div></div></div><div class="slick-slide slick-cloned" data-slick-index="2" aria-hidden="true" tabindex="-1" style="width: 326px;" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/1.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Green Printed Dresses</h6>
-                                    </a>
-                                    <h4>30.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/011.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Pink Printed Dresses</h6>
-                                    </a>
-                                    <h4>$35.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/16.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Solid Green Dresses</h6>
-                                    </a>
-                                    <h4>$33.00</h4>
-                                </div>
-                            </div>
-                        </div></div></div><div class="slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 326px;" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/001.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>black White Printed Dresses</h6>
-                                    </a>
-                                    <h4>$32.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/4.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Dotted Black Dresses</h6>
-                                    </a>
-                                    <h4>$38.00</h4>
-                                </div>
-                            </div>
-                            <div class="media" bis_skin_checked="1">
-                                <a href="" tabindex="-1" previewlistener="true"><img class="img-fluid blur-up lazyloaded" src="../assets/images/fashion/pro/19.jpg" alt=""></a>
-                                <div class="media-body align-self-center" bis_skin_checked="1">
-                                    <div class="rating" bis_skin_checked="1"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                    </div><a href="product-page(no-sidebar).html" tabindex="-1" previewlistener="true">
-                                        <h6>Blue Printed Dresses</h6>
-                                    </a>
-                                    <h4>$36.00</h4>
-                                </div>
-                            </div>
-                        </div></div></div></div></div><button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;" fdprocessedid="cgq18b">Next</button></div>
-                    </div>
+                    
                     <!-- side-bar single product slider end -->
                     <!-- side-bar banner start here -->
                     <div class="collection-sidebar-banner" bis_skin_checked="1">

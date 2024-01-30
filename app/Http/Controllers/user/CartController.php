@@ -50,6 +50,7 @@ class CartController extends Controller
                 $cartItem->size = $size;
                 $cartItem->save();
                 $destroy = Wishlist::where('prod_id', $product_id)->first();
+                $destroy->delete();
                 
                 return response()->json(['status' => $prod_check->product_name.' Added To Cart']);
             }

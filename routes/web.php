@@ -37,7 +37,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('wishlist', [App\Http\Controllers\user\WishlistController::class, 'index']);
     Route::get('add-to-wishlist', [App\Http\Controllers\user\WishlistController::class, 'add']);
     Route::get('wishlist-delete/{id}', [App\Http\Controllers\user\WishlistController::class, 'delete']);
-
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
