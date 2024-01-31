@@ -45,12 +45,21 @@ class MainController extends Controller
         return view('user.products_category', $data);
     }
     
-    public function shop()
+    public function shop(Request $request)
     {
         $data['category'] = Categories::withCount('products')->get();
         $data['shop'] = Product::where('status', '1')->paginate(10);
         $data['details'] = Details::get();
+        $selectedCategories = $request->input('categories', []);
         
+        
+        if ($request->isMethod('post')) {
+            $selectedCategories = $request->category;
+            $data['shop'] = Product::with('category')->whereIn('cat_id', $selectedCategories)->get();
+            return json_encode(['flag' => true, 'data' => $data]);
+        }
+        
+        // dd($request);
         return view('user.shop', $data);
     }
     public function search(Request $request)
