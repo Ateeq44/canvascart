@@ -14,10 +14,10 @@ Product
         display: none;
     }
 </style>
-<div class="breadcrumb-section" bis_skin_checked="1">
-    <div class="container" bis_skin_checked="1">
-        <div class="row" bis_skin_checked="1">
-            <div class="col-sm-6" bis_skin_checked="1">
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb justify-content-start">
                         <li class="breadcrumb-item"><a href="index.html" previewlistener="true">home</a></li>
@@ -29,21 +29,21 @@ Product
     </div>
 </div>
 <section class="section-b-space ratio_asos">
-    <div class="collection-wrapper" bis_skin_checked="1">
-        <div class="container" bis_skin_checked="1">
-            <div class="row" bis_skin_checked="1">
-                <div class="col-sm-3 collection-filter" bis_skin_checked="1">
+    <div class="collection-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 collection-filter">
                     <!-- side-bar colleps block stat -->
-                    <div class="collection-filter-block" bis_skin_checked="1">
+                    <div class="collection-filter-block">
                         <!-- brand filter start -->
-                        <div class="collection-collapse-block open" bis_skin_checked="1">
+                        <div class="collection-collapse-block open">
                             <h3 class="collapse-block-title">Categories</h3>
-                            <div class="collection-collapse-block-content" bis_skin_checked="1">
-                                <div class="collection-brand-filter" bis_skin_checked="1">
+                            <div class="collection-collapse-block-content">
+                                <div class="collection-brand-filter">
                                     @foreach($category as $key => $val)
-                                    <div class="form-check collection-filter-checkbox d-flex justify-content-between" bis_skin_checked="1">
+                                    <div class="form-check collection-filter-checkbox d-flex justify-content-between">
                                         <div>   
-                                            <input type="checkbox" name="categories[]" value="{{ $val->id }}" class="form-check-input category-checkbox" id="zara{{$key}}">
+                                            <input type="checkbox" name="categories[]" value="{{ $val->id }}" class="form-check-input filters" id="zara{{$key}}">
                                             <label class="form-check-label" for="zara{{$key}}">{{ $val->title }}</label>
                                         </div>
                                         <div>
@@ -55,13 +55,13 @@ Product
                             </div>
                         </div>
                         <!-- color filter start here -->
-                        <div class="collection-collapse-block open" bis_skin_checked="1">
+                        <div class="collection-collapse-block open">
                             <h3 class="collapse-block-title">Colors</h3>
-                            <div class="collection-collapse-block-content" bis_skin_checked="1">
-                                <div class="collection-brand-filter" bis_skin_checked="1">
+                            <div class="collection-collapse-block-content">
+                                <div class="collection-brand-filter">
                                     @foreach($details as $key => $val)
-                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
-                                        <input type="checkbox" class="form-check-input" id="color{{$key}}">
+                                    <div class="form-check collection-filter-checkbox">
+                                        <input type="checkbox" value="{{ $val->color }}" class="form-check-input filters color-checkbox" name="color[]" id="color{{$key}}">
                                         <label class="form-check-label" for="color{{$key}}">{{ $val->color }}</label>
                                     </div>
                                     @endforeach
@@ -69,23 +69,23 @@ Product
                             </div>
                         </div>
                         <!-- size filter start here -->
-                        <div class="collection-collapse-block border-0 open" bis_skin_checked="1">
+                        <div class="collection-collapse-block border-0 open">
                             <h3 class="collapse-block-title">size</h3>
-                            <div class="collection-collapse-block-content" bis_skin_checked="1">
-                                <div class="collection-brand-filter" bis_skin_checked="1">
-                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
+                            <div class="collection-collapse-block-content">
+                                <div class="collection-brand-filter">
+                                    <div class="form-check collection-filter-checkbox">
                                         <input type="checkbox" class="form-check-input" id="hundred">
                                         <label class="form-check-label" for="hundred">s</label>
                                     </div>
-                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
+                                    <div class="form-check collection-filter-checkbox">
                                         <input type="checkbox" class="form-check-input" id="twohundred">
                                         <label class="form-check-label" for="twohundred">m</label>
                                     </div>
-                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
+                                    <div class="form-check collection-filter-checkbox">
                                         <input type="checkbox" class="form-check-input" id="threehundred">
                                         <label class="form-check-label" for="threehundred">l</label>
                                     </div>
-                                    <div class="form-check collection-filter-checkbox" bis_skin_checked="1">
+                                    <div class="form-check collection-filter-checkbox">
                                         <input type="checkbox" class="form-check-input" id="fourhundred">
                                         <label class="form-check-label" for="fourhundred">xl</label>
                                     </div>
@@ -93,11 +93,11 @@ Product
                             </div>
                         </div>
                         <!-- price filter start here -->
-                        <div class="collection-collapse-block border-0 open" bis_skin_checked="1">
+                        <div class="collection-collapse-block border-0 open">
                             <h3 class="collapse-block-title">price</h3>
-                            <div class="collection-collapse-block-content" bis_skin_checked="1">
-                                <div class="wrapper mt-3" bis_skin_checked="1">
-                                    <div class="range-slider" bis_skin_checked="1">
+                            <div class="collection-collapse-block-content">
+                                <div class="wrapper mt-3">
+                                    <div class="range-slider">
                                         <input type="hidden" class="js-range-slider irs-hidden-input" value="" readonly="" fdprocessedid="xdlrc">
                                     </div>
                                 </div>
@@ -109,36 +109,36 @@ Product
                     
                     <!-- side-bar single product slider end -->
                     <!-- side-bar banner start here -->
-                    <div class="collection-sidebar-banner" bis_skin_checked="1">
+                    <div class="collection-sidebar-banner">
                         <a href="#"><img src="../assets/images/side-banner.png" class="img-fluid blur-up lazyloaded" alt=""></a>
                     </div>
                     <!-- side-bar banner end here -->
                 </div>
-                <div class="collection-content col" bis_skin_checked="1">
-                    <div class="page-main-content" bis_skin_checked="1">
-                        <div class="row" bis_skin_checked="1">
-                            <div class="col-sm-12" bis_skin_checked="1">
+                <div class="collection-content col">
+                    <div class="page-main-content">
+                        <div class="row">
+                            <div class="col-sm-12">
 
-                                <div class="collection-product-wrapper" bis_skin_checked="1">
-                                    <div class="product-top-filter" bis_skin_checked="1">
-                                        <div class="row" bis_skin_checked="1">
-                                            <div class="col-xl-12" bis_skin_checked="1">
-                                                <div class="filter-main-btn" bis_skin_checked="1"><span class="filter-btn btn btn-theme"><i class="fa fa-filter" aria-hidden="true"></i> Filter</span></div>
+                                <div class="collection-product-wrapper">
+                                    <div class="product-top-filter">
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <div class="filter-main-btn"><span class="filter-btn btn btn-theme"><i class="fa fa-filter" aria-hidden="true"></i> Filter</span></div>
                                             </div>
                                         </div>
-                                        <div class="row" bis_skin_checked="1">
-                                            <div class="col-12" bis_skin_checked="1">
-                                                <div class="product-filter-content" bis_skin_checked="1">
-                                                    <div class="search-count" bis_skin_checked="1">
-                                                        <h5>Showing Products 1-24 of 10 Result</h5>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="product-filter-content">
+                                                    <div class="search-count">
+                                                        <h5>Showing 1-{{$shop->count()}} of {{$shop1->count()}}  Products</h5>
                                                     </div>
-                                                    <div class="collection-view" bis_skin_checked="1">
+                                                    <div class="collection-view">
                                                         <ul>
                                                             <li><i class="fa fa-th grid-layout-view"></i></li>
                                                             <li><i class="fa fa-list-ul list-layout-view"></i></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="collection-grid-view" bis_skin_checked="1" style="opacity: 1;">
+                                                    <div class="collection-grid-view" style="opacity: 1;">
                                                         <ul>
                                                             <li><img src="{{asset('assets/images/10.png')}}" alt="" class="product-2-layout-view"></li>
                                                             <li><img src="{{asset('assets/images/11.png')}}" alt="" class="product-3-layout-view"></li>
@@ -146,7 +146,7 @@ Product
                                                             <li><img src="{{asset('assets/images/13.png')}}" alt="" class="product-6-layout-view"></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="product-page-per-view" bis_skin_checked="1">
+                                                    <div class="product-page-per-view">
                                                         <select fdprocessedid="wrpss">
                                                             <option value="High to low">24 Products Par Page
                                                             </option>
@@ -156,7 +156,7 @@ Product
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <div class="product-page-filter" bis_skin_checked="1">
+                                                    <div class="product-page-filter">
                                                         <select fdprocessedid="dhr36h">
                                                             <option value="High to low">Sorting items</option>
                                                             <option value="Low to High">50 Products</option>
@@ -168,15 +168,15 @@ Product
                                         </div>
                                     </div>
                                     
-                                    <div class="product-wrapper-grid product-load-more" bis_skin_checked="1" style="opacity: 1;">
+                                    <div class="product-wrapper-grid product-load-more" style="opacity: 1;">
                                         {{-- @foreach($shop as $product)
                                         <div id="product-list">
                                             {{ $product->product_name }}
                                         </div>
                                         @endforeach --}}
-                                        <div class="row margin-res" id="margin-res" bis_skin_checked="1">
+                                        <div class="row margin-res" id="margin-res">
                                             @foreach($shop as $val)
-                                            <div class="col-lg-3" id="product-list"  bis_skin_checked="1" style="display: block;">
+                                            <div class="col-lg-3" id="product-list"  style="display: block;">
                                                 <div class="product-box">
                                                     <div class="img-wrapper">
                                                         <div class="front">
@@ -239,11 +239,11 @@ Product
                                             @endforeach
                                         </div>
                                     </div>
-                                    <div class="product-pagination border-0" bis_skin_checked="1">
-                                        <div class="theme-paggination-block" bis_skin_checked="1">
-                                            <div class="container-fluid p-0" bis_skin_checked="1">
-                                                <div class="row" bis_skin_checked="1">
-                                                    <div class="col-xl-12 col-md-12 col-sm-12" bis_skin_checked="1">
+                                    <div class="product-pagination border-0">
+                                        <div class="theme-paggination-block">
+                                            <div class="container-fluid p-0">
+                                                <div class="row">
+                                                    <div class="col-xl-12 col-md-12 col-sm-12" id="pagging">
                                                         {{ $shop->appends($_GET)->links('pagging') }}
                                                     </div>
                                                 </div>
@@ -264,18 +264,22 @@ Product
 @section('script')
 <script>
     $(document).ready(function () {
-        $('.category-checkbox').change(function () {
+
+        $('.filters').change(function () {
             var selectedCategories = $('.category-checkbox:checked').map(function () {
                 return this.value;
             }).get();
-
+            var selectedcolor = $('.color-checkbox:checked').map(function () {
+                return this.value;
+            }).get();
             $.ajax({
                 url: "{{ url('shop')}}",
                 method: 'post',
-                data: { category: selectedCategories },
+                data: { category: selectedCategories, details: selectedcolor },
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 success: function (response) {
                     $('#margin-res').html('');
+                    $('#pagging').html('');
                     response = JSON.parse(response);
                 // Update the count
                 
@@ -285,18 +289,18 @@ Product
                     images = JSON.parse(val.images);
 
                     var shopHtml = `
-                    <div class="col-lg-3"  bis_skin_checked="1" style="display: block;">
+                    <div class="col-lg-3"  style="display: block;">
                         <div class="product-box">
                             <div class="img-wrapper">
 
                                 <div class="front">
-                                    <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
-                                        <img src="{{asset('upload/product/')}}'.${images[0]}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    <a href="{{ url('product-details')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
+                                        <img src="{{ asset('upload/product') }}/${images[0]}" class="img-fluid blur-up lazyload bg-img" alt="">
                                     </a>
                                 </div>
                                 <div class="back">
                                     <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
-                                        <img src="{{asset('upload/product/')}}'.${images[1]}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                        <img src="{{ asset('upload/product') }}/${images[1]}" class="img-fluid blur-up lazyload bg-img" alt="">
                                     </a>
                                 </div>
 

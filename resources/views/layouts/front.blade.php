@@ -291,7 +291,7 @@
                                 <li><a href="#">shipping &amp; return</a></li>
                                 <li><a href="#">secure shopping</a></li>
                                 <li><a href="#">gallary</a></li>
-                                <li><a href="#">affiliates</a></li>
+                                <li><a href="{{url("seller-center")}}">Log in to your seller account</a></li>
                                 <li><a href="#">contacts</a></li>
                             </ul>
                         </div>

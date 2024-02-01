@@ -49,6 +49,7 @@ class MainController extends Controller
     {
         $data['category'] = Categories::withCount('products')->get();
         $data['shop'] = Product::where('status', '1')->paginate(10);
+        $data['shop1'] = Product::where('status', '1')->get();
         $data['details'] = Details::get();
         $selectedCategories = $request->input('categories', []);
         

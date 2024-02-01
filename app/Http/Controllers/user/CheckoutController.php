@@ -93,6 +93,26 @@ class CheckoutController extends Controller
         } 
 
         $order->save();
+
+        // Validate and save the order
+        foreach ($cartitem as $product) {
+            $productId = $product->prod_id;
+            $quantity = $product->prod_qty;
+
+            // Retrieve the product
+            $product = Product::find($product->prod_id);
+
+            // Update the stock
+            if ($product) {
+                $currentStock = $product->qty;
+                $newStock = $currentStock - $quantity;
+
+                // Ensure stock doesn't go below zero
+                $product->qty = $newStock;
+                // dd($newStock);
+                $product->update();
+            }
+        }
         cart::destroy($cartitem);
 
         return Redirect::to('invoice/'.$order->id)->with('status', 'Order Successfully Submitted!');
