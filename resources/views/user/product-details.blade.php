@@ -106,10 +106,11 @@ Product
                         @php
                         $color = json_decode($product_details->color)
                         @endphp
-                        @foreach($color as $val)
-                        <input type="radio" class="custom-control color" id="size-1" name="color" value="{{ $val }}"> 
-                        <span class="ml-1">{{ $val }}</span>
+                        @foreach($color as $key => $val)
+                        <input type="radio" class="custom-control color" id="color-{{$key}}" name="color" value="{{ $val }}"> 
+                        <label class="ml-1" for="color-{{$key}}">{{ $val }}</label>
                         @endforeach
+
                     </div>
 
                 </div>
@@ -121,9 +122,9 @@ Product
                       @php
                       $size = json_decode($product_details->size)
                       @endphp
-                      @foreach($size as $val)
-                      <input type="radio" class="custom-control size" id="size-1" name="size" value="{{ $val }}"> 
-                      <span class="ml-1">{{ $val }}</span>
+                      @foreach($size as $key => $val)
+                      <input type="radio" class="custom-control size" id="size{{ $val }}" name="size" value="{{ $val }}"> 
+                      <label class="ml-1" for="size{{ $val }}">{{ $val }}</label>
                       @endforeach
                   </div>
                   @endif

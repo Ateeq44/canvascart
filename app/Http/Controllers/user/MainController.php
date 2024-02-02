@@ -50,16 +50,52 @@ class MainController extends Controller
         $data['category'] = Categories::withCount('products')->get();
         $data['shop'] = Product::where('status', '1')->paginate(10);
         $data['shop1'] = Product::where('status', '1')->get();
-        $data['details'] = Details::get();
-        $selectedCategories = $request->input('categories', []);
-        
+        $data['details'] = Details::get();        
         
         if ($request->isMethod('post')) {
             $selectedCategories = $request->category;
-            $data['shop'] = Product::with('category')->whereIn('cat_id', $selectedCategories)->get();
+            $selectedColors = $request->color;
+            $selectedSize = $request->size;
+
+            $query = Product::with('category')->where('status', '1');
+
+            if (!empty($selectedCategories)) {
+                $query->whereIn('cat_id', $selectedCategories);
+            }
+
+            if (!empty($selectedColors)) {
+                $query->where(function ($query) use($selectedColors) {
+                    foreach ($selectedColors as $key => $color) {
+                        if ($key == 0) {
+                        $query->where('color', 'like', '%'.$color.'%');
+                        }
+                        else{
+                        $query->orWhere('color', 'like', '%'.$color.'%');
+
+                        }
+                    }
+                });
+            }
+
+            if (!empty($selectedSize)) {
+                $query->where(function ($query) use($selectedSize) {
+                    foreach ($selectedSize as $key => $size) {
+                        if ($key == 0) {
+                        $query->where('size', 'like', '%'.$size.'%');
+                        }
+                        else{
+                        $query->orWhere('size', 'like', '%'.$size.'%');
+
+                        }
+                    }
+                });
+            }
+
+            $data['shop'] = $query->get();
+
             return json_encode(['flag' => true, 'data' => $data]);
         }
-        
+
         // dd($request);
         return view('user.shop', $data);
     }

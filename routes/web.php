@@ -21,8 +21,13 @@ Route::get('shop', [App\Http\Controllers\user\MainController::class, 'shop']);
 Route::post('shop', [App\Http\Controllers\user\MainController::class, 'shop']);
 Route::get('products_category/{cat_id}', [App\Http\Controllers\user\MainController::class, 'products_category']);
 Route::get('search', [App\Http\Controllers\user\MainController::class, 'search']);
+Route::get('seller-center', [App\Http\Controllers\seller\SellerController::class, 'seller']);
 
 Auth::routes();
+Route::middleware(['auth', 'isSeller'])->group(function () {
+    Route::get('seller-dashboard', [App\Http\Controllers\seller\SellerController::class, 'dashboard']);
+
+});
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
     Route::get('cart', [App\Http\Controllers\user\CartController::class, 'cart'])->name('cart');

@@ -43,7 +43,7 @@ Product
                                     @foreach($category as $key => $val)
                                     <div class="form-check collection-filter-checkbox d-flex justify-content-between">
                                         <div>   
-                                            <input type="checkbox" name="categories[]" value="{{ $val->id }}" class="form-check-input filters" id="zara{{$key}}">
+                                            <input type="checkbox" name="categories[]" value="{{ $val->id }}" class="form-check-input filters category-checkbox" id="zara{{$key}}">
                                             <label class="form-check-label" for="zara{{$key}}">{{ $val->title }}</label>
                                         </div>
                                         <div>
@@ -73,22 +73,12 @@ Product
                             <h3 class="collapse-block-title">size</h3>
                             <div class="collection-collapse-block-content">
                                 <div class="collection-brand-filter">
+                                    @foreach($details as $key => $val)
                                     <div class="form-check collection-filter-checkbox">
-                                        <input type="checkbox" class="form-check-input" id="hundred">
-                                        <label class="form-check-label" for="hundred">s</label>
+                                        <input type="checkbox" name="size[]" value="{{ $val->size }}" class="form-check-input filters size-checkbox" id="hundred{{$key}}">
+                                        <label class="form-check-label" for="hundred{{$key}}">{{ $val->size }}</label>
                                     </div>
-                                    <div class="form-check collection-filter-checkbox">
-                                        <input type="checkbox" class="form-check-input" id="twohundred">
-                                        <label class="form-check-label" for="twohundred">m</label>
-                                    </div>
-                                    <div class="form-check collection-filter-checkbox">
-                                        <input type="checkbox" class="form-check-input" id="threehundred">
-                                        <label class="form-check-label" for="threehundred">l</label>
-                                    </div>
-                                    <div class="form-check collection-filter-checkbox">
-                                        <input type="checkbox" class="form-check-input" id="fourhundred">
-                                        <label class="form-check-label" for="fourhundred">xl</label>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -264,99 +254,102 @@ Product
 @section('script')
 <script>
     $(document).ready(function () {
-
         $('.filters').change(function () {
             var selectedCategories = $('.category-checkbox:checked').map(function () {
                 return this.value;
             }).get();
-            var selectedcolor = $('.color-checkbox:checked').map(function () {
+
+            var selectedColors = $('.color-checkbox:checked').map(function () {
                 return this.value;
             }).get();
+
+            var selectedSize = $('.size-checkbox:checked').map(function () {
+                return this.value;
+            }).get();
+
             $.ajax({
                 url: "{{ url('shop')}}",
                 method: 'post',
-                data: { category: selectedCategories, details: selectedcolor },
+                data: { category: selectedCategories, color: selectedColors, size: selectedSize },
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 success: function (response) {
                     $('#margin-res').html('');
                     $('#pagging').html('');
                     response = JSON.parse(response);
-                // Update the count
-                
-                $(response.data.shop).each(function (index, val) {
-                    
-                    console.log(val);
-                    images = JSON.parse(val.images);
+                    $(response.data.shop).each(function (index, val) {
 
-                    var shopHtml = `
-                    <div class="col-lg-3"  style="display: block;">
+                        console.log(val);
+                        images = JSON.parse(val.images);
+
+                        var shopHtml = `
+                        <div class="col-lg-3"  style="display: block;">
                         <div class="product-box">
-                            <div class="img-wrapper">
+                        <div class="img-wrapper">
 
-                                <div class="front">
-                                    <a href="{{ url('product-details')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
-                                        <img src="{{ asset('upload/product') }}/${images[0]}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </a>
-                                </div>
-                                <div class="back">
-                                    <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
-                                        <img src="{{ asset('upload/product') }}/${images[1]}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </a>
-                                </div>
-
-                                <div class="cart-info cart-wrap">
-                                    <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </button>
-                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                                    <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}"  title="Quick View">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-detail">
-                                <div class="rating">
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i> 
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <a href="">
-                                    <h6 style="color: #f39910;">${val.category.title}</h6>
-                                </a>
-                                <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
-                                    <h6>${val.product_name}</h6>
-                                </a>
-                                <?php
-                                        // Check if $val->price and $val->selling_price are numeric before performing the calculation
-                                if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
-                                            // Calculate the discount percentage
-                                    $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
-                                } else {
-                                            // Set a default value or handle the case where the values are not numeric or $val->price is 0
-                                    $discountPercentage = 0;
-                                }
-                                ?>
-                                <div class="d-flex">
-                                    <h4><del>${val.price}</del></h4>
-                                    <h4 style="margin-left: 20px;">${val.selling_price}</h4>
-                                    <h5 style="margin-left: 20px; color: #f39910;">{{ $discountPercentage }}% Off</h5>
-                                </div>
-                            </div>                                                          
+                        <div class="front">
+                        <a href="{{ url('product-details')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
+                        <img src="{{ asset('upload/product') }}/${images[0]}" class="img-fluid blur-up lazyload bg-img" alt="">
+                        </a>
                         </div>
-                    </div>`;
-                    console.log(shopHtml);
+                        <div class="back">
+                        <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
+                        <img src="{{ asset('upload/product') }}/${images[1]}" class="img-fluid blur-up lazyload bg-img" alt="">
+                        </a>
+                        </div>
 
-                    $('#margin-res').append(shopHtml);
-                });
+                        <div class="cart-info cart-wrap">
+                        <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                        <a href="javascript:void(0)" title="Add to Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                        </a>
+                        <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}"  title="Quick View">
+                        <i class="fa-solid fa-eye"></i>
+                        </a>
+                        </div>
+                        </div>
+                        <div class="product-detail">
+                        <div class="rating">
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i>
+                        </div>
+                        <a href="">
+                        <h6 style="color: #f39910;">${val.category.title}</h6>
+                        </a>
+                        <a href="{{ url('product-details/')}}/${val.category.slug}/${val.slug}/${val.cat_id}">
+                        <h6>${val.product_name}</h6>
+                        </a>
+                        <?php
+                                        // Check if $val->price and $val->selling_price are numeric before performing the calculation
+                        if (is_numeric($val->price) && is_numeric($val->selling_price) && $val->price != 0) {
+                                            // Calculate the discount percentage
+                            $discountPercentage = round((($val->price - $val->selling_price) / $val->price) * 100);
+                        } else {
+                                            // Set a default value or handle the case where the values are not numeric or $val->price is 0
+                            $discountPercentage = 0;
+                        }
+                        ?>
+                        <div class="d-flex">
+                        <h4><del>${val.price}</del></h4>
+                        <h4 style="margin-left: 20px;">${val.selling_price}</h4>
+                        <h5 style="margin-left: 20px; color: #f39910;">{{ $discountPercentage }}% Off</h5>
+                        </div>
+                        </div>                                                          
+                        </div>
+                        </div>`;
+                        console.log(shopHtml);
+
+                        $('#margin-res').append(shopHtml);
+                    });
                 }
             });
 
-        });
-    });
+});
+});
 </script>
 <script type="text/javascript">
 	$('.collapse-block-title').on('click', function (e) {
