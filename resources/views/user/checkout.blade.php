@@ -58,11 +58,11 @@ Checkout
                                     <input type="text" name="lname" value="" placeholder="" fdprocessedid="tjlwjc">
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12" bis_skin_checked="1">
-                                    <div class="field-label" bis_skin_checked="1">Phone</div>
+                                    <div class="field-label" bis_skin_checked="1">Email</div>
                                     <input type="text" name="email" value="" placeholder="" fdprocessedid="tdfrof">
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12" bis_skin_checked="1">
-                                    <div class="field-label" bis_skin_checked="1">Email Address</div>
+                                    <div class="field-label" bis_skin_checked="1">Phone</div>
                                     <input type="text" name="phone" value="" placeholder="" fdprocessedid="dxcvu9">
                                 </div>
                                 <div class="form-group col-md-12 col-sm-12 col-xs-12" bis_skin_checked="1">

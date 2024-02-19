@@ -125,13 +125,19 @@
                                         <a href="{{url('dashboard')}}">
                                             <div class="d-flex">
                                                 <div class="" style="width: 50px;height: 50px;border-radius: 100%;border: 2px solid white;">
-                                                   <img style="width:100%;height: 100%; border-radius: 100%;padding: 0px;" src="{{asset('assets/images/avator.png')}}" alt="">   
-                                               </div>
-                                               <div class="ms-4 text-center" style="margin-top: 5px;"> 
+                                                 <img style="width:100%;height: 100%; border-radius: 100%;padding: 0px;" src="{{asset('assets/images/avator.png')}}" alt="">   
+                                             </div>
+                                             <div class="ms-4 text-center" style="margin-top: 5px;"> 
                                                 <p class="text-white mb-0">Hello, {{Auth::User()->name}}</p>
                                                 <h4 class="text-white font-weight-bold">Orders & Account</h4>
                                             </div>
                                         </div>
+                                    </a>
+                                </li>
+                                @elseif(auth()->user()->role == '2')
+                                <li>
+                                    <a class="btn btn-solid" href="{{url('seller-dashboard')}}">
+                                        Seller Dashboard
                                     </a>
                                 </li>
                                 @endif
@@ -139,80 +145,80 @@
                                 <?php 
                                 @$count = cartItem();
                                 @$count1 = wishlist();
-                                ?>
-                                <li class="onhover-div mobile-cart ms-4">
-                                    <a href="{{url('wishlist')}}">
-                                        <div bis_skin_checked="1">
-                                            <i class="fa-solid fa-heart" style="color:white;font-size:30px;"></i>
-                                        </div>
-                                        <span class="cart_qty_cls">{{@$count1}}</span>
-                                    </a>
-                                </li>
-                                <li class="onhover-div mobile-cart ms-4">
-                                    <a href="{{url('cart')}}">
-                                        <div bis_skin_checked="1">
-                                            <i class="fa-solid fa-cart-shopping" style="display: block!important; color: white;font-size:30px;top: 14% !important;right: -15px!important;"></i>
-                                        </div>
-                                        <span class="cart_qty_cls">{{@$count}}</span>
-                                        {{-- <span class="cart_qty_cls">0</span> --}}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                            ?>
+                            <li class="onhover-div mobile-cart ms-4">
+                                <a href="{{url('wishlist')}}">
+                                    <div bis_skin_checked="1">
+                                        <i class="fa-solid fa-heart" style="color:white;font-size:30px;"></i>
+                                    </div>
+                                    <span class="cart_qty_cls">{{@$count1}}</span>
+                                </a>
+                            </li>
+                            <li class="onhover-div mobile-cart ms-4">
+                                <a href="{{url('cart')}}">
+                                    <div bis_skin_checked="1">
+                                        <i class="fa-solid fa-cart-shopping" style="display: block!important; color: white;font-size:30px;top: 14% !important;right: -15px!important;"></i>
+                                    </div>
+                                    <span class="cart_qty_cls">{{@$count}}</span>
+                                    {{-- <span class="cart_qty_cls">0</span> --}}
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bottom-part" bis_skin_checked="1">
-        <div class="container" bis_skin_checked="1">
-            <div class="row" bis_skin_checked="1">
-                <div class="col-xl-3" bis_skin_checked="1">
-                    <div class="category-menu d-none d-xl-block h-100" bis_skin_checked="1">
-                        <div id="toggle-sidebar" class="toggle-sidebar" bis_skin_checked="1">
-                            <i class="fa fa-bars sidebar-bar"></i>
-                            <h5 class="mb-0">shop by category</h5>
-                        </div>
-                    </div>
-                    @php
-                    $all_category = category();
-
-                    @endphp
-                    <div class="sidenav fixed-sidebar marketplace-sidebar" bis_skin_checked="1">
-                        <nav>
-                            <ul id="sub-menu" class="sm pixelstrap sm-vertical" data-smartmenus-id="17060802750915059">
-                                @foreach($all_category as $val)
-                                <li><a href="{{url('products_category/'.$val->id)}}">{{$val->title}}</a></li>
-                                @endforeach
-                            </ul>
-                        </nav>
+</div>
+<div class="bottom-part" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+        <div class="row" bis_skin_checked="1">
+            <div class="col-xl-3" bis_skin_checked="1">
+                <div class="category-menu d-none d-xl-block h-100" bis_skin_checked="1">
+                    <div id="toggle-sidebar" class="toggle-sidebar" bis_skin_checked="1">
+                        <i class="fa fa-bars sidebar-bar"></i>
+                        <h5 class="mb-0">shop by category</h5>
                     </div>
                 </div>
-                <div class="col-xxl-6 col-xl-9 position-unset" bis_skin_checked="1">
-                    <div class="main-nav-center" bis_skin_checked="1">
-                        <nav class="text-start">
-                            <!-- Sample menu definition -->
-                            <ul id="main-menu" class="sm pixelstrap sm-horizontal" data-smartmenus-id="1706080275084905">
+                @php
+                $all_category = category();
 
-                                <li>
-                                    <a href="{{url('/')}}" bis_skin_checked="1" previewlistener="true">Home</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('category')}}" bis_skin_checked="1" previewlistener="true">Category</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('shop')}}" bis_skin_checked="1" previewlistener="true">Shop</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/')}}" bis_skin_checked="1" previewlistener="true">Contact</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/')}}" bis_skin_checked="1" previewlistener="true">Blog</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                @endphp
+                <div class="sidenav fixed-sidebar marketplace-sidebar" bis_skin_checked="1">
+                    <nav>
+                        <ul id="sub-menu" class="sm pixelstrap sm-vertical" data-smartmenus-id="17060802750915059">
+                            @foreach($all_category as $val)
+                            <li><a href="{{url('products_category/'.$val->id)}}">{{$val->title}}</a></li>
+                            @endforeach
+                        </ul>
+                    </nav>
                 </div>
+            </div>
+            <div class="col-xxl-6 col-xl-9 position-unset" bis_skin_checked="1">
+                <div class="main-nav-center" bis_skin_checked="1">
+                    <nav class="text-start">
+                        <!-- Sample menu definition -->
+                        <ul id="main-menu" class="sm pixelstrap sm-horizontal" data-smartmenus-id="1706080275084905">
+
+                            <li>
+                                <a href="{{url('/')}}" bis_skin_checked="1" previewlistener="true">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{url('category')}}" bis_skin_checked="1" previewlistener="true">Category</a>
+                            </li>
+                            <li>
+                                <a href="{{url('shop')}}" bis_skin_checked="1" previewlistener="true">Shop</a>
+                            </li>
+                            <li>
+                                <a href="{{url('contact')}}" bis_skin_checked="1" previewlistener="true">Contact</a>
+                            </li>
+                            <li>
+                                <a href="{{url('/')}}" bis_skin_checked="1" previewlistener="true">Blog</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
                 {{-- <div class="col-xxl-3 d-none d-xxl-inline-block" bis_skin_checked="1">
                     <div class="header-options" bis_skin_checked="1">
                         <div class="vertical-slider no-arrow slick-initialized slick-slider slick-vertical" bis_skin_checked="1"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: inline-block;">Previous</button><div class="slick-list draggable" style="height: 26px;" bis_skin_checked="1"><div class="slick-track" style="opacity: 1; height: 182px; transform: translate3d(0px, -52px, 0px);" bis_skin_checked="1"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 326px;" tabindex="-1" bis_skin_checked="1"><div bis_skin_checked="1"><div style="width: 100%; display: inline-block;" bis_skin_checked="1">
@@ -378,11 +384,11 @@
     $(document).ready(function () {
         $('.color-change-btn').click(function () {
                 // Remove active class from all buttons
-            $('.color-change-btn').removeClass('active');
+                $('.color-change-btn').removeClass('active');
 
                 // Add active class to the clicked button
-            $(this).addClass('active');
-        });
+                $(this).addClass('active');
+            });
     });
 
     $(document).ready(function () {

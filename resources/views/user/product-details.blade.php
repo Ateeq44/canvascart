@@ -128,11 +128,10 @@ Product
                       @endforeach
                   </div>
                   @endif
-
                   <h6 class="product-title">quantity</h6>
                   <div class="qty-box" bis_skin_checked="1">
                     <div class="input-group" bis_skin_checked="1"><span class="input-group-prepend"><button id="decrease" type="button" class="btn quantity-left-minus" data-type="minus" data-field="" fdprocessedid="hqd1z"><i class="fa-solid fa-minus"></i></button> </span>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" fdprocessedid="rogv2">
+                        <input type="text" id="quantity" value="" name="quantity" class="form-control input-number" value="1" fdprocessedid="rogv2">
                         <span class="input-group-prepend"><button id="increase" type="button" class="btn quantity-right-plus" data-type="plus" data-field="" fdprocessedid="a2hh48"><i class="fa-solid fa-plus"></i></button></span>
                     </div>
                 </div>

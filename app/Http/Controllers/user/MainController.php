@@ -56,7 +56,10 @@ class MainController extends Controller
             $selectedCategories = $request->category;
             $selectedColors = $request->color;
             $selectedSize = $request->size;
-
+            $priceRange = $request->priceRange;
+            $minPrice = $request->minPrice;
+            $maxPrice = $request->maxPrice;
+            // dd($request->maxPrice);
             $query = Product::with('category')->where('status', '1');
 
             if (!empty($selectedCategories)) {
@@ -67,10 +70,10 @@ class MainController extends Controller
                 $query->where(function ($query) use($selectedColors) {
                     foreach ($selectedColors as $key => $color) {
                         if ($key == 0) {
-                        $query->where('color', 'like', '%'.$color.'%');
+                            $query->where('color', 'like', '%'.$color.'%');
                         }
                         else{
-                        $query->orWhere('color', 'like', '%'.$color.'%');
+                            $query->orWhere('color', 'like', '%'.$color.'%');
 
                         }
                     }
@@ -81,14 +84,23 @@ class MainController extends Controller
                 $query->where(function ($query) use($selectedSize) {
                     foreach ($selectedSize as $key => $size) {
                         if ($key == 0) {
-                        $query->where('size', 'like', '%'.$size.'%');
+                            $query->where('size', 'like', '%'.$size.'%');
                         }
                         else{
-                        $query->orWhere('size', 'like', '%'.$size.'%');
+                            $query->orWhere('size', 'like', '%'.$size.'%');
 
                         }
                     }
                 });
+            }
+
+            // Price range filter
+            if (!empty($minPrice) && is_numeric($minPrice)) {
+                $query->where('selling_price', '>=', $minPrice);
+            }
+
+            if (!empty($maxPrice) && is_numeric($maxPrice)) {
+                $query->where('selling_price', '<=', $maxPrice);
             }
 
             $data['shop'] = $query->get();

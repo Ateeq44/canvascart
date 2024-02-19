@@ -87,8 +87,11 @@ Product
                             <h3 class="collapse-block-title">price</h3>
                             <div class="collection-collapse-block-content">
                                 <div class="wrapper mt-3">
-                                    <div class="range-slider">
-                                        <input type="hidden" class="js-range-slider irs-hidden-input" value="" readonly="" fdprocessedid="xdlrc">
+                                    <div class="range-slider1 d-flex">
+                                        <input class="w-25 min-price-input" name="minPrice" placeholder="min" type="number" value="">
+                                        <span class="mx-2" style="margin-top: 5px;">-</span>
+                                        <input class="w-25 max-price-input" name="maxPrice" placeholder="max" type="number" value="">
+                                        <button type="submit" class="btn ms-3 filters" style="background-color: #f39910; color: white;">Apply</button>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +257,8 @@ Product
 @section('script')
 <script>
     $(document).ready(function () {
-        $('.filters').change(function () {
+        $('.filters').click(function() {
+            console.log('hlo')
             var selectedCategories = $('.category-checkbox:checked').map(function () {
                 return this.value;
             }).get();
@@ -267,10 +271,14 @@ Product
                 return this.value;
             }).get();
 
+            var minPrice = $('.min-price-input').val();
+            var maxPrice = $('.max-price-input').val();
+
             $.ajax({
                 url: "{{ url('shop')}}",
                 method: 'post',
-                data: { category: selectedCategories, color: selectedColors, size: selectedSize },
+                data: { category: selectedCategories, color: selectedColors, size: selectedSize, minPrice: minPrice,
+                maxPrice: maxPrice },
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 success: function (response) {
                     $('#margin-res').html('');
@@ -335,7 +343,7 @@ Product
                         ?>
                         <div class="d-flex">
                         <h4><del>${val.price}</del></h4>
-                        <h4 style="margin-left: 20px;">${val.selling_price}</h4>
+                        <h4 style="margin-left: 20px;">$${val.selling_price}</h4>
                         <h5 style="margin-left: 20px; color: #f39910;">{{ $discountPercentage }}% Off</h5>
                         </div>
                         </div>                                                          

@@ -60,12 +60,45 @@ Seller Center
 						<div class="registerContentTitleStyle"  data-spm-anchor-id="a1zawk.27642226.0.i4.159b4edfUwWjPX">Create an Account</div>
 						<div class="registerContentSubTitleStyle" >Welcome! Millions of Multikart users are waiting to buy your product.</div>
 						<div class="verifyCodeContent" >
-							<input class="inputComponentStyle mt-5" placeholder="Enter Your Full Name" type="text" maxlength="120">
-							<input class="inputComponentStyle mt-4" placeholder="Enter Your Email Address" type="text" maxlength="120">
-							<input class="inputComponentStyle mt-4" placeholder="Enter Password" type="text" maxlength="120">
-							<input class="inputComponentStyle mt-4" placeholder="Enter Confirm Password" type="text" maxlength="120">
+							<form   method="POST" action="{{ route('register') }}">
+								@csrf
+
+								<input type="hidden" name="role" value="2">
+
+								<input id="name" type="text" class="inputComponentStyle  mt-5 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Enter Your Full Name">
+								@error('name')
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+								@enderror
+
+								<div class="form-group" bis_skin_checked="1">
+									<input id="email" type="email" class="form-control inputComponentStyle  mt-5 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter Your Password">
+									@error('email')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+									@enderror
+								</div>
+
+								<div class="form-group" bis_skin_checked="1">
+									
+									<input id="password" type="password" class="form-control inputComponentStyle  mt-5 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Enter Your">
+									@error('password')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+									@enderror
+								</div>
+
+								<div class="form-group" bis_skin_checked="1">
+									
+									<input id="password-confirm" type="password" class="form-control inputComponentStyle  mt-5" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+								</div>
+
+								<button type="submit" style=" border: none;" class="createAccountButtonStyle flexCenterCenter" >Create Account</button>
+							</form>
 						</div>
-						<div class="createAccountButtonStyle flexCenterCenter" >Create Account</div>
 						<div class="termsContent" >
 							<span class="termsTextStyle">By clicking ‘Create Account’, you’ve read and agreed to our&nbsp;</span>
 							<span class="termsTextStyle underlineStyle">Terms &amp; Conditions</span>
@@ -101,6 +134,7 @@ Seller Center
 							</div>
 						</div>
 					</div>
+
 					<div class="whySellOnDarazPointContent flexTopCenter" >
 						<img class="whySellOnDarazPointIconStyle" src="https://gw.alicdn.com/imgextra/i3/O1CN01zLlbgX1TrjaNqVqWo_!!6000000002436-2-tps-106-96.png">
 						<div >

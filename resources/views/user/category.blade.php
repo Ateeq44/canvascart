@@ -9,7 +9,7 @@ Category
             <div class="col-sm-12">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb" style="justify-content: flex-start;">
-                        <li class="breadcrumb-item"><a href="index.html" previewlistener="true">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}" previewlistener="true">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Category</li>
                     </ol>
                 </nav>

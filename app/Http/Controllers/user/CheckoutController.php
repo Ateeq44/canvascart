@@ -11,6 +11,8 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Mail\MyTestMail;
+use Illuminate\Support\Facades\Mail;
 use Stripe;
 
 
@@ -114,6 +116,16 @@ class CheckoutController extends Controller
             }
         }
         cart::destroy($cartitem);
+
+        $cus_details = [
+
+            'title' =>  $request->input('fname'),
+            'subject' =>'Order',
+            'order' => $order,
+
+        ];
+
+        Mail::to($order->email)->send(new MyTestMail($cus_details));
 
         return Redirect::to('invoice/'.$order->id)->with('status', 'Order Successfully Submitted!');
     }
