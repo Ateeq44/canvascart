@@ -26,7 +26,10 @@ Route::get('seller-center'                               , [App\Http\Controllers
 
 Auth::routes();
 Route::middleware(['auth', 'isSeller'])->group(function () {
-    Route::get('/seller-dashboard'                        , [App\Http\Controllers\seller\SellerCenterController::class, 'dashboard']);
+
+    Route::get('/seller-dashboard'                       , [App\Http\Controllers\seller\SellerCenterController::class, 'dashboard']);
+    Route::post('/seller-dashboard/submut'               , [App\Http\Controllers\seller\SellerCenterController::class, 'store']);
+    Route::get('/seller-dashboard/authorization'        , [App\Http\Controllers\seller\SellerCenterController::class, 'authorization']);
 
 });
 
