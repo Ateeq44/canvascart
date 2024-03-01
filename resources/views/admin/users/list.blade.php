@@ -50,7 +50,7 @@
                                     @if($val['role'] == 1)
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Admin</td>
                                     @elseif($val['role'] == 2)
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Sub Admin</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Seller</td>
                                     @else
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >User</td>
                                     @endif

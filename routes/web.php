@@ -30,6 +30,7 @@ Route::middleware(['auth', 'isSeller'])->group(function () {
     Route::get('/seller-dashboard'                       , [App\Http\Controllers\seller\SellerCenterController::class, 'dashboard']);
     Route::post('/seller-dashboard/submut'               , [App\Http\Controllers\seller\SellerCenterController::class, 'store']);
     Route::get('/seller-dashboard/authorization'        , [App\Http\Controllers\seller\SellerCenterController::class, 'authorization']);
+    Route::get('/seller-dashboard/addproduct'        , [App\Http\Controllers\seller\ProductController::class, 'create']);
 
 });
 
