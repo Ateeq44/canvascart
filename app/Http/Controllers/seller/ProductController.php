@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\SubCategory;
 use App\Models\Brand;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -41,7 +42,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->isMethod('post')){
+            
+            $product = new Product();
+                $files = [];
+                if($request->hasfile('images'))
+                {
+                    foreach($request->file('images') as $file)
+                    {
+                        $name = time().rand(1,100).'.'.$file->extension();
+                        $file->move('public/upload/product', $name);
+                        $files[] = $name;
+                    }
+                }
+                $product->images = json_encode($files);
+                
+        }
     }
 
     /**

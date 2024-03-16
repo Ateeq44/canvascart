@@ -13,6 +13,7 @@
 		<link href="{{asset('admin/dist/css/tabler-vendors.min.css?1684106062')}}" rel="stylesheet"/>
 		<link href="{{asset('admin/dist/css/demo.min.css?1684106062')}}" rel="stylesheet"/>
 		<link href="{{asset('seller/style1.css')}}" rel="stylesheet"/>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 		<script src="https://kit.fontawesome.com/f5eb8f10bc.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -525,67 +526,68 @@
 	</div>
 	<!-- Libs JS -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js'></script>
 
-          <script>
-            var dropzone = new Dropzone('#demo-upload', {
-              previewTemplate: document.querySelector('#preview-template').innerHTML,
-              parallelUploads: 2,
-              thumbnailHeight: 120,
-              thumbnailWidth: 120,
-              maxFilesize: 3,
-              filesizeBase: 1000,
-              thumbnail: function(file, dataUrl) {
-                if (file.previewElement) {
-                  file.previewElement.classList.remove("dz-file-preview");
-                  var images = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
-                  for (var i = 0; i < images.length; i++) {
-                    var thumbnailElement = images[i];
-                    thumbnailElement.alt = file.name;
-                    thumbnailElement.src = dataUrl;
-                  }
-                  setTimeout(function() { file.previewElement.classList.add("dz-image-preview"); }, 1);
-                }
-              }
+	<script>
+		var dropzone = new Dropzone('#demo-upload', {
+			previewTemplate: document.querySelector('#preview-template').innerHTML,
+			parallelUploads: 2,
+			thumbnailHeight: 120,
+			thumbnailWidth: 120,
+			maxFilesize: 3,
+			filesizeBase: 1000,
+			thumbnail: function(file, dataUrl) {
+				if (file.previewElement) {
+					file.previewElement.classList.remove("dz-file-preview");
+					var images = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
+					for (var i = 0; i < images.length; i++) {
+						var thumbnailElement = images[i];
+						thumbnailElement.alt = file.name;
+						thumbnailElement.src = dataUrl;
+					}
+					setTimeout(function() { file.previewElement.classList.add("dz-image-preview"); }, 1);
+				}
+			}
 
-            });
+		});
 
-            var minSteps = 6,
-            maxSteps = 60,
-            timeBetweenSteps = 100,
-            bytesPerStep = 100000;
+		var minSteps = 6,
+		maxSteps = 60,
+		timeBetweenSteps = 100,
+		bytesPerStep = 100000;
 
-            dropzone.uploadFiles = function(files) {
-              var self = this;
+		dropzone.uploadFiles = function(files) {
+			var self = this;
 
-              for (var i = 0; i < files.length; i++) {
+			for (var i = 0; i < files.length; i++) {
 
-                var file = files[i];
-                totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
+				var file = files[i];
+				totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
 
-                for (var step = 0; step < totalSteps; step++) {
-                  var duration = timeBetweenSteps * (step + 1);
-                  setTimeout(function(file, totalSteps, step) {
-                    return function() {
-                      file.upload = {
-                        progress: 100 * (step + 1) / totalSteps,
-                        total: file.size,
-                        bytesSent: (step + 1) * file.size / totalSteps
-                      };
+				for (var step = 0; step < totalSteps; step++) {
+					var duration = timeBetweenSteps * (step + 1);
+					setTimeout(function(file, totalSteps, step) {
+						return function() {
+							file.upload = {
+								progress: 100 * (step + 1) / totalSteps,
+								total: file.size,
+								bytesSent: (step + 1) * file.size / totalSteps
+							};
 
-                      self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
-                      if (file.upload.progress == 100) {
-                        file.status = Dropzone.SUCCESS;
-                        self.emit("success", file, 'success', null);
-                        self.emit("complete", file);
-                        self.processQueue();
-                      }
-                    };
-                  }(file, totalSteps, step), duration);
-                }
-              }
-            }
-          </script>
+							self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
+							if (file.upload.progress == 100) {
+								file.status = Dropzone.SUCCESS;
+								self.emit("success", file, 'success', null);
+								self.emit("complete", file);
+								self.processQueue();
+							}
+						};
+					}(file, totalSteps, step), duration);
+				}
+			}
+		}
+	</script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -618,68 +620,68 @@
 	@yield('script')
 	<script>
 		$(function() {
-  class DropZone {
-    constructor() {
-      this.onchange = this.onchange.bind(this);
-      this.dropZone = $('.drop-zone');
-      this.dropZone.on('dragover dragenter', () => {
-        return this.dropZone.addClass('is-dragover');
-      });
-      this.dropZone.on('dragleave dragend drop', () => {
-        return this.dropZone.removeClass('is-dragover');
-      });
-      this.dropZone.on('change', this.onchange);
-      this.dropZone.on('click', '.remove', this.removePreview.bind(this));
-    }
+			class DropZone {
+				constructor() {
+					this.onchange = this.onchange.bind(this);
+					this.dropZone = $('.drop-zone');
+					this.dropZone.on('dragover dragenter', () => {
+						return this.dropZone.addClass('is-dragover');
+					});
+					this.dropZone.on('dragleave dragend drop', () => {
+						return this.dropZone.removeClass('is-dragover');
+					});
+					this.dropZone.on('change', this.onchange);
+					this.dropZone.on('click', '.remove', this.removePreview.bind(this));
+				}
 
-    onchange(e) {
-      var $receiver, files;
-      this.dropZone.addClass('has-images');
+				onchange(e) {
+					var $receiver, files;
+					this.dropZone.addClass('has-images');
 
-      $receiver = $(e.target);
-      $receiver.removeClass('receiver');
-      $receiver.addClass('has-image');
-      $('<input type="file" class="receiver">').prependTo(this.dropZone);
-      files = $receiver[0].files;
-      return this.displayPreview(files);
-    }
+					$receiver = $(e.target);
+					$receiver.removeClass('receiver');
+					$receiver.addClass('has-image');
+					$('<input type="file" class="receiver">').prependTo(this.dropZone);
+					files = $receiver[0].files;
+					return this.displayPreview(files);
+				}
 
-    displayPreview(files) {
-      var file, i, len, reader, results;
-      results = [];
-      for (i = 0, len = files.length; i < len; i++) {
-        file = files[i];
-        reader = new FileReader();
-        reader.onload = (e) => {
-          var url;
-          url = e.currentTarget.result;
-          return this.template(url).appendTo(this.dropZone);
-        };
-        results.push(reader.readAsDataURL(file));
-      }
-      return results;
-    }
+				displayPreview(files) {
+					var file, i, len, reader, results;
+					results = [];
+					for (i = 0, len = files.length; i < len; i++) {
+						file = files[i];
+						reader = new FileReader();
+						reader.onload = (e) => {
+							var url;
+							url = e.currentTarget.result;
+							return this.template(url).appendTo(this.dropZone);
+						};
+						results.push(reader.readAsDataURL(file));
+					}
+					return results;
+				}
 
-    template(url) {
-      return $(`<div class="preview">
-        <div class="image">
-        <img src="${url}">
-        </div>
-        <div class="details">
-        <div class="remove">
-        <span class="fa fa-trash"></span>
-        </div>
-        </div>
-        </div>`);
-    }
+				template(url) {
+					return $(`<div class="preview">
+						<div class="image">
+						<img src="${url}">
+						</div>
+						<div class="details">
+						<div class="remove">
+						<span class="fa fa-trash"></span>
+						</div>
+						</div>
+						</div>`);
+				}
 
-    removePreview(e) {
-      $(e.currentTarget).closest('.preview').remove();
-    }
-  }
+				removePreview(e) {
+					$(e.currentTarget).closest('.preview').remove();
+				}
+			}
 
-  new DropZone();
-});
+			new DropZone();
+		});
 	</script>
 	<script>
       // @formatter:off
