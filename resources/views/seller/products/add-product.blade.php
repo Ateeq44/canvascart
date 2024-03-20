@@ -10,6 +10,9 @@ Dashboard
   span.select2.select2-container.select2-container--default {
     width: 100% !important;
   }
+  .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-selection__choice{
+    padding-right: 8px !important;
+  }
 </style>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css'>
 <form   action="{{url('seller-dashboard/addproduct')}}" method="post" enctype="multipart/form-data">
@@ -42,7 +45,7 @@ Dashboard
           </div>
           <div class="mb-3 col-md-12 col-lg-6">
             <label class="form-label">Category <span class="text-danger">*</span></label>
-            <select class="form-control" name="category" id="category">
+            <select class="form-control" name="cat_id" id="category">
               @foreach($category as $cat)
               <option value="{{ $cat->id }}">{{ $cat->title }}</option>
               @endforeach
@@ -50,7 +53,7 @@ Dashboard
           </div>
           <div class="mb-3 col-md-12 col-lg-6">
             <label class="form-label">Sub Category <span class="text-danger">*</span></label>
-            <select class="form-control CategorySelector" name="subcategory" id="subcategory"></select>
+            <select class="form-control CategorySelector" name="subcat_id" id="subcategory"></select>
           </div>
         </div>
       </div>
@@ -64,43 +67,35 @@ Dashboard
         <div class="card-body row">
           <div class="col-md-12 col-lg-6">
             <label class="form-label">Brand <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="brand">
               @foreach( $brand as $key => $val )
-              <option value="{{ $val->id }}">{{ $val->name }}</option>
+              <option value="{{ $val->name }}">{{ $val->name }}</option>
               @endforeach
             </select>
           </div>
           <div class="col-md-12 col-lg-6">
             <label class="form-label">Graphics Memory <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
-              @foreach( $brand as $key => $val )
-              <option value="{{ $val->id }}">{{ $val->name }}</option>
-              @endforeach
-            </select>
+            <input type="text" class="form-control" placeholder="Graphics Memory" name="g_memory">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Barcode Ean <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Graphics Memory" name="product_name">
+            <input type="text" class="form-control" placeholder="Graphics Memory" name="barcode">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Model <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Graphics Memory" name="product_name">
-          </div>
-          <div class="col-md-12 col-lg-6 mt-3">
-            <label class="form-label">Color Family <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Graphics Memory" name="product_name">
+            <input type="text" class="form-control" placeholder="Graphics Memory" name="model">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Number Cpus <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Graphics Memory" name="product_name">
+            <input type="text" class="form-control" placeholder="Graphics Memory" name="num_cpus">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Cl Cable Length <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Graphics Memory" name="product_name">
+            <input type="text" class="form-control" placeholder="Graphics Memory" name="ci_cable_length">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">System Memory <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="system_memory">
               <option value="16GB">16GB</option>
               <option value="2GB">2GB</option>
               <option value="8GB">8GB</option>
@@ -120,10 +115,6 @@ Dashboard
               <option value="14GB">14GB</option>
             </select>
           </div>
-          <div class="col-md-12 col-lg-6 mt-3">
-            <label class="form-label">Express_delivery <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Graphics Memory" name="product_name">
-          </div>
         </div>
       </div>
     </div>
@@ -133,7 +124,7 @@ Dashboard
         <div class="card-body row">
           <div class="col-md-12 col-lg-6">
             <label class="form-label">Hard Disk (GB) <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="hard_disk">
               <option value="3.5TB">3.5TB</option>
               <option value="120GB">120GB</option>
               <option value="20TB">20TB</option>
@@ -546,15 +537,15 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6">
             <label class="form-label">Brand <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="brand">
               @foreach( $brand as $key => $val )
-              <option value="{{ $val->id }}">{{ $val->name }}</option>
+              <option value="{{ $val->name }}">{{ $val->name }}</option>
               @endforeach
             </select>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">CPU Speed (GHz) <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="cpu_speed">
               <option>2-3GHz</option>
               <option>16.9</option>
               <option>1.5</option>
@@ -1053,11 +1044,11 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Graphics Memory <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Graphics Memory" name="product_name">
+            <input type="text" class="form-control" placeholder="Graphics Memory" name="g_memory">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Software Offerings <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="soft_offering">
               <option value="Windows">Windows</option>
               <option value="Linux">Linux</option>
               <option value="Ubuntu">Ubuntu</option>
@@ -1071,14 +1062,14 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Touch Pad <span class="text-danger">*</span></label>
-            <select class="form-control" name="product_name">
+            <select class="form-control" name="touch_pad">
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Processor Type <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="processor_type">
               <option value="Single-core">Single-core</option>
               <option value="Dual-core">Dual-core</option>
               <option value="Tri Core">Tri Core</option>
@@ -1192,7 +1183,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Graphic Card <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="g_card">
               <option value="AMD">AMD</option>
               <option value="Intel">Intel</option>
               <option value="NVIDIA">NVIDIA</option>
@@ -1204,7 +1195,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Battery Life <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="battery_life">
               <option value="Not Specified">Not Specified</option>
               <option value="21 hour and up">21 hour and up</option>
               <option value="16-20 Hour">16-20 Hour</option>
@@ -1273,7 +1264,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Processor <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="processpr">
               <option value="Black">Black</option>
               <option value="AMD">AMD</option>
               <option value="Intel">Intel</option>
@@ -1429,7 +1420,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Wireless Type <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="wireless_type">
               <option value="Bluetooth">Bluetooth</option>
               <option value="Wifi">Wifi</option>
               <option value="Cellular (3G/4G)">Cellular (3G/4G)</option>
@@ -1438,23 +1429,15 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Display Size <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
-
-            </select>
+            <input type="text" class="form-control" placeholder="Number Cpus" name="dis_size">
           </div>
-          {{-- <div class="col-md-12 col-lg-6 mt-3">
-            <label class="form-label">Processor Type <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
-
-            </select>
-          </div> --}}
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Number Cpus <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Number Cpus" name="product_name">
+            <input type="text" class="form-control" placeholder="Number Cpus" name="num_cpus">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Operating System <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="operating_system">
               <option value="Windows">Windows</option>
               <option value="Linux">Linux</option>
               <option value="Windows XP Professional">Windows XP Professional</option>
@@ -2230,17 +2213,17 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Model <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="modal">
 
             </select>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Barcode Ean <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Barcode Ean" name="product_name">
+            <input type="text" class="form-control" placeholder="Barcode Ean" name="barcode">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Input Output ports <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="">
               <option value="USB 2.0">USB 2.0</option>
               <option value="HDMI">HDMI</option>
               <option value="VGA">VGA</option>
@@ -2253,18 +2236,18 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Cl Cable Length <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Cl Cable Length" name="product_name">
+            <input type="text" class="form-control" placeholder="Cl Cable Length" name="ci_cable_length">
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">AC Adapter <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="ac_adapter">
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Graphics memory <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="g_memory">
               <option value="2GB">2GB</option>
               <option value="4GB">4GB</option>
               <option value="1GB &amp; Under">1GB &amp; Under</option>
@@ -2275,8 +2258,8 @@ Dashboard
             </select>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
-            <label class="form-label">System Memory<span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <label class="form-label">System Memory <span class="text-danger">*</span></label>
+            <select class="form-control js-example-basic-single" name="system_memory">
               <option value="16GB">16GB</option>
               <option value="2GB">2GB</option>
               <option value="8GB">8GB</option>
@@ -2324,7 +2307,7 @@ Dashboard
         <div class="card-body row">
           <div class="col-md-12 col-lg-6">
             <label class="form-label">Protection <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="protection">
               <option value="Not Specified">Not Specified</option>
               <option value="Plastic">Plastic</option>
               <option value="Corning Gorilla Glass 1">Corning Gorilla Glass 1</option>
@@ -2338,7 +2321,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6">
             <label class="form-label">Model Year <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="model_year">
               <option value="Not Specified">Not Specified</option>
               <option value="2000">2000</option>
               <option value="2001">2001</option>
@@ -2370,15 +2353,15 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Brand <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="brand">
               @foreach( $brand as $key => $val )
-              <option value="{{ $val->id }}">{{ $val->name }}</option>
+              <option value="{{ $val->name }}">{{ $val->name }}</option>
               @endforeach
             </select>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Number of Cameras <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="no_camera">
               <option value="Not Specified">Not Specified</option>
               <option value="6" >6</option>
               <option value="5" >5</option>
@@ -2393,7 +2376,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Battery Capacity <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="battert_capacity">
               <option value="Under 1000 mAh">Under 1000 mAh</option>
               <option value="1000 - 1999 mAh" >1000 - 1999 mAh</option>
               <option value="2000 - 2999 mAh" >2000 - 2999 mAh</option>
@@ -2415,8 +2398,8 @@ Dashboard
             <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-team">Phone Features</a>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
-            <label class="form-label">Pixel ppi <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <label class="form-label">camera (Pixel ppi) <span class="text-danger">*</span></label>
+            <select class="form-control js-example-basic-single" name="camera_pixel">
               <option value="300-400 PPI">300-400 PPI</option>
               <option value="400-500 PPI">400-500 PPI</option>
               <option value="200-300 PPI">200-300 PPI</option>
@@ -2426,7 +2409,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Display size mobile <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="dis_size">
               <option value="Less than 3.5 Inch">Less than 3.5 Inch</option>
               <option value="3.6 - 4 Inch">3.6 - 4 Inch</option>
               <option value="4.1 - 4.5 Inch">4.1 - 4.5 Inch</option>
@@ -2438,7 +2421,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Sim Type <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="sim_type">
               <option value="Less than 3.5 Inch">Standard</option>
               <option value="3.6 - 4 Inch">Micro</option>
               <option value="4.1 - 4.5 Inch">Nano</option>
@@ -2446,7 +2429,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Camera Front (Megapixels) <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="cam_front_pixel">
               <option value="2-3MP" tabindex="-1">2-3MP</option>
               <option value="8 MP">8 MP</option>
               <option value="No Camera">No Camera</option>
@@ -2490,7 +2473,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Ram Memory <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="ram">
               <option value="Other">Other</option>
               <option value="3GB">3GB</option>
               <option value="2GB">2GB</option>
@@ -2506,7 +2489,7 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Body Type <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="body_type">
               <option value="Not Specified">Not Specified</option>
               <option value="Ceramic">Ceramic</option>
               <option value="Glass">Glass</option>
@@ -2523,14 +2506,14 @@ Dashboard
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">E-Warranty <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="e_warranty">
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
           </div>
           <div class="col-md-12 col-lg-6 mt-3">
             <label class="form-label">Camera back <span class="text-danger">*</span></label>
-            <select class="form-control js-example-basic-single" name="product_name">
+            <select class="form-control js-example-basic-single" name="camra_back">
               <option value="21MP and up">21MP and up</option>
               <option title="16-20MP">16-20MP</option>
               <option title="11-15MP">11-15MP</option>
@@ -2571,7 +2554,7 @@ Dashboard
             </div>
             <div class="col-md-12 col-lg-6 mt-3">
               <label class="form-label">number_of_cores <span class="text-danger">*</span></label>
-              <select class="form-control js-example-basic-single" name="product_name">
+              <select class="form-control js-example-basic-single" name="number_of_cores">
                 <option value="Not Specified">Not Specified</option>
                 <option value="Quad Core">Quad Core</option>
                 <option value="Single Core">Single Core</option>
@@ -2582,6 +2565,985 @@ Dashboard
             </div>
             <div class="col-md-12 col-lg-6 mt-5">
               <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-team1">Network Connections</a>
+            </div>
+            <div class="col-md-12 col-lg-6 mt-3">
+              <label class="form-label">Operating System <span class="text-danger">*</span></label>
+              <select class="form-control js-example-basic-single" name="operating_system">
+                <option value="Windows">Windows</option>
+                <option value="Linux">Linux</option>
+                <option value="Windows XP Professional">Windows XP Professional</option>
+                <option value="Mac OS X">Mac OS X</option>
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+                <option value="No OS">No OS</option>
+                <option value="Other">Other</option>
+                <option value="Windows XP">Windows XP</option>
+                <option value="Windows 7">Windows 7</option>
+                <option value="Windows Mobile 6.5">Windows Mobile 6.5</option>
+                <option value="Windows Phone OS">Windows Phone OS</option>
+                <option value="Symbian">Symbian</option>
+                <option value="Blackberry OS">Blackberry OS</option>
+                <option value="Chrome OS">Chrome OS</option>
+                <option value="Windows 8">Windows 8</option>
+                <option value="Firefox">Firefox</option>
+                <option value="Android 4.3 Jelly Bean">Android 4.3 Jelly Bean</option>
+                <option value="Android 4.2 Jelly Bean">Android 4.2 Jelly Bean</option>
+                <option value="Android 4.1 Jelly Bean">Android 4.1 Jelly Bean</option>
+                <option value="Android 4.0 Ice Cream Sandwich">Android 4.0 Ice Cream Sandwich</option>
+                <option value="Android 2.3 Gingerbread">Android 2.3 Gingerbread</option>
+                <option value="Android 4.4 Kitkat">Android 4.4 Kitkat</option>
+                <option value="iOS 7">iOS 7</option>
+                <option value="iOS 8">iOS 8</option>
+                <option value="Proprietary">Proprietary</option>
+                <option value="Windows 8.1">Windows 8.1</option>
+                <option value="Maverick">Maverick</option>
+                <option value="DOS">DOS</option>
+                <option value="X Mavericks">X Mavericks</option>
+                <option value="Android 4.3 Jelly">Android 4.3 Jelly</option>
+                <option value="Android 2.1 Eclair">Android 2.1 Eclair</option>
+                <option value="Android 2.2 Froyo">Android 2.2 Froyo</option>
+                <option value="Android 4.0 Ice Cream">Android 4.0 Ice Cream</option>
+                <option value="Nokia OS">Nokia OS</option>
+                <option value="Blackber">Blackber</option>
+                <option value="Windows 7 Professional">Windows 7 Professional</option>
+                <option value="Windows 7 Home Premium 64">Windows 7 Home Premium 64</option>
+                <option value="Windows 7 Home Premium">Windows 7 Home Premium</option>
+                <option value="Windows 7 Home Basic">Windows 7 Home Basic</option>
+                <option value="Meego">Meego</option>
+                <option value="Windows XP Home">Windows XP Home</option>
+                <option value="Ubuntu">Ubuntu</option>
+                <option value="Android 2.3">Android 2.3</option>
+                <option value="Android 2.3.6 Gingerbread">Android 2.3.6 Gingerbread</option>
+                <option value="SGP">SGP</option>
+                <option value="Symbia">Symbia</option>
+                <option value="Remix OS">Remix OS</option>
+                <option value="Windows 10">Windows 10</option>
+                <option value=" Android OS, v4.2.2 (Jelly Bean)"> Android OS, v4.2.2 (Jelly Bean)</option>
+                <option value=" Android v4.2.2 (Jelly Bean)"> Android v4.2.2 (Jelly Bean)</option>
+                <option value=" Android v4.3 (Jelly Bean)"> Android v4.3 (Jelly Bean)</option>
+                <option value="Android 1.5 Cupcake">Android 1.5 Cupcake</option>
+                <option value="Android 1.6 (Donut)">Android 1.6 (Donut)</option>
+                <option value="Android 1.6 Donut">Android 1.6 Donut</option>
+                <option value="Android 2.1">Android 2.1</option>
+                <option value="Android 2.2">Android 2.2</option>
+                <option value="Android 2.3.3 Gingerbread">Android 2.3.3 Gingerbread</option>
+                <option value="Android 2.3.4 Gingerbread">Android 2.3.4 Gingerbread</option>
+                <option value="Android 2.3.5 Gingerbread">Android 2.3.5 Gingerbread</option>
+                <option value="Android 3.0">Android 3.0</option>
+                <option value="Android 3.0 Honeycomb">Android 3.0 Honeycomb</option>
+                <option value="Android 3.2">Android 3.2</option>
+                <option value="Android 3.2 Honeycomb">Android 3.2 Honeycomb</option>
+                <option value="Android 4">Android 4</option>
+                <option value="Android 4.0">Android 4.0</option>
+                <option value="Android 4.0 Ic">Android 4.0 Ic</option>
+                <option value="Android 4.0.3">Android 4.0.3</option>
+                <option value="Android 4.0.3 Ice Cream Sandwich">Android 4.0.3 Ice Cream Sandwich</option>
+                <option value="Android 4.0.4">Android 4.0.4</option>
+                <option value="Android 4.0.4 Ice Cream Sandwich">Android 4.0.4 Ice Cream Sandwich</option>
+                <option value="Android 4.1">Android 4.1</option>
+                <option value="Android 4.1 Jellybean">Android 4.1 Jellybean</option>
+                <option value="Android 4.1.1 Jelly Bean">Android 4.1.1 Jelly Bean</option>
+                <option value="Android 4.1.1 Jellybean">Android 4.1.1 Jellybean</option>
+                <option value="Android 4.1.2 Jelly Bean">Android 4.1.2 Jelly Bean</option>
+                <option value="Android 4.1.2 Jellybean">Android 4.1.2 Jellybean</option>
+                <option value="Android 4.2 Jellybean">Android 4.2 Jellybean</option>
+                <option value="Android 4.2.1 Jelly Bean">Android 4.2.1 Jelly Bean</option>
+                <option value="Android 4.2.2">Android 4.2.2</option>
+                <option value="Android 4.2.2 Jelly Bean">Android 4.2.2 Jelly Bean</option>
+                <option value="Android 4.2.2 Jellybean">Android 4.2.2 Jellybean</option>
+                <option value="Android 4.3 Jellybean">Android 4.3 Jellybean</option>
+                <option value="Android 4.3.9 Jelly Bean">Android 4.3.9 Jelly Bean</option>
+                <option value="Android 4.4 (KitKat)">Android 4.4 (KitKat)</option>
+                <option value="Android 4.4.2 Kitkat">Android 4.4.2 Kitkat</option>
+                <option value="Android 4.4.3 Kitkat">Android 4.4.3 Kitkat</option>
+                <option value="Android 4.4.4 KitKat">Android 4.4.4 KitKat</option>
+                <option value="Android KitKat 4.4">Android KitKat 4.4</option>
+                <option value="Android OS 4.2.1 (Jelly Bean)">Android OS 4.2.1 (Jelly Bean)</option>
+                <option value="Android OS 4.4 Kitkat">Android OS 4.4 Kitkat</option>
+                <option value="Android OS v1.6 (Donut)">Android OS v1.6 (Donut)</option>
+                <option value="Android OS v4.0">Android OS v4.0</option>
+                <option value="Android OS, v2.2 (Froyo)">Android OS, v2.2 (Froyo)</option>
+                <option value="Android OS, v2.3 (Gingerbread)">Android OS, v2.3 (Gingerbread)</option>
+                <option value="Android OS, v2.3.5 (Gingerbread)">Android OS, v2.3.5 (Gingerbread)</option>
+                <option value="Android OS, v2.3.6 (Gingerbread),">Android OS, v2.3.6 (Gingerbread),</option>
+                <option value="Android OS, v2.3.7 (Gingerbread)">Android OS, v2.3.7 (Gingerbread)</option>
+                <option value="Android OS, v4.0.3 (Ice Cream Sandwich)">Android OS, v4.0.3 (Ice Cream Sandwich)</option>
+                <option value="Android OS, v4.0.4 Ice Cream Sandwich">Android OS, v4.0.4 Ice Cream Sandwich</option>
+                <option value="Android OS, v4.1 (Jelly Bean)">Android OS, v4.1 (Jelly Bean)</option>
+                <option value="Android OS, v4.1.1 (Jelly Bean)">Android OS, v4.1.1 (Jelly Bean)</option>
+                <option value="Android OS, v4.1.2 (Jelly Bean)">Android OS, v4.1.2 (Jelly Bean)</option>
+                <option value="Android OS, v4.2 (Jelly Bean)">Android OS, v4.2 (Jelly Bean)</option>
+                <option value="Android OS, v4.3 (Jelly Bean)">Android OS, v4.3 (Jelly Bean)</option>
+                <option value="Android OS, v4.4 (KitKat)">Android OS, v4.4 (KitKat)</option>
+                <option value="Android OS, v4.4.2 (KitKat)">Android OS, v4.4.2 (KitKat)</option>
+                <option value="Android v4.0.3 (Ice Cream Sandwich)">Android v4.0.3 (Ice Cream Sandwich)</option>
+                <option value="Android v4.1.2 (Jelly Bean">Android v4.1.2 (Jelly Bean</option>
+                <option value="Android v4.1.2 (Jelly Bean)">Android v4.1.2 (Jelly Bean)</option>
+                <option value="Android v4.2">Android v4.2</option>
+                <option value="Android v4.4">Android v4.4</option>
+                <option value="Asha S40">Asha S40</option>
+                <option value="Bada OS 1.2">Bada OS 1.2</option>
+                <option value="BlackBerry 10">BlackBerry 10</option>
+                <option value="BlackBerry 10 OS">BlackBerry 10 OS</option>
+                <option value="BlackBerry 10.2">BlackBerry 10.2</option>
+                <option value="BlackBerry 10.2 OS">BlackBerry 10.2 OS</option>
+                <option value="BlackBerry 10.2.1">BlackBerry 10.2.1</option>
+                <option value="BlackBerry 7">BlackBerry 7</option>
+                <option value="BlackBerry 7.0">BlackBerry 7.0</option>
+                <option value="BlackBerry 7.1">BlackBerry 7.1</option>
+                <option value="BlackBerry OS 5">BlackBerry OS 5</option>
+                <option value="BlackBerry OS 7">BlackBerry OS 7</option>
+                <option value="BlackBerry OS 7.0">BlackBerry OS 7.0</option>
+                <option value="BlackBerry OS 7.1">BlackBerry OS 7.1</option>
+                <option value="Blackberry OS 10">Blackberry OS 10</option>
+                <option value="Blackberry OS 10.2">Blackberry OS 10.2</option>
+                <option value="CE 6.0 Core">CE 6.0 Core</option>
+                <option value="Firefox 1.3">Firefox 1.3</option>
+                <option value="FreeDOS">FreeDOS</option>
+                <option value="Google Android 4.1 (Jelly Bean)">Google Android 4.1 (Jelly Bean)</option>
+                <option value="IOS 4">IOS 4</option>
+                <option value="Mac OS">Mac OS</option>
+                <option value="Mac OS X Mountain Lion">Mac OS X Mountain Lion</option>
+                <option value="Mac OS X v10.5.8">Mac OS X v10.5.8</option>
+                <option value="Maemo 5">Maemo 5</option>
+                <option value="Microsoft Windows CE 6.0 Core Version">Microsoft Windows CE 6.0 Core Version</option>
+                <option value="Microsoft Windows Mobile 6.1 Professional">Microsoft Windows Mobile 6.1 Professional</option>
+                <option value="Microsoft Windows Mobile 6.5.3 Professional">Microsoft Windows Mobile 6.5.3 Professional</option>
+                <option value="Microsoft Windows Phone 7.5 Mango">Microsoft Windows Phone 7.5 Mango</option>
+                <option value="Microsoft Windows Phone 8">Microsoft Windows Phone 8</option>
+                <option value="Microsoft Windows Phone 8.1">Microsoft Windows Phone 8.1</option>
+                <option value="No info">No info</option>
+                <option value="Nokia Asha">Nokia Asha</option>
+                <option value="Nokia Asha 1.2">Nokia Asha 1.2</option>
+                <option value="Nokia Asha Software Platform">Nokia Asha Software Platform</option>
+                <option value="Nokia Asha software Platform 1.2">Nokia Asha software Platform 1.2</option>
+                <option value="Nokia Asha software platform 1.0">Nokia Asha software platform 1.0</option>
+                <option value="Nokia Asha software platform 1.1.1">Nokia Asha software platform 1.1.1</option>
+                <option value="Nokia OS Series 30+">Nokia OS Series 30+</option>
+                <option value="Nokia X Software Platform">Nokia X Software Platform</option>
+                <option value="Nokia X flatform 2.0 (Android 4.3)">Nokia X flatform 2.0 (Android 4.3)</option>
+                <option value="OS X">OS X</option>
+                <option value="OS X Yosemite">OS X Yosemite</option>
+                <option value="RIM OS 7.0">RIM OS 7.0</option>
+                <option value="S30">S30</option>
+                <option value="S40">S40</option>
+                <option value="S40 Asha">S40 Asha</option>
+                <option value="S60">S60</option>
+                <option value="S60 5th Edition">S60 5th Edition</option>
+                <option value="Samsung OS">Samsung OS</option>
+                <option value="Samsung Proprietary">Samsung Proprietary</option>
+                <option value="Symbian 9.3">Symbian 9.3</option>
+                <option value="Symbian Anna">Symbian Anna</option>
+                <option value="Symbian Belle">Symbian Belle</option>
+                <option value="Symbian OS">Symbian OS</option>
+                <option value="Symbian^3">Symbian^3</option>
+                <option value="Win 8.1 Bing">Win 8.1 Bing</option>
+                <option value="Win7 Pro 64 downgrade W8">Win7 Pro 64 downgrade W8</option>
+                <option value="Windows 7 Home Basic 64-bit">Windows 7 Home Basic 64-bit</option>
+                <option value="Windows 7 Pro">Windows 7 Pro</option>
+                <option value="Windows 7 Pro 32-bit">Windows 7 Pro 32-bit</option>
+                <option value="Windows 7 Professional SP1 64-bit">Windows 7 Professional SP1 64-bit</option>
+                <option value="Windows 7 Starter">Windows 7 Starter</option>
+                <option value="Windows 7.5">Windows 7.5</option>
+                <option value="Windows 7.5 Mango">Windows 7.5 Mango</option>
+                <option value="Windows 8 (Dock) Android 4.2 Jelly Bean (Tablet)">Windows 8 (Dock) Android 4.2 Jelly Bean (Tablet)</option>
+                <option value="Windows 8 64 bit SL">Windows 8 64 bit SL</option>
+                <option value="Windows 8 Pro">Windows 8 Pro</option>
+                <option value="Windows 8 Pro 64 bit (English Version)">Windows 8 Pro 64 bit (English Version)</option>
+                <option value="Windows 8 SL">Windows 8 SL</option>
+                <option value="Windows 8 STD">Windows 8 STD</option>
+                <option value="Windows 8 Single Language 64 bit (English Version)">Windows 8 Single Language 64 bit (English Version)</option>
+                <option value="Windows 8 Single Language 64bit">Windows 8 Single Language 64bit</option>
+                <option value="Windows 8, 7, Vista, XP, 2000 32/64 bit">Windows 8, 7, Vista, XP, 2000 32/64 bit</option>
+                <option value="Windows 8.1 Pro">Windows 8.1 Pro</option>
+                <option value="Windows Mobile 6.1 Pro">Windows Mobile 6.1 Pro</option>
+                <option value="Windows Phone 7.5 Mango">Windows Phone 7.5 Mango</option>
+                <option value="Windows Phone 8">Windows Phone 8</option>
+                <option value="Windows Phone 8.1">Windows Phone 8.1</option>
+                <option value="Windows RT">Windows RT</option>
+                <option value="android os">android os</option>
+                <option value="iOS 3">iOS 3</option>
+                <option value="iOS 5">iOS 5</option>
+                <option value="iOS 5.1">iOS 5.1</option>
+                <option value="iOS 6">iOS 6</option>
+                <option value="iOS 7.0.4">iOS 7.0.4</option>
+                <option value="iOS 8.0">iOS 8.0</option>
+                <option value="v4.2 (jelly bean)">v4.2 (jelly bean)</option>
+                <option value="BlackBerry">BlackBerry</option>
+                <option value="iOS 9">iOS 9</option>
+                <option value="Android 7.0 Nougat">Android 7.0 Nougat</option>
+                <option value="Android 6.0 Marshmallow">Android 6.0 Marshmallow</option>
+                <option value="Android 5.1 Lollipop">Android 5.1 Lollipop</option>
+                <option value="Android 5.0 Lollipop">Android 5.0 Lollipop</option>
+                <option value="USB 2.0">USB 2.0</option>
+                <option value="Others">Others</option>
+                <option value="Chrome">Chrome</option>
+                <option value="OS X El Capitan">OS X El Capitan</option>
+                <option value="5.1">5.1</option>
+                <option value="Android 5.1">Android 5.1</option>
+                <option value="N/A">N/A</option>
+                <option value="OS">OS</option>
+                <option value="Testing">Testing</option>
+                <option value="BlackBerry OS 10.2.1">BlackBerry OS 10.2.1</option>
+                <option value="WINDOWS VISTA BUSINESS">WINDOWS VISTA BUSINESS</option>
+                <option value="Proprietary OS">Proprietary OS</option>
+                <option value="iOS 10?">iOS 10?</option>
+                <option value="Windows 10 Pro 64">Windows 10 Pro 64</option>
+                <option value="Android 7.0">Android 7.0</option>
+                <option value="Android 6.0">Android 6.0</option>
+                <option value="Android 4.2">Android 4.2</option>
+                <option value="Any">Any</option>
+                <option value="Endless OS">Endless OS</option>
+                <option value="iOS 11">iOS 11</option>
+                <option value="Endless">Endless</option>
+                <option value="Android 8.0 Oreo">Android 8.0 Oreo</option>
+                <option value="macOS Sierra 10.12.1">macOS Sierra 10.12.1</option>
+                <option value="MTK">MTK</option>
+                <option value="Windows: Windows 8 / Windows 7 / Windows XP / Windows Vista/Mac OS X v10.6.8 and later">Windows: Windows 8 / Windows 7 / Windows XP / Windows Vista/Mac OS X v10.6.8 and later</option>
+                <option value="0.3MP camera">0.3MP camera</option>
+                <option value="4.2">4.2</option>
+                <option value="4.2.2 Jelly Bean">4.2.2 Jelly Bean</option>
+                <option value="4.4 Kitkat OS">4.4 Kitkat OS</option>
+                <option value="4.4 Kitkat OS.">4.4 Kitkat OS.</option>
+                <option value="4.4.2 (kitkat)">4.4.2 (kitkat)</option>
+                <option value="4.4.2 Kitkat">4.4.2 Kitkat</option>
+                <option value="Andoid Jellybean 4.2">Andoid Jellybean 4.2</option>
+                <option value="Android  4.1 (Jellybean)">Android 4.1 (Jellybean)</option>
+                <option value="Android  4.4.2 Kitkat">Android 4.4.2 Kitkat</option>
+                <option value="Android  v4.4.2 KitKat">Android v4.4.2 KitKat</option>
+                <option value="Android  v4.4.4 KitKat">Android v4.4.4 KitKat</option>
+                <option value="Android  v5.0 Lollipop">Android v5.0 Lollipop</option>
+                <option value="Android  v5.1 Lollipop">Android v5.1 Lollipop</option>
+                <option value="Android &amp; iOS">Android &amp; iOS</option>
+                <option value="Android (4.2)">Android (4.2)</option>
+                <option value="Android (4.2)&nbsp;">Android (4.2)&nbsp;</option>
+                <option value="Android (4.4.3)">Android (4.4.3)</option>
+                <option value="Android (4.4.4, 4.4.2, 4.4)">Android (4.4.4, 4.4.2, 4.4)</option>
+                <option value="Android 4.1 (Jelly Bean)">Android 4.1 (Jelly Bean)</option>
+                <option value="Android 4.1 (Jelly Bean)&nbsp;">Android 4.1 (Jelly Bean)&nbsp;</option>
+                <option value="Android 4.1 Jelly Bean&nbsp;">Android 4.1 Jelly Bean&nbsp;</option>
+                <option value="Android 4.1+ (Jelly Bean)&nbsp;">Android 4.1+ (Jelly Bean)&nbsp;</option>
+                <option value="Android 4.1.1">Android 4.1.1</option>
+                <option value="Android 4.1.2 Jelly Bean&nbsp;">Android 4.1.2 Jelly Bean&nbsp;</option>
+                <option value="Android 4.1.2, Jelly Bean">Android 4.1.2, Jelly Bean</option>
+                <option value="Android 4.2 (Jelly Bean)">Android 4.2 (Jelly Bean)</option>
+                <option value="Android 4.2 (Jelly Bean) + Emotion UI 2.0">Android 4.2 (Jelly Bean) + Emotion UI 2.0</option>
+                <option value="Android 4.2 (Jelly Bean)&nbsp;">Android 4.2 (Jelly Bean)&nbsp;</option>
+                <option value="Android 4.2 and onwards">Android 4.2 and onwards</option>
+                <option value="Android 4.2 Jelly Bean&nbsp;">Android 4.2 Jelly Bean&nbsp;</option>
+                <option value="Android 4.2, Jelly Bean">Android 4.2, Jelly Bean</option>
+                <option value="Android 4.2.1 (Jelly Bean)">Android 4.2.1 (Jelly Bean)</option>
+                <option value="Android 4.2.1 Jelly Bean&nbsp;">Android 4.2.1 Jelly Bean&nbsp;</option>
+                <option value="Android 4.2.2 (jelly bean)">Android 4.2.2 (jelly bean)</option>
+                <option value="Android 4.2.2 Jelly Bean&nbsp;">Android 4.2.2 Jelly Bean&nbsp;</option>
+                <option value="Android 4.2.2 Kitkat">Android 4.2.2 Kitkat</option>
+                <option value="Android 4.2.2, Jelly Bean">Android 4.2.2, Jelly Bean</option>
+                <option value="Android 4.2.2&nbsp;">Android 4.2.2&nbsp;</option>
+                <option value="Android 4.2&nbsp;">Android 4.2&nbsp;</option>
+                <option value="Android 4.2&nbsp;Jelly Bean">Android 4.2&nbsp;Jelly Bean</option>
+                <option value="Android 4.3">Android 4.3</option>
+                <option value="Android 4.3 (Jelly Bean)">Android 4.3 (Jelly Bean)</option>
+                <option value="Android 4.3 (Jelly Bean) + Emotion UI 1.6">Android 4.3 (Jelly Bean) + Emotion UI 1.6</option>
+                <option value="Android 4.3 (Jelly Bean) + Huawei Emotion UI 1.6">Android 4.3 (Jelly Bean) + Huawei Emotion UI 1.6</option>
+                <option value="Android 4.3 (Upgradable to Android 4.4)">Android 4.3 (Upgradable to Android 4.4)</option>
+                <option value="Android 4.3 and onwards">Android 4.3 and onwards</option>
+                <option value="Android 4.3 Jelly Bean (Upgradable to Android 4.4)">Android 4.3 Jelly Bean (Upgradable to Android 4.4)</option>
+                <option value="Android 4.3 Jelly Bean&nbsp;">Android 4.3 Jelly Bean&nbsp;</option>
+                <option value="Android 4.3 optimized with MIUI version 5">Android 4.3 optimized with MIUI version 5</option>
+                <option value="Android 4.3(Jelly Bean) (Upgredable)">Android 4.3(Jelly Bean) (Upgredable)</option>
+                <option value="Android 4.3(Jelly Bean) + Emotion UI 1.6">Android 4.3(Jelly Bean) + Emotion UI 1.6</option>
+                <option value="Android 4.3+Emotion UI 2.0 Lite">Android 4.3+Emotion UI 2.0 Lite</option>
+                <option value="Android 4.3, Jelly Bean">Android 4.3, Jelly Bean</option>
+                <option value="Android 4.4">Android 4.4</option>
+                <option value="Android 4.4 (Kit Kat)&nbsp;">Android 4.4 (Kit Kat)&nbsp;</option>
+                <option value="Android 4.4 (Kit-Kat)&nbsp;">Android 4.4 (Kit-Kat)&nbsp;</option>
+                <option value="Android 4.4 (MIUI V5) OS system">Android 4.4 (MIUI V5) OS system</option>
+                <option value="Android 4.4 + Windows 8.1">Android 4.4 + Windows 8.1</option>
+                <option value="Android 4.4 with HTC Sense HTC BlinkFeed">Android 4.4 with HTC Sense HTC BlinkFeed</option>
+                <option value="Android 4.4( KitKat)">Android 4.4( KitKat)</option>
+                <option value="Android 4.4(Kitkat)">Android 4.4(Kitkat)</option>
+                <option value="Android 4.4, KitKat">Android 4.4, KitKat</option>
+                <option value="Android 4.4.2">Android 4.4.2</option>
+                <option value="Android 4.4.2 (32bit)">Android 4.4.2 (32bit)</option>
+                <option value="Android 4.4.2 (KitKat)">Android 4.4.2 (KitKat)</option>
+                <option value="Android 4.4.2 Ice Cream Sandwich">Android 4.4.2 Ice Cream Sandwich</option>
+                <option value="Android 4.4.2 Kit-Kat">Android 4.4.2 Kit-Kat</option>
+                <option value="Android 4.4.3">Android 4.4.3</option>
+                <option value="Android 4.4.3 (kitkat)">Android 4.4.3 (kitkat)</option>
+                <option value="Android 4.4.4 Jelly bean">Android 4.4.4 Jelly bean</option>
+                <option value="Android 4.4/HUAWEI Emotion UI 3.0">Android 4.4/HUAWEI Emotion UI 3.0</option>
+                <option value="Android 4.4‎.‎2 Kitikat">Android 4.4‎.‎2 Kitikat</option>
+                <option value="Android 5, Lollipop">Android 5, Lollipop</option>
+                <option value="Android 5.0">Android 5.0</option>
+                <option value="Android 5.0 (Lollipop)">Android 5.0 (Lollipop)</option>
+                <option value="Android 5.0.2 (Lollipop), upgradable to 6.0 (Marshmallow)">Android 5.0.2 (Lollipop), upgradable to 6.0 (Marshmallow)</option>
+                <option value="Android 5.1 (Lollipop)">Android 5.1 (Lollipop)</option>
+                <option value="Android 5.1 (Lollipop), upgradable to 6.0 (Marshmallow)">Android 5.1 (Lollipop), upgradable to 6.0 (Marshmallow)</option>
+                <option value="Android 6.0 (Marshmallow)">Android 6.0 (Marshmallow)</option>
+                <option value="Android 6.0 (Marshmallow) or 5.0 (Lollipop)">Android 6.0 (Marshmallow) or 5.0 (Lollipop)</option>
+                <option value="Android 6.0 Marshmallow with MIUI V8">Android 6.0 Marshmallow with MIUI V8</option>
+                <option value="Android 6.0 Operating">Android 6.0 Operating</option>
+                <option value="Android 6.0 OS">Android 6.0 OS</option>
+                <option value="Android 6.0.1 (Marshmallow)">Android 6.0.1 (Marshmallow)</option>
+                <option value="Android 6.1">Android 6.1</option>
+                <option value="Android 64bits">Android 64bits</option>
+                <option value="Android 7.0 (Nougat)">Android 7.0 (Nougat)</option>
+                <option value="Android 7.0 Nougat with EMUI 5.0">Android 7.0 Nougat with EMUI 5.0</option>
+                <option value="Android 7.0 Nougat with XOS">Android 7.0 Nougat with XOS</option>
+                <option value="Android 7.0+EMUI5.1">Android 7.0+EMUI5.1</option>
+                <option value="Android 7.1 (Nougat)">Android 7.1 (Nougat)</option>
+                <option value="Android 7.1 (Nougat) with MIUI V8">Android 7.1 (Nougat) with MIUI V8</option>
+                <option value="Android 7.1.1 (Nougat)">Android 7.1.1 (Nougat)</option>
+                <option value="Android 7.1.2 (Nougat)">Android 7.1.2 (Nougat)</option>
+                <option value="Android 8.0 (Oreo)">Android 8.0 (Oreo)</option>
+                <option value="Android 8.0 Oreo with&nbsp;EMUI 8.0">Android 8.0 Oreo with&nbsp;EMUI 8.0</option>
+                <option value="Android Jelly Bean 4.1">Android Jelly Bean 4.1</option>
+                <option value="Android Jelly Bean 4.2">Android Jelly Bean 4.2</option>
+                <option value="Android Jelly Bean 4.2.2">Android Jelly Bean 4.2.2</option>
+                <option value="Android Jelly bean 4.2.2&nbsp;">Android Jelly bean 4.2.2&nbsp;</option>
+                <option value="Android Jelly bean 4.2.3">Android Jelly bean 4.2.3</option>
+                <option value="Android Jelly Bean 4.3">Android Jelly Bean 4.3</option>
+                <option value="Android Jelly Bean 4.3&nbsp;">Android Jelly Bean 4.3&nbsp;</option>
+                <option value="Android Jellybean 4.2">Android Jellybean 4.2</option>
+                <option value="Android Jellybean 4.2.2">Android Jellybean 4.2.2</option>
+                <option value="Android Jellybean 4.2.2&nbsp;">Android Jellybean 4.2.2&nbsp;</option>
+                <option value="Android JellyBean 4.3">Android JellyBean 4.3</option>
+                <option value="Android Kitkat 4.4.2">Android Kitkat 4.4.2</option>
+                <option value="Android KitKat 4.4.2 (Upgradable to Lollipop)">Android KitKat 4.4.2 (Upgradable to Lollipop)</option>
+                <option value="Android Kitkat 4.4.3">Android Kitkat 4.4.3</option>
+                <option value="Android KitKat v4.4">Android KitKat v4.4</option>
+                <option value="Android Lolipop">Android Lolipop</option>
+                <option value="Android Lolipop 5.1">Android Lolipop 5.1</option>
+                <option value="Android Lollipop 5.0">Android Lollipop 5.0</option>
+                <option value="Android Lollipop 5.1">Android Lollipop 5.1</option>
+                <option value="Android Marshmallow">Android Marshmallow</option>
+                <option value="Android Marshmallow 6.0">Android Marshmallow 6.0</option>
+                <option value="Android Marshmallow 6.0.1">Android Marshmallow 6.0.1</option>
+                <option value="Android Marshmallow v6.0">Android Marshmallow v6.0</option>
+                <option value="Android Marshmallow v6.0 (EMUI 4.1)">Android Marshmallow v6.0 (EMUI 4.1)</option>
+                <option value="Android Nougat 7.0 &nbsp;">Android Nougat 7.0 &nbsp;</option>
+                <option value="Android One">Android One</option>
+                <option value="Android Operating System">Android Operating System</option>
+                <option value="Android OS (Jelly Bean)">Android OS (Jelly Bean)</option>
+                <option value="Android OS 5.0 Lollipop">Android OS 5.0 Lollipop</option>
+                <option value="Android OS 5.1.1(Lollipop)">Android OS 5.1.1(Lollipop)</option>
+                <option value="Android OS 6.0">Android OS 6.0</option>
+                <option value="Android OS KitKat">Android OS KitKat</option>
+                <option value="Android OS v4.4.2(KitKat)">Android OS v4.4.2(KitKat)</option>
+                <option value="Android OS v5.1 (Lollipop)">Android OS v5.1 (Lollipop)</option>
+                <option value="Android OS v6.0.1 Marshmallow">Android OS v6.0.1 Marshmallow</option>
+                <option value="Android OS, v2.3 (Gingerbread)&nbsp;">Android OS, v2.3 (Gingerbread)&nbsp;</option>
+                <option value="Android OS, v4.0.4 (Ice Cream Sandwich), 4.3 (Jelly Bean)">Android OS, v4.0.4 (Ice Cream Sandwich), 4.3 (Jelly Bean)</option>
+                <option value="Android OS, v4.1 (Jelly Bean), upgradable to v4.2 (Jelly Bean)">Android OS, v4.1 (Jelly Bean), upgradable to v4.2 (Jelly Bean)</option>
+                <option value="Android OS, v4.1 (Jelly Bean), upgradable to v4.2.2 (Jelly Bean)">Android OS, v4.1 (Jelly Bean), upgradable to v4.2.2 (Jelly Bean)</option>
+                <option value="Android OS, v4.1 (Jelly Bean), upgradable to v4.2.2 (Jelly Bean)&nbsp;">Android OS, v4.1 (Jelly Bean), upgradable to v4.2.2 (Jelly Bean)&nbsp;</option>
+                <option value="Android OS, v4.1.2  Jelly Bean">Android OS, v4.1.2 Jelly Bean</option>
+                <option value="Android OS, v4.1.2 (Jelly Bean), upgradаble to v4.4.2 (KitKat)">Android OS, v4.1.2 (Jelly Bean), upgradаble to v4.4.2 (KitKat)</option>
+                <option value="Android OS, v4.2">Android OS, v4.2</option>
+                <option value="Android OS, v4.2 (Jelly Bean), upgradable to v4.4 (KitKat)">Android OS, v4.2 (Jelly Bean), upgradable to v4.4 (KitKat)</option>
+                <option value="Android OS, v4.2 (Jelly Bean), upgradable to v4.4.2 (KitKat)">Android OS, v4.2 (Jelly Bean), upgradable to v4.4.2 (KitKat)</option>
+                <option value="Android OS, v4.2 (Jelly Bean)&nbsp;">Android OS, v4.2 (Jelly Bean)&nbsp;</option>
+                <option value="Android OS, v4.2.1 (Jelly Bean)">Android OS, v4.2.1 (Jelly Bean)</option>
+                <option value="Android OS, v4.2.1 (Jelly Bean)&nbsp;">Android OS, v4.2.1 (Jelly Bean)&nbsp;</option>
+                <option value="Android OS, v4.2.2 (Jelly Bean), planned upgrade to v4.4 (KitKat)">Android OS, v4.2.2 (Jelly Bean), planned upgrade to v4.4 (KitKat)</option>
+                <option value="Android OS, v4.2.2 (Jelly Bean), up-gradable to v4.4.2 (KitKat)">Android OS, v4.2.2 (Jelly Bean), up-gradable to v4.4.2 (KitKat)</option>
+                <option value="Android OS, v4.2.2 (Jelly Bean), upgradable to v4.4.2 (KitKat)">Android OS, v4.2.2 (Jelly Bean), upgradable to v4.4.2 (KitKat)</option>
+                <option value="Android OS, v4.2.2 (Jelly Bean)&nbsp;">Android OS, v4.2.2 (Jelly Bean)&nbsp;</option>
+                <option value="Android OS, v4.2.2 Jelly Bean">Android OS, v4.2.2 Jelly Bean</option>
+                <option value="Android OS, v4.3 (Jelly Bean), upgradable to v4.4.2 (KitKat)">Android OS, v4.3 (Jelly Bean), upgradable to v4.4.2 (KitKat)</option>
+                <option value="Android OS, v4.3 (Jelly Bean), upgradable to v4.4.2 (KitKat), upgradable to v5.0 (Lollipop)">Android OS, v4.3 (Jelly Bean), upgradable to v4.4.2 (KitKat), upgradable to v5.0 (Lollipop)</option>
+                <option value="Android OS, v4.3 (Jelly Bean)&nbsp;">Android OS, v4.3 (Jelly Bean)&nbsp;</option>
+                <option value="Android OS, v4.3 Jelly Bean">Android OS, v4.3 Jelly Bean</option>
+                <option value="Android OS, v4.4">Android OS, v4.4</option>
+                <option value="Android OS, v4.4 (Kit Kat)">Android OS, v4.4 (Kit Kat)</option>
+                <option value="Android OS, v4.4 (KitKat), upgradable to v4.4.3 (KitKat)">Android OS, v4.4 (KitKat), upgradable to v4.4.3 (KitKat)</option>
+                <option value="Android OS, v4.4 (KitKat), upgradable to v4.4.4 (KitKat)">Android OS, v4.4 (KitKat), upgradable to v4.4.4 (KitKat)</option>
+                <option value="Android OS, v4.4 (KitKat), upgradable to v5.0.2 (Lollipop)">Android OS, v4.4 (KitKat), upgradable to v5.0.2 (Lollipop)</option>
+                <option value="Android OS, v4.4 (KitKat)&nbsp;">Android OS, v4.4 (KitKat)&nbsp;</option>
+                <option value="Android OS, v4.4.2 (Kit Kat)">Android OS, v4.4.2 (Kit Kat)</option>
+                <option value="Android OS, v4.4.2 (KitKat) (Upgredable)">Android OS, v4.4.2 (KitKat) (Upgredable)</option>
+                <option value="Android OS, v4.4.2 (KitKat), upgradable to v5.0.2 (Lollipop)">Android OS, v4.4.2 (KitKat), upgradable to v5.0.2 (Lollipop)</option>
+                <option value="Android OS, v4.4.2 (KitKat)&nbsp;">Android OS, v4.4.2 (KitKat)&nbsp;</option>
+                <option value="Android OS, v4.4.2 Jelly Bean">Android OS, v4.4.2 Jelly Bean</option>
+                <option value="Android OS, v4.4.2 KitKat">Android OS, v4.4.2 KitKat</option>
+                <option value="Android OS, v4.4.2 KitKat, upgradable to v5.0 (Lollipop)">Android OS, v4.4.2 KitKat, upgradable to v5.0 (Lollipop)</option>
+                <option value="Android OS, v4.4.3 (KitKat)">Android OS, v4.4.3 (KitKat)</option>
+                <option value="Android OS, v4.4.4 (KitKat)">Android OS, v4.4.4 (KitKat)</option>
+                <option value="Android OS, v4.4.4 (KitKat), upgradable to v5.0 (Lollipop)">Android OS, v4.4.4 (KitKat), upgradable to v5.0 (Lollipop)</option>
+                <option value="Android OS, v4.4.4 (KitKat), upgradable to v5.0.1 (Lollipop)">Android OS, v4.4.4 (KitKat), upgradable to v5.0.1 (Lollipop)</option>
+                <option value="Android OS, v4.4.4 (KitKat), upgradable to v5.0.2 (Lollipop)">Android OS, v4.4.4 (KitKat), upgradable to v5.0.2 (Lollipop)</option>
+                <option value="Android OS, v4.4.4 (KitKat), upgradable to v5.0.2/v5.1.1 (Lollipop)">Android OS, v4.4.4 (KitKat), upgradable to v5.0.2/v5.1.1 (Lollipop)</option>
+                <option value="Android OS, v4.4.4 (KitKat), upgradable to v5.1 (Lollipop)">Android OS, v4.4.4 (KitKat), upgradable to v5.1 (Lollipop)</option>
+                <option value="Android OS, v4.4.4 (KitKat), upgradable to v5.1.1 (Lollipop)">Android OS, v4.4.4 (KitKat), upgradable to v5.1.1 (Lollipop)</option>
+                <option value="Android OS, v4.4.4 (KitKat), v5.0.2 (Lollipop), planned upgrade to v5.1 (Lollipop)">Android OS, v4.4.4 (KitKat), v5.0.2 (Lollipop), planned upgrade to v5.1 (Lollipop)</option>
+                <option value="Android OS, v4.4.x (KitKat)">Android OS, v4.4.x (KitKat)</option>
+                <option value="Android OS, v5.0 (Lolipop)">Android OS, v5.0 (Lolipop)</option>
+                <option value="Android OS, v5.0 (Lollipop)">Android OS, v5.0 (Lollipop)</option>
+                <option value="Android OS, v5.0 (Lollipop), planned upgrade to v6.0 (Marshmallow)">Android OS, v5.0 (Lollipop), planned upgrade to v6.0 (Marshmallow)</option>
+                <option value="Android OS, v5.0 (Lollipop), upgradable to v5.1.1 (Lollipop)">Android OS, v5.0 (Lollipop), upgradable to v5.1.1 (Lollipop)</option>
+                <option value="Android OS, v5.0.1 (Lollipop)">Android OS, v5.0.1 (Lollipop)</option>
+                <option value="Android OS, v5.0.1 (Lollipop), upgradable to v5.1.1 (Lollipop)">Android OS, v5.0.1 (Lollipop), upgradable to v5.1.1 (Lollipop)</option>
+                <option value="Android OS, v5.0.2 (Lollipop)">Android OS, v5.0.2 (Lollipop)</option>
+                <option value="Android OS, v5.1 (Lollipop)">Android OS, v5.1 (Lollipop)</option>
+                <option value="Android OS, v5.1 Lollipop">Android OS, v5.1 Lollipop</option>
+                <option value="Android OS, v5.1.1 (Lollipop)">Android OS, v5.1.1 (Lollipop)</option>
+                <option value="Android OS, v6.0 (Marshmallow)">Android OS, v6.0 (Marshmallow)</option>
+                <option value="Android OS, v6.0 Marshmallow">Android OS, v6.0 Marshmallow</option>
+                <option value="Android OS- v4.2 (Jelly Bean)">Android OS- v4.2 (Jelly Bean)</option>
+                <option value="Android Smart">Android Smart</option>
+                <option value="Android TM 6.0 Marshmallow">Android TM 6.0 Marshmallow</option>
+                <option value="Android v4.1.2 Jelly Bean">Android v4.1.2 Jelly Bean</option>
+                <option value="Android v4.2 Jelly Bean">Android v4.2 Jelly Bean</option>
+                <option value="Android v4.2(JellyBean)">Android v4.2(JellyBean)</option>
+                <option value="Android v4.4 (Kitkat)">Android v4.4 (Kitkat)</option>
+                <option value="Android V4.4.2">Android V4.4.2</option>
+                <option value="Android v4.4.2 (Jelly Bean)">Android v4.4.2 (Jelly Bean)</option>
+                <option value="Android v4.4.2 (KitKat)">Android v4.4.2 (KitKat)</option>
+                <option value="Android v4.4.2 (KitKat) Upgradable to Android Lollipop">Android v4.4.2 (KitKat) Upgradable to Android Lollipop</option>
+                <option value="Android v4.4.2 KitKat">Android v4.4.2 KitKat</option>
+                <option value="Android v4.4.4 KitKat">Android v4.4.4 KitKat</option>
+                <option value="Android v5.0 Lollipop">Android v5.0 Lollipop</option>
+                <option value="Android v5.0.1 Lollipop">Android v5.0.1 Lollipop</option>
+                <option value="Android v5.0.2 Lollipop">Android v5.0.2 Lollipop</option>
+                <option value="Android v5.1 (Lollipop)">Android v5.1 (Lollipop)</option>
+                <option value="Android v5.1 Lollipop">Android v5.1 Lollipop</option>
+                <option value="Android v5.1.1 (Color OS)">Android v5.1.1 (Color OS)</option>
+                <option value="Android v5.1.1 (Lollipop)">Android v5.1.1 (Lollipop)</option>
+                <option value="Android v5.1.1 Lollipop">Android v5.1.1 Lollipop</option>
+                <option value="Android v6.0">Android v6.0</option>
+                <option value="Android v6.0 (Marshmallow)">Android v6.0 (Marshmallow)</option>
+                <option value="Android v6.0.1 (Marshmallow)">Android v6.0.1 (Marshmallow)</option>
+                <option value="Android Wear">Android Wear</option>
+                <option value="Android Wear OS">Android Wear OS</option>
+                <option value="Android with HTC Sense">Android with HTC Sense</option>
+                <option value="Android, 4.2 (Jelly Bean)">Android, 4.2 (Jelly Bean)</option>
+                <option value="Android, iOS">Android, iOS</option>
+                <option value="Android, v4.2.2 (Jelly Bean)">Android, v4.2.2 (Jelly Bean)</option>
+                <option value="Android,IOS">Android,IOS</option>
+                <option value="Android- 4.1.2 , Jelly Bean">Android- 4.1.2 , Jelly Bean</option>
+                <option value="Android- 4.2">Android- 4.2</option>
+                <option value="Android- 4.2.2 , Jelly Bean">Android- 4.2.2 , Jelly Bean</option>
+                <option value="Android-4.2 Jelly Bean">Android-4.2 Jelly Bean</option>
+                <option value="Android-4.4 Kitkat">Android-4.4 Kitkat</option>
+                <option value="Android-4.4 Kitkat&nbsp;">Android-4.4 Kitkat&nbsp;</option>
+                <option value="Android-v4.4 Kitkat">Android-v4.4 Kitkat</option>
+                <option value="Android4.0">Android4.0</option>
+                <option value="Android4.4">Android4.4</option>
+                <option value="Android7.0 + EMUI5.1">Android7.0 + EMUI5.1</option>
+                <option value="Android7.0+EMUI5.1">Android7.0+EMUI5.1</option>
+                <option value="AndroidTM 4.2(Jelly Bean)">AndroidTM 4.2(Jelly Bean)</option>
+                <option value="AndroidTM 4.2.2">AndroidTM 4.2.2</option>
+                <option value="AndroidTM 4.4">AndroidTM 4.4</option>
+                <option value="AndroidTM 6.0 Marshmallow">AndroidTM 6.0 Marshmallow</option>
+                <option value="AndroidTM 6.0+EMUI 4.1">AndroidTM 6.0+EMUI 4.1</option>
+                <option value="AndroidTM Marshmallow">AndroidTM Marshmallow</option>
+                <option value="AndroidTM&nbsp;4.2(Jelly Bean)">AndroidTM&nbsp;4.2(Jelly Bean)</option>
+                <option value="AndroidTM&nbsp;4.2.2">AndroidTM&nbsp;4.2.2</option>
+                <option value="Android&nbsp;4.4( KitKat)">Android&nbsp;4.4( KitKat)</option>
+                <option value="Android&nbsp;4.4, Kit-Kat">Android&nbsp;4.4, Kit-Kat</option>
+                <option value="Android&nbsp;5.0 (Lollipop)">Android&nbsp;5.0 (Lollipop)</option>
+                <option value="Android&nbsp;5.0(Lollipop)">Android&nbsp;5.0(Lollipop)</option>
+                <option value="Android™ 4.2.2 (Jelly Bean)">Android™ 4.2.2 (Jelly Bean)</option>
+                <option value="Android™ 4.3">Android™ 4.3</option>
+                <option value="Android™ 4.4.2 KitKat / Huawei Emotion UI 3.0">Android™ 4.4.2 KitKat / Huawei Emotion UI 3.0</option>
+                <option value="Android™ 5.0, Lollipop">Android™ 5.0, Lollipop</option>
+                <option value="Android™ M">Android™ M</option>
+                <option value="Bar GSM900/DCS1800MHz">Bar GSM900/DCS1800MHz</option>
+                <option value="BlackBerry 10 OS, upgradable to v10.1">BlackBerry 10 OS, upgradable to v10.1</option>
+                <option value="BlackBerry OS 10.2, upgradable to v10.3.1">BlackBerry OS 10.2, upgradable to v10.3.1</option>
+                <option value="BlackBerry OS 10.2.1, upgradable to v10.3.1">BlackBerry OS 10.2.1, upgradable to v10.3.1</option>
+                <option value="BlackBerry OS 10.3, upgradable to v10.3.1">BlackBerry OS 10.3, upgradable to v10.3.1</option>
+                <option value="BlackBerry OS 10.3.1">BlackBerry OS 10.3.1</option>
+                <option value="Bluetooth Version 3.0">Bluetooth Version 3.0</option>
+                <option value="China Operating System">China Operating System</option>
+                <option value="ColorOS 3.2, based on Android 7.1">ColorOS 3.2, based on Android 7.1</option>
+                <option value="Cyanogen 11S based on Android 4.4">Cyanogen 11S based on Android 4.4</option>
+                <option value="Desktop PC, IPHONE / IPAD, TV">Desktop PC, IPHONE / IPAD, TV</option>
+                <option value="Feature Phone">Feature Phone</option>
+                <option value="Firefox v1.3">Firefox v1.3</option>
+                <option value="Free Dos">Free Dos</option>
+                <option value="Free DOS / Ubuntu Linux 14.04 SP1">Free DOS / Ubuntu Linux 14.04 SP1</option>
+                <option value="Free DOS 2.0">Free DOS 2.0</option>
+                <option value="Free Dose">Free Dose</option>
+                <option value="Free-DOS">Free-DOS</option>
+                <option value="FreeDOS 2.0">FreeDOS 2.0</option>
+                <option value="Genuine Windows 10">Genuine Windows 10</option>
+                <option value="Genuine windows 7 Pro">Genuine windows 7 Pro</option>
+                <option value="Genuine Windows 7 Professional">Genuine Windows 7 Professional</option>
+                <option value="Genuine Windows 8">Genuine Windows 8</option>
+                <option value="Genuine Windows 8.1">Genuine Windows 8.1</option>
+                <option value="Genuine Windows 8.1 (64-bit)">Genuine Windows 8.1 (64-bit)</option>
+                <option value="Genuine windows 8.1 64Bit">Genuine windows 8.1 64Bit</option>
+                <option value="Genuine Windows 8.1 Professional-64bit">Genuine Windows 8.1 Professional-64bit</option>
+                <option value="Genuine Windows 8.1, 64 Bit">Genuine Windows 8.1, 64 Bit</option>
+                <option value="Google Android 4.2.2 &nbsp;">Google Android 4.2.2 &nbsp;</option>
+                <option value="Google Android 4.4 (Kitkat)">Google Android 4.4 (Kitkat)</option>
+                <option value="Google Android™ 5.0 (Lollipop)">Google Android™ 5.0 (Lollipop)</option>
+                <option value="HDMI, USB x 2.0">HDMI, USB x 2.0</option>
+                <option value="Hydrogen OS based on Android 5.1 (Lollipop)">Hydrogen OS based on Android 5.1 (Lollipop)</option>
+                <option value="iMac">iMac</option>
+                <option value="iOS 5, upgradable to iOS 7.1.2, upgradable to iOS 8&nbsp;">iOS 5, upgradable to iOS 7.1.2, upgradable to iOS 8&nbsp;</option>
+                <option value="iOS 6, upgradable to iOS 6.1.4, iOS 7.0.3&nbsp;">iOS 6, upgradable to iOS 6.1.4, iOS 7.0.3&nbsp;</option>
+                <option value="iOS 6, upgradable to iOS 7.1.1, planned upgrade to iOS 8">iOS 6, upgradable to iOS 7.1.1, planned upgrade to iOS 8</option>
+                <option value="iOS 7.0">iOS 7.0</option>
+                <option value="IOS 7.0&nbsp;">IOS 7.0&nbsp;</option>
+                <option value="IOS 7.1">IOS 7.1</option>
+                <option value="IOS 7.2">IOS 7.2</option>
+                <option value="IOS 7.3">IOS 7.3</option>
+                <option value="IOS 7.7">IOS 7.7</option>
+                <option value="IOS 7.8">IOS 7.8</option>
+                <option value="iOS 8, upgradable to iOS 11.1">iOS 8, upgradable to iOS 11.1</option>
+                <option value="iOS 8.1">iOS 8.1</option>
+                <option value="iOS 8.1, upgradable to iOS 8.3">iOS 8.1, upgradable to iOS 8.3</option>
+                <option value="iOS 9, upgradable to iOS 11.2">iOS 9, upgradable to iOS 11.2</option>
+                <option value="IOS and Android">IOS and Android</option>
+                <option value="iOS, Android">iOS, Android</option>
+                <option value="iOS10">iOS10</option>
+                <option value="iOS&nbsp;4">iOS&nbsp;4</option>
+                <option value="iPhone OS 4, upgradable to iOS 5.1">iPhone OS 4, upgradable to iOS 5.1</option>
+                <option value="Jelly Bean (Android 4.2.2)">Jelly Bean (Android 4.2.2)</option>
+                <option value="Jelly Bean v2.3.5">Jelly Bean v2.3.5</option>
+                <option value="Kitkat 4.4.2">Kitkat 4.4.2</option>
+                <option value="KitKat v4.4">KitKat v4.4</option>
+                <option value="KitKat v4.4.2">KitKat v4.4.2</option>
+                <option value="KitKat v4.4.4">KitKat v4.4.4</option>
+                <option value="Linpus Linux">Linpus Linux</option>
+                <option value="Linpus™ Linux®">Linpus™ Linux®</option>
+                <option value="Linux OS">Linux OS</option>
+                <option value="Lollipop v5.0">Lollipop v5.0</option>
+                <option value="Lollipop v5.0.1">Lollipop v5.0.1</option>
+                <option value="Lollipop v5.1">Lollipop v5.1</option>
+                <option value="Lollipop v5.1.1">Lollipop v5.1.1</option>
+                <option value="Mac">Mac</option>
+                <option value="Mac OS 10.5.8 sau o versiune ulterioara  Mac OS 10.6+">Mac OS 10.5.8 sau o versiune ulterioara Mac OS 10.6+</option>
+                <option value="Mac OS 9">Mac OS 9</option>
+                <option value="Mac OS Sierra">Mac OS Sierra</option>
+                <option value="Mac OS Sierra 10.12">Mac OS Sierra 10.12</option>
+                <option value="Mac OS X 10.10 or 10.11">Mac OS X 10.10 or 10.11</option>
+                <option value="Mac OS X 10.10 Yosemite">Mac OS X 10.10 Yosemite</option>
+                <option value="Mac OS X 10.11 El Capitan">Mac OS X 10.11 El Capitan</option>
+                <option value="Mac OS X El Capitan">Mac OS X El Capitan</option>
+                <option value="Mac OS X Mountain Lion 10.8">Mac OS X Mountain Lion 10.8</option>
+                <option value="Mac OS X Mountain Lion 10.8 &amp; windows supported">Mac OS X Mountain Lion 10.8 &amp; windows supported</option>
+                <option value="Mac OS X Mountain Lion v10.8 &amp; Windows supported">Mac OS X Mountain Lion v10.8 &amp; Windows supported</option>
+                <option value="Mac OS X Mountain Lion v10.8 &amp;amp">Mac OS X Mountain Lion v10.8 &amp;amp</option>
+                <option value="Mac OS X Mountain Lion10.8">Mac OS X Mountain Lion10.8</option>
+                <option value="Mac OS X Yosemite">Mac OS X Yosemite</option>
+                <option value="Mac OSX Lion &amp;amp; Windows Both supported">Mac OSX Lion &amp;amp; Windows Both supported</option>
+                <option value="Mac OSX Mountain Lion 10.8">Mac OSX Mountain Lion 10.8</option>
+                <option value="Mac OSX Yosemite  10.10">Mac OSX Yosemite 10.10</option>
+                <option value="Mac OSX Yosemite 10.10">Mac OSX Yosemite 10.10</option>
+                <option value="macOS">macOS</option>
+                <option value="macOS High Sierra">macOS High Sierra</option>
+                <option value="MacOS Sierra">MacOS Sierra</option>
+                <option value="Marshmallow 6.0">Marshmallow 6.0</option>
+                <option value="Marshmallow v6.0">Marshmallow v6.0</option>
+                <option value="Marshmallow v6.0.1">Marshmallow v6.0.1</option>
+                <option value="MeeGo OS">MeeGo OS</option>
+                <option value="MeeGo OS, v1.2 Harmattan">MeeGo OS, v1.2 Harmattan</option>
+                <option value="Microsoft Surface Pro 10.6 Windows 8 Tablet">Microsoft Surface Pro 10.6 Windows 8 Tablet</option>
+                <option value="Microsoft Windows 10 Home(Genuine)">Microsoft Windows 10 Home(Genuine)</option>
+                <option value="Microsoft Windows 10(Genuine)">Microsoft Windows 10(Genuine)</option>
+                <option value="Microsoft Windows 7 Microsoft Windows 8 Microsoft Windows 8.1 Microsoft Windows 10 Mac OS 9.0 or lat">Microsoft Windows 7 Microsoft Windows 8 Microsoft Windows 8.1 Microsoft Windows 10 Mac OS 9.0 or lat</option>
+                <option value="Microsoft Windows 7 Professional 64-bit">Microsoft Windows 7 Professional 64-bit</option>
+                <option value="Microsoft Windows 8 / 7 / Vista / XP / 2000 / ME / 98">Microsoft Windows 8 / 7 / Vista / XP / 2000 / ME / 98</option>
+                <option value="Microsoft Windows 8.1 64-bit">Microsoft Windows 8.1 64-bit</option>
+                <option value="Microsoft Windows 8.1 with Bing">Microsoft Windows 8.1 with Bing</option>
+                <option value="Microsoft Windows Phone 7.5 Mango, upgradable to v7.8">Microsoft Windows Phone 7.5 Mango, upgradable to v7.8</option>
+                <option value="Microsoft Windows Phone 8, upgradeable to v8.1">Microsoft Windows Phone 8, upgradeable to v8.1</option>
+                <option value="Microsoft Windows Phone 8, upgradeable to v8.1, planned upgrade to Windows 10">Microsoft Windows Phone 8, upgradeable to v8.1, planned upgrade to Windows 10</option>
+                <option value="Microsoft Windows Phone 8, upgradeable to v8.1, planned upgrade to Windows 14">Microsoft Windows Phone 8, upgradeable to v8.1, planned upgrade to Windows 14</option>
+                <option value="Microsoft Windows Phone 8, upgradeable to v8.2">Microsoft Windows Phone 8, upgradeable to v8.2</option>
+                <option value="Microsoft Windows Phone 8, upgradeable to v8.5">Microsoft Windows Phone 8, upgradeable to v8.5</option>
+                <option value="Microsoft Windows Phone 8, upgradeable to WP8, upgradeable to v8.1">Microsoft Windows Phone 8, upgradeable to WP8, upgradeable to v8.1</option>
+                <option value="Microsoft Windows Phone 8.1, planned upgrade to Windows 10">Microsoft Windows Phone 8.1, planned upgrade to Windows 10</option>
+                <option value="Microsoft Windows XP, Vista, 7, 8 Mac OS X 10.8.2">Microsoft Windows XP, Vista, 7, 8 Mac OS X 10.8.2</option>
+                <option value="Microsoft Windows XP,Vista, 7, 8.1, 8">Microsoft Windows XP,Vista, 7, 8.1, 8</option>
+                <option value="Microsoft Windows® 7 /8 / Vista / XP / 2000 / ME / 98">Microsoft Windows® 7 /8 / Vista / XP / 2000 / ME / 98</option>
+                <option value="MIUI 6 based on Android L">MIUI 6 based on Android L</option>
+                <option value="MIUI 7.0 (based on Android 6.0 Marshmallow)">MIUI 7.0 (based on Android 6.0 Marshmallow)</option>
+                <option value="MIUI V5">MIUI V5</option>
+                <option value="MIUI V6 based on Android 4.4.4 KitKat">MIUI V6 based on Android 4.4.4 KitKat</option>
+                <option value="Nokia Asha platform 1.1.1">Nokia Asha platform 1.1.1</option>
+                <option value="Nokia Asha software platform 1.0, upgradable to v1.4">Nokia Asha software platform 1.0, upgradable to v1.4</option>
+                <option value="Nokia Asha software platform 1.1.1, upgradable to v1.4">Nokia Asha software platform 1.1.1, upgradable to v1.4</option>
+                <option value="Nokia Asha software platform 1.2, upgradable to v1.4">Nokia Asha software platform 1.2, upgradable to v1.4</option>
+                <option value="Nougat v7.0">Nougat v7.0</option>
+                <option value="Nucleas">Nucleas</option>
+                <option value="OS 4.4.2">OS 4.4.2</option>
+                <option value="OS 6.1">OS 6.1</option>
+                <option value="OS 7.1">OS 7.1</option>
+                <option value="OS iOS 11, upgradable to iOS 11.0.2">OS iOS 11, upgradable to iOS 11.0.2</option>
+                <option value="OS X Mavericks">OS X Mavericks</option>
+                <option value="OS: Android 4.4 Kitkat">OS: Android 4.4 Kitkat</option>
+                <option value="Oxygen OS">Oxygen OS</option>
+                <option value="OxygenOS based on Android 5.1.1">OxygenOS based on Android 5.1.1</option>
+                <option value="OxygenOS based on Android 7.1.1 Nougat">OxygenOS based on Android 7.1.1 Nougat</option>
+                <option value="PlayMemories Home">PlayMemories Home</option>
+                <option value="PlayStation 4 system software">PlayStation 4 system software</option>
+                <option value="preinstalled macOS">preinstalled macOS</option>
+                <option value="Preloaded Windows 10 Home">Preloaded Windows 10 Home</option>
+                <option value="Preloaded Windows10 Home 64">Preloaded Windows10 Home 64</option>
+                <option value="Real JAVA">Real JAVA</option>
+                <option value="Router OS">Router OS</option>
+                <option value="RouterOS v6 (64bit)">RouterOS v6 (64bit)</option>
+                <option value="Series 40">Series 40</option>
+                <option value="Symbian Anna OS, upgradeable to Nokia Belle OS">Symbian Anna OS, upgradeable to Nokia Belle OS</option>
+                <option value="Symbian OS 9.2, Series 60 v3.1 UI">Symbian OS 9.2, Series 60 v3.1 UI</option>
+                <option value="Symbian^3 OS, upgradable to Nokia Belle OS">Symbian^3 OS, upgradable to Nokia Belle OS</option>
+                <option value="Tizen">Tizen</option>
+                <option value="Tizen OS">Tizen OS</option>
+                <option value="Ubuntu Linux 12.04 / Windows">Ubuntu Linux 12.04 / Windows</option>
+                <option value="Ubuntu Linux 12.04 /FreeDOS">Ubuntu Linux 12.04 /FreeDOS</option>
+                <option value="webOS">webOS</option>
+                <option value="webOS 2.0">webOS 2.0</option>
+                <option value="Win 10">Win 10</option>
+                <option value="Win 10 Home Edition">Win 10 Home Edition</option>
+                <option value="Win 10 Pro">Win 10 Pro</option>
+                <option value="Win 8 64 Bit">Win 8 64 Bit</option>
+                <option value="Win 8 Pro 64 bit">Win 8 Pro 64 bit</option>
+                <option value="Win 8.1">Win 8.1</option>
+                <option value="WIN 8.1 PRO">WIN 8.1 PRO</option>
+                <option value="Win-10">Win-10</option>
+                <option value="Win-10 Home">Win-10 Home</option>
+                <option value="Win10">Win10</option>
+                <option value="Win10 Home">Win10 Home</option>
+                <option value="Win10 Home Geniune Version">Win10 Home Geniune Version</option>
+                <option value="Win8.1">Win8.1</option>
+                <option value="Win8.1 Home Geniune Version">Win8.1 Home Geniune Version</option>
+                <option value="Win9X/ ME/ XP/ VISTA/ W7">Win9X/ ME/ XP/ VISTA/ W7</option>
+                <option value="Windos 10">Windos 10</option>
+                <option value="Window 10">Window 10</option>
+                <option value="Windows + Android">Windows + Android</option>
+                <option value="Windows + Mac">Windows + Mac</option>
+                <option value="Windows / Mac / Linux">Windows / Mac / Linux</option>
+                <option value="Windows 10 Home">Windows 10 Home</option>
+                <option value="Windows 10 Home 64-bit English">Windows 10 Home 64-bit English</option>
+                <option value="Windows 10 Home Edition">Windows 10 Home Edition</option>
+                <option value="Windows 10 Home Licensed Version">Windows 10 Home Licensed Version</option>
+                <option value="Windows 10 Licensed">Windows 10 Licensed</option>
+                <option value="Windows 10 Pro">Windows 10 Pro</option>
+                <option value="Windows 10 PRO - 64 Bit">Windows 10 PRO - 64 Bit</option>
+                <option value="Windows 10.1">Windows 10.1</option>
+                <option value="Windows 2000 / XP / Vista / 7 / 2003 Server / 2008 Server, Mac OS">Windows 2000 / XP / Vista / 7 / 2003 Server / 2008 Server, Mac OS</option>
+                <option value="Windows 2000 / XP / Vista / Win7 / 2008 Server / Various Linux OS">Windows 2000 / XP / Vista / Win7 / 2008 Server / Various Linux OS</option>
+                <option value="Windows 2000/ME/XP/Vista/7">Windows 2000/ME/XP/Vista/7</option>
+                <option value="Windows 7, ME, XP, 2000, Vista, Mac OS 8.6 and Linux">Windows 7, ME, XP, 2000, Vista, Mac OS 8.6 and Linux</option>
+                <option value="Windows 7, ME, XP, 2000, Vista, Mac OS 8.6 and Linux 2.4.0">Windows 7, ME, XP, 2000, Vista, Mac OS 8.6 and Linux 2.4.0</option>
+                <option value="Windows 7/ Vista/ XP/ Me/ 2000, Mac OS, Linux">Windows 7/ Vista/ XP/ Me/ 2000, Mac OS, Linux</option>
+                <option value="Windows 7/10">Windows 7/10</option>
+                <option value="Windows 7/ME/XP/ 2000/Vista">Windows 7/ME/XP/ 2000/Vista</option>
+                <option value="Windows 8   Windows 7   Windows 7">Windows 8 Windows 7 Windows 7</option>
+                <option value="Windows 8 (64-bit)">Windows 8 (64-bit)</option>
+                <option value="Windows 8 64 bits">Windows 8 64 bits</option>
+                <option value="Windows 8 64-Bit">Windows 8 64-Bit</option>
+                <option value="Windows 8 Pro 64-bit Edition">Windows 8 Pro 64-bit Edition</option>
+                <option value="Windows 8 Professional 64-bit">Windows 8 Professional 64-bit</option>
+                <option value="Windows 8, 64 Bit">Windows 8, 64 Bit</option>
+                <option value="Windows 8, Windows 7, Vista , Windows XP">Windows 8, Windows 7, Vista , Windows XP</option>
+                <option value="Windows 8, Windows 7, Windows Vista, Windows XP">Windows 8, Windows 7, Windows Vista, Windows XP</option>
+                <option value="Windows 8, Windows Vista, Windows XP">Windows 8, Windows Vista, Windows XP</option>
+                <option value="Windows 8.1 (64bit)">Windows 8.1 (64bit)</option>
+                <option value="Windows 8.1 (64Bit) English">Windows 8.1 (64Bit) English</option>
+                <option value="Windows 8.1 (Home &amp; Student Edition)">Windows 8.1 (Home &amp; Student Edition)</option>
+                <option value="Windows 8.1 64 bit">Windows 8.1 64 bit</option>
+                <option value="Windows 8.1 64-bit">Windows 8.1 64-bit</option>
+                <option value="Windows 8.1 BING">Windows 8.1 BING</option>
+                <option value="Windows 8.1 downgradable to Windows 7 pro (64bit)">Windows 8.1 downgradable to Windows 7 pro (64bit)</option>
+                <option value="Windows 8.1 License">Windows 8.1 License</option>
+                <option value="Windows 8.1 Pro 64 bit">Windows 8.1 Pro 64 bit</option>
+                <option value="Windows 8.1 Pro.(64 bits)">Windows 8.1 Pro.(64 bits)</option>
+                <option value="Windows 8.1 Single Language">Windows 8.1 Single Language</option>
+                <option value="Windows 8.1 Ultrabook">Windows 8.1 Ultrabook</option>
+                <option value="Windows 8.1 with Bing">Windows 8.1 with Bing</option>
+                <option value="Windows 8.1 with Bing OS">Windows 8.1 with Bing OS</option>
+                <option value="Windows 8.1&nbsp;">Windows 8.1&nbsp;</option>
+                <option value="Windows 8/7/XP/Vista">Windows 8/7/XP/Vista</option>
+                <option value="Windows 8/7/XP/Vista, Mac OS, Linux">Windows 8/7/XP/Vista, Mac OS, Linux</option>
+                <option value="Windows 8&nbsp;">Windows 8&nbsp;</option>
+                <option value="windows 98 and avobe">windows 98 and avobe</option>
+                <option value="Windows 98, 2000, ME, NT, Vista OS , Win xp">Windows 98, 2000, ME, NT, Vista OS , Win xp</option>
+                <option value="Windows 98se, 2000, ME, XP, Vista &amp; Win7,Win8 / Win10">Windows 98se, 2000, ME, XP, Vista &amp; Win7,Win8 / Win10</option>
+                <option value="Windows OS">Windows OS</option>
+                <option value="Windows Vista, Windows 7">Windows Vista, Windows 7</option>
+                <option value="Windows Vista, Windows&nbsp;7, and Windows 8">Windows Vista, Windows&nbsp;7, and Windows 8</option>
+                <option value="Windows XP and Above, Mac OS: 10.5.8">Windows XP and Above, Mac OS: 10.5.8</option>
+                <option value="Windows XP, Vista, 7">Windows XP, Vista, 7</option>
+                <option value="Windows XP/Vista/7/8/8.1">Windows XP/Vista/7/8/8.1</option>
+                <option value="Windows, Linux">Windows, Linux</option>
+                <option value="Windows, MAC">Windows, MAC</option>
+                <option value="Windows, MAC and Linux">Windows, MAC and Linux</option>
+                <option value="Windows, MAC, Android">Windows, MAC, Android</option>
+                <option value="Windows, MacOS, Chrome OS, Linux">Windows, MacOS, Chrome OS, Linux</option>
+                <option value="Windows-10">Windows-10</option>
+                <option value="Windows-10 Compatible">Windows-10 Compatible</option>
+                <option value="Windows/95/98/ME/2000/XP Vista/Win7(NOT compatible with Win10)">Windows/95/98/ME/2000/XP Vista/Win7(NOT compatible with Win10)</option>
+                <option value="Windows7/Vista/XP">Windows7/Vista/XP</option>
+                <option value="Windows7/Vista/XP/Me/2000/98">Windows7/Vista/XP/Me/2000/98</option>
+                <option value="Windows: 98/98SE/ME/2000/XP/Vista">Windows: 98/98SE/ME/2000/XP/Vista</option>
+                <option value="Windows: XP, XP Professional (64-bit), Vista, 7, 8, Mac OS X v10.5.8">Windows: XP, XP Professional (64-bit), Vista, 7, 8, Mac OS X v10.5.8</option>
+                <option value="Windows® 7, Windows Server® 2008, Windows Vista®, Windows XP/2000, Linux">Windows® 7, Windows Server® 2008, Windows Vista®, Windows XP/2000, Linux</option>
+                <option value="Windows® 8">Windows® 8</option>
+                <option value="Windows® 8 86x64">Windows® 8 86x64</option>
+                <option value="Windows® 8.1">Windows® 8.1</option>
+                <option value="Windows® 8.1 , Windows® 8 , Windows® 7">Windows® 8.1 , Windows® 8 , Windows® 7</option>
+                <option value="Winwows 10">Winwows 10</option>
+                <option value="Works with Win98se, ME, XP, Vista &amp; Win7,Win8">Works with Win98se, ME, XP, Vista &amp; Win7,Win8</option>
+                <option value="Works with Win98se, ME, XP, Vista &amp; Win7,Win8, Win10">Works with Win98se, ME, XP, Vista &amp; Win7,Win8, Win10</option>
+                <option value="X Yosemite">X Yosemite</option>
+                <option value="X Yosemite &amp; Windows Supported">X Yosemite &amp; Windows Supported</option>
+                <option value="XP/ 7/ 8/ 8.1/ 10">XP/ 7/ 8/ 8.1/ 10</option>
+                <option value="&nbsp;Android">&nbsp;Android</option>
+                <option value="&nbsp;Android 5.1">&nbsp;Android 5.1</option>
+                <option value="&nbsp;Android OS, v4.2.2 (Jelly Bean)">&nbsp;Android OS, v4.2.2 (Jelly Bean)</option>
+                <option value="&nbsp;Android OS, v4.4.2 (KitKat)">&nbsp;Android OS, v4.4.2 (KitKat)</option>
+                <option value="Android (Jelly Bean)">Android (Jelly Bean)</option>
+                <option value="Android 2.3 (Gingerbread)">Android 2.3 (Gingerbread)</option>
+                <option value="Android 2.3 (Gingerbread) upgradable to 4.1.2 (Jelly Bean)">Android 2.3 (Gingerbread) upgradable to 4.1.2 (Jelly Bean)</option>
+                <option value="Android 4,2">Android 4,2</option>
+                <option value="Android 4.0 (Ice Cream Sandwich)">Android 4.0 (Ice Cream Sandwich)</option>
+                <option value="Android 4.0.3 (Ice Cream Sandwich)">Android 4.0.3 (Ice Cream Sandwich)</option>
+                <option value="Android 4.0.4 (Ice Cream Sandwich) 4.3 (Jelly Bean)">Android 4.0.4 (Ice Cream Sandwich) 4.3 (Jelly Bean)</option>
+                <option value="Android 4.0.4 (Ice Cream Sandwich) upgradable to 4.1.1 (Jelly Bean)">Android 4.0.4 (Ice Cream Sandwich) upgradable to 4.1.1 (Jelly Bean)</option>
+                <option value="Android 4.0.4 (Ice Cream Sandwich) upgradable to 4.1.2 (Jelly Bean)">Android 4.0.4 (Ice Cream Sandwich) upgradable to 4.1.2 (Jelly Bean)</option>
+                <option value="Android 4.0.4 (Ice Cream Sandwich) upgradable to 4.3 (Jelly Bean)">Android 4.0.4 (Ice Cream Sandwich) upgradable to 4.3 (Jelly Bean)</option>
+                <option value="Android 4.0.4 (Ice Cream Sandwich) upgradаble to 4.3 (Jelly Bean)">Android 4.0.4 (Ice Cream Sandwich) upgradаble to 4.3 (Jelly Bean)</option>
+                <option value="Android 4.1 (Jelly Bean) upgradable to 4.2.2 (Jelly Bean)">Android 4.1 (Jelly Bean) upgradable to 4.2.2 (Jelly Bean)</option>
+                <option value="Android 4.1 (Jelly Bean) upgradаble to 4.3 (Jelly Bean)">Android 4.1 (Jelly Bean) upgradаble to 4.3 (Jelly Bean)</option>
+                <option value="Android 4.1.2 (Jelly Bean)">Android 4.1.2 (Jelly Bean)</option>
+                <option value="Android 4.1.2 (Jelly Bean) upgradable to 4.4 (KitKat)">Android 4.1.2 (Jelly Bean) upgradable to 4.4 (KitKat)</option>
+                <option value="Android 4.1.2 (Jelly Bean) upgradаble to 4.4.2 (KitKat)">Android 4.1.2 (Jelly Bean) upgradаble to 4.4.2 (KitKat)</option>
+                <option value="Android 4.2 (Jelly Bean) upgradable to 4.4.2 (KitKat)">Android 4.2 (Jelly Bean) upgradable to 4.4.2 (KitKat)</option>
+                <option value="Android 4.2 (Jelly Bean) upgradable to 4.4.4 (KitKat)">Android 4.2 (Jelly Bean) upgradable to 4.4.4 (KitKat)</option>
+                <option value="Android 4.2 (Jellybean)">Android 4.2 (Jellybean)</option>
+                <option value="Android 4.2.2 (Jelly Bean)">Android 4.2.2 (Jelly Bean)</option>
+                <option value="Android 4.2.2 (Jelly Bean) planned upgrade to 4.4 (KitKat)">Android 4.2.2 (Jelly Bean) planned upgrade to 4.4 (KitKat)</option>
+                <option value="Android 4.2.2 (Jelly Bean) upgradable to 4.3 (Jelly Bean)">Android 4.2.2 (Jelly Bean) upgradable to 4.3 (Jelly Bean)</option>
+                <option value="Android 4.2.2 (Jelly Bean) upgradable to 4.4.2 (KitKat)">Android 4.2.2 (Jelly Bean) upgradable to 4.4.2 (KitKat)</option>
+                <option value="Android 4.3 (Jelly Bean) planned upgrade to 4.4.2 (KitKat)">Android 4.3 (Jelly Bean) planned upgrade to 4.4.2 (KitKat)</option>
+                <option value="Android 4.3 (Jelly Bean) upgradable to 4.4.2 (KitKat)">Android 4.3 (Jelly Bean) upgradable to 4.4.2 (KitKat)</option>
+                <option value="Android 4.3 (Jelly Bean) upgradable to 4.4.4 (KitKat)">Android 4.3 (Jelly Bean) upgradable to 4.4.4 (KitKat)</option>
+                <option value="Android 4.4 (Kit Kat)">Android 4.4 (Kit Kat)</option>
+                <option value="Android 4.4 KitKat">Android 4.4 KitKat</option>
+                <option value="Android 6.0.1 Marshmallow">Android 6.0.1 Marshmallow</option>
+                <option value="Android OS v4.4.2 (KitKat)">Android OS v4.4.2 (KitKat)</option>
+                <option value="Android OS v4.4.2 (KitKat) upgradable to v4.4.3 (KitKat) planned upgrade to v5.0 (Lollipop)">Android OS v4.4.2 (KitKat) upgradable to v4.4.3 (KitKat) planned upgrade to v5.0 (Lollipop)</option>
+                <option value="Android OS, v4.2.2 (Jelly Bean)">Android OS, v4.2.2 (Jelly Bean)</option>
+                <option value="BlackBerry 10 OS upgradable to 10.2.1">BlackBerry 10 OS upgradable to 10.2.1</option>
+                <option value="BlackBerry 10 upgradable to 10.1">BlackBerry 10 upgradable to 10.1</option>
+                <option value="BlackBerry 10 upgradable to 10.2.1">BlackBerry 10 upgradable to 10.2.1</option>
+                <option value="BlackBerry 10.2 upgradable to 10.2.1">BlackBerry 10.2 upgradable to 10.2.1</option>
+                <option value="Helio X20 64-bit Deca-core">Helio X20 64-bit Deca-core</option>
+                <option value="Mac OS X Lion">Mac OS X Lion</option>
+                <option value="Mac OS X Mavericks&nbsp;">Mac OS X Mavericks&nbsp;</option>
+                <option value="Microsoft Windows Phone 8 upgradeable to 8.1">Microsoft Windows Phone 8 upgradeable to 8.1</option>
+                <option value="Nokia Asha software platform 1.1.1 upgradable to 1.4">Nokia Asha software platform 1.1.1 upgradable to 1.4</option>
+                <option value="Nokia Asha software platform 1.2">Nokia Asha software platform 1.2</option>
+                <option value="Nokia X 1.0 (based on Android 4.1.2 Jelly Bean)">Nokia X 1.0 (based on Android 4.1.2 Jelly Bean)</option>
+                <option value="Nokia X 2.0 (based on Android 4.3 Jelly Bean)">Nokia X 2.0 (based on Android 4.3 Jelly Bean)</option>
+                <option value="Android 9.0 Pie">Android 9.0 Pie</option>
+                <option value="Android 8.1 Oreo">Android 8.1 Oreo</option>
+                <option value="Android 7.1.2 Nougat">Android 7.1.2 Nougat</option>
+                <option value="Android 7.1.1 Nougat">Android 7.1.1 Nougat</option>
+                <option value="Android 7.1 Nougat">Android 7.1 Nougat</option>
+                <option value="Android 2.0 Éclair">Android 2.0 Éclair</option>
+                <option value="Android 2.0.1 Éclair">Android 2.0.1 Éclair</option>
+                <option value="Android 2.2.1 Froyo">Android 2.2.1 Froyo</option>
+                <option value="Android 2.2.2 Froyo">Android 2.2.2 Froyo</option>
+                <option value="Android 2.2.3 Froyo">Android 2.2.3 Froyo</option>
+                <option value="Android 2.3.1 Gingerbread">Android 2.3.1 Gingerbread</option>
+                <option value="Android 2.3.2 Gingerbread">Android 2.3.2 Gingerbread</option>
+                <option value="Android 2.3.7 Gingerbread">Android 2.3.7 Gingerbread</option>
+                <option value="Android 3.1 Honeycomb">Android 3.1 Honeycomb</option>
+                <option value="Android 3.2.1 Honeycomb">Android 3.2.1 Honeycomb</option>
+                <option value="Android 3.2.2 Honeycomb">Android 3.2.2 Honeycomb</option>
+                <option value="Android 3.2.3 Honeycomb">Android 3.2.3 Honeycomb</option>
+                <option value="Android 3.2.4 Honeycomb">Android 3.2.4 Honeycomb</option>
+                <option value="Android 3.2.5 Honeycomb">Android 3.2.5 Honeycomb</option>
+                <option value="Android 3.2.6 Honeycomb">Android 3.2.6 Honeycomb</option>
+                <option value="Android 4.0.1 Ice Cream Sandwich">Android 4.0.1 Ice Cream Sandwich</option>
+                <option value="Android 4.0.2 Ice Cream Sandwich">Android 4.0.2 Ice Cream Sandwich</option>
+                <option value="Android 4.2.1 Jellybean">Android 4.2.1 Jellybean</option>
+                <option value="Android 4.3.1 Jellybean">Android 4.3.1 Jellybean</option>
+                <option value="Android 4.4.1 KitKat">Android 4.4.1 KitKat</option>
+                <option value="Android 4.4W KitKat with Wearable Extensions">Android 4.4W KitKat with Wearable Extensions</option>
+                <option value="Android 4.4W.1 KitKat with Wearable Extensions">Android 4.4W.1 KitKat with Wearable Extensions</option>
+                <option value="Android 4.4W.2 KitKat with Wearable Extensions">Android 4.4W.2 KitKat with Wearable Extensions</option>
+                <option value="Android 5.0.1 Lollipop">Android 5.0.1 Lollipop</option>
+                <option value="Android 5.0.2 Lollipop">Android 5.0.2 Lollipop</option>
+                <option value="Android 5.1.1 Lollipop">Android 5.1.1 Lollipop</option>
+              </select>
+            </div>
+            <div class="col-md-12 col-lg-6 mt-3">
+              <label class="form-label">Screen Type <span class="text-danger">*</span></label>
+              <select class="form-control js-example-basic-single" name="screen_type">
+                <option value="AMOLED">AMOLED</option>
+                <option value="IPS LCD">IPS LCD</option>
+                <option value="TFT LCD">TFT LCD</option>
+                <option value="LCD">LCD</option>
+                <option value="OLED">OLED</option>
+                <option value="Super AMOLED">Super AMOLED</option>
+                <option value="VGA">VGA</option>
+                <option value="QVGA">QVGA</option>
+                <option value="Capacitive LCD">Capacitive LCD</option>
+                <option value="Optic AMOLED">Optic AMOLED</option>
+              </select>
+            </div>
+            <div class="col-md-12 col-lg-6 mt-3">
+              <label class="form-label">Processor Type <span class="text-danger">*</span></label>
+              <select class="form-control js-example-basic-single" name="processor_type">
+                <option value="Other">Other</option>
+                <option value="Single-core">Single-core</option>
+                <option value="Dual-core">Dual-core</option>
+                <option value="Tri Core">Tri Core</option>
+                <option value="Quad-core">Quad-core</option>
+                <option value="Octa-core">Octa-core</option>
+                <option value="Hexa-core">Hexa-core</option>
+                <option value="Deca-core">Deca-core</option>
+                <option value="Not Specified">Not Specified</option>
+                <option value="AMD">AMD</option>
+                <option value="Intel">Intel</option>
+                <option value="Intel Core i3">Intel Core i3</option>
+                <option value="Intel Core 2 Duo">Intel Core 2 Duo</option>
+                <option value="Intel Core i5">Intel Core i5</option>
+                <option value="Intel Core i7">Intel Core i7</option>
+                <option value="Apple A4">Apple A4</option>
+                <option value="Apple A7">Apple A7</option>
+                <option value="Apple A8">Apple A8</option>
+                <option value="NVIDIA">NVIDIA</option>
+                <option value="ARM">ARM</option>
+                <option value="Apple A6X">Apple A6X</option>
+                <option value="Apple A5">Apple A5</option>
+                <option value="Boxchip">Boxchip</option>
+                <option value="Mediatek">Mediatek</option>
+                <option value="Intel Xeon">Intel Xeon</option>
+                <option value="Intel Pentium">Intel Pentium</option>
+                <option value="Intel Celeron">Intel Celeron</option>
+                <option value="AMD Phenom">AMD Phenom</option>
+                <option value="AMD Athlon">AMD Athlon</option>
+                <option value="AMD A10">AMD A10</option>
+                <option value="AMD A8">AMD A8</option>
+                <option value="AMD A6">AMD A6</option>
+                <option value="Xeon">Xeon</option>
+                <option value="Allwinner">Allwinner</option>
+                <option value="Intel Atom">Intel Atom</option>
+                <option value="AMD Phenom II">AMD Phenom II</option>
+                <option value="AMD E-Series">AMD E-Series</option>
+                <option value="AMD Turion">AMD Turion</option>
+                <option value="AMD A-Series">AMD A-Series</option>
+                <option value="AMD Athlon II">AMD Athlon II</option>
+                <option value="Intel Core 2">Intel Core 2</option>
+                <option value="Triple-core">Triple-core</option>
+                <option value="Intel Core i7-7500U">Intel Core i7-7500U</option>
+                <option value="QC">QC</option>
+                <option value="Intel Core i5-3317U">Intel Core i5-3317U</option>
+                <option value="Intel Atom Z3740">Intel Atom Z3740</option>
+                <option value="Intel Core M-5Y10">Intel Core M-5Y10</option>
+                <option value="Intel Core i5-4300M">Intel Core i5-4300M</option>
+                <option value="Intel Core i5-3210M">Intel Core i5-3210M</option>
+                <option value="Intel Core 2 Duo T5450">Intel Core 2 Duo T5450</option>
+                <option value="Intel Core i3-2350M">Intel Core i3-2350M</option>
+                <option value="Intel Pentium 2117U">Intel Pentium 2117U</option>
+                <option value="Intel Core i5-2467M">Intel Core i5-2467M</option>
+                <option value="Intel Core Duo P8800">Intel Core Duo P8800</option>
+                <option value="Intel Core 2 Duo SU7300">Intel Core 2 Duo SU7300</option>
+                <option value="Intel Core i5-2410M">Intel Core i5-2410M</option>
+                <option value="A11 Bionic">A11 Bionic</option>
+                <option value="Intel Dual Core">Intel Dual Core</option>
+                <option value="Octa-core Mediatek MT6592">Octa-core Mediatek MT6592</option>
+                <option value="Quad-core Cortex-A7">Quad-core Cortex-A7</option>
+                <option value="Cortex-A5">Cortex-A5</option>
+                <option value="Intel Core-i3">Intel Core-i3</option>
+                <option value="Intel Core-i5">Intel Core-i5</option>
+                <option value="64-bit Octa-Core 1.3 GHz Cortex A53">64-bit Octa-Core 1.3 GHz Cortex A53</option>
+                <option value="64-bit Snapdragon 8916 1.2 GHz Cortex-A53">64-bit Snapdragon 8916 1.2 GHz Cortex-A53</option>
+                <option value="6C Xeon E5">6C Xeon E5</option>
+                <option value="ARM Mali T880">ARM Mali T880</option>
+                <option value="Blank">Blank</option>
+                <option value="Celeron Dual Core">Celeron Dual Core</option>
+                <option value="Ci5">Ci5</option>
+                <option value="Ci7">Ci7</option>
+                <option value="Cortex-A5, Qualcomm MSM7225A">Cortex-A5, Qualcomm MSM7225A</option>
+                <option value="Cortex-A5, Qualcomm MSM7225AA">Cortex-A5, Qualcomm MSM7225AA</option>
+                <option value="Cortex-A5, Qualcomm MSM7227A Snapdragon">Cortex-A5, Qualcomm MSM7227A Snapdragon</option>
+                <option value="Dual-core 1.5 GHz Krait (LTE version)/ Cortex-A9 (Non-LTE)">Dual-core 1.5 GHz Krait (LTE version)/ Cortex-A9 (Non-LTE)</option>
+                <option value="Dual-core Cortex A7">Dual-core Cortex A7</option>
+                <option value="Dual-core Cortex-A5, Qualcomm MSM8225 Snapdragon">Dual-core Cortex-A5, Qualcomm MSM8225 Snapdragon</option>
+                <option value="Dual-core Cortex-A5, Qualcomm MSM8225 Snapdragon S4 Play">Dual-core Cortex-A5, Qualcomm MSM8225 Snapdragon S4 Play</option>
+                <option value="Dual-core Cortex-A7, Mediatek MT6572">Dual-core Cortex-A7, Mediatek MT6572</option>
+                <option value="Dual-core Cortex-A7, Mediatek MT6572M">Dual-core Cortex-A7, Mediatek MT6572M</option>
+                <option value="Dual-core Cortex-A7, Qualcomm MSM8210 Snapdragon 200">Dual-core Cortex-A7, Qualcomm MSM8210 Snapdragon 200</option>
+                <option value="Dual-core Cortex-A9 TI OMAP 4470">Dual-core Cortex-A9 TI OMAP 4470</option>
+                <option value="Dual-core Cortex-A9, Marvell PXA869">Dual-core Cortex-A9, Marvell PXA869</option>
+                <option value="Dual-core Cortex-A9, NovaThor U8500">Dual-core Cortex-A9, NovaThor U8500</option>
+                <option value="Dual-core Cortex-A9, Pega-Dual +XMM6262">Dual-core Cortex-A9, Pega-Dual +XMM6262</option>
+                <option value="Dual-core Exynos 4212">Dual-core Exynos 4212</option>
+                <option value="Dual-core Krait 200, Qualcomm MSM8230 Snapdragon 400">Dual-core Krait 200, Qualcomm MSM8230 Snapdragon 400</option>
+                <option value="Dual-core Krait 300, Qualcomm MSM8230AB Snapdragon 400">Dual-core Krait 300, Qualcomm MSM8230AB Snapdragon 400</option>
+                <option value="Dual-core Krait 300, Qualcomm Snapdragon 400">Dual-core Krait 300, Qualcomm Snapdragon 400</option>
+                <option value="Dual-core Krait, Qualcomm MSM8260A Snapdragon">Dual-core Krait, Qualcomm MSM8260A Snapdragon</option>
+                <option value="Dual-core Krait, Qualcomm MSM8930 Snapdragon">Dual-core Krait, Qualcomm MSM8930 Snapdragon</option>
+                <option value="Dual-core Krait, Qualcomm MSM8960 Snapdragon">Dual-core Krait, Qualcomm MSM8960 Snapdragon</option>
+                <option value="Dual-core Krait, Qualcomm MSM8960T Pro Snapdragon">Dual-core Krait, Qualcomm MSM8960T Pro Snapdragon</option>
+                <option value="Dual-core Krait, Qualcomm MSM8960T Snapdragon">Dual-core Krait, Qualcomm MSM8960T Snapdragon</option>
+                <option value="Dual-core Krait, Qualcomm Snapdragon S4 Plus MSM8227">Dual-core Krait, Qualcomm Snapdragon S4 Plus MSM8227</option>
+                <option value="Dual-core Qualcomm MSM8210 Snapdragon 200">Dual-core Qualcomm MSM8210 Snapdragon 200</option>
+                <option value="Dual-core Qualcomm Snapdragon 4">Dual-core Qualcomm Snapdragon 4</option>
+                <option value="Dual-core, Qualcomm MSM8227">Dual-core, Qualcomm MSM8227</option>
+                <option value="Dual-core, Qualcomm MSM8230 Snapdragon">Dual-core, Qualcomm MSM8230 Snapdragon</option>
+                <option value="Mediatek MT6582">Mediatek MT6582</option>
+                <option value="Mobile Dual-core">Mobile Dual-core</option>
+                <option value="Mobile Octa Core">Mobile Octa Core</option>
+                <option value="Mobile Octa-core">Mobile Octa-core</option>
+                <option value="Mobile Quad-core">Mobile Quad-core</option>
+                <option value="QC Xeon E5">QC Xeon E5</option>
+                <option value="Quad-core 1.3 GHz Cortex A7 &amp; dual-core 1.7 GHz Cortex A15">Quad-core 1.3 GHz Cortex A7 &amp; dual-core 1.7 GHz Cortex A15</option>
+                <option value="Quad-core 1.3 GHz Cortex A7 &amp; Dual-core 1.7 GHz Cortex A15, Exynos 5260">Quad-core 1.3 GHz Cortex A7 &amp; Dual-core 1.7 GHz Cortex A15, Exynos 5260</option>
+                <option value="Quad-core 1.9 GHz Cortex-A15 &amp; Quad-core 1.3 GHz Cortex-A7, Exynos 5 Octa 5420 (N9000)">Quad-core 1.9 GHz Cortex-A15 &amp; Quad-core 1.3 GHz Cortex-A7, Exynos 5 Octa 5420 (N9000)</option>
+                <option value="Quad-core 2.3 GHz (US/EMEA)/ 2.5 GHz (Asia China) Krait 400">Quad-core 2.3 GHz (US/EMEA)/ 2.5 GHz (Asia China) Krait 400</option>
+                <option value="Quad-core Cortex 1.3 GHz A7 &amp; Dual-core 1.7 GHz Cortex A15, Exynos 5260">Quad-core Cortex 1.3 GHz A7 &amp; Dual-core 1.7 GHz Cortex A15, Exynos 5260</option>
+                <option value="Quad-core Cortex-A7, BCM23550">Quad-core Cortex-A7, BCM23550</option>
+                <option value="Quad-core Cortex-A7, Mediatek MT6582">Quad-core Cortex-A7, Mediatek MT6582</option>
+                <option value="Quad-core Cortex-A7, Mediatek MT6589">Quad-core Cortex-A7, Mediatek MT6589</option>
+                <option value="Quad-core Cortex-A7, Mediatek MT8125">Quad-core Cortex-A7, Mediatek MT8125</option>
+                <option value="Quad-core Cortex-A7, Qualcomm MSM8212 Snapdragon 200">Quad-core Cortex-A7, Qualcomm MSM8212 Snapdragon 200</option>
+                <option value="Quad-core Cortex-A7, Qualcomm MSM8226 Snapdragon 400">Quad-core Cortex-A7, Qualcomm MSM8226 Snapdragon 400</option>
+                <option value="Quad-core Cortex-A7, Qualcomm MSM8928 Snapdragon 400">Quad-core Cortex-A7, Qualcomm MSM8928 Snapdragon 400</option>
+                <option value="Quad-core Cortex-A7, Qualcomm Snapdragon 400">Quad-core Cortex-A7, Qualcomm Snapdragon 400</option>
+                <option value="Quad-core Cortex-A9, Exynos 4412 Quad">Quad-core Cortex-A9, Exynos 4412 Quad</option>
+                <option value="Quad-core Cortex-A9, HiSilicon Kirin 910T">Quad-core Cortex-A9, HiSilicon Kirin 910T</option>
+                <option value="Quad-core Huawei K3V2">Quad-core Huawei K3V2</option>
+                <option value="Quad-core Krait 400, Qualcomm MSM8274 or MSM8974 Snapdragon 800">Quad-core Krait 400, Qualcomm MSM8274 or MSM8974 Snapdragon 800</option>
+                <option value="Quad-core Krait 400, Qualcomm MSM8974 Snapdragon 800">Quad-core Krait 400, Qualcomm MSM8974 Snapdragon 800</option>
+                <option value="Quad-core Krait 400, Qualcomm MSM8974AB Snapdragon 801">Quad-core Krait 400, Qualcomm MSM8974AB Snapdragon 801</option>
+                <option value="Quad-core Krait 400, Qualcomm MSM8974AC Snapdragon 801">Quad-core Krait 400, Qualcomm MSM8974AC Snapdragon 801</option>
+                <option value="Quad-core Krait, Qualcomm MDM9215M / APQ8064">Quad-core Krait, Qualcomm MDM9215M / APQ8064</option>
+                <option value="Quad-core Turbo">Quad-core Turbo</option>
+                <option value="Qualcomm snapdragon">Qualcomm snapdragon</option>
+                <option value="Tavor MG1">Tavor MG1</option>
+              </select>
+            </div>
+            <div class="col-md-12 col-lg-6 mt-3">
+              <label class="form-label">Sim Slots <span class="text-danger">*</span></label>
+              <select class="form-control js-example-basic-single" name="sim_slot">
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="Single">Single</option>
+                <option value="3 and up">3 and up</option>
+                <option value="Dual">Dual</option>
+                <option value="Hybird Dual">Hybird Dual</option>
+              </select>
+            </div>
+            <div class="col-md-12 col-lg-6 mt-3">
+              <label class="form-label">Resolution <span class="text-danger">*</span></label>
+              <select class="form-control js-example-basic-single" name="resolution">
+                <option title="HD">HD</option>
+                <option title="Full HD">Full HD</option>
+                <option title="Others">Others</option>
+                <option title="4K UHD">4K UHD</option>
+                <option title="QuadHD">QuadHD</option>
+                <option title="Full HD+">Full HD+</option>
+              </select>
             </div>
           </div>
         </div>
@@ -2620,7 +3582,7 @@ Dashboard
         </div>
       </div>
       {{-- all details --}}
-      <div class="col-md-12 col-lg-12 allDetails" style="display: none;">
+      <div class="col-md-12 col-lg-12 allDetails" style="display: ;">
         <div class="card mt-3">
           <div class="card-header">
             <h3 class="card-title">Description</h3>
@@ -2642,21 +3604,201 @@ Dashboard
             <small>Price & Stock </small>
           </div>
           <div class="card-body row">
+            <div class="mb-3 col-md-6 col-lg-6">
+              <label class="form-label">Color <span class="text-danger">*</span></label>
+              <select class="form-control js-example-basic-single" multiple="multiple" name="color[]">
+                <option  value="Maroon" >Maroon</option>
+                <option value="Red">Red</option>
+                <option value="Not Specified">Not Specified</option>
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
+                <option value="Brown">Brown</option>
+                <option value="Gold">Gold</option>
+                <option value="Grey">Grey</option>
+                <option value="Green">Green</option>
+                <option value="Beige">Beige</option>
+                <option value="Orange">Orange</option>
+                <option value="Pink">Pink</option>
+                <option value="Purple">Purple</option>
+                <option value="Silver">Silver</option>
+                <option value="Turquoise">Turquoise</option>
+                <option value="White">White</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Blueberry">Blueberry</option>
+                <option value="Chocolate">Chocolate</option>
+                <option value="Avocado">Avocado</option>
+                <option value="Aqua">Aqua</option>
+                <option value="Apricot">Apricot</option>
+                <option value="Violet">Violet</option>
+                <option value="Blush Pink">Blush Pink</option>
+                <option value="Bronze">Bronze</option>
+                <option value="Mango">Mango</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Floral">Floral</option>
+                <option value="Mahogany">Mahogany</option>
+                <option value="Magenta">Magenta</option>
+                <option value="Multicolor">Multicolor</option>
+                <option value="Lavender">Lavender</option>
+                <option value="Jade">Jade</option>
+                <option value="Khaki">Khaki</option>
+                <option value="Cream">Cream</option>
+                <option value="Olive">Olive</option>
+                <option value="Cinnamon">Cinnamon</option>
+                <option value="Chili Red">Chili Red</option>
+                <option value="Ivory">Ivory</option>
+                <option value="Chestnut">Chestnut</option>
+                <option value="Cherry">Cherry</option>
+                <option value="Charcoal">Charcoal</option>
+                <option value="Galaxy">Galaxy</option>
+                <option value="Hotpink">Hotpink</option>
+                <option value="Camel">Camel</option>
+                <option value="Tan">Tan</option>
+                <option value="Dark blue">Dark blue</option>
+                <option value="Light yellow">Light yellow</option>
+                <option value="Rose">Rose</option>
+                <option value="Army Green">Army Green</option>
+                <option value="Champagne">Champagne</option>
+                <option value="Off White">Off White</option>
+                <option value="Navy Blue">Navy Blue</option>
+                <option value="Emerald Green">Emerald Green</option>
+                <option value="Light green">Light green</option>
+                <option value="Lake Blue">Lake Blue</option>
+                <option value="Deep green">Deep green</option>
+                <option value="Fluorescent Yellow">Fluorescent Yellow</option>
+                <option value="Dark Brown">Dark Brown</option>
+                <option value="Lemon Yellow">Lemon Yellow</option>
+                <option value="Light blue">Light blue</option>
+                <option value="Burgundy">Burgundy</option>
+                <option value="Watermelon red">Watermelon red</option>
+                <option value="Fluorescent Green">Fluorescent Green</option>
+                <option value="Neon">Neon</option>
+                <option value="Light Grey">Light Grey</option>
+                <option value="Copper">Copper</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Cyan">Cyan</option>
+                <option value="Navy">Navy</option>
+                <option value="Raspberry">Raspberry</option>
+                <option value="Multi">Multi</option>
+                <option value="Matte Black">Matte Black</option>
+                <option value="Light Brown">Light Brown</option>
+                <option value="Rose Gold">Rose Gold</option>
+                <option value="Peach">Peach</option>
+                <option value="Mint">Mint</option>
+                <option value="Peanut">Peanut</option>
+                <option value="Indigo">Indigo</option>
+                <option value="Rainbow">Rainbow</option>
+                <option value="Timberland">Timberland</option>
+                <option value="Espresso">Espresso</option>
+                <option value="Deep Blue">Deep Blue</option>
+                <option value="Golden">Golden</option>
+                <option value="Jet Black">Jet Black</option>
+                <option value="…">…</option>
+                <option value="Dark Grey">Dark Grey</option>
+                <option value="Fuchsia">Fuchsia</option>
+                <option value="Blue Gray">Blue Gray</option>
+                <option value="Orchid Grey">Orchid Grey</option>
+                <option value="Pearl White">Pearl White</option>
+                <option value="Sand">Sand</option>
+                <option value="Teal">Teal</option>
+                <option value="Cacao">Cacao</option>
+                <option value="Wither Black">Wither Black</option>
+                <option value="Sand Brown">Sand Brown</option>
+                <option value="Dark Ash">Dark Ash</option>
+                <option value="Deep Gray">Deep Gray</option>
+                <option value="Champagne Pink">Champagne Pink</option>
+                <option value="Light Ash">Light Ash</option>
+                <option value="Antique White">Antique White</option>
+                <option value="Ochre Brown">Ochre Brown</option>
+                <option value="Glitter Black">Glitter Black</option>
+                <option value="Glitter Blue">Glitter Blue</option>
+                <option value="Metallic Cherry">Metallic Cherry</option>
+                <option value="Metallic Lilac">Metallic Lilac</option>
+                <option value="Metallic Teal">Metallic Teal</option>
+                <option value="Space Grey">Space Grey</option>
+                <option value="Sky Blue">Sky Blue</option>
+                <option value="Light Black">Light Black</option>
+                <option value="Rose Red">Rose Red</option>
+                <option value="Deep Black">Deep Black</option>
+                <option value="Glow Yellow">Glow Yellow</option>
+                <option value="Neo Bright">Neo Bright</option>
+                <option value="Aqua Blue">Aqua Blue</option>
+                <option value="Neutrals">Neutrals</option>
+                <option value="Multicolour">Multicolour</option>
+                <option value="Blonde">Blonde</option>
+                <option value="Light Green">Light Green</option>
+                <option value="Dark Green">Dark Green</option>
+                <option value="Olive Green">Olive Green</option>
+                <option value="Ice Blue">Ice Blue</option>
+                <option value="Plum">Plum</option>
+                <option value="Tea Pink">Tea Pink</option>
+                <option value="Dark Navy">Dark Navy</option>
+                <option value="Light Pink">Light Pink</option>
+                <option value="Ash White">Ash White</option>
+                <option value="Metallic Blue">Metallic Blue</option>
+                <option value="British Green">British Green</option>
+                <option value="Cool Beige">Cool Beige</option>
+                <option value="Metallic Gun">Metallic Gun</option>
+                <option value="Light Blue">Light Blue</option>
+                <option value="Metallic Grey">Metallic Grey</option>
+                <option value="Pearl Black">Pearl Black</option>
+                <option value="Rose Metal">Rose Metal</option>
+                <option value="Rose Pink">Rose Pink</option>
+                <option value="Sea Green">Sea Green</option>
+                <option value="Shalimar Rose">Shalimar Rose</option>
+                <option value="Smoke Green">Smoke Green</option>
+                <option value="Turqouise">Turqouise</option>
+                <option value="Urban Titanium">Urban Titanium</option>
+                <option value="Wine Red">Wine Red</option>
+                <option value="Bora Purple">Bora Purple</option>
+                <option value="Grey Green">Grey Green</option>
+                <option value="Phantom Black">Phantom Black</option>
+                <option value="Gold Pink">Gold Pink</option>
+                <option value="Glacier Glow">Glacier Glow</option>
+                <option value="Awesome Graphite">Awesome Graphite</option>
+                <option value="Awesome Lime">Awesome Lime</option>
+                <option value="Graphite">Graphite</option>
+                <option value="Titanium Black">Titanium Black</option>
+                <option value="Titanium Grey">Titanium Grey</option>
+                <option value="Titanium Yellow">Titanium Yellow</option>
+                <option value="Titanium Violet">Titanium Violet</option>
+                <option value="Onyx Black">Onyx Black</option>
+                <option value="Marble Grey">Marble Grey</option>
+                <option value="Amber Yellow">Amber Yellow</option>
+                <option value="cobalt violet">cobalt violet</option></ul>
+              </select>
+            </div>
+            <div class="mb-3 col-md-6 col-lg-6">
+              <label class="form-label">Size <span class="text-danger">*</span></label>
+              <select class="form-control js-example-basic-single" multiple="multiple" name="size[]">
+                <option value="3XS" >3XS</option>
+                <option value="XXS">XXS</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="3XL">3XL</option>
+                <option value="4XL">4XL</option>
+                <option value="5XL">5XL</option>
+              </select>
+            </div>
             <div class="mb-3 col-md-3 col-lg-3">
               <label class="form-label">Price <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Price" name="product_name">
+              <input type="text" class="form-control" placeholder="Price" name="price">
             </div>
             <div class="mb-3 col-md-3 col-lg-3">
               <label class="form-label">Special Price <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Special Price" name="product_name">
+              <input type="text" class="form-control" placeholder="Special Price" name="special_price">
             </div>
             <div class="mb-3 col-md-3 col-lg-3">
               <label class="form-label">Quantity <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Quantity" name="product_name">
+              <input type="text" class="form-control" placeholder="Quantity" name="quantity">
             </div>
             <div class="mb-3 col-md-3 col-lg-3">
-              <label class="form-label">SellerSKU <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="SellerSKU" name="product_name">
+              <label class="form-label">Seller SKU <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" placeholder="SellerSKU" name="seller_sku">
             </div>
           </div>
         </div>
@@ -2668,15 +3810,15 @@ Dashboard
           <div class="card-body row">
             <div class="mb-3 col-md-3 col-lg-3">
               <label class="form-label">Warranty Type <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Price" name="product_name">
+              <input type="text" class="form-control" placeholder="Price" name="wranty_type">
             </div>
             <div class="mb-3 col-md-3 col-lg-3">
               <label class="form-label">Warranty Period <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Special Price" name="product_name">
+              <input type="text" class="form-control" placeholder="Special Price" name="warranty_period">
             </div>
             <div class="mb-3 col-md-3 col-lg-3">
               <label class="form-label">Warranty Policy <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Quantity" name="product_name">
+              <input type="text" class="form-control" placeholder="Quantity" name="warranty_policy">
             </div>
           </div>
         </div>
@@ -2688,32 +3830,32 @@ Dashboard
           <div class="card-body row">
             <div class="mb-3 col-md-12 col-lg-12">
               <label class="form-label">Package Weight (kg) <span class="text-danger">*</span></label>
-              <input type="text" class="form-control w-25" placeholder="Package Weight (kg)" name="product_name">
+              <input type="text" class="form-control w-25" placeholder="Package Weight (kg)" name="pkg_Weight">
             </div>
             <label class="form-label">Package Dimensions(cm): Length * Width * Height <span class="text-danger">*</span></label>
             <div class="mb-3 col-md-4 col-lg-4">
-              <input type="text" class="form-control" placeholder="Length" name="product_name">
+              <input type="text" class="form-control" placeholder="Length" name="length">
             </div>
             <div class="mb-3 col-md-4 col-lg-4">
-              <input type="text" class="form-control" placeholder="Width" name="product_name">
+              <input type="text" class="form-control" placeholder="Width" name="width">
             </div>
             <div class="mb-3 col-md-4 col-lg-4">
-              <input type="text" class="form-control" placeholder="Height" name="product_name">
+              <input type="text" class="form-control" placeholder="Height" name="height">
             </div>
             <div class="mb-3 col-md-3 col-lg-3 mt-5">
               <p>Dangerous Goods</p>
             </div>
             <div class="mb-3 col-md-3 col-lg-3 mt-5">
-              <input type="checkbox" name=""> Battery
-              <input type="checkbox" name=""> Flammable
-              <input type="checkbox" name=""> Liquid
-              <input type="checkbox" name=""> None
+              <input type="checkbox" value="Battery" name="dang_goods[]"> Battery
+              <input type="checkbox" value="Flammable" name="dang_goods[]"> Flammable
+              <input type="checkbox" value="Liquid" name="dang_goods[]"> Liquid
+              <input type="checkbox" value="None" name="dang_goods[]"> None
             </div>
           </div>
         </div>
       </div>
       {{--  --}}
-      <div class="col-md-12 col-lg-12">
+      <div class="col-md-12 col-lg-12 allDetails" style="display: none;">
         <div class="card">
           <div class="card-body">
             <button class="btn btn-outline-dark" type="submit">Submit</button>
@@ -2731,64 +3873,64 @@ Dashboard
           </div>
           <div class="modal-body">
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" id="select-all" type="checkbox">
+              <input class="form-check-input" id="select-all" type="checkbox">
               <span class="form-check-label">Select All</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Dustproof / Waterproof">Dustproof / Waterproof</span>
+              <input class="form-check-input" value="Dustproof / Waterproof" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label" >Dustproof / Waterproof</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Expandable Memory">Expandable Memory</span>
+              <input class="form-check-input" value="Expandable Memory" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label" >Expandable Memory</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Fingerprint Sensor">Fingerprint Sensor</span>
+              <input class="form-check-input" value="Fingerprint Sensor" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Fingerprint Sensor</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Touchscreen">Touchscreen</span>
+              <input class="form-check-input" value="Touchscreen" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Touchscreen</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="GPS">GPS</span>
+              <input class="form-check-input" value="GPS" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">GPS</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Compass">Compass</span>
+              <input class="form-check-input" value="Compass" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Compass</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="WiFi">WiFi</span>
+              <input class="form-check-input" value="WiFi" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">WiFi</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="NFC">NFC</span>
+              <input class="form-check-input" value="NFC" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">NFC</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Always-on Display">Always-on Display</span>
+              <input class="form-check-input" value="Always-on Display" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Always-on Display</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Fingerprint">Fingerprint</span>
+              <input class="form-check-input" value="Fingerprint" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Fingerprint</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Face Recognition">Face Recognition</span>
+              <input class="form-check-input" value="Face Recognition" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Face Recognition</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Accelerometer">Accelerometer</span>
+              <input class="form-check-input" value="Accelerometer" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Accelerometer</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Proximity">Proximity</span>
+              <input class="form-check-input" value="Proximity" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Proximity</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="Barometer">Barometer</span>
+              <input class="form-check-input" value="Barometer" name="mobile_feature[]" type="checkbox">
+              <span class="form-check-label">Barometer</span>
             </label>
           </div>
         </div>
@@ -2803,28 +3945,28 @@ Dashboard
           </div>
           <div class="modal-body">
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" id="select-all1" type="checkbox">
+              <input class="form-check-input" id="select-all1" type="checkbox">
               <span class="form-check-label">Select All</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="2G">2G</span>
+              <input class="form-check-input" value="2G" name="network_conn[]" type="checkbox">
+              <span class="form-check-label">2G</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="3G">3G</span>
+              <input class="form-check-input" value="3G" name="network_conn[]" type="checkbox">
+              <span class="form-check-label">3G</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="4G">4G</span>
+              <input class="form-check-input" value="4G" name="network_conn[]" type="checkbox">
+              <span class="form-check-label">4G</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="5G">5G</span>
+              <input class="form-check-input" value="5G" name="network_conn[]" type="checkbox">
+              <span class="form-check-label">5G</span>
             </label>
             <label class="form-check">
-              <input class="form-check-input" name="mobile_feature[]" type="checkbox">
-              <span class="form-check-label" value="GSM">GSM</span>
+              <input class="form-check-input" value="GSM" name="network_conn[]" type="checkbox">
+              <span class="form-check-label">GSM</span>
             </label>
           </div>
         </div>

@@ -124,26 +124,26 @@ class ProductCategoriesController extends Controller
         if($request->isMethod('post')){
 
             $cat = new Categories();
-                $files = [];
-                if($request->hasfile('image'))
+            $files = [];
+            if($request->hasfile('image'))
+            {
+                foreach($request->file('image') as $file)
                 {
-                    foreach($request->file('image') as $file)
-                    {
-                        $name = time().rand(1,100).'.'.$file->extension();
-                        $file->move('public/upload/category', $name);
-                        $files[] = $name;
-                    }
+                    $name = time().rand(1,100).'.'.$file->extension();
+                    $file->move('public/upload/category', $name);
+                    $files[] = $name;
                 }
-                $cat->title = $request->input('title');
-                $cat->slug = $request->input('slug');
-                $cat->category_description = $request->input('category_description');
-                $cat->top = $request->input('top')== TRUE ? '1':'0';
-                $cat->created_by = \Auth::id();
-                $cat->image = json_encode($files);
-                
+            }
+            $cat->title = $request->input('title');
+            $cat->slug = $request->input('slug');
+            $cat->category_description = $request->input('category_description');
+            $cat->top = $request->input('top')== TRUE ? '1':'0';
+            $cat->created_by = \Auth::id();
+            $cat->image = json_encode($files);
+
                 // dd($product);
 
-                $cat->save();
+            $cat->save();
 
             $response = array('flag'=>true,'msg'=>$this->singular.' is added sucessfully.','action'=>'reload');
             echo json_encode($response); return;
@@ -165,29 +165,45 @@ class ProductCategoriesController extends Controller
      * @param  \App\Models\CourseCategories  $CourseCategories
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,$id = NULL)
+    public function edit(Request $request,$id)
     {
-        $data   = array();
+
         if($request->isMethod('post')){
-            $data = $request->all();
-            $this->cleanData($data);
-            $CourseCategories   = Categories::find($id);
-            // $data['updated_by'] = \Auth::id();
-            $CourseCategories->update($data);
-            $response = array('flag'=>true,'msg'=>$this->singular.' is updated sucessfully.','action'=>'reload');
-            echo json_encode($response); 
-            return;
+            $cat = Categories::find($id);
+            $files = [];
+            if($request->hasfile('image'))
+            {
+                foreach($request->file('image') as $file)
+                {
+                    $name = time().rand(1,100).'.'.$file->extension();
+                    $file->move('public/upload/category', $name);
+                    $files[] = $name;
+                }
+            }
+            $cat->title = $request->input('title');
+            $cat->slug = $request->input('slug');
+            $cat->category_description = $request->input('category_description');
+            $cat->top = $request->input('top')== TRUE ? '1':'0';
+            $cat->created_by = \Auth::id();
+            $cat->image = json_encode($files);
+
+            $cat->update();
+
+            $response = array('flag'=>true,'msg'=>$this->singular.' is Updated sucessfully.','action'=>'reload');
+            echo json_encode($response); return;
         }
-        // echo $id = $id; die;
+
+
+
+        $data   = array();
         $data   = array(
-                    "page_title"=>"Edit ".$this->singular,
-                    "page_heading"=>"Edit ".$this->singular,
-                    "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
-                    "action"=> url('admin/'.$this->action.'/edit/'.$id),
-                    "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
-                );        
-        $data['row']      = Categories::find($id)->toArray();
-        // echo "<pre>";print_r($data['row']);die;
+            "page_title"=>"Edit ".$this->singular,
+            "page_heading"=>"Edit ".$this->singular,
+            "breadcrumbs"=>array("dashboard"=>"Dashboard","#"=>$this->plural." List"),
+            "action"=> url('admin/'.$this->action.'/edit/'.$id),
+            "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
+        );
+        $data['category'] = Categories::find($id);
         return view($this->view.'edit',$data);
     }
 

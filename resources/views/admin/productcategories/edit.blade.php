@@ -10,31 +10,33 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="name" class="form-label">Category title</label>
-                        <input type='text' name="title" id="title" class="form-control" value="{{@$row['title']}}" required="" data-mask="slugify" data-target="#slug" />
+                        <input type='text' name="title" id="title" class="form-control" value="{{@$category->title}}" required="" data-mask="slugify" data-target="#slug" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="name" class="form-label">Category Slug</label>
-                        <input type='text' name="slug" id="slug" class="form-control" required="" value="{{@$row['slug']}}" readonly />
+                        <input type='text' name="slug" id="slug" class="form-control" required="" value="{{@$category->slug}}" readonly />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Category description</label>
-                        <input type='text' name="category_description" id="category_description" value="{{@$row['category_description']}}" class="form-control" required="" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="mb-3">
-                        <label for="detail" class="form-label">Category image</label>
-                        <input type='file' name="image[]" id="detail" class="form-control" />
+                        <input type='text' name="category_description" id="category_description" value="{{@$category->category_description}}" class="form-control" required="" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="detail" class="form-label">Show as top</label>
-                        <input type='checkbox' name="top" id="top" value="1" @if(@$row['top'] == 1) checked @endif />
+                        <input type='checkbox' name="top" id="top" value="1" @if(@$category->top == 1) checked @endif />
+                    </div>
+                </div>
+                <?php $image = json_decode($category->image) ?>
+                <div class="col-lg-6 col-md-6">
+                    <div class="mb-3">
+                        <label for="detail" class="form-label">Category image</label>
+                        <input type='file' name="image[]" id="detail" class="form-control" />
+                        <img style="width: 100px;margin-top: 20px;" src="{{asset('upload/category/'.$image[0])}}" alt="">
                     </div>
                 </div>
             </div>
