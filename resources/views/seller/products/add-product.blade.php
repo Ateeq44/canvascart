@@ -2299,7 +2299,7 @@ Dashboard
       </div>
     </div>
     {{--  --}}
-    <div class="col-md-12 col-lg-12 colors" style="display: ;" id="5">
+    <div class="col-md-12 col-lg-12 colors" style="display: none;" id="5">
       <div class="card">
         <div class="card-header d-block">
           <h3 class="card-title">Product Details</h3>
@@ -3582,7 +3582,7 @@ Dashboard
         </div>
       </div>
       {{-- all details --}}
-      <div class="col-md-12 col-lg-12 allDetails" style="display: ;">
+      <div class="col-md-12 col-lg-12 allDetails" style="display: none;">
         <div class="card mt-3">
           <div class="card-header">
             <h3 class="card-title">Description</h3>
