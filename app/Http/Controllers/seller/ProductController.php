@@ -5,11 +5,13 @@ namespace App\Http\Controllers\seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
-use App\Models\SubCategory;
+use App\Models\SubCategories;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Redirect;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -31,7 +33,7 @@ class ProductController extends Controller
     public function create()
     {
         $data['category'] = Categories::get();
-        $data['sub_category'] = SubCategory::get();
+        $data['sub_category'] = SubCategories::get();
         $data['brand'] = Brand::get();
         return view('seller.products.add-product', $data);
     }
@@ -56,6 +58,7 @@ class ProductController extends Controller
             }
         }
         
+        $product->created_by = Auth::id();
         $product->product_name = $request->input('product_name');
         $product->slug = Str::slug($request->product_name);
         $product->cat_id = $request->input('cat_id');

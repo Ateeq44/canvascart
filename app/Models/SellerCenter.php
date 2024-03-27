@@ -29,4 +29,9 @@ class SellerCenter extends Model
         'branch_name',
         'created_by',
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 }

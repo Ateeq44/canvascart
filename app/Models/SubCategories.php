@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\softDeletes;
 
-class Product extends Model
+class SubCategories extends Model
 {
     use HasFactory;
     protected $softDelete = true;
-    protected $table = 'products';
+    protected $table = 'sub_categories';
     protected $guarded = [];
 
-    public function category()
+    public function categorys()
     {
-        return $this->belongsTo('App\Models\Categories','cat_id');
+        return $this->belongsTo(Categories::class, 'cat_id');
     }
 }

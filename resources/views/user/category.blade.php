@@ -32,7 +32,7 @@ Category
                                                 @php
                                                   $images = json_decode($val->image)
                                                 @endphp
-                                                <div class="col-xl-3 col-6 col-grid-box">
+                                                <div class="col-xl-2 col-6 col-grid-box">
                                                     <div class="product-box">
                                                         <div class="img-wrapper">
                                                             <div class="front">

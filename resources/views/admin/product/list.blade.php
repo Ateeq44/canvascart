@@ -15,11 +15,11 @@
                     @if(\Auth::user()->role==1)
                     <div class="card-actions card-toolbar">
                         <!--begin::Button-->
-                        <a href="#data_modal" data-toggle="modal" data-url="{{$action}}/create" data-action="data_modal" class="btn btn-success d-none d-sm-inline-block">
+                        {{-- <a href="#data_modal" data-toggle="modal" data-url="{{$action}}/create" data-action="data_modal" class="btn btn-success d-none d-sm-inline-block">
                             <span class="svg-icon svg-icon-md">
                                 + Add  {{@$module['singular']}}
                             </span>
-                        </a>                              
+                        </a>  --}}                             
                     </div>
                     @endif
                 </div>
@@ -69,10 +69,10 @@
                                     
                                     
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >${{$val['price']}}</td>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >${{$val['selling_price']}}</td>
+                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >${{$val['special_price']}}</td>
 
                                     <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >
-                                        @if($val['is_feature'] == '1')
+                                        @if($val['status'] == '1')
                                         <span class="badge bg-green">Active</span>
                                         @else
                                         <span class="badge bg-red">Deactive</span>
@@ -87,12 +87,12 @@
                                               Actions
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-end" style="">
-                                              <a href="#data_modal" data-toggle="modal"  class="btn btn-primary d-none d-sm-inline-block dropdown-item"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal"> 
+                                              {{-- <a href="#data_modal" data-toggle="modal"  class="btn btn-primary d-none d-sm-inline-block dropdown-item"  data-url="{{$action}}/edit/{{$val[$module['db_key']]}}" data-action="data_modal"> 
                                                 <i class="fa-solid fa-pen-to-square"></i> Edit
-                                              </a>
-                                              <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
+                                              </a> --}}
+                                              {{-- <a data-action="delete_record" href="javascript:void(0);" class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" data-url="{{url($module['action'].'/delete/'.$val[$module['db_key']])}}">
                                                 <i class="fa-solid fa-trash-can"></i> Delete
-                                            </a>
+                                            </a> --}}
                                             <a class="btn btn-danger d-none d-sm-inline-block mt-2 dropdown-item" href="{{url($module['action'].'/view/'.$val[$module['db_key']])}}">
                                                 <i class="fa-solid fa-eye"></i> view
                                             </a>

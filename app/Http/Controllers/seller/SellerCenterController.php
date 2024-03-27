@@ -5,6 +5,8 @@ namespace App\Http\Controllers\seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SellerCenter;
+use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
@@ -29,8 +31,13 @@ class SellerCenterController extends Controller
 
         public function dashboard()
         {
+            $data['product'] = Product::where("created_by", Auth::id())->count();
+            $data['orders'] = Order::where("store_id", Auth::id())->count();
+            $data['order_d'] = Order::where("store_id", Auth::id())->where('status', '3')->count();
+            $data['sale'] = Order::where("store_id", Auth::id())->sum('total_price');
+
             if(Auth::check() && Auth::user()->status == '1') {
-                return view('seller.authorization');
+                return view('seller.authorization', $data);
             } else {
                 return view('seller.dashboard');
             }

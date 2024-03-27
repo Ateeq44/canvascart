@@ -29,7 +29,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>
-                        <input type='text' value="{{@$row['product_name']}}" name="product_name" id="product_name" class="form-control" required="" data-mask="slugify"  data-target="#slug" />
+                        <input type='text' value="{{@$row['name']}}" name="product_name" id="product_name" class="form-control" required="" data-mask="slugify"  data-target="#slug" />
                     </div>
                 </div>
 

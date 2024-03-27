@@ -4,16 +4,17 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use App\Models\SubCategories;
+use App\Models\Categories;
 
-class BrandController extends Controller
+class SubCategoriesController extends Controller
 {
-    private $type   =  "brands";
-    private $singular = "Brands";
-    private $plural = "Brands";
-    private $view = "admin.brands.";
+    private $type   =  "subcategories";
+    private $singular = "Sub Category";
+    private $plural = "Sub Categories";
+    private $view = "admin.subcategories.";
     private $db_key   =  "id";
-    private $action   =  "brands";
+    private $action   =  "subcategory";
     private $perpage   =  10;
     private $directory  =   '\public\images/';
     /**
@@ -63,8 +64,8 @@ class BrandController extends Controller
         /*
         GET RECORDS
         */
-        $records   = new Brand;
-        // $records   = $records::with('categorys');
+        $records   = new SubCategories;
+        $records   = $records::with('categorys');
         $records   = $this->search($records,$request,$data);
         /*
         GET TOTAL RECORD BEFORE BEFORE PAGINATE
@@ -122,10 +123,10 @@ class BrandController extends Controller
     {
         if($request->isMethod('post')){
 
-            $cat = new Brand();
-            $cat->name = $request->input('name');
+            $cat = new SubCategories();
+            $cat->name = $request->input('title');
             $cat->slug = $request->input('slug');
-            $cat->status = $request->input('status')== TRUE ? '1':'0';
+            $cat->cat_id = $request->input('cat_id');
             $cat->created_by = \Auth::id();
             $cat->save();
 
@@ -140,6 +141,7 @@ class BrandController extends Controller
             "action"=> url('admin/'.$this->action.'/create'),
             "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
         );
+        $data['list'] = Categories::get()->toArray();
         return view($this->view.'create',$data);
     }
 
@@ -153,11 +155,20 @@ class BrandController extends Controller
     {
 
         if($request->isMethod('post')){
-            $cat = Brand::find($id);
+            $cat = SubCategories::find($id);
             $files = [];
+            if($request->hasfile('image'))
+            {
+                foreach($request->file('image') as $file)
+                {
+                    $name = time().rand(1,100).'.'.$file->extension();
+                    $file->move('public/upload/category', $name);
+                    $files[] = $name;
+                }
+            }
             $cat->name = $request->input('name');
             $cat->slug = $request->input('slug');
-            $cat->status = $request->input('status')== TRUE ? '1':'0';
+            $cat->cat_id = $request->input('cat_id');
             $cat->created_by = \Auth::id();
 
             $cat->update();
@@ -176,7 +187,8 @@ class BrandController extends Controller
             "action"=> url('admin/'.$this->action.'/edit/'.$id),
             "module"=>['type'=>$this->type,'singular'=>$this->singular,'plural'=>$this->plural,'view'=>$this->view,'action'=>'admin/'.$this->action,'db_key'=>$this->db_key]
         );
-        $data['category'] = Brand::find($id);
+        $data['category'] = SubCategories::find($id);
+        $data['list'] = Categories::get()->toArray();
 
         return view($this->view.'edit',$data);
     }
@@ -193,7 +205,7 @@ class BrandController extends Controller
         if($request->input('param')){
             $data['is_active'] = $request->input('param');        
             $this->cleanData($data);
-            $CourseCategories  = Brand::find($id);
+            $CourseCategories  = SubCategories::find($id);
             $CourseCategories->update($data);
             $response = array('flag'=>true,'msg'=>$this->singular.' is updated sucessfully.');
             echo json_encode($response); return;
@@ -208,7 +220,7 @@ class BrandController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function delete($id) {
-        $item = Brand::find($id);
+        $item = SubCategories::find($id);
         $item->delete();
         $response = array('flag'=>true,'msg'=>$this->singular.' has been deleted.');
         echo json_encode($response); return;

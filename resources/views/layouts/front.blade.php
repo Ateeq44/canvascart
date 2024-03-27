@@ -92,7 +92,7 @@
                     <div class="main-menu" bis_skin_checked="1">
                         <div class="menu-left" bis_skin_checked="1">
                             <div class="brand-logo" bis_skin_checked="1">
-                                <a href="index.html" bis_skin_checked="1" previewlistener="true"><img src="{{asset('assets/images/logo.png')}}" class="img-fluid blur-up lazyloaded" alt=""></a>
+                                <a href="{{url('/')}}" bis_skin_checked="1" previewlistener="true"><img src="{{asset('assets/images/logo.png')}}" class="img-fluid blur-up lazyloaded" alt=""></a>
                             </div>
                         </div>
                         <div bis_skin_checked="1">

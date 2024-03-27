@@ -199,12 +199,12 @@ img {
                             <div class="details col-md-6">
                                 <h3 class="product-title">{{$row['product_name']}}</h3>
                                 
-                                <p class="product-description">{{$row['short_detail']}}</p>
+                                <p class="product-description">{{$row['short_description']}}</p>
                                 <h4 class="price">Total Price: <del>${{$row['price']}}</del></h4>
-                                <h4 class="price">Selling Price: <span>${{$row['selling_price']}}</span></h4>
+                                <h4 class="price">Selling Price: <span>${{$row['special_price']}}</span></h4>
                                 
                                 <h5 class="sizes">sizes:
-                                @php
+                                {{-- @php
                                   $size  = json_decode($row['size'])
                                 @endphp
                                 @foreach($size as $val)
@@ -217,13 +217,13 @@ img {
                                 <h5 class="colors">colors:
                                 @foreach($color as $val)
                                     <span class="" style="padding-left: 5px;">{{$val}} </span>
-                                @endforeach
+                                @endforeach --}}
                                 </h5>
                                 <div class="action">
                                     
                                 </div>
                             </div>
-                            <p style="margin-top: 30px;">{!! $row['long_detail'] !!}</p>
+                            <p style="margin-top: 30px;">{!! $row['long_description'] !!}</p>
                         </div>
                     </div>
                 </div>

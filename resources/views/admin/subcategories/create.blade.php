@@ -9,24 +9,25 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type='text' value="{{@$row['name']}}" name="name" id="name" class="form-control" required=""  />
+                        <label for="name" class="form-label">title</label>
+                        <input type='text' name="title" id="name" class="form-control" required="" data-mask="slugify"  data-target="#slug" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="mb-3">
-                        <label for="detail" class="form-label">Email</label>
-                        <input type='text' value="{{@$row['email']}}" name="email" id="email" class="form-control" required="" />
+                        <label for="name" class="form-label">Slug</label>
+                        <input type='text' name="slug" id="slug" class="form-control" required="" readonly />
                     </div>
                 </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="mb-3">
+                        <label for="detail" class="form-label">Category</label>
+                        <select name="cat_id" class="form-control">
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="mb-3">
-                        <label for="detail" class="form-label">Role</label>
-                        <select name="role" id="role" class="form-control">
-                            <option value="1" @if(@$row['role'] == '1') selected @endif>Admin</option>
-                            <option value="2" @if(@$row['role'] == '2') selected @endif>Seller</option>
-                            <option value="3" @if(@$row['role'] == '3') selected @endif>user</option>
+                            @foreach($list as $key => $val) 
+                            <option value="{{$val['id']}}">{{$val['title']}}</option>
+                            @endforeach 
+
                         </select>
                     </div>
                 </div>
@@ -34,7 +35,7 @@
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-success d-none d-sm-inline-block mr-2">Update</button>
+            <button type="submit" class="btn btn-success d-none d-sm-inline-block mr-2">Create</button>
             <a  class="btn btn-secondary" href="{{url($module['action'])}}">Cancel</a>
         </div>
     </form>
@@ -49,3 +50,10 @@
         Create new report
     </a>
 </div> --}}
+{{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+  $(document).ready(function () {
+    CKEDITOR.replace('short_detail');
+  });
+</script> --}}

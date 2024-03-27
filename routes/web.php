@@ -65,6 +65,24 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('admin/productcategories/create'    , [App\Http\Controllers\Admin\ProductCategoriesController::class, 'create']);
         Route::get('admin/productcategories/delete/{id}', [App\Http\Controllers\Admin\ProductCategoriesController::class, 'delete']);
     /*
+        product Sub Category
+    */
+        Route::get('admin/subcategory'            , [App\Http\Controllers\Admin\SubCategoriesController::class, 'index']);
+        Route::get('admin/subcategory/edit/{id?}' , [App\Http\Controllers\Admin\SubCategoriesController::class, 'edit']);
+        Route::post('admin/subcategory/edit/{id?}', [App\Http\Controllers\Admin\SubCategoriesController::class, 'edit']);
+        Route::get('admin/subcategory/create'     , [App\Http\Controllers\Admin\SubCategoriesController::class, 'create']);
+        Route::post('admin/subcategory/create'    , [App\Http\Controllers\Admin\SubCategoriesController::class, 'create']);
+        Route::get('admin/subcategory/delete/{id}', [App\Http\Controllers\Admin\SubCategoriesController::class, 'delete']);
+        /*
+        product Sub Category
+    */
+        Route::get('admin/brands'            , [App\Http\Controllers\Admin\BrandController::class, 'index']);
+        Route::get('admin/brands/edit/{id?}' , [App\Http\Controllers\Admin\BrandController::class, 'edit']);
+        Route::post('admin/brands/edit/{id?}', [App\Http\Controllers\Admin\BrandController::class, 'edit']);
+        Route::get('admin/brands/create'     , [App\Http\Controllers\Admin\BrandController::class, 'create']);
+        Route::post('admin/brands/create'    , [App\Http\Controllers\Admin\BrandController::class, 'create']);
+        Route::get('admin/brands/delete/{id}', [App\Http\Controllers\Admin\BrandController::class, 'delete']);
+    /*
         products 
     */
         Route::get('admin/product'                      , [App\Http\Controllers\Admin\ProductController::class, 'index']);
@@ -98,6 +116,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('admin/orders'                       , [App\Http\Controllers\Admin\AdminController::class, 'orders']);
         Route::post('admin/orders/update/{id}'          , [App\Http\Controllers\Admin\AdminController::class, 'update']);
         Route::get('admin/orders/view/{id}'             , [App\Http\Controllers\Admin\AdminController::class, 'view']);
+    /*
+        seller-info
+    */
+        Route::get('admin/seller-info'                       , [App\Http\Controllers\Admin\AdminController::class, 'seller_info']);
+        Route::get('admin/seller-info/view/{id}'             , [App\Http\Controllers\Admin\AdminController::class, 'seller_info_view']);
+        Route::post('admin/seller-info/update/{id}'          , [App\Http\Controllers\Admin\AdminController::class, 'seller_info_update']);
     /*
         Contact 
     */

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 <title>{{@$page_title}}</title>
+
 @section('content')
 
 <div class="page-header d-print-none">
@@ -24,37 +25,30 @@
                 <div class="card-body">
 
                     <div class="table-responsive">
-                        <table class="table table-vcenter table-mobile-md card-table" data-url="{{$action}}/edit">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Created Date</th>
-                                    @if(\Auth::user()->role==1)
-                                    <th class="w-1">Action</th>
-                                    @endif
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if(!empty($Course['data']) && sizeof($Course['data'])>0)
-                                @foreach($Course['data'] as $key => $val)
-                                <tr class="list_{{$val[$module['db_key']]}}">
-                                    <th scope="row">{{++$key}}</th>
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['name']}}</td> 
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >{{$val['email']}}</td> 
-                                    @if($val['role'] == 1)
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Admin</td>
-                                    @elseif($val['role'] == 2)
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >Seller</td>
-                                    @else
-                                    <td class="pl-0" data-id="{{$val[$module['db_key']]}}" >User</td>
-                                    @endif
+                            <table class="table table-vcenter table-mobile-md card-table" data-url="{{$action}}/edit">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Cteated Date</th>
+                                        @if(\Auth::user()->role==1)
+                                        <th class="w-1">Action</th>
+                                        @endif
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(!empty($subcategories['data']) && sizeof($subcategories['data'])>0)
+                                    @foreach($subcategories['data'] as $key => $val)
                                     
-                                    <td class="pl-0">{{date('d-m-Y',strtotime($val['created_at']))}}</td>
-                                    @if(\Auth::user()->role==1)
-                                    <td class="pr-0 text-right">
+                                    <tr class="list_{{$val[$module['db_key']]}}">
+                                        <th scope="row">{{++$key}}</th>
+                                        
+                                        <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="title">{{$val['name']}}</td>
+                                        <td class="pl-0" data-id="{{$val[$module['db_key']]}}" data-input="text" data-field="Category">{{$val['categorys']['title']}}</td>
+                                        <td class="pl-0">{{date('d-m-Y',strtotime($val['created_at']))}}</td>
+                                        @if(\Auth::user()->role==1)
+                                        <td class="pr-0 text-right">
                                             <div class="dropdown">
                                                 <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown" fdprocessedid="ssbez" aria-expanded="false">
                                                   Actions
@@ -69,14 +63,14 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        @endif
+                                    </tr>
+                                    @endforeach
+                                    {!! $subcategories['pagination'] !!}
                                     @endif
-                                </tr>
-                                @endforeach
-                                {!! $Course['pagination'] !!}
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
+                                </tbody>
+                            </table>
+                        </div>
                 </div>
             </div>
         </div>
